@@ -1,7 +1,12 @@
 <template>
   <div class="index">
     <div class="fv">
-      <div>LEADING & COMPANY</div>
+      <div
+        ref="title"
+        class="title"
+      >
+        LEADING & COMPANY
+      </div>
     </div>
     <ul>
       <li class="writing">
@@ -46,9 +51,6 @@ export default {}
     justify-content: center;
     width: 100%;
     height: 65vh;
-    font-size: 16px;
-    font-weight: bold;
-    letter-spacing: 3px;
     background: linear-gradient(
       rgba(75, 75, 75, 0.8) 0%,
       rgba(75, 75, 75, 0) 100%
@@ -57,6 +59,16 @@ export default {}
       rgba(75, 75, 75, 0.8) 0%,
       rgba(75, 75, 75, 0) 100%
     );
+    .title {
+      display: inline-block;
+      padding: 15px;
+      background: #1c1c1c;
+      line-height: 1;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      border-radius: 12px;
+    }
   }
   ul {
     li {
