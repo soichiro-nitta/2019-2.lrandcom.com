@@ -45,18 +45,16 @@ export default {}
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 80vh;
+    height: 65vh;
     font-size: 16px;
     font-weight: bold;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
     background: linear-gradient(
       rgba(75, 75, 75, 0.8) 0%,
-      rgba(75, 75, 75, 0.4) 60%,
       rgba(75, 75, 75, 0) 100%
     );
     background: -webkit-linear-gradient(
       rgba(75, 75, 75, 0.8) 0%,
-      rgba(75, 75, 75, 0.4) 60%,
       rgba(75, 75, 75, 0) 100%
     );
   }

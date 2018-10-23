@@ -7,6 +7,7 @@
     <div
       ref="switch"
       class="switch"
+      @click="toggle"
     >
       <div
         ref="border1"
@@ -46,6 +47,11 @@ export default {
         delay: 0.6
       })
     })
+  },
+  methods: {
+    toggle() {
+      !this.opened ? this.open() : this.close()
+    }
   }
 }
 </script>
