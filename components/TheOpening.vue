@@ -22,10 +22,10 @@ export default {
         TweenMax.to(this.$refs.logo, 0.3, {
           scale: 1,
           opacity: 1,
-          ease: Back.easeOut.config(10)
+          ease: Back.easeOut.config(5)
         })
         TweenMax.to(this.$refs.theOpening, 1, {
-          scale: 2,
+          scale: 3,
           opacity: 0,
           ease: Expo.easeInOut
         })
