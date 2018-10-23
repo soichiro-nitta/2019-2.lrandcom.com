@@ -49,22 +49,24 @@ import { TweenMax, Expo } from 'gsap'
 
 export default {
   async mounted() {
-    requestAnimationFrame(() => {
-      TweenMax.to(this.$refs.titleDummy, 0.5, {
-        left: 0,
-        ease: Expo.easeIn
+    window.onload = async () => {
+      requestAnimationFrame(() => {
+        TweenMax.to(this.$refs.titleDummy, 0.5, {
+          left: 0,
+          ease: Expo.easeIn
+        })
       })
-    })
-    await this.$delay(500)
-    requestAnimationFrame(() => {
-      TweenMax.set(this.$refs.titleText, {
-        opacity: 1
+      await this.$delay(500)
+      requestAnimationFrame(() => {
+        TweenMax.set(this.$refs.titleText, {
+          opacity: 1
+        })
+        TweenMax.to(this.$refs.titleDummy, 0.5, {
+          left: '100%',
+          ease: Expo.easeOut
+        })
       })
-      TweenMax.to(this.$refs.titleDummy, 0.5, {
-        left: '100%',
-        ease: Expo.easeOut
-      })
-    })
+    }
   }
 }
 </script>

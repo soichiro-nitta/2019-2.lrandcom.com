@@ -29,7 +29,8 @@
 import { TweenMax, Expo } from 'gsap'
 
 export default {
-  mounted() {
+  async mounted() {
+    await this.$delay(200)
     requestAnimationFrame(() => {
       TweenMax.to(this.$refs.border1, 0.5, {
         scaleX: 1,
