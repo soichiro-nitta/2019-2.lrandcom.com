@@ -50,8 +50,7 @@ module.exports = {
       },
       {
         rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css?family=Share+Tech|M+PLUS+Rounded+1c'
+        href: 'https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c'
       }
     ]
   },
