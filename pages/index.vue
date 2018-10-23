@@ -50,14 +50,12 @@ import { TweenMax, Expo } from 'gsap'
 export default {
   async mounted() {
     window.onload = async () => {
-      requestAnimationFrame(() => {
+      requestAnimationFrame(async () => {
         TweenMax.to(this.$refs.titleDummy, 0.5, {
           left: 0,
           ease: Expo.easeIn
         })
-      })
-      await this.$delay(500)
-      requestAnimationFrame(() => {
+        await this.$delay(500)
         TweenMax.set(this.$refs.titleText, {
           opacity: 1
         })
