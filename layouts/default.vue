@@ -6,7 +6,7 @@
       <nuxt/>
     </div>
     <TheLogo/>
-    <!-- <TheNavigation/> -->
+    <TheNavigation/>
     <!-- <TheLoading v-if="!loadingComplete"/> -->
   </div>
 </template>
@@ -15,14 +15,14 @@
 // import { mapGetters } from 'vuex'
 import TheBackground from '~/components/TheBackground'
 import TheLogo from '~/components/TheLogo'
-// import TheNavigation from '~/components/TheNavigation'
+import TheNavigation from '~/components/TheNavigation'
 // import TheOpening from '~/components/TheOpening'
 
 export default {
   components: {
     TheBackground,
-    TheLogo
-    //   TheNavigation,
+    TheLogo,
+    TheNavigation
     //   TheOpening
   },
   // computed: {
