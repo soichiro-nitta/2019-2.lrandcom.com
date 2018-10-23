@@ -5,7 +5,16 @@
         ref="title"
         class="title"
       >
-        LEADING & COMPANY
+        <span
+          ref="titleText"
+          class="titleText"
+        >
+          LEADING & COMPANY
+        </span>
+        <div
+          ref="titleDummy"
+          class="titleDummy"
+        />
       </div>
     </div>
     <ul>
@@ -38,7 +47,28 @@
 </template>
 
 <script>
-export default {}
+import { TweenMax, Expo } from 'gsap'
+
+export default {
+  async mounted() {
+    requestAnimationFrame(() => {
+      TweenMax.to(this.$refs.titleDummy, 0.5, {
+        left: 0,
+        ease: Expo.easeIn
+      })
+    })
+    await this.$delay(500)
+    requestAnimationFrame(() => {
+      TweenMax.set(this.$refs.titleText, {
+        opacity: 1
+      })
+      TweenMax.to(this.$refs.titleDummy, 0.5, {
+        left: '100%',
+        ease: Expo.easeOut
+      })
+    })
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -60,14 +90,27 @@ export default {}
       rgba(75, 75, 75, 0) 100%
     );
     .title {
+      position: relative;
       display: inline-block;
       padding: 15px;
-      background: #1c1c1c;
       line-height: 1;
       font-size: 16px;
       font-weight: bold;
       letter-spacing: 3px;
       border-radius: 12px;
+      overflow: hidden;
+      .titleText {
+        opacity: 0;
+      }
+      .titleDummy {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        background: #1c1c1c;
+      }
     }
   }
   ul {
