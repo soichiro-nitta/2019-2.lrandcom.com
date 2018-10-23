@@ -8,9 +8,7 @@
         <span
           ref="titleText"
           class="titleText"
-        >
-          LEADING & COMPANY
-        </span>
+        >LEADING & COMPANY</span>
         <div
           ref="titleDummy"
           class="titleDummy"
