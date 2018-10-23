@@ -16,7 +16,7 @@ import { TweenMax, Expo } from 'gsap'
 export default {
   mounted() {
     requestAnimationFrame(() => {
-      TweenMax.to(this.$refs.logo, 1, {
+      TweenMax.to(this.$refs.logo, 0.7, {
         marginTop: 0,
         ease: Expo.easeOut
       })
