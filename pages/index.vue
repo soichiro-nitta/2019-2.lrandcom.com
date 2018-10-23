@@ -8,7 +8,8 @@ export default {}
 
 <style>
 .index {
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
