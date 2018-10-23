@@ -1,5 +1,7 @@
 <template>
-  <div class="index">Leading & Co.</div>
+  <div class="index">
+    Leading & Co.
+  </div>
 </template>
 
 <script>

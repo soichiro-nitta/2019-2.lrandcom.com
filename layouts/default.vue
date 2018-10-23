@@ -5,6 +5,7 @@
     <div id="scrollArea">
       <nuxt/>
     </div>
+    <TheLogo/>
     <!-- <TheNavigation/> -->
     <!-- <TheLoading v-if="!loadingComplete"/> -->
   </div>
@@ -13,12 +14,14 @@
 <script>
 // import { mapGetters } from 'vuex'
 import TheBackground from '~/components/TheBackground'
+import TheLogo from '~/components/TheLogo'
 // import TheNavigation from '~/components/TheNavigation'
 // import TheOpening from '~/components/TheOpening'
 
 export default {
   components: {
-    TheBackground
+    TheBackground,
+    TheLogo
     //   TheNavigation,
     //   TheOpening
   },
