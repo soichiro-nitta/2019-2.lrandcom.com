@@ -1,12 +1,12 @@
 <template>
   <div class="default">
     <TheBackground/>
-    <!-- <TheOpening/> -->
     <div id="scrollArea">
       <nuxt/>
     </div>
     <TheLogo/>
     <TheNavigation/>
+    <TheOpening/>
     <!-- <TheLoading v-if="!loadingComplete"/> -->
   </div>
 </template>
@@ -16,14 +16,14 @@
 import TheBackground from '~/components/TheBackground'
 import TheLogo from '~/components/TheLogo'
 import TheNavigation from '~/components/TheNavigation'
-// import TheOpening from '~/components/TheOpening'
+import TheOpening from '~/components/TheOpening'
 
 export default {
   components: {
     TheBackground,
     TheLogo,
-    TheNavigation
-    //   TheOpening
+    TheNavigation,
+    TheOpening
   },
   // computed: {
   //   ...mapGetters({
