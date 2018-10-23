@@ -1,0 +1,5 @@
+@mixin pc {
+  @media screen and (min-device-width: ($breakpoint)) {
+    @content;
+  }
+}

@@ -6,7 +6,7 @@
         lc
       </h1>
       <h2 class="subtitle">
-        My awesome Nuxt.js project
+        lrandcom.com
       </h2>
       <div class="links">
         <a
@@ -23,11 +23,21 @@
 </template>
 
 <script>
+import { TweenMax, Expo } from 'gsap'
 import Logo from '~/components/Logo.vue'
 
 export default {
   components: {
     Logo
+  },
+  mounted() {
+    requestAnimationFrame(() => {
+      TweenMax.to('.title', 0.5, {
+        fontSize: '170px',
+        // opacity: 0,
+        ease: Expo.easeOut
+      })
+    })
   }
 }
 </script>
