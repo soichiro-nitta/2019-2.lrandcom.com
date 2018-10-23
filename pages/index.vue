@@ -1,7 +1,7 @@
 <template>
   <div class="index">
     <div class="fv">
-      LEADING & COMPANY
+      <div>LEADING & COMPANY</div>
     </div>
   </div>
 </template>
@@ -19,7 +19,7 @@ export default {}
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 75vh;
+    height: 80vh;
     font-size: 16px;
     font-weight: bold;
     letter-spacing: 5px;
