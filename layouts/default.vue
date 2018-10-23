@@ -52,9 +52,8 @@ export default {
 <style lang="scss" scoped>
 .default {
   position: relative;
-  margin: 5px;
-  width: calc(100% - 10px);
-  height: calc(100% - 10px);
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   .wrap {
     position: relative;

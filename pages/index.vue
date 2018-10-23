@@ -1,6 +1,8 @@
 <template>
   <div class="index">
-    Leading & Co.
+    <div class="fv">
+      LEADING & COMPANY
+    </div>
   </div>
 </template>
 
@@ -8,15 +10,29 @@
 export default {}
 </script>
 
-<style>
+<style lang="scss" scoped>
 .index {
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 35px;
-  font-weight: bold;
+  .fv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 75vh;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    background: linear-gradient(
+      rgba(100, 100, 100, 0.8) 0%,
+      rgba(100, 100, 100, 0.4) 60%,
+      rgba(100, 100, 100, 0) 100%
+    );
+    background: -webkit-linear-gradient(
+      rgba(100, 100, 100, 0.8) 0%,
+      rgba(100, 100, 100, 0.4) 60%,
+      rgba(100, 100, 100, 0) 100%
+    );
+  }
 }
 </style>
