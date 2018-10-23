@@ -37,6 +37,7 @@ export default {
   },
   watch: {
     async opening() {
+      await this.$delay(400)
       requestAnimationFrame(() => {
         TweenMax.to(this.$refs.border1, 0.5, {
           scaleX: 1,

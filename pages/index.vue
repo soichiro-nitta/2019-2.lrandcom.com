@@ -56,6 +56,7 @@ export default {
   },
   watch: {
     async opening() {
+      await this.$delay(300)
       requestAnimationFrame(async () => {
         TweenMax.to(this.$refs.titleDummy, 0.5, {
           left: 0,
