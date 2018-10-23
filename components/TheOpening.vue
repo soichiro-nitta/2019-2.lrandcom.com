@@ -11,20 +11,33 @@
 </template>
 
 <script>
-import { TweenMax, Expo } from 'gsap'
+import { TweenMax, Expo, Back } from 'gsap'
+import { mapMutations } from 'vuex'
 
 export default {
-  mounted() {
+  async mounted() {
     console.log('mounted at TheOpening.vue')
-    window.onload = () => {
-      requestAnimationFrame(() => {
-        TweenMax.to(this.$refs.theOpening, 2, {
+    window.onload = async () => {
+      requestAnimationFrame(async () => {
+        TweenMax.to(this.$refs.logo, 0.3, {
+          scale: 1,
+          opacity: 1,
+          ease: Back.easeOut.config(10)
+        })
+        TweenMax.to(this.$refs.theOpening, 1, {
           scale: 2,
           opacity: 0,
           ease: Expo.easeInOut
         })
+        await this.$delay(500)
+        this.setOpening()
       })
     }
+  },
+  methods: {
+    ...mapMutations({
+      setOpening: 'setOpening'
+    })
   }
 }
 </script>
@@ -46,6 +59,8 @@ export default {
   img {
     width: 100px;
     height: 100px;
+    transform: scale(0);
+    opacity: 0;
   }
 }
 </style>

@@ -45,11 +45,17 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { TweenMax, Expo } from 'gsap'
 
 export default {
-  async mounted() {
-    window.onload = async () => {
+  computed: {
+    ...mapGetters({
+      opening: 'opening'
+    })
+  },
+  watch: {
+    async opening() {
       requestAnimationFrame(async () => {
         TweenMax.to(this.$refs.titleDummy, 0.5, {
           left: 0,

@@ -26,28 +26,35 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { TweenMax, Expo } from 'gsap'
 
 export default {
-  async mounted() {
-    await this.$delay(200)
-    requestAnimationFrame(() => {
-      TweenMax.to(this.$refs.border1, 0.5, {
-        scaleX: 1,
-        ease: Expo.easeOut,
-        delay: 0.4
-      })
-      TweenMax.to(this.$refs.border2, 0.5, {
-        scaleX: 1,
-        ease: Expo.easeOut,
-        delay: 0.5
-      })
-      TweenMax.to(this.$refs.border3, 0.5, {
-        scaleX: 1,
-        ease: Expo.easeOut,
-        delay: 0.6
-      })
+  computed: {
+    ...mapGetters({
+      opening: 'opening'
     })
+  },
+  watch: {
+    async opening() {
+      requestAnimationFrame(() => {
+        TweenMax.to(this.$refs.border1, 0.5, {
+          scaleX: 1,
+          ease: Expo.easeOut,
+          delay: 0.4
+        })
+        TweenMax.to(this.$refs.border2, 0.5, {
+          scaleX: 1,
+          ease: Expo.easeOut,
+          delay: 0.5
+        })
+        TweenMax.to(this.$refs.border3, 0.5, {
+          scaleX: 1,
+          ease: Expo.easeOut,
+          delay: 0.6
+        })
+      })
+    }
   },
   methods: {
     toggle() {
