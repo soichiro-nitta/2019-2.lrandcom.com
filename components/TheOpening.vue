@@ -39,7 +39,7 @@ export default {
             this.opening = true
           }
         })
-        await this.$delay(500)
+        await this.$delay(700)
         this.setOpening()
       })
     }
