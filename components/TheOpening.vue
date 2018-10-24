@@ -25,10 +25,10 @@ export default {
           ease: Back.easeOut.config(5)
         })
         TweenMax.to(this.$refs.theOpening, 1, {
-          scale: 6,
+          scale: 5,
           opacity: 0,
           ease: Expo.easeInOut,
-          delay: 0.1
+          delay: 0.15
         })
         await this.$delay(500)
         this.setOpening()
@@ -58,8 +58,8 @@ export default {
   height: 100%;
   background: black;
   img {
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     transform: scale(0);
     opacity: 0;
   }
