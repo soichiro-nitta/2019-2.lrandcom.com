@@ -130,37 +130,37 @@ export default {
         TweenMax.to(this.$refs.close, 1, {
           left: '-20px',
           ease: Expo.easeOut,
-          delay: 0.2
+          delay: 0.3
         })
         TweenMax.to(this.$refs.closeLine1, 0.5, {
           scaleX: 1,
           rotation: '-45deg',
           ease: Expo.easeOut,
-          delay: 0.5
+          delay: 0.6
         })
         TweenMax.to(this.$refs.closeLine2, 0.5, {
           scaleX: 1,
           rotation: '45deg',
           ease: Expo.easeOut,
-          delay: 0.6
+          delay: 0.7
         })
         TweenMax.to('.TheNavigation .menu .num1', 1, {
           x: 0,
           opacity: 1,
           ease: Expo.easeOut,
-          delay: 0.2
+          delay: 0.3
         })
         TweenMax.to('.TheNavigation .menu .num2', 1, {
           x: 0,
           opacity: 1,
           ease: Expo.easeOut,
-          delay: 0.3
+          delay: 0.4
         })
         TweenMax.to('.TheNavigation .menu .num3', 1, {
           x: 0,
           opacity: 1,
           ease: Expo.easeOut,
-          delay: 0.4
+          delay: 0.5
         })
       })
     },
