@@ -70,9 +70,9 @@ import { TweenMax, Expo } from 'gsap'
 export default {
   mounted() {
     requestAnimationFrame(async () => {
-      TweenMax.to(this.$refs.gradient, 0.5, {
+      TweenMax.to(this.$refs.gradient, 1, {
         opacity: 1,
-        ease: Expo.easeIn
+        ease: Expo.easeInOut
       })
       TweenMax.to(this.$refs.titleDummy, 0.5, {
         left: 0,
