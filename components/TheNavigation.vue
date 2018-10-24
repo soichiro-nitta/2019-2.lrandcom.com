@@ -227,7 +227,7 @@ export default {
     right: 30px;
     width: 40px;
     height: 40px;
-    // mix-blend-mode: difference;
+    mix-blend-mode: difference;
     .border1,
     .border2,
     .border3 {
