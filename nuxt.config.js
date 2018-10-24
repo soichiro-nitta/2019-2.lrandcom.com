@@ -26,11 +26,7 @@ module.exports = {
       { property: 'twitter:card', content: 'summary_large_image' },
       { property: 'twitter:site', content: '@4chikara' },
       { property: 'twitter:creator', content: '@soichiro_nitta' },
-      {
-        property: 'twitter:description',
-        content:
-          'https://lrandcom.com/wp-content/themes/lrandcom_dev/assets/img/common/ogp.png'
-      },
+      { property: 'twitter:description', content: '' },
       {
         property: 'twitter:image',
         content:

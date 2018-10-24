@@ -25,10 +25,10 @@ export default {
           ease: Back.easeOut.config(5)
         })
         TweenMax.to(this.$refs.theOpening, 1, {
-          scale: 30,
+          scale: 6,
           opacity: 0,
           ease: Expo.easeInOut,
-          delay: 0.35
+          delay: 0.1
         })
         await this.$delay(500)
         this.setOpening()
