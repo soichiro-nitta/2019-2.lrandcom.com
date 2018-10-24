@@ -84,7 +84,8 @@ export default {
   },
   methods: {
     toggle() {
-      !this.opened ? this.open() : this.close()
+      // !this.opened ? this.open() : this.close()
+      this.open()
     },
     open() {
       console.log('open')
@@ -173,7 +174,7 @@ export default {
       position: absolute;
       top: calc(50% - 1px);
       left: -3px;
-      width: 15px;
+      width: 12px;
       height: 2px;
       background: white;
       border-radius: 1px;
