@@ -16,7 +16,6 @@
       <div class="fvContent">
         <div
           ref="title"
-
           class="title"
         >
           <span
