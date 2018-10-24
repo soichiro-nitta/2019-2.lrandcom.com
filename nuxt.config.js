@@ -17,21 +17,13 @@ module.exports = {
       { name: 'keywords', content: 'リーディング＆カンパニー株式会社,夏目力' },
       { property: 'fb:app_id', content: '1475229082562793' },
       { property: 'og:description', content: '' },
-      {
-        property: 'og:image',
-        content:
-          'https://lrandcom.com/wp-content/themes/lrandcom_dev/assets/img/common/ogp.png'
-      },
+      { property: 'og:image', content: '/ogp.png' },
       { property: 'og:site_name', content: 'リーディング＆カンパニー株式会社' },
       { property: 'twitter:card', content: 'summary_large_image' },
       { property: 'twitter:site', content: '@4chikara' },
       { property: 'twitter:creator', content: '@soichiro_nitta' },
       { property: 'twitter:description', content: '' },
-      {
-        property: 'twitter:image',
-        content:
-          'https://lrandcom.com/wp-content/themes/lrandcom_dev/assets/img/common/ogp.png'
-      }
+      { property: 'twitter:image', content: '/ogp.png' }
     ],
     link: [
       {
