@@ -143,7 +143,7 @@ export default {
     align-content: center;
     position: fixed;
     top: 0;
-    right: 0;
+    right: -300px;
     width: 300px;
     height: 100%;
     background: #1c1c1c;
@@ -163,7 +163,7 @@ export default {
     .close {
       position: absolute;
       top: calc(50% - 50px);
-      left: -20px;
+      left: 0;
       width: 100px;
       height: 100px;
       background: #1c1c1c;
@@ -173,7 +173,7 @@ export default {
     .closeLine2 {
       position: absolute;
       top: calc(50% - 1px);
-      left: -3px;
+      left: 0;
       width: 12px;
       height: 2px;
       background: white;
@@ -187,7 +187,7 @@ export default {
     }
   }
   .mask {
-    // display: none;
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
