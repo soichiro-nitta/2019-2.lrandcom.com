@@ -3,7 +3,7 @@
     <div
       ref="switch"
       class="switch"
-      @click="toggle"
+      @click="open"
     >
       <div
         ref="border1"
@@ -18,7 +18,11 @@
         class="border3"
       />
     </div>
-    <div class="mask"/>
+    <div
+      ref="mask"
+      class="mask"
+      @click="close"
+    />
     <div
       ref="menu"
       class="menu"
@@ -43,9 +47,19 @@
           <nuxt-link to="/website">お問い合わせ</nuxt-link>
         </li>
       </ul>
-      <div class="close"/>
-      <div class="closeLine1"/>
-      <div class="closeLine2"/>
+      <div
+        ref="close"
+        class="close"
+        @click="close"
+      />
+      <div
+        ref="closeLine1"
+        class="closeLine1"
+      />
+      <div
+        ref="closeLine2"
+        class="closeLine2"
+      />
     </div>
   </div>
 </template>
@@ -83,12 +97,27 @@ export default {
     }
   },
   methods: {
-    toggle() {
-      // !this.opened ? this.open() : this.close()
-      this.open()
-    },
     open() {
       console.log('open')
+      requestAnimationFrame(() => {
+        TweenMax.to(this.$refs.menu, 0.7, {
+          right: 0,
+          ease: Expo.easeInOut
+        })
+        TweenMax.to(this.$refs.close, 0.7, {
+          left: '-20px',
+          ease: Expo.easeInOut
+        })
+        this.$refs.mask.style.display = 'block'
+        TweenMax.to(this.$refs.mask, 0.7, {
+          opacity: 0.5,
+          ease: Expo.easeInOut
+        })
+        TweenMax.to(this.$refs.closeLine1, this.$refs.closeLine2, 0.7, {
+          left: '-3px',
+          ease: Expo.easeInOut
+        })
+      })
     }
   }
 }
@@ -194,7 +223,7 @@ export default {
     width: calc(100% - 300px);
     height: 100%;
     background: #1c1c1c;
-    opacity: 0.5;
+    opacity: 0;
   }
 }
 </style>
