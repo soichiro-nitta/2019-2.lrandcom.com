@@ -24,13 +24,13 @@
     >
       <ul>
         <li>
-          記事制作
+          <nuxt-link to="/contents">記事制作</nuxt-link>
         </li>
         <li>
-          映像制作
+          <nuxt-link to="/film">映像制作</nuxt-link>
         </li>
         <li>
-          ウェブ制作
+          <nuxt-link to="/website">サイト制作</nuxt-link>
         </li>
       </ul>
       <div class="close"/>
