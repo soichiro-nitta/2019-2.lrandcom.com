@@ -25,6 +25,12 @@
     >
       <ul>
         <li>
+          <nuxt-link to="/website">ホーム</nuxt-link>
+        </li>
+        <li>
+          <nuxt-link to="/website">記事を読む</nuxt-link>
+        </li>
+        <li>
           <nuxt-link to="/contents">記事制作</nuxt-link>
         </li>
         <li>
@@ -32,6 +38,9 @@
         </li>
         <li>
           <nuxt-link to="/website">サイト制作</nuxt-link>
+        </li>
+        <li>
+          <nuxt-link to="/website">お問い合わせ</nuxt-link>
         </li>
       </ul>
       <div class="close"/>
@@ -184,7 +193,7 @@ export default {
     width: calc(100% - 300px);
     height: 100%;
     background: #1c1c1c;
-    opacity: 0.7;
+    opacity: 0.5;
   }
 }
 </style>
