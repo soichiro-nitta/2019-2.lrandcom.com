@@ -148,11 +148,11 @@ export default {
     background: #1c1c1c;
     ul {
       li {
-        font-size: 16px;
-        font-weight: bold;
-        line-height: 1;
         a {
           display: inline-block;
+          font-size: 15px;
+          font-weight: bold;
+          line-height: 1;
         }
       }
       li:not(:last-child) {
