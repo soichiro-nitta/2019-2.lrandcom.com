@@ -1,6 +1,14 @@
 <template>
   <div class="Contents">
     <div class="fv">
+      <video
+        ref="video"
+        :src="src"
+        preload="none"
+        muted
+        playsinline
+        loop
+      />
       <div
         ref="gradient"
         class="gradient"
@@ -68,7 +76,29 @@
 import { TweenMax, Expo } from 'gsap'
 
 export default {
+  data() {
+    return {
+      src:
+        'https://media-wp.housecom.jp/wp-content/uploads/videos/20th-mobile.mp4'
+    }
+  },
   mounted() {
+    this.$refs.video.load()
+    const canplay = () => {
+      console.log('canplay')
+      this.$refs.video.removeEventListener('canplay', canplay)
+      const duration = this.$refs.video.duration // 動画の尺
+      const rand = Math.floor(Math.random() * (duration + 1 - 0)) // 0 ~ durationの乱数
+      this.$refs.video.currentTime = rand // 再生開始時間を指定
+      requestAnimationFrame(() => {
+        TweenMax.to(this.$refs.video, 8.5, {
+          opacity: 1,
+          ease: Expo.easeInOut
+        })
+      })
+      this.$refs.video.play()
+    }
+    this.$refs.video.addEventListener('canplay', canplay)
     requestAnimationFrame(async () => {
       TweenMax.to(this.$refs.gradient, 1, {
         opacity: 1,
@@ -109,16 +139,21 @@ export default {
     width: 100%;
     height: 65vh;
     overflow: hidden;
-    .gradient {
+    video {
       width: 100%;
       height: 100%;
+      object-fit: cover;
+      opacity: 0;
+    }
+    .gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 102%;
       background: linear-gradient(
-        rgba(75, 75, 75, 0.8) 0%,
-        rgba(75, 75, 75, 0) 100%
-      );
-      background: -webkit-linear-gradient(
-        rgba(75, 75, 75, 0.8) 0%,
-        rgba(75, 75, 75, 0) 100%
+        rgba(75, 75, 75, 0) 0%,
+        rgba(0, 0, 0, 1) 100%
       );
       opacity: 0;
     }
@@ -180,7 +215,7 @@ export default {
     }
   }
   .text {
-    margin: 0 auto 20px;
+    margin: 30px auto;
     width: calc(100% - 60px);
     font-size: 14px;
     line-height: 2;
