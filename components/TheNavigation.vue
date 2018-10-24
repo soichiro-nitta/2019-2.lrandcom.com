@@ -172,7 +172,7 @@ export default {
     .closeLine2 {
       position: absolute;
       top: calc(50% - 1px);
-      left: 0;
+      left: -3px;
       width: 15px;
       height: 2px;
       background: white;
