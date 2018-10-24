@@ -133,13 +133,11 @@ export default {
           delay: 0.5
         })
         TweenMax.to(this.$refs.closeLine1, 0.7, {
-          left: '-3px',
           width: '12px',
           ease: Expo.easeInOut,
           delay: 0.6
         })
         TweenMax.to(this.$refs.closeLine2, 0.7, {
-          left: '-3px',
           width: '12px',
           ease: Expo.easeInOut,
           delay: 0.7
@@ -183,12 +181,10 @@ export default {
           ease: Expo.easeInOut
         })
         TweenMax.to(this.$refs.closeLine1, 0.7, {
-          left: 0,
           width: 0,
           ease: Expo.easeInOut
         })
         TweenMax.to(this.$refs.closeLine2, 0.7, {
-          left: 0,
           width: 0,
           ease: Expo.easeInOut
         })
@@ -295,7 +291,7 @@ export default {
     .closeLine2 {
       position: absolute;
       top: calc(50% - 1px);
-      left: 0;
+      left: -3px;
       width: 0;
       height: 2px;
       background: white;
