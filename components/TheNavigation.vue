@@ -149,10 +149,10 @@ export default {
     }
     .close {
       position: absolute;
-      top: calc(50% - 30px);
-      left: -15px;
-      width: 60px;
-      height: 60px;
+      top: calc(50% - 50px);
+      left: -20px;
+      width: 100px;
+      height: 100px;
       background: #1c1c1c;
       border-radius: 50%;
     }
@@ -160,8 +160,8 @@ export default {
     .closeLine2 {
       position: absolute;
       top: calc(50% - 1px);
-      left: -2px;
-      width: 12px;
+      left: 0;
+      width: 15px;
       height: 2px;
       background: white;
       border-radius: 1px;
