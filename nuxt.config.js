@@ -26,17 +26,8 @@ module.exports = {
       { property: 'twitter:image', content: '/ogp.png' }
     ],
     link: [
-      {
-        rel: 'icon',
-        type: 'image/x-icon',
-        href:
-          'https://lrandcom.com/wp-content/themes/lrandcom_dev/assets/img/common/favicon.png'
-      },
-      {
-        rel: 'apple-touch-icon',
-        href:
-          'https://lrandcom.com/wp-content/themes/lrandcom_dev/assets/img/common/apple-touch-icon.png'
-      },
+      { rel: 'icon', type: 'image/x-icon', href: '/apple-touch-icon.png' },
+      { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c'
