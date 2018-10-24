@@ -72,6 +72,25 @@ export default {
         })
       })
     }
+  },
+  head() {
+    return {
+      title: 'Home',
+      meta: [
+        {
+          property: 'og:title',
+          content: 'Home | リーディング＆カンパニー株式会社'
+        },
+        {
+          property: 'og:url',
+          content: 'https://lrandcom.netlify.com/'
+        },
+        {
+          property: 'twitter:title',
+          content: 'Home | リーディング＆カンパニー株式会社'
+        }
+      ]
+    }
   }
 }
 </script>
