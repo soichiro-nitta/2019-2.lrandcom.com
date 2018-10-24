@@ -116,19 +116,20 @@ export default {
         })
         TweenMax.to(this.$refs.closeLine1, 0.7, {
           left: '-3px',
-          scaleX: 1,
-          rotation: '-45deg',
+          width: '12px',
           ease: Expo.easeInOut,
           delay: 0.6
         })
         TweenMax.to(this.$refs.closeLine2, 0.7, {
           left: '-3px',
-          scaleX: 1,
-          rotation: '45deg',
+          width: '12px',
           ease: Expo.easeInOut,
           delay: 0.7
         })
       })
+    },
+    close() {
+      console.log('close')
     }
   }
 }
@@ -214,16 +215,16 @@ export default {
       position: absolute;
       top: calc(50% - 1px);
       left: 0;
-      width: 12px;
+      width: 0;
       height: 2px;
       background: white;
       border-radius: 1px;
     }
     .closeLine1 {
-      transform: scaleX(0);
+      transform: rotate(-45deg);
     }
     .closeLine2 {
-      transform: scaleX(0);
+      transform: rotate(45deg);
     }
   }
   .mask {
