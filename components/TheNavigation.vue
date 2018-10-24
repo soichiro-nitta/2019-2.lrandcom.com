@@ -125,40 +125,42 @@ export default {
         })
         TweenMax.to(this.$refs.menu, 0.7, {
           right: 0,
-          ease: Expo.easeInOut
+          ease: Expo.easeOut
         })
-        TweenMax.to(this.$refs.close, 0.7, {
+        TweenMax.to(this.$refs.close, 1, {
           left: '-20px',
-          ease: Expo.easeInOut,
+          ease: Expo.easeOut,
+          delay: 0.2
+        })
+        TweenMax.to(this.$refs.closeLine1, 0.5, {
+          scaleX: 1,
+          rotation: '-45deg',
+          ease: Expo.easeOut,
           delay: 0.5
         })
-        TweenMax.to(this.$refs.closeLine1, 0.7, {
-          width: '12px',
-          ease: Expo.easeInOut,
+        TweenMax.to(this.$refs.closeLine2, 0.5, {
+          scaleX: 1,
+          rotation: '45deg',
+          ease: Expo.easeOut,
           delay: 0.6
-        })
-        TweenMax.to(this.$refs.closeLine2, 0.7, {
-          width: '12px',
-          ease: Expo.easeInOut,
-          delay: 0.7
         })
         TweenMax.to('.TheNavigation .menu .num1', 1, {
           x: 0,
           opacity: 1,
           ease: Expo.easeOut,
-          delay: 0.4
+          delay: 0.2
         })
         TweenMax.to('.TheNavigation .menu .num2', 1, {
           x: 0,
           opacity: 1,
           ease: Expo.easeOut,
-          delay: 0.5
+          delay: 0.3
         })
         TweenMax.to('.TheNavigation .menu .num3', 1, {
           x: 0,
           opacity: 1,
           ease: Expo.easeOut,
-          delay: 0.6
+          delay: 0.4
         })
       })
     },
@@ -176,17 +178,19 @@ export default {
           right: '-300px',
           ease: Expo.easeInOut
         })
-        TweenMax.to(this.$refs.close, 0.7, {
+        TweenMax.to(this.$refs.close, 1, {
           left: 0,
           ease: Expo.easeInOut
         })
-        TweenMax.to(this.$refs.closeLine1, 0.7, {
-          width: 0,
-          ease: Expo.easeInOut
+        TweenMax.to(this.$refs.closeLine1, 0.5, {
+          scaleX: 0,
+          rotation: 0,
+          ease: Expo.easeOut
         })
-        TweenMax.to(this.$refs.closeLine2, 0.7, {
-          width: 0,
-          ease: Expo.easeInOut
+        TweenMax.to(this.$refs.closeLine2, 0.5, {
+          scaleX: 0,
+          rotation: 0,
+          ease: Expo.easeOut
         })
         TweenMax.to('.TheNavigation .menu .num1', 1, {
           x: '30px',
@@ -292,16 +296,16 @@ export default {
       position: absolute;
       top: calc(50% - 1px);
       left: -3px;
-      width: 0;
+      width: 12px;
       height: 2px;
       background: white;
       border-radius: 1px;
     }
     .closeLine1 {
-      transform: rotate(-45deg);
+      transform: scaleX(0);
     }
     .closeLine2 {
-      transform: rotate(45deg);
+      transform: scaleX(0);
     }
   }
   .mask {
