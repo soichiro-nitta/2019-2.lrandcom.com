@@ -36,7 +36,6 @@ export default {
 
 <style lang="scss" scoped>
 .TheLogo {
-  display: inline-block;
   position: fixed;
   top: 30px;
   left: 30px;
@@ -44,12 +43,12 @@ export default {
   height: 40px;
   overflow: hidden;
   border-radius: 50%;
+  mix-blend-mode: difference;
   img {
     margin-top: 100%;
     padding: 5px;
     width: 100%;
     height: 100%;
-    // mix-blend-mode: difference;
   }
 }
 </style>
