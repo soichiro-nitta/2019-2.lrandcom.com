@@ -18,6 +18,7 @@
         class="border3"
       />
     </div>
+    <div class="mask"/>
     <div
       ref="menu"
       class="menu"
@@ -37,7 +38,6 @@
       <div class="closeLine1"/>
       <div class="closeLine2"/>
     </div>
-    <div class="mask"/>
   </div>
 </template>
 
@@ -142,6 +142,9 @@ export default {
         font-size: 16px;
         font-weight: bold;
         line-height: 1;
+        a {
+          display: inline-block;
+        }
       }
       li:not(:last-child) {
         margin-bottom: 30px;
@@ -174,7 +177,7 @@ export default {
     }
   }
   .mask {
-    display: none;
+    // display: none;
     position: fixed;
     top: 0;
     left: 0;
