@@ -29,22 +29,40 @@
     >
       <ul>
         <li>
-          <nuxt-link to="/website">ホーム</nuxt-link>
+          <nuxt-link
+            to="/website"
+            class="num3"
+          >ホーム</nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/website">記事を読む</nuxt-link>
+          <nuxt-link
+            class="num2"
+            to="/website"
+          >記事を読む</nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/contents">記事制作</nuxt-link>
+          <nuxt-link
+            to="/contents"
+            class="num1"
+          >記事制作</nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/film">映像制作</nuxt-link>
+          <nuxt-link
+            to="/film"
+            class="num1"
+          >映像制作</nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/website">サイト制作</nuxt-link>
+          <nuxt-link
+            to="/website"
+            class="num2"
+          >サイト制作</nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/website">お問い合わせ</nuxt-link>
+          <nuxt-link
+            to="/website"
+            class="num3"
+          >お問い合わせ</nuxt-link>
         </li>
       </ul>
       <div
@@ -99,8 +117,8 @@ export default {
   methods: {
     open() {
       console.log('open')
+      this.$refs.mask.style.display = 'block'
       requestAnimationFrame(() => {
-        this.$refs.mask.style.display = 'block'
         TweenMax.to(this.$refs.mask, 0.7, {
           opacity: 0.5,
           ease: Expo.easeInOut
@@ -112,7 +130,7 @@ export default {
         TweenMax.to(this.$refs.close, 0.7, {
           left: '-20px',
           ease: Expo.easeInOut,
-          delay: 0.3
+          delay: 0.5
         })
         TweenMax.to(this.$refs.closeLine1, 0.7, {
           left: '-3px',
@@ -126,10 +144,70 @@ export default {
           ease: Expo.easeInOut,
           delay: 0.7
         })
+        TweenMax.to('.TheNavigation .menu .num1', 1, {
+          x: 0,
+          opacity: 1,
+          ease: Expo.easeOut,
+          delay: 0.4
+        })
+        TweenMax.to('.TheNavigation .menu .num2', 1, {
+          x: 0,
+          opacity: 1,
+          ease: Expo.easeOut,
+          delay: 0.5
+        })
+        TweenMax.to('.TheNavigation .menu .num3', 1, {
+          x: 0,
+          opacity: 1,
+          ease: Expo.easeOut,
+          delay: 0.6
+        })
       })
     },
     close() {
       console.log('close')
+      requestAnimationFrame(() => {
+        TweenMax.to(this.$refs.mask, 0.7, {
+          opacity: 0,
+          ease: Expo.easeInOut,
+          onComplete: () => {
+            this.$refs.mask.style.display = 'none'
+          }
+        })
+        TweenMax.to(this.$refs.menu, 0.7, {
+          right: '-300px',
+          ease: Expo.easeInOut
+        })
+        TweenMax.to(this.$refs.close, 0.7, {
+          left: 0,
+          ease: Expo.easeInOut
+        })
+        TweenMax.to(this.$refs.closeLine1, 0.7, {
+          left: 0,
+          width: 0,
+          ease: Expo.easeInOut
+        })
+        TweenMax.to(this.$refs.closeLine2, 0.7, {
+          left: 0,
+          width: 0,
+          ease: Expo.easeInOut
+        })
+        TweenMax.to('.TheNavigation .menu .num1', 1, {
+          x: '30px',
+          opacity: 0,
+          ease: Expo.easeOut
+        })
+        TweenMax.to('.TheNavigation .menu .num2', 1, {
+          x: '30px',
+          opacity: 0,
+          ease: Expo.easeOut
+        })
+        TweenMax.to('.TheNavigation .menu .num3', 1, {
+          x: '30px',
+          opacity: 0,
+          ease: Expo.easeOut
+        })
+      })
     }
   }
 }
@@ -195,6 +273,8 @@ export default {
           font-size: 15px;
           font-weight: bold;
           line-height: 1;
+          opacity: 0;
+          transform: translateX(30px);
         }
       }
       li:not(:last-child) {
