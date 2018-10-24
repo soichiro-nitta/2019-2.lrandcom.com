@@ -19,7 +19,8 @@ module.exports = {
       { property: 'og:description', content: '' },
       {
         property: 'og:image',
-        content: 'https://media-wp.housecom.jp/static/20th/ogp.png'
+        content:
+          'https://lrandcom.com/wp-content/themes/lrandcom_dev/assets/img/common/ogp.png'
       },
       { property: 'og:site_name', content: 'リーディング＆カンパニー株式会社' },
       { property: 'twitter:card', content: 'summary_large_image' },
