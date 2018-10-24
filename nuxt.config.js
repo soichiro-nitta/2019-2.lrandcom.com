@@ -26,7 +26,7 @@ module.exports = {
       { property: 'twitter:image', content: '/ogp.png' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/apple-touch-icon.png' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
       {
         rel: 'stylesheet',
