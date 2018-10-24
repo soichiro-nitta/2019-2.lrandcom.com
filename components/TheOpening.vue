@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="!opening"
     ref="theOpening"
     class="TheOpening"
   >
@@ -15,6 +16,11 @@ import { TweenMax, Expo, Back } from 'gsap'
 import { mapMutations } from 'vuex'
 
 export default {
+  data() {
+    return {
+      opening: false
+    }
+  },
   async mounted() {
     console.log('mounted at TheOpening.vue')
     window.onload = async () => {
@@ -28,7 +34,10 @@ export default {
           scale: 5,
           opacity: 0,
           ease: Expo.easeInOut,
-          delay: 0.15
+          delay: 0.15,
+          onComplete: () => {
+            this.opening = true
+          }
         })
         await this.$delay(500)
         this.setOpening()

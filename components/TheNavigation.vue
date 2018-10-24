@@ -60,6 +60,9 @@ export default {
   methods: {
     toggle() {
       !this.opened ? this.open() : this.close()
+    },
+    open() {
+      console.log('open')
     }
   }
 }
