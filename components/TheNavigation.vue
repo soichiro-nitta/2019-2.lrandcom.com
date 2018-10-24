@@ -100,22 +100,33 @@ export default {
     open() {
       console.log('open')
       requestAnimationFrame(() => {
+        this.$refs.mask.style.display = 'block'
+        TweenMax.to(this.$refs.mask, 0.7, {
+          opacity: 0.5,
+          ease: Expo.easeInOut
+        })
         TweenMax.to(this.$refs.menu, 0.7, {
           right: 0,
           ease: Expo.easeInOut
         })
         TweenMax.to(this.$refs.close, 0.7, {
           left: '-20px',
-          ease: Expo.easeInOut
+          ease: Expo.easeInOut,
+          delay: 0.3
         })
-        this.$refs.mask.style.display = 'block'
-        TweenMax.to(this.$refs.mask, 0.7, {
-          opacity: 0.5,
-          ease: Expo.easeInOut
-        })
-        TweenMax.to(this.$refs.closeLine1, this.$refs.closeLine2, 0.7, {
+        TweenMax.to(this.$refs.closeLine1, 0.7, {
           left: '-3px',
-          ease: Expo.easeInOut
+          scaleX: 1,
+          rotation: '-45deg',
+          ease: Expo.easeInOut,
+          delay: 0.6
+        })
+        TweenMax.to(this.$refs.closeLine2, 0.7, {
+          left: '-3px',
+          scaleX: 1,
+          rotation: '45deg',
+          ease: Expo.easeInOut,
+          delay: 0.7
         })
       })
     }
@@ -209,10 +220,10 @@ export default {
       border-radius: 1px;
     }
     .closeLine1 {
-      transform: rotate(-45deg);
+      transform: scaleX(0);
     }
     .closeLine2 {
-      transform: rotate(45deg);
+      transform: scaleX(0);
     }
   }
   .mask {
