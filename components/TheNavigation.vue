@@ -30,14 +30,14 @@
       <ul>
         <li>
           <nuxt-link
-            to="/website"
+            to="/"
             class="num3"
           >ホーム</nuxt-link>
         </li>
         <li>
           <nuxt-link
             class="num2"
-            to="/website"
+            to="/articles"
           >記事を読む</nuxt-link>
         </li>
         <li>
@@ -60,7 +60,7 @@
         </li>
         <li>
           <nuxt-link
-            to="/website"
+            to="/contact"
             class="num3"
           >お問い合わせ</nuxt-link>
         </li>
@@ -312,7 +312,7 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
-    width: calc(100% - 300px);
+    width: 100%;
     height: 100%;
     background: #1c1c1c;
     opacity: 0;
