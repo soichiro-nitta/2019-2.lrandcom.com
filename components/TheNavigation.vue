@@ -119,9 +119,9 @@ export default {
       console.log('open')
       this.$refs.mask.style.display = 'block'
       requestAnimationFrame(() => {
-        TweenMax.to(this.$refs.mask, 0.7, {
+        TweenMax.to(this.$refs.mask, 0.5, {
           opacity: 0.5,
-          ease: Expo.easeInOut
+          ease: Expo.easeOut
         })
         TweenMax.to(this.$refs.menu, 0.7, {
           right: 0,
@@ -167,9 +167,9 @@ export default {
     close() {
       console.log('close')
       requestAnimationFrame(() => {
-        TweenMax.to(this.$refs.mask, 0.7, {
+        TweenMax.to(this.$refs.mask, 0.5, {
           opacity: 0,
-          ease: Expo.easeInOut,
+          ease: Expo.easeOut,
           onComplete: () => {
             this.$refs.mask.style.display = 'none'
           }
