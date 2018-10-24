@@ -32,9 +32,7 @@ export default {
   // },
   mounted() {
     this.$watch('$route', () => {
-      this.$nextTick(() => {
-        document.getElementById('scrollArea').scrollTop = 0
-      })
+      document.getElementById('scrollArea').scrollTop = 0
     })
     if (!this.$device.isMobile) {
       this.$nuxt.error({
