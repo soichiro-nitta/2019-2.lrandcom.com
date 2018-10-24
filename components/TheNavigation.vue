@@ -1,10 +1,6 @@
 <template>
   <div class="TheNavigation">
     <div
-      ref="menu"
-      class="menu"
-    />
-    <div
       ref="switch"
       class="switch"
       @click="toggle"
@@ -22,6 +18,26 @@
         class="border3"
       />
     </div>
+    <div
+      ref="menu"
+      class="menu"
+    >
+      <ul>
+        <li>
+          記事制作
+        </li>
+        <li>
+          映像制作
+        </li>
+        <li>
+          ウェブ制作
+        </li>
+      </ul>
+      <div class="close"/>
+      <div class="closeLine1"/>
+      <div class="closeLine2"/>
+    </div>
+    <div class="mask"/>
   </div>
 </template>
 
@@ -109,6 +125,63 @@ export default {
   img {
     width: 40px;
     height: 40px;
+  }
+  .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background: #1c1c1c;
+    ul {
+      li {
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 1;
+      }
+      li:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+    .close {
+      position: absolute;
+      top: calc(50% - 30px);
+      left: -15px;
+      width: 60px;
+      height: 60px;
+      background: #1c1c1c;
+      border-radius: 50%;
+    }
+    .closeLine1,
+    .closeLine2 {
+      position: absolute;
+      top: calc(50% - 1px);
+      left: -2px;
+      width: 12px;
+      height: 2px;
+      background: white;
+      border-radius: 1px;
+    }
+    .closeLine1 {
+      transform: rotate(-45deg);
+    }
+    .closeLine2 {
+      transform: rotate(45deg);
+    }
+  }
+  .mask {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100% - 300px);
+    height: 100%;
+    background: #1c1c1c;
+    opacity: 0.7;
   }
 }
 </style>
