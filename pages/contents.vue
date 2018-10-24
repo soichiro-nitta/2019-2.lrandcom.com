@@ -15,6 +15,9 @@ export default {
       opening: 'opening'
     })
   },
+  mounted() {
+    document.getElementById('scrollArea').scrollTop = 0
+  },
   head() {
     return {
       title: '記事制作について',
