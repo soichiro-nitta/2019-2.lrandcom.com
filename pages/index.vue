@@ -15,12 +15,6 @@ export default {
       opening: 'opening'
     })
   },
-  // watch: {
-  //   async opening() {
-  //     await this.$delay(300)
-  //     console.log('opening complete')
-  //   }
-  // },
   head() {
     return {
       title: 'Home',

@@ -32,36 +32,42 @@
           <nuxt-link
             to="/"
             class="num3"
+            @click.native="close"
           >ホーム</nuxt-link>
         </li>
         <li>
           <nuxt-link
             class="num2"
             to="/articles"
+            @click.native="close"
           >記事を読む</nuxt-link>
         </li>
         <li>
           <nuxt-link
             to="/contents"
             class="num1"
+            @click.native="close"
           >記事制作</nuxt-link>
         </li>
         <li>
           <nuxt-link
             to="/film"
             class="num1"
+            @click.native="close"
           >映像制作</nuxt-link>
         </li>
         <li>
           <nuxt-link
             to="/website"
             class="num2"
+            @click.native="close"
           >サイト制作</nuxt-link>
         </li>
         <li>
           <nuxt-link
             to="/contact"
             class="num3"
+            @click.native="close"
           >お問い合わせ</nuxt-link>
         </li>
       </ul>
