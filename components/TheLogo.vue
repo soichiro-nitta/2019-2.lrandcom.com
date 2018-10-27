@@ -43,7 +43,7 @@ export default {
   height: 40px;
   overflow: hidden;
   border-radius: 50%;
-  mix-blend-mode: difference;
+  // mix-blend-mode: difference;
   img {
     margin-top: 100%;
     padding: 5px;
