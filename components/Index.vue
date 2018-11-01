@@ -15,10 +15,6 @@
             ref="titleText"
             class="titleText"
           >LEADING & COMPANY</span>
-          <div
-            ref="titleDummy"
-            class="titleDummy"
-          />
         </div>
       </div>
     </div>
@@ -62,22 +58,14 @@ import { TweenMax, Expo } from 'gsap'
 
 export default {
   mounted() {
-    requestAnimationFrame(async () => {
+    requestAnimationFrame(() => {
       TweenMax.to(this.$refs.gradient, 1, {
         opacity: 1,
         ease: Expo.easeInOut
       })
-      TweenMax.to(this.$refs.titleDummy, 0.5, {
-        left: 0,
-        ease: Expo.easeIn
-      })
-      await this.$delay(500)
-      TweenMax.set(this.$refs.titleText, {
-        opacity: 1
-      })
-      TweenMax.to(this.$refs.titleDummy, 0.5, {
-        left: '100%',
-        ease: Expo.easeOut
+      TweenMax.to(this.$refs.titleText, 1, {
+        y: 0,
+        ease: Expo.easeInOut
       })
       TweenMax.staggerTo(
         '.links a',
@@ -125,26 +113,16 @@ export default {
       width: 100%;
       height: 100%;
       .title {
-        position: relative;
         display: inline-block;
-        padding: 15px;
+        position: relative;
         line-height: 1;
         font-size: 16px;
         font-weight: bold;
         letter-spacing: 3px;
-        border-radius: 12px;
         overflow: hidden;
         .titleText {
-          opacity: 0;
-        }
-        .titleDummy {
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          border-radius: 12px;
-          background: #1c1c1c;
+          display: inline-block;
+          transform: translate(0, 100%);
         }
       }
     }
