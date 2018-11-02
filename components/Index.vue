@@ -60,8 +60,8 @@ export default {
   mounted() {
     requestAnimationFrame(() => {
       TweenMax.to(this.$refs.gradient, 1, {
-        opacity: 1,
-        ease: Expo.easeInOut
+        y: 0,
+        ease: Expo.easeOut
       })
       TweenMax.to(this.$refs.titleText, 1, {
         y: 0,
@@ -101,7 +101,7 @@ export default {
         rgba(75, 75, 75, 0.8) 0%,
         rgba(75, 75, 75, 0) 100%
       );
-      opacity: 0;
+      transform: translate(0, -100%);
     }
     .fvContent {
       display: flex;
