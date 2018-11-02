@@ -79,11 +79,21 @@
       <div
         ref="closeLine1"
         class="closeLine1"
-      />
+      >
+        <div
+          ref="closeLine1Inner"
+          class="closeLine1Inner"
+        />
+      </div>
       <div
         ref="closeLine2"
         class="closeLine2"
-      />
+      >
+        <div
+          ref="closeLine2Inner"
+          class="closeLine2Inner"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -138,15 +148,13 @@ export default {
           ease: Expo.easeOut,
           delay: 0.3
         })
-        TweenMax.to(this.$refs.closeLine1, 0.5, {
+        TweenMax.to(this.$refs.closeLine1Inner, 0.5, {
           scaleX: 1,
-          rotation: '-45deg',
           ease: Expo.easeOut,
           delay: 0.6
         })
-        TweenMax.to(this.$refs.closeLine2, 0.5, {
+        TweenMax.to(this.$refs.closeLine2Inner, 0.5, {
           scaleX: 1,
-          rotation: '45deg',
           ease: Expo.easeOut,
           delay: 0.7
         })
@@ -188,14 +196,12 @@ export default {
           left: 0,
           ease: Expo.easeInOut
         })
-        TweenMax.to(this.$refs.closeLine1, 0.5, {
+        TweenMax.to(this.$refs.closeLine1Inner, 0.5, {
           scaleX: 0,
-          rotation: 0,
           ease: Expo.easeOut
         })
-        TweenMax.to(this.$refs.closeLine2, 0.5, {
+        TweenMax.to(this.$refs.closeLine2Inner, 0.5, {
           scaleX: 0,
-          rotation: 0,
           ease: Expo.easeOut
         })
         TweenMax.to('.TheNavigation .menu .num1', 1, {
@@ -304,14 +310,21 @@ export default {
       left: -3px;
       width: 12px;
       height: 2px;
-      background: white;
-      border-radius: 1px;
     }
     .closeLine1 {
-      transform: scaleX(0);
+      transform: rotate(45deg);
     }
     .closeLine2 {
+      transform: rotate(-45deg);
+    }
+    .closeLine1Inner,
+    .closeLine2Inner {
+      width: 100%;
+      height: 100%;
+      background: white;
+      border-radius: 1px;
       transform: scaleX(0);
+      transform-origin: right center;
     }
   }
   .mask {
