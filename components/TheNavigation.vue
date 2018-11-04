@@ -334,7 +334,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #1c1c1c;
+    background: #171717;
     opacity: 0;
   }
 }
