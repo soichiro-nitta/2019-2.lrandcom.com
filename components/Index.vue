@@ -21,31 +21,49 @@
     <ul class="links">
       <li class="writing">
         <nuxt-link to="contents">
-          <div class="en">
-            Create Cotnents
+          <div class="thumb">
+            <img src="/svg/contents.svg">
           </div>
-          <div class="ja">
-            記事制作
+          <div class="text">
+            <div class="en">
+              Create Cotnents
+            </div>
+            <div class="ja">
+              記事制作
+            </div>
           </div>
         </nuxt-link>
       </li>
       <li class="film">
         <nuxt-link to="film">
-          <div class="en">
-            Crete Film
+          <div class="thumb">
+            <img
+              src="/svg/film.svg"
+              class="filmImg"
+            >
           </div>
-          <div class="ja">
-            映像制作
+          <div class="text">
+            <div class="en">
+              Crete Film
+            </div>
+            <div class="ja">
+              映像制作
+            </div>
           </div>
         </nuxt-link>
       </li>
       <li class="web">
         <nuxt-link to="web">
-          <div class="en">
-            Create Website
+          <div class="thumb">
+            <img src="/svg/website.svg">
           </div>
-          <div class="ja">
-            ウェブ制作
+          <div class="text">
+            <div class="en">
+              Create Website
+            </div>
+            <div class="ja">
+              ウェブ制作
+            </div>
           </div>
         </nuxt-link>
       </li>
@@ -69,12 +87,13 @@ export default {
       })
       TweenMax.staggerTo(
         '.links a',
-        0.5,
+        1,
         {
-          marginTop: 0,
-          ease: Expo.easeOut
+          y: 0,
+          ease: Expo.easeOut,
+          delay: 0.1
         },
-        0.05
+        0.1
       )
     })
   }
@@ -131,21 +150,40 @@ export default {
     li {
       margin: 0 auto 20px;
       width: calc(100% - 60px);
-      height: 110px;
+      height: 100px;
       overflow: hidden;
       a {
-        display: block;
-        margin-top: 100%;
-        padding: 30px 40px;
+        display: flex;
         width: 100%;
         height: 100%;
         background: #1c1c1c;
         border-radius: 15px;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: bold;
-        .ja {
-          margin-top: 10px;
-          color: #999;
+        transform: translate(0, 100%);
+        .thumb {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 95px;
+          height: 100%;
+          background: #222;
+          border-radius: 15px 0 0 15px;
+          img {
+            width: 23px;
+            height: auto;
+          }
+          .filmImg {
+            width: 26px;
+            height: auto;
+          }
+        }
+        .text {
+          padding: 25px 40px;
+          .ja {
+            margin-top: 10px;
+            color: #999;
+          }
         }
       }
     }
