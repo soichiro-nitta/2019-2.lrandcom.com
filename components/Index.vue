@@ -107,12 +107,12 @@ export default {
       width: 100%;
       height: 100%;
       background: linear-gradient(
-        rgba(60, 60, 60, 0.8) 0%,
-        rgba(60, 60, 60, 0) 100%
+        rgba(65, 65, 65, 0.8) 0%,
+        rgba(65, 65, 65, 0) 100%
       );
       background: -webkit-linear-gradient(
-        rgba(60, 60, 60, 0.8) 0%,
-        rgba(60, 60, 60, 0) 100%
+        rgba(65, 65, 65, 0.8) 0%,
+        rgba(65, 65, 65, 0) 100%
       );
       transform: translate(0, -100%);
     }
