@@ -162,19 +162,19 @@ export default {
           x: 0,
           opacity: 1,
           ease: Expo.easeOut,
-          delay: 0.32
+          delay: 0.3
         })
         TweenMax.to('.TheNavigation .menu .num2', 2, {
           x: 0,
           opacity: 1,
           ease: Expo.easeOut,
-          delay: 0.32
+          delay: 0.3
         })
         TweenMax.to('.TheNavigation .menu .num3', 3, {
           x: 0,
           opacity: 1,
           ease: Expo.easeOut,
-          delay: 0.32
+          delay: 0.3
         })
       })
     },
