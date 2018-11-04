@@ -107,12 +107,12 @@ export default {
       width: 100%;
       height: 100%;
       background: linear-gradient(
-        rgba(75, 75, 75, 0.8) 0%,
-        rgba(75, 75, 75, 0) 100%
+        rgba(60, 60, 60, 0.8) 0%,
+        rgba(60, 60, 60, 0) 100%
       );
       background: -webkit-linear-gradient(
-        rgba(75, 75, 75, 0.8) 0%,
-        rgba(75, 75, 75, 0) 100%
+        rgba(60, 60, 60, 0.8) 0%,
+        rgba(60, 60, 60, 0) 100%
       );
       transform: translate(0, -100%);
     }
@@ -150,7 +150,7 @@ export default {
         display: flex;
         width: 100%;
         height: 100%;
-        background: #1c1c1c;
+        background: #151515;
         border-radius: 15px;
         font-size: 13px;
         font-weight: bold;
@@ -161,7 +161,7 @@ export default {
           align-items: center;
           width: 95px;
           height: 100%;
-          background: #222;
+          background: #101010;
           border-radius: 15px 0 0 15px;
           img {
             width: 23px;
