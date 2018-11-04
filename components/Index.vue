@@ -25,9 +25,7 @@
             <img src="/svg/contents.svg">
           </div>
           <div class="text">
-            <div class="en">
-              Create Cotnents
-            </div>
+            <div class="en">Create Cotnents</div>
             <div class="ja">
               記事制作
             </div>
@@ -43,9 +41,7 @@
             >
           </div>
           <div class="text">
-            <div class="en">
-              Crete Film
-            </div>
+            <div class="en">Crete Film</div>
             <div class="ja">
               映像制作
             </div>
@@ -58,9 +54,7 @@
             <img src="/svg/website.svg">
           </div>
           <div class="text">
-            <div class="en">
-              Create Website
-            </div>
+            <div class="en">Create Website</div>
             <div class="ja">
               ウェブ制作
             </div>
