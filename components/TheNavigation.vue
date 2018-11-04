@@ -158,23 +158,23 @@ export default {
           ease: Expo.easeOut,
           delay: 0.8
         })
-        TweenMax.to('.TheNavigation .menu .num1', 1.5, {
+        TweenMax.to('.TheNavigation .menu .num1', 1, {
           x: 0,
           opacity: 1,
           ease: Expo.easeOut,
-          delay: 0.3
+          delay: 0.32
         })
-        TweenMax.to('.TheNavigation .menu .num2', 1.5, {
+        TweenMax.to('.TheNavigation .menu .num2', 2, {
           x: 0,
           opacity: 1,
           ease: Expo.easeOut,
-          delay: 0.4
+          delay: 0.32
         })
-        TweenMax.to('.TheNavigation .menu .num3', 1.5, {
+        TweenMax.to('.TheNavigation .menu .num3', 3, {
           x: 0,
           opacity: 1,
           ease: Expo.easeOut,
-          delay: 0.5
+          delay: 0.32
         })
       })
     },
@@ -205,17 +205,17 @@ export default {
           ease: Expo.easeOut
         })
         TweenMax.to('.TheNavigation .menu .num1', 1, {
-          x: '30px',
+          x: '40px',
           opacity: 0,
           ease: Expo.easeOut
         })
         TweenMax.to('.TheNavigation .menu .num2', 1, {
-          x: '30px',
+          x: '40px',
           opacity: 0,
           ease: Expo.easeOut
         })
         TweenMax.to('.TheNavigation .menu .num3', 1, {
-          x: '30px',
+          x: '40px',
           opacity: 0,
           ease: Expo.easeOut
         })
@@ -287,7 +287,7 @@ export default {
           font-weight: bold;
           line-height: 1;
           opacity: 0;
-          transform: translateX(30px);
+          transform: translateX(40px);
         }
       }
       li:not(:last-child) {
