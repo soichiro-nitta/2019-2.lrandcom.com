@@ -278,7 +278,7 @@ export default {
     right: -300px;
     width: 300px;
     height: 100%;
-    background: #1c1c1c;
+    background: #171717;
     ul {
       li {
         a {
@@ -300,7 +300,7 @@ export default {
       left: 0;
       width: 100px;
       height: 100px;
-      background: #1c1c1c;
+      background: #171717;
       border-radius: 50%;
     }
     .closeLine1,

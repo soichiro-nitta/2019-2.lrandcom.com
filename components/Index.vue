@@ -150,7 +150,7 @@ export default {
         display: flex;
         width: 100%;
         height: 100%;
-        background: #151515;
+        background: #171717;
         border-radius: 15px;
         font-size: 13px;
         font-weight: bold;
@@ -161,7 +161,7 @@ export default {
           align-items: center;
           width: 95px;
           height: 100%;
-          background: #101010;
+          background: #121212;
           border-radius: 15px 0 0 15px;
           img {
             width: 23px;
