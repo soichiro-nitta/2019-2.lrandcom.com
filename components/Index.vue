@@ -146,6 +146,7 @@ export default {
       width: calc(100% - 60px);
       height: 100px;
       overflow: hidden;
+      border-radius: 15px;
       a {
         display: flex;
         width: 100%;
