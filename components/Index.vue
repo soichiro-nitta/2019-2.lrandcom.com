@@ -8,7 +8,6 @@
       <div class="fvContent">
         <div
           ref="title"
-
           class="title"
         >
           <span
@@ -62,6 +61,40 @@
         </nuxt-link>
       </li>
     </ul>
+    <div class="who">
+      <div class="title">WHO</div>
+      <div class="description">
+        A high-tech project Factory. We connect Design
+        with Artificial Intelligence to create innovative
+        objects and experiences. We monitor and implement
+        the ongoing digital evolution outcomes to continuously
+        improve our work.
+      </div>
+    </div>
+    <div class="who">
+      <div class="title">VISION</div>
+      <div class="description">
+        When innovation is the goal,
+        technology is the ultimate path to reach it.
+        But ideas are the true propellent.
+      </div>
+      <div class="who">
+        <div class="title">MISSION</div>
+        <div class="description">
+          We redesign the way technology and Internet can offer
+          people new perspectives. We imagine what does not exist
+          and then we create it.
+        </div>
+      </div>
+      <div class="who">
+        <div class="title">CONTENTS</div>
+        <div class="description">
+          “Inspiration exists, but it has to find you working”
+          Pablo Picasso
+        </div>
+        <div class="button">コンテンツをみる</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -129,7 +162,7 @@ export default {
         display: inline-block;
         position: relative;
         line-height: 1;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: bold;
         letter-spacing: 3px;
         overflow: hidden;
@@ -181,6 +214,32 @@ export default {
           }
         }
       }
+    }
+  }
+  .who {
+    margin: 120px auto;
+    width: calc(100% - 60px);
+    text-align: center;
+    .title {
+      font-size: 30px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+    .description {
+      margin-top: 20px;
+      font-size: 14px;
+      overflow: hidden;
+      line-height: 2;
+    }
+    .button {
+      margin-top: 40px;
+      display: inline-block;
+      width: 100%;
+      line-height: 50px;
+      background: #121212;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 14px;
     }
   }
 }
