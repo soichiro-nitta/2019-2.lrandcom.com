@@ -69,31 +69,32 @@
         objects and experiences. We monitor and implement
         the ongoing digital evolution outcomes to continuously
         improve our work.
+        <!-- リーディング＆カンパニーは企業のマーケティング用にウェブコンテンツの制作をしています。 -->
       </div>
     </div>
-    <div class="who">
+    <div class="who gray">
       <div class="title">VISION</div>
       <div class="description">
         When innovation is the goal,
         technology is the ultimate path to reach it.
         But ideas are the true propellent.
       </div>
-      <div class="who">
-        <div class="title">MISSION</div>
-        <div class="description">
-          We redesign the way technology and Internet can offer
-          people new perspectives. We imagine what does not exist
-          and then we create it.
-        </div>
+    </div>
+    <div class="who">
+      <div class="title">MISSION</div>
+      <div class="description">
+        We redesign the way technology and Internet can offer
+        people new perspectives. We imagine what does not exist
+        and then we create it.
       </div>
-      <div class="who">
-        <div class="title">CONTENTS</div>
-        <div class="description">
-          “Inspiration exists, but it has to find you working”
-          Pablo Picasso
-        </div>
-        <div class="button">コンテンツをみる</div>
+    </div>
+    <div class="who gray">
+      <div class="title">CONTENTS</div>
+      <div class="description">
+        “Inspiration exists, but it has to find you working”
+        Pablo Picasso
       </div>
+      <div class="button">コンテンツをみる</div>
     </div>
   </div>
 </template>
@@ -216,9 +217,20 @@ export default {
       }
     }
   }
+  .who.gray {
+    background: linear-gradient(
+      rgba(65, 65, 65, 0) 0%,
+      rgba(65, 65, 65, 0.7) 50%,
+      rgba(65, 65, 65, 0) 100%
+    );
+    background: -webkit-linear-gradient(
+      rgba(65, 65, 65, 0) 0%,
+      rgba(65, 65, 65, 0.7) 50%,
+      rgba(65, 65, 65, 0) 100%
+    );
+  }
   .who {
-    margin: 120px auto;
-    width: calc(100% - 60px);
+    padding: 120px 30px;
     text-align: center;
     .title {
       font-size: 30px;
