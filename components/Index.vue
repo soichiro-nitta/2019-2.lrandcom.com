@@ -220,12 +220,16 @@ export default {
   .who.gray {
     background: linear-gradient(
       rgba(65, 65, 65, 0) 0%,
+      rgba(65, 65, 65, 0.6) 40%,
       rgba(65, 65, 65, 0.7) 50%,
+      rgba(65, 65, 65, 0.6) 60%,
       rgba(65, 65, 65, 0) 100%
     );
     background: -webkit-linear-gradient(
       rgba(65, 65, 65, 0) 0%,
+      rgba(65, 65, 65, 0.6) 40%,
       rgba(65, 65, 65, 0.7) 50%,
+      rgba(65, 65, 65, 0.6) 60%,
       rgba(65, 65, 65, 0) 100%
     );
   }
