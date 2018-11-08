@@ -35,33 +35,33 @@
             @click.native="close"
           >ホーム</nuxt-link>
         </li>
-        <li>
+        <!-- <li>
           <nuxt-link
             class="num2"
             to="/articles"
             @click.native="close"
           >記事を読む</nuxt-link>
-        </li>
+        </li> -->
         <li>
           <nuxt-link
             to="/contents"
             class="num1"
             @click.native="close"
-          >記事制作</nuxt-link>
+          >記事制作について</nuxt-link>
         </li>
         <li>
           <nuxt-link
             to="/film"
             class="num1"
             @click.native="close"
-          >映像制作</nuxt-link>
+          >映像制作について</nuxt-link>
         </li>
         <li>
           <nuxt-link
             to="/website"
             class="num2"
             @click.native="close"
-          >サイト制作</nuxt-link>
+          >サイト制作について</nuxt-link>
         </li>
         <li>
           <nuxt-link

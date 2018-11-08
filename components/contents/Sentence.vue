@@ -10,6 +10,8 @@
         Today we all integrate real life with the Internet.
         We interact through social media, shop online, play on virtual game platforms and new possibilities are increasingly appearing thanks to new services.
         The Gate project aims at making people’s life easier in this new era.
+        <br><br>
+        <div class="more">> もっと詳しく</div>
       </div>
     </section>
     <img src="https://lrandcom.com/wp-content/uploads/2014/08/starbucks_resized-1400x783.jpg">
@@ -37,7 +39,7 @@ export default {}
 <style lang="scss" scoped>
 .Sentence {
   .intro {
-    padding: 50px 30px;
+    padding: 60px 30px;
     font-size: 14px;
     line-height: 2;
   }
@@ -57,7 +59,7 @@ export default {}
     );
   }
   section {
-    padding: 50px;
+    padding: 60px 50px;
     overflow: hidden;
     .head {
       font-size: 20px;
@@ -68,6 +70,9 @@ export default {}
       margin-top: 50px;
       font-size: 14px;
       color: #999;
+      .more {
+        text-decoration: underline;
+      }
     }
   }
 }

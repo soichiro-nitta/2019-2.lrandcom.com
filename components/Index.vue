@@ -25,9 +25,7 @@
           </div>
           <div class="text">
             <div class="en">Create Cotnents</div>
-            <div class="ja">
-              記事制作
-            </div>
+            <div class="ja">記事制作について</div>
           </div>
         </nuxt-link>
       </li>
@@ -41,9 +39,7 @@
           </div>
           <div class="text">
             <div class="en">Crete Film</div>
-            <div class="ja">
-              映像制作
-            </div>
+            <div class="ja">映像制作について</div>
           </div>
         </nuxt-link>
       </li>
@@ -54,9 +50,7 @@
           </div>
           <div class="text">
             <div class="en">Create Website</div>
-            <div class="ja">
-              ウェブ制作
-            </div>
+            <div class="ja">ウェブ制作について</div>
           </div>
         </nuxt-link>
       </li>
