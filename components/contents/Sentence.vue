@@ -11,7 +11,9 @@
         We interact through social media, shop online, play on virtual game platforms and new possibilities are increasingly appearing thanks to new services.
         The Gate project aims at making people’s life easier in this new era.
         <br><br>
-        <div class="more">> もっと詳しく</div>
+        <div class="more">
+          <font-awesome-icon icon="arrow-right" /><span>もっと詳しく</span>
+        </div>
       </div>
     </section>
     <img src="https://lrandcom.com/wp-content/uploads/2014/08/starbucks_resized-1400x783.jpg">
@@ -72,6 +74,9 @@ export default {}
       color: #999;
       .more {
         text-decoration: underline;
+        span {
+          margin-left: 10px;
+        }
       }
     }
   }
