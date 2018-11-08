@@ -230,7 +230,7 @@ export default {
     );
   }
   .who {
-    padding: 120px 30px;
+    padding: 120px 50px;
     text-align: center;
     .title {
       font-size: 30px;
@@ -242,6 +242,7 @@ export default {
       font-size: 14px;
       overflow: hidden;
       line-height: 2;
+      color: #999;
     }
     .button {
       margin-top: 40px;

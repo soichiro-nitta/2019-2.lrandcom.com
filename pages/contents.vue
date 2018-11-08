@@ -1,14 +1,14 @@
 <template>
-  <Contents v-if="opening"/>
+  <Root v-if="opening"/>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import Contents from '~/components/Contents'
+import Root from '~/components/contents/Root'
 
 export default {
   components: {
-    Contents
+    Root
   },
   computed: {
     ...mapGetters({
