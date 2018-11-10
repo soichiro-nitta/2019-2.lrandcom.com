@@ -1,14 +1,14 @@
 <template>
-  <Index v-if="opening"/>
+  <Root v-if="opening"/>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import Index from '~/components/Index'
+import Root from '~/components/index/Root'
 
 export default {
   components: {
-    Index
+    Root
   },
   computed: {
     ...mapGetters({
@@ -20,11 +20,11 @@ export default {
   },
   head() {
     return {
-      title: 'Home',
+      title: 'ホーム',
       meta: [
         {
           property: 'og:title',
-          content: 'Home | リーディング＆カンパニー株式会社'
+          content: 'ホーム | リーディング＆カンパニー株式会社'
         },
         {
           property: 'og:url',
@@ -32,7 +32,7 @@ export default {
         },
         {
           property: 'twitter:title',
-          content: 'Home | リーディング＆カンパニー株式会社'
+          content: 'ホーム | リーディング＆カンパニー株式会社'
         }
       ]
     }
