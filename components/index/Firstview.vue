@@ -71,7 +71,7 @@ export default {
       line-height: 1;
       font-size: 18px;
       font-weight: bold;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
       overflow: hidden;
       .titleText {
         display: inline-block;
