@@ -28,9 +28,9 @@ export default {
           marginTop: 0,
           ease: Expo.easeOut
         })
-        TweenMax.to(this.$refs.logo, 2, {
+        TweenMax.to(this.$refs.logo, 1.7, {
           rotationY: 360,
-          ease: Back.easeOut.config(2)
+          ease: Back.easeOut.config(1.7)
         })
       })
     }
