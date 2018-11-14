@@ -12,7 +12,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { TweenMax, Expo } from 'gsap'
+import { TweenMax, Expo, Back } from 'gsap'
 
 export default {
   computed: {
@@ -30,7 +30,7 @@ export default {
         })
         TweenMax.to(this.$refs.logo, 2, {
           rotationY: 360,
-          ease: Expo.easeOut
+          ease: Back.easeOut.config(2)
         })
       })
     }
