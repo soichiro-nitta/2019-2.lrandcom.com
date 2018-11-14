@@ -2,25 +2,41 @@
   <div class="Loading">
     <div
       ref="border"
-      class="border"/>
+      class="border"
+    />
   </div>
 </template>
 
 <script>
-// import { mapGetters } from 'vuex'
 import { TweenMax, TimelineMax, Expo } from 'gsap'
 
 export default {
-  mounted() {
-    console.log('mounted')
+  async mounted() {
+    this.createTimeline()
     this.start()
+    await this.$delay(6000)
+    this.stop()
   },
   methods: {
-    start() {
-      const timeLine = new TimelineMax()
-      timeLine.repeat(-1)
+    createTimeline() {
+      this.tl = new TimelineMax()
+    },
+    stop() {
       requestAnimationFrame(() => {
-        timeLine
+        TweenMax.to(this.$refs.border, 0.5, {
+          scaleX: 0,
+          transformOrigin: 'right center',
+          ease: Expo.easeOut,
+          onComplete: () => {
+            this.tl.stop()
+          }
+        })
+      })
+    },
+    start() {
+      this.tl.repeat(-1)
+      requestAnimationFrame(() => {
+        this.tl
           .to(this.$refs.border, 0.5, {
             scaleX: 1,
             transformOrigin: 'left center',

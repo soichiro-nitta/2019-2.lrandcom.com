@@ -28,6 +28,10 @@ export default {
           marginTop: 0,
           ease: Expo.easeOut
         })
+        TweenMax.to(this.$refs.logo, 2, {
+          rotationY: 360,
+          ease: Expo.easeOut
+        })
       })
     }
   }
@@ -44,6 +48,7 @@ export default {
   overflow: hidden;
   border-radius: 50%;
   // mix-blend-mode: difference;
+  perspective: 5000px;
   img {
     margin-top: 100%;
     padding: 5px;
