@@ -110,22 +110,21 @@ export default {
   },
   watch: {
     async opening() {
-      await this.$delay(400)
+      await this.$delay(1000)
       requestAnimationFrame(() => {
-        TweenMax.to(this.$refs.border1, 0.5, {
+        TweenMax.to(this.$refs.border1, 0.7, {
           scaleX: 1,
-          ease: Expo.easeOut,
-          delay: 0.4
+          ease: Expo.easeOut
         })
-        TweenMax.to(this.$refs.border2, 0.5, {
+        TweenMax.to(this.$refs.border2, 0.7, {
           scaleX: 1,
           ease: Expo.easeOut,
-          delay: 0.5
+          delay: 0.1
         })
-        TweenMax.to(this.$refs.border3, 0.5, {
+        TweenMax.to(this.$refs.border3, 0.7, {
           scaleX: 1,
           ease: Expo.easeOut,
-          delay: 0.6
+          delay: 0.2
         })
       })
     }

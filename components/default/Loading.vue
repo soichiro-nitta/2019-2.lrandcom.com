@@ -13,9 +13,9 @@ import { TweenMax, TimelineMax, Expo } from 'gsap'
 export default {
   async mounted() {
     this.createTimeline()
-    this.start()
-    await this.$delay(6000)
-    this.stop()
+    // this.start()
+    // await this.$delay(6000)
+    // this.stop()
   },
   methods: {
     createTimeline() {
