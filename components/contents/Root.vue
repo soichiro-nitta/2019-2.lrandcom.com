@@ -2,20 +2,20 @@
   <div class="Root">
     <Firstview />
     <Sentence />
-    <BaseServices/>
+    <Services/>
   </div>
 </template>
 
 <script>
 import Firstview from './Firstview'
 import Sentence from './Sentence'
-import BaseServices from '~/components/BaseServices'
+import Services from '~/components/base/Services'
 
 export default {
   components: {
     Firstview,
     Sentence,
-    BaseServices
+    Services
   }
 }
 </script>

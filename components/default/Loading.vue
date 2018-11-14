@@ -1,0 +1,60 @@
+<template>
+  <div class="Loading">
+    <div
+      ref="border"
+      class="border"/>
+  </div>
+</template>
+
+<script>
+// import { mapGetters } from 'vuex'
+import { TweenMax, TimelineMax, Expo } from 'gsap'
+
+export default {
+  mounted() {
+    console.log('mounted')
+    this.start()
+  },
+  methods: {
+    start() {
+      const timeLine = new TimelineMax()
+      timeLine.repeat(-1)
+      requestAnimationFrame(() => {
+        timeLine
+          .to(this.$refs.border, 0.5, {
+            scaleX: 1,
+            transformOrigin: 'left center',
+            ease: Expo.easeIn
+          })
+          .to(this.$refs.border, 0.5, {
+            scaleX: 0,
+            transformOrigin: 'right center',
+            ease: Expo.easeOut
+          })
+      })
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.Loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 30px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: calc(45% - 80px);
+  height: 40px;
+  .border {
+    width: 100%;
+    height: 2px;
+    border-radius: 1px;
+    background: #999;
+    transform: scaleX(0);
+  }
+}
+</style>

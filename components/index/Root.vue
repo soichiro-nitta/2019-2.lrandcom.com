@@ -1,7 +1,7 @@
 <template>
   <div class="Root">
     <Firstview />
-    <BaseServices/>
+    <Services/>
     <div class="who">
       <div class="title">WHO</div>
       <div class="description">
@@ -43,12 +43,12 @@
 <script>
 import { TweenMax, Expo } from 'gsap'
 import Firstview from './Firstview'
-import BaseServices from '~/components/BaseServices'
+import Services from '~/components/base/Services'
 
 export default {
   components: {
     Firstview,
-    BaseServices
+    Services
   },
   mounted() {
     requestAnimationFrame(() => {

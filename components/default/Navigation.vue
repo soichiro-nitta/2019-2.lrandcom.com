@@ -1,5 +1,5 @@
 <template>
-  <div class="TheNavigation">
+  <div class="Navigation">
     <div
       ref="switch"
       class="switch"
@@ -158,19 +158,19 @@ export default {
           ease: Expo.easeOut,
           delay: 0.8
         })
-        TweenMax.to('.TheNavigation .menu .num1', 1, {
+        TweenMax.to('.Navigation .menu .num1', 1, {
           x: 0,
           opacity: 1,
           ease: Expo.easeOut,
           delay: 0.3
         })
-        TweenMax.to('.TheNavigation .menu .num2', 2, {
+        TweenMax.to('.Navigation .menu .num2', 2, {
           x: 0,
           opacity: 1,
           ease: Expo.easeOut,
           delay: 0.3
         })
-        TweenMax.to('.TheNavigation .menu .num3', 3, {
+        TweenMax.to('.Navigation .menu .num3', 3, {
           x: 0,
           opacity: 1,
           ease: Expo.easeOut,
@@ -204,17 +204,17 @@ export default {
           scaleX: 0,
           ease: Expo.easeOut
         })
-        TweenMax.to('.TheNavigation .menu .num1', 1, {
+        TweenMax.to('.Navigation .menu .num1', 1, {
           x: '40px',
           opacity: 0,
           ease: Expo.easeOut
         })
-        TweenMax.to('.TheNavigation .menu .num2', 1, {
+        TweenMax.to('.Navigation .menu .num2', 1, {
           x: '40px',
           opacity: 0,
           ease: Expo.easeOut
         })
-        TweenMax.to('.TheNavigation .menu .num3', 1, {
+        TweenMax.to('.Navigation .menu .num3', 1, {
           x: '40px',
           opacity: 0,
           ease: Expo.easeOut
@@ -226,7 +226,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.TheNavigation {
+.Navigation {
   .switch {
     position: fixed;
     top: 30px;

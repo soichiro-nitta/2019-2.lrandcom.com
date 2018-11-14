@@ -1,7 +1,7 @@
 <template>
   <nuxt-link
     to="/"
-    class="TheLogo"
+    class="Logo"
   >
     <img
       ref="logo"
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.TheLogo {
+.Logo {
   position: fixed;
   top: 30px;
   left: 30px;
