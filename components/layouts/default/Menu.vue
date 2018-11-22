@@ -1,27 +1,9 @@
 <template>
   <div class="Navigation">
     <div
-      ref="switch"
-      class="switch"
-      @click="open"
-    >
-      <div
-        ref="border1"
-        class="border1"
-      />
-      <div
-        ref="border2"
-        class="border2"
-      />
-      <div
-        ref="border3"
-        class="border3"
-      />
-    </div>
-    <div
       ref="mask"
       class="mask"
-      @click="close"
+      @click="click"
     />
     <div
       ref="menu"
@@ -32,49 +14,49 @@
           <nuxt-link
             to="/"
             class="num3"
-            @click.native="close"
+            @click.native="click"
           >ホーム</nuxt-link>
         </li>
         <!-- <li>
           <nuxt-link
             class="num2"
             to="/articles"
-            @click.native="close"
+            @click.native="click"
           >記事を読む</nuxt-link>
         </li> -->
         <li>
           <nuxt-link
             to="/contents"
             class="num1"
-            @click.native="close"
+            @click.native="click"
           >記事制作について</nuxt-link>
         </li>
         <li>
           <nuxt-link
             to="/film"
             class="num1"
-            @click.native="close"
+            @click.native="click"
           >映像制作について</nuxt-link>
         </li>
         <li>
           <nuxt-link
             to="/website"
             class="num2"
-            @click.native="close"
+            @click.native="click"
           >サイト制作について</nuxt-link>
         </li>
         <li>
           <nuxt-link
             to="/contact"
             class="num3"
-            @click.native="close"
+            @click.native="click"
           >お問い合わせ</nuxt-link>
         </li>
       </ul>
       <div
         ref="close"
         class="close"
-        @click="close"
+        @click="click"
       />
       <div
         ref="closeLine1"
@@ -99,39 +81,27 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import { TweenMax, Expo } from 'gsap'
 
 export default {
-  computed: {
-    ...mapGetters({
-      opening: 'opening'
-    })
+  props: {
+    menu: {
+      type: Boolean,
+      required: true
+    }
   },
   watch: {
-    async opening() {
-      await this.$delay(1000)
-      requestAnimationFrame(() => {
-        TweenMax.to(this.$refs.border1, 0.7, {
-          scaleX: 1,
-          ease: Expo.easeOut
-        })
-        TweenMax.to(this.$refs.border2, 0.7, {
-          scaleX: 1,
-          ease: Expo.easeOut,
-          delay: 0.1
-        })
-        TweenMax.to(this.$refs.border3, 0.7, {
-          scaleX: 1,
-          ease: Expo.easeOut,
-          delay: 0.2
-        })
-      })
+    menu(menu) {
+      // await this.$delay(1000)
+      menu ? this.tweenIn() : this.tweenOut()
+      // this.tweenIn()
     }
   },
   methods: {
-    open() {
-      console.log('open')
+    click() {
+      this.$emit('closeMenu')
+    },
+    tweenIn() {
       this.$refs.mask.style.display = 'block'
       requestAnimationFrame(() => {
         TweenMax.to(this.$refs.mask, 1, {
@@ -177,8 +147,7 @@ export default {
         })
       })
     },
-    close() {
-      console.log('close')
+    tweenOut() {
       requestAnimationFrame(() => {
         TweenMax.to(this.$refs.mask, 1, {
           opacity: 0,
@@ -226,47 +195,6 @@ export default {
 
 <style lang="scss" scoped>
 .Navigation {
-  .switch {
-    position: fixed;
-    top: 30px;
-    right: 30px;
-    width: 40px;
-    height: 40px;
-    // mix-blend-mode: difference;
-    .border1,
-    .border2,
-    .border3 {
-      position: absolute;
-      right: 0;
-      left: 0;
-      margin: auto;
-      height: 2px;
-      background: #fff;
-      border-radius: 1px;
-    }
-    .border1 {
-      top: 16.5px;
-      width: 10px;
-      transform: scaleX(0);
-      transform-origin: center right;
-    }
-    .border2 {
-      top: 23.5px;
-      width: 15px;
-      transform: scaleX(0);
-      transform-origin: center left;
-    }
-    .border3 {
-      top: 30.5px;
-      width: 10px;
-      transform: scaleX(0);
-      transform-origin: center right;
-    }
-  }
-  img {
-    width: 40px;
-    height: 40px;
-  }
   .menu {
     display: flex;
     justify-content: center;

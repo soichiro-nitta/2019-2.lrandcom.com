@@ -1,5 +1,5 @@
 <template>
-  <div class="Root">
+  <div class="Page">
     <Firstview />
     <Sentence />
     <Services/>
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.Root {
+.Page {
   padding-bottom: 30px;
   width: 100%;
   .BaseServices {
