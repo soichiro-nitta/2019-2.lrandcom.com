@@ -1,11 +1,11 @@
 <template>
   <div class="Menu">
     <MenuShape :menu="menu"/>
-    <MenuClose
+    <MenuList
       :menu="menu"
       @closeMenu="closeMenu"
     />
-    <MenuList
+    <MenuClose
       :menu="menu"
       @closeMenu="closeMenu"
     />

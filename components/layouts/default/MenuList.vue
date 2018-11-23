@@ -6,7 +6,7 @@
           to="/"
           @click.native="closeMenu"
         >
-          <span >ホーム</span>
+          <span>ホーム</span>
         </nuxt-link>
       </li>
       <li>
@@ -72,7 +72,7 @@ export default {
     in() {
       requestAnimationFrame(() => {
         TweenMax.staggerTo(
-          '.MenuList li',
+          '.MenuList li span',
           0.7,
           {
             x: '0%',
@@ -85,7 +85,7 @@ export default {
     out() {
       requestAnimationFrame(() => {
         TweenMax.staggerTo(
-          '.MenuList li:nth-child(odd)',
+          '.MenuList li:nth-child(odd) span',
           0.42,
           {
             x: '100%',
@@ -94,7 +94,7 @@ export default {
           0.06
         )
         TweenMax.staggerTo(
-          '.MenuList li:nth-child(even)',
+          '.MenuList li:nth-child(even) span',
           0.42,
           {
             x: '-100%',
@@ -121,10 +121,8 @@ export default {
   width: 100%;
   height: 100%;
   ul {
-    overflow: hidden;
+    text-align: center;
     li {
-      transform: translateX(100%);
-      text-align: center;
       a {
         display: inline-block;
         font-size: 15px;
@@ -135,6 +133,12 @@ export default {
           display: inline-block;
         }
       }
+    }
+    li:nth-child(odd) span {
+      transform: translateX(100%);
+    }
+    li:nth-child(even) span {
+      transform: translateX(-100%);
     }
     li:not(:last-child) {
       margin-bottom: 30px;
