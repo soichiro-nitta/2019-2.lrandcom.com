@@ -58,7 +58,7 @@ export default {
   watch: {
     async menu(menu) {
       if (menu) {
-        await this.$delay(500)
+        await this.$delay(600)
         this.in()
       } else {
         this.out()
