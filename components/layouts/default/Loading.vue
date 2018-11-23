@@ -55,22 +55,27 @@ export default {
 
 <style lang="scss" scoped>
 .Loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: fixed;
-  top: 30px;
+  top: 0;
   left: 0;
-  right: 0;
-  margin: auto;
-  width: calc(45% - 80px);
-  height: 40px;
-  .border {
-    width: 100%;
-    height: 2px;
-    border-radius: 1px;
-    background: #999;
-    transform: scaleX(0);
-  }
+  width: 100%;
+  height: 100px;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // position: fixed;
+  // top: 30px;
+  // left: 0;
+  // right: 0;
+  // margin: auto;
+  // width: calc(45% - 80px);
+  // height: 40px;
+  // .border {
+  //   width: 100%;
+  //   height: 2px;
+  //   border-radius: 1px;
+  //   background: #999;
+  //   transform: scaleX(0);
+  // }
 }
 </style>

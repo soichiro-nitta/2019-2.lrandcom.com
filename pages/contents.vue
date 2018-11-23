@@ -4,7 +4,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Page from '~/components/pages/index/Page'
+import Page from '~/components/pages/contents/Page'
 
 export default {
   components: {

@@ -4,8 +4,9 @@
     <div id="scrollArea">
       <nuxt/>
     </div>
-    <Logo/>
+    <Gradient/>
     <Loading/>
+    <Logo/>
     <Burger
       :opening="opening"
       :menu="menu"
@@ -26,6 +27,7 @@
 <script>
 import { mapGetters, mapMutations } from 'vuex'
 import Background from './Background'
+import Gradient from './Gradient'
 import Logo from './Logo'
 import Loading from './Loading'
 import Burger from './Burger'
@@ -36,6 +38,7 @@ import Opening from './Opening'
 export default {
   components: {
     Background,
+    Gradient,
     Logo,
     Loading,
     Burger,
