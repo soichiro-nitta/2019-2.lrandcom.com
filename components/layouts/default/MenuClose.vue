@@ -39,7 +39,7 @@ export default {
   watch: {
     async menu(menu) {
       if (menu) {
-        await this.$delay(700)
+        await this.$delay(500)
         this.in()
       } else {
         this.out()
@@ -59,19 +59,19 @@ export default {
         TweenMax.to(this.$refs.closeLine1Inner, 0.5, {
           scaleX: 1,
           ease: Expo.easeOut,
-          delay: 0.3
+          delay: 0.5
         })
         TweenMax.to(this.$refs.closeLine2Inner, 0.5, {
           scaleX: 1,
           ease: Expo.easeOut,
-          delay: 0.4
+          delay: 0.6
         })
       })
     },
     out() {
       requestAnimationFrame(() => {
-        TweenMax.to(this.$refs.close, 1, {
-          left: 0,
+        TweenMax.to(this.$refs.close, 0.5, {
+          left: '100%',
           ease: Expo.easeInOut
         })
         TweenMax.to(this.$refs.closeLine1Inner, 0.5, {
@@ -93,7 +93,7 @@ export default {
   .close {
     position: absolute;
     top: calc(50% - 50px);
-    left: 0;
+    left: 100%;
     width: 100px;
     height: 100px;
     background: #171717;

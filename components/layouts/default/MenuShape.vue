@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="Shade"
-    @click="click"
-  />
+  <div class="MenuShape"/>
 </template>
 
 <script>
@@ -18,34 +15,27 @@ export default {
   watch: {
     async menu(menu) {
       if (menu) {
+        await this.$delay(500)
         this.in()
       } else {
-        await this.$delay(500)
         this.out()
       }
     }
   },
   methods: {
-    click() {
-      this.$emit('closeMenu')
-    },
     in() {
-      this.$el.style.display = 'block'
       requestAnimationFrame(() => {
-        TweenMax.to(this.$el, 1, {
-          opacity: 0.5,
+        TweenMax.to(this.$el, 0.7, {
+          right: 0,
           ease: Expo.easeOut
         })
       })
     },
     out() {
       requestAnimationFrame(() => {
-        TweenMax.to(this.$el, 1, {
-          opacity: 0,
-          ease: Expo.easeOut,
-          onComplete: () => {
-            this.$el.style.display = 'none'
-          }
+        TweenMax.to(this.$el, 0.7, {
+          right: '-300px',
+          ease: Expo.easeInOut
         })
       })
     }
@@ -54,14 +44,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.Shade {
-  display: none;
-  position: fixed;
+.MenuShape {
+  position: absolute;
   top: 0;
-  left: 0;
+  right: -300px;
   width: 100%;
   height: 100%;
-  background: black;
-  opacity: 0;
+  background: #171717;
 }
 </style>
