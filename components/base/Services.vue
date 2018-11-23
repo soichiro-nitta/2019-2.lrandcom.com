@@ -31,7 +31,7 @@
         </nuxt-link>
       </li>
       <li class="web">
-        <nuxt-link to="web">
+        <nuxt-link to="website">
           <div class="thumb">
             <img src="/svg/website.svg">
           </div>

@@ -1,14 +1,14 @@
 <template>
-  <Film v-if="opening"/>
+  <Page v-if="opening"/>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import Film from '~/components/Film'
+import Page from '~/components/pages/film/Page'
 
 export default {
   components: {
-    Film
+    Page
   },
   computed: {
     ...mapGetters({

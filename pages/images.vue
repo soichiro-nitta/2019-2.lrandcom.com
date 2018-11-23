@@ -4,7 +4,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Page from '~/components/pages/website/Page'
+import Page from '~/components/pages/images/Page'
 
 export default {
   components: {
@@ -20,19 +20,19 @@ export default {
   },
   head() {
     return {
-      title: 'サイト制作について',
+      title: 'アイキャッチ一覧',
       meta: [
         {
           property: 'og:title',
-          content: 'サイト制作について | リーディング＆カンパニー株式会社'
+          content: 'アイキャッチ一覧 | リーディング＆カンパニー株式会社'
         },
         {
           property: 'og:url',
-          content: 'https://lrandcom.netlify.com/website'
+          content: 'https://lrandcom.netlify.com/images'
         },
         {
           property: 'twitter:title',
-          content: 'サイト制作について | リーディング＆カンパニー株式会社'
+          content: 'アイキャッチ一覧 | リーディング＆カンパニー株式会社'
         }
       ]
     }
