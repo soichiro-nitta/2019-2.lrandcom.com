@@ -1,6 +1,6 @@
 <template>
   <div
-    class="switch"
+    class="Burger"
     @click="click"
   >
     <div
@@ -26,19 +26,31 @@ export default {
     opening: {
       type: Boolean,
       required: true
+    },
+    menu: {
+      type: Boolean,
+      required: true
     }
   },
   watch: {
     async opening() {
       await this.$delay(1000)
-      this.tweenIn()
+      this.in()
+    },
+    async menu(menu) {
+      if (menu) {
+        this.out()
+      } else {
+        await this.$delay(500)
+        this.in()
+      }
     }
   },
   methods: {
     click() {
       this.$emit('openMenu')
     },
-    tweenIn() {
+    in() {
       requestAnimationFrame(() => {
         TweenMax.to(this.$refs.border1, 0.7, {
           scaleX: 1,
@@ -55,13 +67,31 @@ export default {
           delay: 0.2
         })
       })
+    },
+    out() {
+      requestAnimationFrame(() => {
+        TweenMax.to(this.$refs.border1, 0.7, {
+          scaleX: 0,
+          ease: Expo.easeOut
+        })
+        TweenMax.to(this.$refs.border2, 0.7, {
+          scaleX: 0,
+          ease: Expo.easeOut,
+          delay: 0.1
+        })
+        TweenMax.to(this.$refs.border3, 0.7, {
+          scaleX: 0,
+          ease: Expo.easeOut,
+          delay: 0.2
+        })
+      })
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.switch {
+.Burger {
   position: fixed;
   top: 30px;
   right: 30px;

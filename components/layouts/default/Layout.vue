@@ -8,7 +8,12 @@
     <Loading/>
     <Burger
       :opening="opening"
+      :menu="menu"
       @openMenu="openMenu"
+    />
+    <Shade
+      :menu="menu"
+      @closeMenu="closeMenu"
     />
     <Menu
       :menu="menu"
@@ -24,6 +29,7 @@ import Background from './Background'
 import Logo from './Logo'
 import Loading from './Loading'
 import Burger from './Burger'
+import Shade from './Shade'
 import Menu from './Menu'
 import Opening from './Opening'
 
@@ -33,6 +39,7 @@ export default {
     Logo,
     Loading,
     Burger,
+    Shade,
     Menu,
     Opening
   },
@@ -43,7 +50,6 @@ export default {
     })
   },
   mounted() {
-    console.log('opening: ' + this.opening)
     this.isDev()
   },
   methods: {
