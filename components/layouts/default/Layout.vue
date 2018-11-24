@@ -54,12 +54,12 @@ export default {
   },
   methods: {
     isDev() {
-      if (!this.$device.isMobile) {
-        this.$nuxt.error({
-          statusCode: 777,
-          message: 'Desktop is not implemented yet'
-        })
-      }
+      // if (!this.$device.isMobile) {
+      //   this.$nuxt.error({
+      //     statusCode: 777,
+      //     message: 'Desktop is not implemented yet'
+      //   })
+      // }
       // const progress = document.getElementsByClassName('nuxt-progress')[0]
       // progress.style.height = this.$device.isMobile ? '10px' : '20px'
     },

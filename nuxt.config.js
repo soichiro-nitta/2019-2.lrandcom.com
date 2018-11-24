@@ -1,3 +1,5 @@
+import URL from './assets/data/url.json'
+
 module.exports = {
   mode: 'universal',
 
@@ -39,7 +41,7 @@ module.exports = {
   ** Customize the progress-bar color
   */
   loading: {
-    color: '#555',
+    color: '#333',
     height: '5px'
   },
 
@@ -51,18 +53,27 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['~/plugins/mixin', '~/plugins/fontawesome'],
+  plugins: ['~/plugins/mixin', '~/plugins/fontawesome', '~/plugins/axios'],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
     'nuxt-device-detect',
+    '@nuxtjs/axios',
     [
       'nuxt-sass-resources-loader',
       ['~/assets/scss/variable.scss', '~/assets/scss/mixins.scss']
     ]
   ],
+
+  /*
+  ** Axios
+  */
+  axios: {
+    credentials: true,
+    baseURL: URL.WP_API
+  },
 
   /*
   ** Build configuration

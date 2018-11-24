@@ -58,7 +58,7 @@ export default {
   watch: {
     async menu(menu) {
       if (menu) {
-        await this.$delay(500)
+        await this.$delay(600)
         this.in()
       } else {
         this.out()
@@ -73,12 +73,12 @@ export default {
       requestAnimationFrame(() => {
         TweenMax.staggerTo(
           '.MenuList li span',
-          0.56,
+          0.42,
           {
             x: '0%',
             ease: Expo.easeOut
           },
-          0.08
+          0.06
         )
       })
     },
