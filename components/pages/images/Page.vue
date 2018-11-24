@@ -38,7 +38,10 @@ export default {
 <style lang="scss" scoped>
 .Page {
   display: inline-block;
-  width: 20%;
+  width: 100%;
+  @include pc {
+    width: 20%;
+  }
   height: 150px;
   overflow: hidden;
   img {

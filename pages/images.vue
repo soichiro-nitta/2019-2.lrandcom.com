@@ -85,7 +85,9 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between;
   align-content: space-between;
-  padding: 100px;
   overflow: hidden;
+  @include pc {
+    padding: 100px;
+  }
 }
 </style>
