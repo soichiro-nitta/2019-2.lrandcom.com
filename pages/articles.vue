@@ -1,5 +1,8 @@
 <template>
-  <Page v-if="opening"/>
+  <Page
+    v-if="opening"
+    :articles="articles"
+  />
 </template>
 
 <script>
@@ -12,23 +15,30 @@ export default {
   },
   computed: {
     ...mapGetters({
-      opening: 'opening'
+      opening: 'opening',
+      articles: 'articles/articles'
+    })
+  },
+  async fetch({ store, params }) {
+    store.commit('articles/initArticles')
+    await store.dispatch('articles/fetchArticles', {
+      categoryId: 8
     })
   },
   mounted() {
     document.getElementById('scrollArea').scrollTop = 0
-    this.initArticles()
-    this.fetchArticles({
-      categoryId: 8
-    })
+    // this.initArticles()
+    // this.fetchArticles({
+    //   categoryId: 8
+    // })
   },
   methods: {
-    ...mapMutations({
-      initArticles: 'articles/initArticles'
-    }),
-    ...mapActions({
-      fetchArticles: 'articles/fetchArticles'
-    })
+    // ...mapMutations({
+    //   initArticles: 'articles/initArticles'
+    // }),
+    // ...mapActions({
+    //   fetchArticles: 'articles/fetchArticles'
+    // })
   },
   head() {
     return {

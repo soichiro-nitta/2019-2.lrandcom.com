@@ -1,9 +1,16 @@
 <template>
   <div class="Page">
     articles page
-    <Firstview />
+    <div
+      v-for="(article, index) in articles"
+      :data-index="index"
+      :key="article.title"
+    >
+      {{ article.title }}
+    </div>
+    <!-- <Firstview />
     <Sentence />
-    <Services/>
+    <Services/> -->
   </div>
 </template>
 
@@ -17,6 +24,15 @@ export default {
     Firstview,
     Sentence,
     Services
+  },
+  props: {
+    articles: {
+      type: Array,
+      default: () => {
+        return []
+      },
+      required: false
+    }
   }
 }
 </script>
