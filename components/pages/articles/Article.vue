@@ -27,7 +27,7 @@ import { TweenMax, Expo } from 'gsap'
 export default {
   props: {
     article: {
-      type: Array,
+      type: Object,
       required: true
     }
   },
