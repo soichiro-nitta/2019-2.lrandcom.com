@@ -54,7 +54,7 @@ export default {
   .thumb {
     position: relative;
     width: 100%;
-    height: 35vh;
+    height: 30vh;
     overflow: hidden;
     img {
       width: 100%;
@@ -75,7 +75,7 @@ export default {
     }
   }
   .bottom {
-    padding: 25px 20px;
+    padding: 20px;
     width: 100%;
     .date {
       position: relative;
@@ -90,7 +90,7 @@ export default {
       position: relative;
       display: inline-block;
       line-height: 1.7;
-      font-size: 12px;
+      font-size: 14px;
       font-weight: bold;
       overflow: hidden;
     }
