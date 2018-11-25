@@ -58,7 +58,7 @@ export default {
   watch: {
     async menu(menu) {
       if (menu) {
-        await this.$delay(600)
+        await this.$delay(500)
         this.in()
       } else {
         this.out()
@@ -73,35 +73,25 @@ export default {
       requestAnimationFrame(() => {
         TweenMax.staggerTo(
           '.MenuList li span',
-          0.42,
+          1,
           {
-            x: '0%',
+            y: '0%',
             ease: Expo.easeOut
           },
-          0.06
+          0.05
         )
       })
     },
     out() {
       requestAnimationFrame(() => {
         TweenMax.staggerTo(
-          '.MenuList li:nth-child(odd) span',
-          0.42,
+          '.MenuList li span',
+          0.5,
           {
-            x: '100%',
+            y: '100%',
             ease: Expo.easeOut
           },
-          0.06
-        )
-        TweenMax.staggerTo(
-          '.MenuList li:nth-child(even) span',
-          0.42,
-          {
-            x: '-100%',
-            ease: Expo.easeOut,
-            delay: 0.06
-          },
-          0.06
+          0.05
         )
       })
     }
@@ -131,14 +121,9 @@ export default {
         overflow: hidden;
         span {
           display: inline-block;
+          transform: translateY(100%);
         }
       }
-    }
-    li:nth-child(odd) span {
-      transform: translateX(100%);
-    }
-    li:nth-child(even) span {
-      transform: translateX(-100%);
     }
     li:not(:last-child) {
       margin-bottom: 30px;
