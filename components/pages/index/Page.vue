@@ -35,7 +35,12 @@
         “Inspiration exists, but it has to find you working”
         Pablo Picasso
       </div>
-      <div class="button">コンテンツをみる</div>
+      <nuxt-link
+        to="/articles"
+        class="button"
+      >
+        コンテンツをみる
+      </nuxt-link>
     </div>
   </div>
 </template>

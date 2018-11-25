@@ -1,29 +1,22 @@
 <template>
   <div class="Page">
-    articles page
-    <div
+    <Article
       v-for="(article, index) in articles"
+      :article="article"
+      :key="article.index"
       :data-index="index"
-      :key="article.title"
-    >
-      {{ article.title }}
-    </div>
-    <!-- <Firstview />
-    <Sentence />
+    />
+    <!-- <Sentence />
     <Services/> -->
   </div>
 </template>
 
 <script>
-import Firstview from './Firstview'
-import Sentence from './Sentence'
-import Services from '~/components/base/Services'
+import Article from './Article'
 
 export default {
   components: {
-    Firstview,
-    Sentence,
-    Services
+    Article
   },
   props: {
     articles: {
@@ -39,7 +32,7 @@ export default {
 
 <style lang="scss" scoped>
 .Page {
-  padding-bottom: 30px;
+  padding: 70px 0;
   width: 100%;
   .BaseServices {
     margin-top: 30px;

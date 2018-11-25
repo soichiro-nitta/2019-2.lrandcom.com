@@ -48,7 +48,6 @@ export const actions = {
       let articles = []
       for (let i = 0; i < data.length; i++) {
         const date = new Date(data[i]['date'])
-        console.log(data[i]['date'])
         articles[i] = {
           index: total - state.count * state.perPage - i,
           title: data[i]['title']['rendered'],

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 import Page from '~/components/pages/articles/Page'
 
 export default {
@@ -27,18 +27,6 @@ export default {
   },
   mounted() {
     document.getElementById('scrollArea').scrollTop = 0
-    // this.initArticles()
-    // this.fetchArticles({
-    //   categoryId: 8
-    // })
-  },
-  methods: {
-    // ...mapMutations({
-    //   initArticles: 'articles/initArticles'
-    // }),
-    // ...mapActions({
-    //   fetchArticles: 'articles/fetchArticles'
-    // })
   },
   head() {
     return {
