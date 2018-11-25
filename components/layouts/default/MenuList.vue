@@ -11,6 +11,14 @@
       </li>
       <li>
         <nuxt-link
+          to="/articles"
+          @click.native="closeMenu"
+        >
+          <span>コンテンツを読む</span>
+        </nuxt-link>
+      </li>
+      <li>
+        <nuxt-link
           to="/contents"
           @click.native="closeMenu"
         >
@@ -91,7 +99,7 @@ export default {
             y: '100%',
             ease: Expo.easeOut
           },
-          0.05
+          0.025
         )
       })
     }
