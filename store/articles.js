@@ -1,6 +1,6 @@
 export const state = () => ({
   count: 0,
-  perPage: 10,
+  perPage: 30,
   articles: [],
   end: false,
   total: 0
