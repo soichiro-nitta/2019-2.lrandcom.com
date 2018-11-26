@@ -1,10 +1,6 @@
 <template>
   <div class="Firstview">
     <div
-      ref="gradient"
-      class="gradient"
-    />
-    <div
       ref="thumb"
       class="thumb"
     >
@@ -42,7 +38,7 @@ export default {
   mounted() {
     this.$imageOnLoad(this.src, () => {
       requestAnimationFrame(() => {
-        TweenMax.to(this.$refs.thumb, 1.5, {
+        TweenMax.to(this.$refs.thumb, 1, {
           height: '100%',
           ease: Expo.easeOut
         })
@@ -68,21 +64,8 @@ export default {
   width: 100%;
   height: 65vh;
   overflow: hidden;
-  .gradient {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      rgba(65, 65, 65, 0.8) 0%,
-      rgba(65, 65, 65, 0) 100%
-    );
-    background: -webkit-linear-gradient(
-      rgba(65, 65, 65, 0.8) 0%,
-      rgba(65, 65, 65, 0) 100%
-    );
-    transform: translate(0, -100%);
-  }
   .thumb {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -96,10 +79,10 @@ export default {
     }
     .mask {
       position: absolute;
-      top: -1%;
-      left: -1%;
-      width: 102%;
-      height: 66vh;
+      top: -2%;
+      left: -2%;
+      width: 104%;
+      height: calc(65vh + 4%);
       background: linear-gradient(
         rgba(75, 75, 75, 0) 0%,
         rgba(0, 0, 0, 1) 100%
