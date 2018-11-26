@@ -129,9 +129,6 @@ module.exports = {
           payload: article
         }
       })
-    },
-    minify: {
-      collapseWhitespace: false
     }
   }
 }
