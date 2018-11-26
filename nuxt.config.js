@@ -1,4 +1,5 @@
 import URL from './assets/data/url.json'
+import axios from 'axios'
 
 module.exports = {
   mode: 'universal',
@@ -100,6 +101,35 @@ module.exports = {
   ** Generate configuration
   */
   generate: {
+    routes: async () => {
+      let articles = []
+      const { headers } = await axios.get(`${URL.WP_API}/?_embed`)
+      const total = headers['x-wp-total']
+      let remainder = total
+
+      if (total <= 100) {
+        const { data } = await axios.get(`${URL.WP_API}/?_embed&per_page=100`)
+        articles = data
+      } else {
+        for (; remainder >= 100; remainder -= 100) {
+          const { data } = await axios.get(
+            `${URL.WP_API}/?_embed&per_page=100&offset=${total - remainder}`
+          )
+          articles = articles.concat(data)
+        }
+        const { data } = await axios.get(
+          `${URL.WP_API}/?_embed&per_page=${remainder}&offset=${total -
+            remainder}`
+        )
+        articles = articles.concat(data)
+      }
+      return articles.map(article => {
+        return {
+          route: `/${article.slug}`,
+          payload: article
+        }
+      })
+    },
     minify: {
       collapseWhitespace: false
     }
