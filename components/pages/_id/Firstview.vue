@@ -42,18 +42,18 @@ export default {
   mounted() {
     this.$imageOnLoad(this.src, () => {
       requestAnimationFrame(() => {
-        TweenMax.to(this.$refs.thumb, 1, {
+        TweenMax.to(this.$refs.thumb, 1.5, {
           height: '100%',
+          ease: Expo.easeOut
+        })
+        TweenMax.to(this.$refs.titleText, 1.5, {
+          y: 0,
           ease: Expo.easeOut
         })
       })
     })
     requestAnimationFrame(() => {
       TweenMax.to(this.$refs.gradient, 3, {
-        y: 0,
-        ease: Expo.easeOut
-      })
-      TweenMax.to(this.$refs.titleText, 1, {
         y: 0,
         ease: Expo.easeOut
       })
@@ -99,7 +99,7 @@ export default {
       top: -1%;
       left: -1%;
       width: 102%;
-      height: 102%;
+      height: 66vh;
       background: linear-gradient(
         rgba(75, 75, 75, 0) 0%,
         rgba(0, 0, 0, 1) 100%

@@ -1,31 +1,18 @@
 // import { url } from '~/assets/data/config.json'
 
 export const state = () => ({
-  isLp: false,
   article: [],
-  random: [],
   ranking: []
 })
 
 export const getters = {
-  isLp: state => state.isLp,
   article: state => state.article,
-  random: state => state.random,
   ranking: state => state.ranking
 }
 
 export const mutations = {
-  init(state) {
-    state.isLp = false
-  },
-  lp(state) {
-    state.isLp = true
-  },
   setArticle(state, article) {
     state.article = article
-  },
-  setRandom(state, random) {
-    state.random = random
   },
   setRanking(state, ranking) {
     state.ranking = ranking
