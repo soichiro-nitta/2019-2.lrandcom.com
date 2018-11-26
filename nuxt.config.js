@@ -1,8 +1,8 @@
 import URL from './assets/data/url.json'
 
 module.exports = {
-  // mode: 'universal',
-  mode: 'spa',
+  mode: 'universal',
+  // mode: 'spa',
 
   /*
   ** Headers of the page
