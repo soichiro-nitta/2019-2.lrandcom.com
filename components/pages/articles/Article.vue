@@ -1,5 +1,8 @@
 <template>
-  <div class="Article">
+  <nuxt-link
+    :to="`/${article.slug}`"
+    class="Article"
+  >
     <div class="thumb">
       <img
         ref="src"
@@ -18,7 +21,7 @@
         {{ article.title }}
       </div>
     </div>
-  </div>
+  </nuxt-link>
 </template>
 
 <script>
@@ -46,6 +49,7 @@ export default {
 
 <style lang="scss" scoped>
 .Article {
+  display: block;
   margin: 30px auto 0;
   width: calc(100% - 60px);
   overflow: hidden;
