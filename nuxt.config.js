@@ -1,6 +1,5 @@
 import URL from './assets/data/url.json'
 import axios from 'axios'
-axios.defaults.withCredentials = true
 
 module.exports = {
   mode: 'universal',
@@ -103,6 +102,7 @@ module.exports = {
   */
   generate: {
     routes: async () => {
+      axios.defaults.withCredentials = true
       let articles = []
       const { headers } = await axios.get(`${URL.WP_API}/?_embed`)
       const total = headers['x-wp-total']
