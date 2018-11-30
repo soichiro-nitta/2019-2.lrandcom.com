@@ -105,7 +105,6 @@ module.exports = {
       let articles = []
       const { headers } = await axios.get(`${URL.WP_API}/?_embed`)
       const total = headers['x-wp-total']
-      console.log('tota: ' + total)
       let remainder = total
 
       if (total <= 100) {
