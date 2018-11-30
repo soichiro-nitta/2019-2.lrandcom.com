@@ -1,5 +1,6 @@
 import URL from './assets/data/url.json'
 import axios from 'axios'
+axios.defaults.withCredentials = true
 
 module.exports = {
   mode: 'universal',
