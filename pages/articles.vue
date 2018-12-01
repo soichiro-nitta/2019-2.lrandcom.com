@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import URL from '~/assets/data/url.json'
+import axios from 'axios'
 import { mapGetters } from 'vuex'
 import Page from '~/components/pages/articles/Page'
 
@@ -25,8 +27,11 @@ export default {
       categoryId: 8
     })
   },
-  mounted() {
+  async mounted() {
+    axios.defaults.withCredentials = true
     document.getElementById('scrollArea').scrollTop = 0
+    const { data } = await axios.get(`${URL.WP_API}/?_embed&per_page=100`)
+    console.log(data.length)
   },
   head() {
     return {
