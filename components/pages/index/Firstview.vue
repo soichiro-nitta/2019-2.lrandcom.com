@@ -31,12 +31,13 @@
 </template>
 
 <script>
+import URL from '~/assets/data/url.json'
 import { TweenMax, Expo } from 'gsap'
 
 export default {
   data() {
     return {
-      src: '/top.mp4'
+      src: `${URL.WP}/static/top.mp4`
     }
   },
   mounted() {
