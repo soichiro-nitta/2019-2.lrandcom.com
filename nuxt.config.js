@@ -104,6 +104,7 @@ module.exports = {
     routes: async () => {
       const instance = axios.create({
         baseURL: URL.WP_API,
+        // baseURL: 'https://media-wp.housecom.jp/wp-json/wp/v2/posts',
         withCredentials: true,
         responseType: 'json',
         responseEncoding: 'utf8'
@@ -113,7 +114,7 @@ module.exports = {
       // let remainder = total
 
       // if (total <= 100) {
-      const perPage = 20
+      const perPage = 30
       console.log('----------------------')
       console.log(perPage)
       console.log('----------------------')

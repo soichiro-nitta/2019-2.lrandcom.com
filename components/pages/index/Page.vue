@@ -76,6 +76,9 @@ export default {
 .Page {
   padding-bottom: 30px;
   width: 100%;
+  .BaseServices {
+    margin-top: 10px;
+  }
   ul {
     li {
       margin: 0 auto 20px;
