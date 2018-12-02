@@ -57,9 +57,10 @@ export default {
       this.$refs.video.load()
       const canplay = () => {
         this.$refs.video.removeEventListener('canplay', canplay)
-        const duration = this.$refs.video.duration // 動画の尺
-        const rand = Math.floor(Math.random() * (duration + 1 - 0)) // 0 ~ durationの乱数
-        this.$refs.video.currentTime = rand // 再生開始時間を指定
+        // const duration = this.$refs.video.duration // 動画の尺
+        // const rand = Math.floor(Math.random() * (duration + 1 - 0)) // 0 ~ durationの乱数
+        // this.$refs.video.currentTime = rand // 再生開始時間を指定
+        this.$refs.video.play()
         requestAnimationFrame(() => {
           TweenMax.to(this.$refs.video, 8.5, {
             opacity: 1,
@@ -70,7 +71,6 @@ export default {
             ease: Expo.easeInOut
           })
         })
-        this.$refs.video.play()
       }
       this.$refs.video.addEventListener('canplay', canplay)
     }
