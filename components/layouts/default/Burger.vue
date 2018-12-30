@@ -110,19 +110,19 @@ export default {
     border-radius: 1px;
   }
   .border1 {
-    top: 16.5px;
+    top: 11px;
     width: 10px;
     transform: scaleX(0);
     transform-origin: center right;
   }
   .border2 {
-    top: 23.5px;
+    top: 19px;
     width: 15px;
     transform: scaleX(0);
     transform-origin: center left;
   }
   .border3 {
-    top: 30.5px;
+    top: 27px;
     width: 10px;
     transform: scaleX(0);
     transform-origin: center right;
