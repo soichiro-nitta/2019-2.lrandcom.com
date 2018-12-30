@@ -41,17 +41,16 @@ export default {
 <style lang="scss" scoped>
 .Logo {
   position: fixed;
-  top: 30px;
-  left: 30px;
-  width: 40px;
-  height: 40px;
+  top: 35px;
+  left: 35px;
+  width: 30px;
+  height: 30px;
   overflow: hidden;
   border-radius: 50%;
   // mix-blend-mode: difference;
   perspective: 5000px;
   img {
     margin-top: 100%;
-    padding: 5px;
     width: 100%;
     height: 100%;
   }
