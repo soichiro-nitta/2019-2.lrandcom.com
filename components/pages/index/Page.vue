@@ -2,46 +2,41 @@
   <div class="Page">
     <Firstview />
     <Services/>
-    <div class="who">
-      <div class="title">WHO</div>
-      <div class="description">
-        A high-tech project Factory. We connect Design
-        with Artificial Intelligence to create innovative
-        objects and experiences. We monitor and implement
-        the ongoing digital evolution outcomes to continuously
-        improve our work.
-        <!-- リーディング＆カンパニーは企業のマーケティング用にウェブコンテンツの制作をしています。 -->
-      </div>
-    </div>
-    <div class="who gray">
-      <div class="title">VISION</div>
-      <div class="description">
-        When innovation is the goal,
-        technology is the ultimate path to reach it.
-        But ideas are the true propellent.
-      </div>
-    </div>
-    <div class="who">
-      <div class="title">MISSION</div>
-      <div class="description">
-        We redesign the way technology and Internet can offer
-        people new perspectives. We imagine what does not exist
-        and then we create it.
-      </div>
-    </div>
-    <div class="who gray">
-      <div class="title">CONTENTS</div>
-      <div class="description">
-        “Inspiration exists, but it has to find you working”
-        Pablo Picasso
-      </div>
-      <nuxt-link
-        to="/articles"
-        class="button"
-      >
-        コンテンツをみる
-      </nuxt-link>
-    </div>
+    <ul>
+      <li>
+        <div class="title">WHO</div>
+        <div class="description">
+          リーディング＆カンパニーは2014年に創業されたライター、エンジニア、そして、映像クリエイターから成るWebのクリエティブ・エージェンシーです。
+        </div>
+      </li>
+      <li class="gray">
+        <div class="title">VISION</div>
+        <div class="description">
+          「古い世界では持てる時間の30%を優れたプロダクトの開発に、70%をそれがどれほどすばらしいプロダクトかを吹聴してまわるのに充てていた。それが新たな世界では逆転した。」と言ったのはアマゾンのジェフ・ベゾスです。
+          広告費に予算を使うことも大切ですが、その広告費を還元して、ユーザーが欲しがるコンテンツを作成すれば、商業臭さが無くなって、頼まなくても、ユーザーがあなたの会社の良さを周りに広めていってくれることでしょう。
+          あなたが、このサイトにたどり着いたように。
+        </div>
+      </li>
+      <li>
+        <div class="title">FUTURE</div>
+        <div class="description">
+          10〜15年前にSNSがビジネスに活用されることなど、誰も予想しなかったように、2030年代のマーケティングの多くはAR・VRの中で行われていることでしょう。
+          Webの世界では、新しいプラットフォームが出てくると、すぐにマーケターがメチャクチャにしてしまいます。
+          そんな世界の中で、どうやったらクリエイティブとビジネスを両立させて、「良いものを作り続けられるか」を常に考えられることが、クリエイターにとっての「いまを生きる」ということなのかもしれません。
+        </div>
+      </li>
+      <li class="gray">
+        <div class="title">CONTENTS</div>
+        <div class="description">
+          まずは、リーディング＆カンパニーが実際に製作したコンテンツをみてみましょう。
+          <nuxt-link
+            to="/articles"
+            class="button"
+          >
+            コンテンツをみる
+          </nuxt-link>
+      </div></li>
+    </ul>
   </div>
 </template>
 
@@ -80,84 +75,45 @@ export default {
     margin-top: 10px;
   }
   ul {
+    padding: 90px 0;
+    li.gray {
+      background: linear-gradient(
+        rgba(65, 65, 65, 0) 0%,
+        rgba(65, 65, 65, 0.6) 50%,
+        rgba(65, 65, 65, 0) 100%
+      );
+      background: -webkit-linear-gradient(
+        rgba(65, 65, 65, 0) 0%,
+        rgba(65, 65, 65, 0.6) 50%,
+        rgba(65, 65, 65, 0) 100%
+      );
+    }
     li {
-      margin: 0 auto 20px;
-      width: calc(100% - 60px);
-      height: 100px;
-      overflow: hidden;
-      border-radius: 15px;
-      a {
-        display: flex;
-        width: 100%;
-        height: 100%;
-        background: #171717;
-        border-radius: 15px;
-        font-size: 13px;
+      padding: 90px 50px;
+      text-align: center;
+      .title {
+        font-size: 30px;
         font-weight: bold;
-        transform: translate(0, 100%);
-        .thumb {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 95px;
-          height: 100%;
-          background: #121212;
-          border-radius: 15px 0 0 15px;
-          img {
-            width: 23px;
-            height: auto;
-          }
-          .filmImg {
-            width: 26px;
-            height: auto;
-          }
-        }
-        .text {
-          padding: 25px 40px;
-          .ja {
-            margin-top: 10px;
-            color: #999;
-          }
-        }
+        letter-spacing: 3px;
       }
-    }
-  }
-  .who.gray {
-    background: linear-gradient(
-      rgba(65, 65, 65, 0) 0%,
-      rgba(65, 65, 65, 0.6) 50%,
-      rgba(65, 65, 65, 0) 100%
-    );
-    background: -webkit-linear-gradient(
-      rgba(65, 65, 65, 0) 0%,
-      rgba(65, 65, 65, 0.6) 50%,
-      rgba(65, 65, 65, 0) 100%
-    );
-  }
-  .who {
-    padding: 120px 50px;
-    text-align: center;
-    .title {
-      font-size: 30px;
-      font-weight: bold;
-      letter-spacing: 3px;
-    }
-    .description {
-      margin-top: 20px;
-      font-size: 14px;
-      overflow: hidden;
-      line-height: 2;
-      color: #999;
-    }
-    .button {
-      margin-top: 40px;
-      display: inline-block;
-      width: 100%;
-      line-height: 50px;
-      background: #121212;
-      border-radius: 25px;
-      font-weight: bold;
-      font-size: 14px;
+      .description {
+        margin-top: 20px;
+        font-size: 14px;
+        overflow: hidden;
+        line-height: 2;
+        color: #999;
+      }
+      .button {
+        margin-top: 40px;
+        display: inline-block;
+        width: 100%;
+        line-height: 50px;
+        background: #121212;
+        border-radius: 25px;
+        font-weight: bold;
+        font-size: 14px;
+        color: white;
+      }
     }
   }
 }

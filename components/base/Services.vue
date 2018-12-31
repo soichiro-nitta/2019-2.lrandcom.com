@@ -9,7 +9,7 @@
           <div class="text">
             <div class="en">Create Cotnents</div>
             <div class="ja">
-              記事制作
+              記事制作について
             </div>
           </div>
         </nuxt-link>
@@ -25,7 +25,7 @@
           <div class="text">
             <div class="en">Crete Film</div>
             <div class="ja">
-              映像制作
+              映像制作について
             </div>
           </div>
         </nuxt-link>
@@ -38,7 +38,7 @@
           <div class="text">
             <div class="en">Create Website</div>
             <div class="ja">
-              ウェブ制作
+              ウェブ制作について
             </div>
           </div>
         </nuxt-link>
@@ -58,6 +58,9 @@ export default {
 <style lang="scss" scoped>
 .BaseServices {
   ul {
+    li:last-child {
+      margin: 0 auto;
+    }
     li {
       margin: 0 auto 20px;
       width: calc(100% - 60px);
