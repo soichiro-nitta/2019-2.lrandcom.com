@@ -23,7 +23,7 @@
             >
           </div>
           <div class="text">
-            <div class="en">Crete Film</div>
+            <div class="en">Create Film</div>
             <div class="ja">
               映像制作について
             </div>
