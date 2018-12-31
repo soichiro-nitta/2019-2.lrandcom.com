@@ -8,9 +8,7 @@
           </div>
           <div class="text">
             <div class="en">Create Cotnents</div>
-            <div class="ja">
-              記事制作について
-            </div>
+            <div class="ja">記事制作について</div>
           </div>
         </nuxt-link>
       </li>
@@ -24,9 +22,7 @@
           </div>
           <div class="text">
             <div class="en">Create Film</div>
-            <div class="ja">
-              映像制作について
-            </div>
+            <div class="ja">映像制作について</div>
           </div>
         </nuxt-link>
       </li>
@@ -37,9 +33,7 @@
           </div>
           <div class="text">
             <div class="en">Create Website</div>
-            <div class="ja">
-              ウェブ制作について
-            </div>
+            <div class="ja">ウェブ制作について</div>
           </div>
         </nuxt-link>
       </li>
@@ -98,6 +92,7 @@ export default {
           .ja {
             margin-top: 10px;
             color: #999;
+            font-size: 12px;
           }
         }
       }

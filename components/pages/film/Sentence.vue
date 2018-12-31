@@ -47,9 +47,7 @@ export default {
       src1: `${URL.WP}/static/film/1.jpg`,
       src2: `${URL.WP}/static/film/2.jpg`,
       src3: `${URL.WP}/static/film/3.jpg`,
-      src4: `${URL.WP}/static/film/4.jpg`,
-      src5: `${URL.WP}/static/film/5.png`,
-      src6: `${URL.WP}/static/film/6.jpg`
+      src4: `${URL.WP}/static/film/4.jpg`
     }
   }
 }
