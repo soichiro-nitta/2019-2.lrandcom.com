@@ -37,6 +37,10 @@ export default {
   padding: 60px 30px;
   font-size: 14px;
   line-height: 2;
+  @include pc {
+    margin: 0 auto;
+    width: 700px;
+  }
   h2 {
     margin-top: 30px;
     font-size: 15px;

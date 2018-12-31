@@ -106,6 +106,10 @@ export default {
       font-size: 16px;
       font-weight: bold;
       overflow: hidden;
+      @include pc {
+        width: 70%;
+        font-size: 20px;
+      }
       .titleText {
         display: inline-block;
         transform: translate(0, 100%);

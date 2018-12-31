@@ -76,6 +76,12 @@ export default {
   }
   ul {
     padding: 90px 0;
+    @include pc {
+      padding: 0;
+      display: flex;
+      margin: 0 auto;
+      width: 100%;
+    }
     li.gray {
       background: linear-gradient(
         rgba(65, 65, 65, 0) 0%,
@@ -91,6 +97,10 @@ export default {
     li {
       padding: 90px 35px;
       text-align: center;
+      @include pc {
+        padding: 60px 40px;
+        width: 25%;
+      }
       .title {
         font-size: 30px;
         font-weight: bold;

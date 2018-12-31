@@ -55,6 +55,9 @@ export default {
   overflow: hidden;
   background: #171717;
   border-radius: 15px;
+  @include pc {
+    width: 30%;
+  }
   .thumb {
     position: relative;
     width: 100%;

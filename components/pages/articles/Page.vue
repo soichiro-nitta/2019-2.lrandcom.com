@@ -92,6 +92,10 @@ export default {
 .Page {
   padding: 70px 0 130px;
   width: 100%;
+  @include pc {
+    display: flex;
+    flex-wrap: wrap;
+  }
   .BaseServices {
     margin-top: 30px;
   }

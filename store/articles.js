@@ -30,7 +30,7 @@ export const mutations = {
 export const actions = {
   async fetchArticles({ state, commit }, payload) {
     try {
-      const perPage = 10
+      const perPage = 9
       const offset = (state.page - 1) * perPage
       const categories = payload.categories
 

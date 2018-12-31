@@ -52,6 +52,11 @@ export default {
 <style lang="scss" scoped>
 .BaseServices {
   ul {
+    @include pc {
+      display: flex;
+      margin: 0 auto;
+      width: calc(100% - 70px);
+    }
     li:last-child {
       margin: 0 auto;
     }
@@ -61,6 +66,9 @@ export default {
       height: 100px;
       overflow: hidden;
       border-radius: 15px;
+      @include pc {
+        width: 31.5%;
+      }
       a {
         display: flex;
         width: 100%;
