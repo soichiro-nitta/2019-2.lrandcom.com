@@ -83,7 +83,7 @@ export default {
 <style lang="scss" scoped>
 .Sentence {
   .intro {
-    padding: 60px 30px;
+    padding: 60px 35px;
     font-size: 14px;
     line-height: 2;
   }
@@ -103,7 +103,7 @@ export default {
     );
   }
   section {
-    padding: 60px 30px;
+    padding: 60px 35px;
     overflow: hidden;
     .head {
       font-size: 18px;
@@ -114,7 +114,7 @@ export default {
       margin-top: 30px;
       font-size: 14px;
       color: #999;
-      line-height: 1.7;
+      line-height: 1.8;
       .more {
         text-decoration: underline;
         span {

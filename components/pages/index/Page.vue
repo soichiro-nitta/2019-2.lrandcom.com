@@ -89,7 +89,7 @@ export default {
       );
     }
     li {
-      padding: 90px 50px;
+      padding: 90px 35px;
       text-align: center;
       .title {
         font-size: 30px;
