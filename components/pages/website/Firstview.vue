@@ -31,13 +31,15 @@
 </template>
 
 <script>
+import URL from '~/assets/data/url.json'
 import { TweenMax, Expo } from 'gsap'
 
 export default {
   data() {
     return {
-      src:
-        'https://media-wp.housecom.jp/wp-content/uploads/videos/20th-mobile.mp4'
+      src: `${URL.WP}/static/website-${
+        this.$device.isMobile ? 'mobile' : 'pc'
+      }.mp4`
     }
   },
   mounted() {
