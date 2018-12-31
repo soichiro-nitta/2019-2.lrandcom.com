@@ -105,6 +105,9 @@ export default {
         font-size: 30px;
         font-weight: bold;
         letter-spacing: 3px;
+        @include pc {
+          font-size: 25px;
+        }
       }
       .description {
         margin-top: 20px;

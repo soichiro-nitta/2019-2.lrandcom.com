@@ -130,6 +130,9 @@ export default {
       font-weight: bold;
       letter-spacing: 3px;
       overflow: hidden;
+      @include pc {
+        font-size: 25px;
+      }
       .titleText {
         display: inline-block;
         transform: translate(0, 100%);

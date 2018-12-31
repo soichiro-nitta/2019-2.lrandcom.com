@@ -134,7 +134,7 @@ export default {
       letter-spacing: 2px;
       overflow: hidden;
       @include pc {
-        font-size: 30px;
+        font-size: 25px;
       }
       .titleText {
         display: inline-block;

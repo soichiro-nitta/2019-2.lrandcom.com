@@ -55,6 +55,10 @@ export default {
 
 <style lang="scss" scoped>
 .Sentence {
+  @include pc {
+    margin: 0 auto;
+    width: 700px;
+  }
   .intro {
     padding: 60px 35px;
     font-size: 14px;
