@@ -104,38 +104,36 @@ module.exports = {
     routes: async () => {
       const instance = axios.create({
         baseURL: URL.WP_API,
-        // baseURL: 'https://media-wp.housecom.jp/wp-json/wp/v2/posts',
         withCredentials: true,
         responseType: 'json',
         responseEncoding: 'utf8'
       })
-      // const { headers } = await axios.get(`${URL.WP_API}/?_embed`)
-      // const total = headers['x-wp-total']
-      // let remainder = total
 
-      // if (total <= 100) {
-      const perPage = 30
-      console.log('----------------------')
-      console.log(perPage)
-      console.log('----------------------')
-      const { data } = await instance.get(`/?_embed&per_page=${perPage}`)
-      // } else {
-      //   for (; remainder >= 100; remainder -= 100) {
-      //     const { data } = await axios.get(
-      //       `${URL.WP_API}/?_embed&per_page=100&offset=${total - remainder}`
-      //     )
-      //     articles = articles.concat(data)
-      //   }
-      //   const { data } = await axios.get(
-      //     `${URL.WP_API}/?_embed&per_page=${remainder}&offset=${total -
-      //       remainder}`
-      //   )
-      //   articles = articles.concat(data)
-      // }
-      console.log('----------------------')
-      console.log(data.length)
-      console.log('----------------------')
-      return data.map(article => {
+      let articles = []
+      const { headers } = await instance.get(`/?_embed&categories=8,11`)
+      const total = headers['x-wp-total']
+      let remainder = total
+
+      if (total <= 100) {
+        const { data } = await instance.get(
+          `/?_embed&per_page=100&categories=8,11`
+        )
+        articles = data
+      } else {
+        for (; remainder >= 100; remainder -= 100) {
+          const { data } = await instance.get(
+            `/?_embed&per_page=100&offset=${total - remainder}&categories=8,11`
+          )
+          articles = articles.concat(data)
+        }
+        const { data } = await instance.get(
+          `/?_embed&per_page=${remainder}&offset=${total -
+            remainder}&categories=8,11`
+        )
+        articles = articles.concat(data)
+      }
+
+      return articles.map(article => {
         return `/${article.slug}`
       })
     }

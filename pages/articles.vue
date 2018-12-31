@@ -2,13 +2,16 @@
   <Page
     v-if="opening"
     :articles="articles"
+    :page="page"
+    :total-pages="totalPages"
+    @increment="increment"
+    @decrement="decrement"
+    @fetch="fetch"
   />
 </template>
 
 <script>
-import URL from '~/assets/data/url.json'
-import axios from 'axios'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 import Page from '~/components/pages/articles/Page'
 
 export default {
@@ -18,20 +21,30 @@ export default {
   computed: {
     ...mapGetters({
       opening: 'opening',
-      articles: 'articles/articles'
+      articles: 'articles/articles',
+      page: 'articles/page',
+      totalPages: 'articles/totalPages'
     })
   },
-  async fetch({ store, params }) {
-    store.commit('articles/initArticles')
-    await store.dispatch('articles/fetchArticles', {
-      categoryId: 8
-    })
-  },
-  async mounted() {
-    axios.defaults.withCredentials = true
+  mounted() {
     document.getElementById('scrollArea').scrollTop = 0
-    const { data } = await axios.get(`${URL.WP_API}/?_embed&per_page=100`)
-    console.log(data.length)
+    if (this.articles.length !== 0) return
+    this.fetch()
+  },
+  methods: {
+    async fetch() {
+      await this.fetchArticles({
+        categories: '8,11'
+      })
+      document.getElementById('scrollArea').scrollTop = 0
+    },
+    ...mapMutations({
+      increment: 'articles/increment',
+      decrement: 'articles/decrement'
+    }),
+    ...mapActions({
+      fetchArticles: 'articles/fetchArticles'
+    })
   },
   head() {
     return {

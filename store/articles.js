@@ -1,55 +1,50 @@
 export const state = () => ({
-  count: 0,
-  perPage: 10,
   articles: [],
-  end: false,
-  total: 0
+  page: 1,
+  totalPages: 0
 })
 
 export const getters = {
   articles: state => state.articles,
-  end: state => state.end,
-  total: state => state.total
+  page: state => state.page,
+  totalPages: state => state.totalPages
 }
 
 export const mutations = {
   setArticles(state, articles) {
-    state.articles = state.articles.concat(articles)
+    state.articles = articles
+  },
+  setTotalPages(state, totalPages) {
+    state.totalPages = totalPages
   },
   increment(state) {
-    state.count++
+    if (state.page >= state.totalPages) return
+    state.page++
   },
-  initArticles(state) {
-    state.count = 0
-    state.articles = []
-    state.end = false
-  },
-  finish(state) {
-    state.end = true
-  },
-  setTotal(state, total) {
-    state.total = total
+  decrement(state) {
+    if (state.page <= 1) return
+    state.page--
   }
 }
 
 export const actions = {
-  increment({ commit, dispatch }) {
-    commit('increment')
-    dispatch('fetchArticles')
-  },
   async fetchArticles({ state, commit }, payload) {
     try {
+      const perPage = 10
+      const offset = (state.page - 1) * perPage
+      const categories = payload.categories
+
       const { headers, data } = await this.$axios.get(
-        `/?_embed&categories=${payload.categoryId}&per_page=${
-          state.perPage
-        }&offset=${state.count * state.perPage}`
+        `/?_embed&per_page=${perPage}&offset=${offset}&categories=${categories}`
       )
-      const total = headers['x-wp-total']
+      const total = Number(headers['x-wp-total'])
+      const totalPages = Number(headers['x-wp-totalpages'])
+
       let articles = []
       for (let i = 0; i < data.length; i++) {
         const date = new Date(data[i]['date'])
         articles[i] = {
-          index: total - state.count * state.perPage - i,
+          index: total - (state.page - 1) * perPage - i,
           title: data[i]['title']['rendered'],
           src:
             'large' in
@@ -69,9 +64,9 @@ export const actions = {
           dd: date.getDate()
         }
       }
+      console.log(articles)
       commit('setArticles', articles)
-      commit('setTotal', Number(total))
-      if (data.length < state.perPage) commit('finish')
+      commit('setTotalPages', totalPages)
     } catch (err) {
       console.log(err)
     }
