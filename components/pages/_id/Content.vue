@@ -39,7 +39,7 @@ export default {
   line-height: 2;
   @include pc {
     margin: 0 auto;
-    width: 700px;
+    width: 600px;
   }
   h2 {
     margin-top: 30px;
