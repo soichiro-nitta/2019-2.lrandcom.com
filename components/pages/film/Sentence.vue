@@ -57,7 +57,7 @@ export default {
 .Sentence {
   @include pc {
     margin: 0 auto;
-    width: 700px;
+    width: 600px;
   }
   .intro {
     padding: 60px 35px;
