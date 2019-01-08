@@ -34,7 +34,7 @@ export default {
 
 <style lang="scss">
 .Content {
-  padding: 60px 30px;
+  padding: 30px;
   font-size: 14px;
   line-height: 2;
   @include pc {
