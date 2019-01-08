@@ -37,7 +37,7 @@ import { TweenMax, Expo } from 'gsap'
 export default {
   data() {
     return {
-      src: `${URL.WP}/static/contents-${
+      src: `${URL.WP}/static/contents/${
         this.$device.isMobile ? 'mobile' : 'pc'
       }.mp4`
     }
