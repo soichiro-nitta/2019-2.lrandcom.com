@@ -11,6 +11,14 @@
       </li>
       <li>
         <nuxt-link
+          to="/articles"
+          @click.native="closeMenu"
+        >
+          <span>納品サンプルを読む</span>
+        </nuxt-link>
+      </li>
+      <li>
+        <nuxt-link
           to="/contents"
           @click.native="closeMenu"
         >
@@ -31,14 +39,6 @@
           @click.native="closeMenu"
         >
           <span>サイト制作について</span>
-        </nuxt-link>
-      </li>
-      <li>
-        <nuxt-link
-          to="/articles"
-          @click.native="closeMenu"
-        >
-          <span>納品コンテンツを読む</span>
         </nuxt-link>
       </li>
       <!-- <li>

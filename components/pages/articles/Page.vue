@@ -90,7 +90,7 @@ export default {
 
 <style lang="scss" scoped>
 .Page {
-  padding: 70px 0 130px;
+  padding: 60px 0 130px;
   width: 100%;
   @include pc {
     display: flex;

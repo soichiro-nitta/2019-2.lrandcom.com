@@ -95,9 +95,10 @@ export default {
   position: fixed;
   top: 30px;
   right: 30px;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   // mix-blend-mode: difference;
+  border-radius: 50%;
   .border1,
   .border2,
   .border3 {
@@ -110,19 +111,19 @@ export default {
     border-radius: 1px;
   }
   .border1 {
-    top: 11px;
+    top: 6px;
     width: 10px;
     transform: scaleX(0);
     transform-origin: center right;
   }
   .border2 {
-    top: 19px;
+    top: 14px;
     width: 15px;
     transform: scaleX(0);
     transform-origin: center left;
   }
   .border3 {
-    top: 27px;
+    top: 22px;
     width: 10px;
     transform: scaleX(0);
     transform-origin: center right;

@@ -41,8 +41,8 @@ export default {
 <style lang="scss" scoped>
 .Logo {
   position: fixed;
-  top: 35px;
-  left: 35px;
+  top: 30px;
+  left: 30px;
   width: 30px;
   height: 30px;
   overflow: hidden;
