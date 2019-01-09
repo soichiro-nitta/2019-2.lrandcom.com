@@ -1,5 +1,5 @@
 <template>
-  <div class="BaseServices">
+  <div class="Services">
     <ul class="links">
       <li class="writing">
         <nuxt-link to="contents">
@@ -50,7 +50,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.BaseServices {
+.Services {
   ul {
     @include pc {
       display: flex;
