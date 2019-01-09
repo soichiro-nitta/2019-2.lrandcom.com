@@ -5,6 +5,7 @@
       :src="article.src"
     />
     <Author/>
+    <Banner />
     <Content
       :content="article.content"
     />
@@ -17,13 +18,15 @@ import Firstview from './Firstview'
 import Author from './Author'
 import Content from './Content'
 import Services from '~/components/base/Services'
+import Banner from './Banner'
 
 export default {
   components: {
     Firstview,
     Author,
     Content,
-    Services
+    Services,
+    Banner
   },
   props: {
     article: {
