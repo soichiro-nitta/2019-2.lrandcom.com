@@ -33,6 +33,9 @@ export default {
   text-align: center;
   background: #171717;
   border-radius: 20px;
+  @include pc {
+    width: 540px;
+  }
   .head {
     font-size: 14px;
     font-weight: bold;
