@@ -4,7 +4,7 @@
       :title="article.title"
       :src="article.src"
     />
-    <!-- <Author/> -->
+    <Author/>
     <Content
       :content="article.content"
     />
