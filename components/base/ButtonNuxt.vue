@@ -1,7 +1,7 @@
 <template>
   <nuxt-link
     :to="to"
-    class="Button"
+    class="ButtonNuxt"
   >
     {{ text }}
   </nuxt-link>
@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style lang="scss">
-.Button {
+.ButtonNuxt {
   display: block;
   width: 250px;
   line-height: 50px;

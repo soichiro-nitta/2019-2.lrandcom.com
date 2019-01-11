@@ -29,7 +29,7 @@
         <div class="title">CONTENTS</div>
         <div class="description">
           まずは、リーディング＆カンパニーが実際に製作したコンテンツをみてみましょう。
-          <Button
+          <ButtonNuxt
             to="/articles"
             text="コンテンツをみる"
           />
@@ -43,13 +43,13 @@
 import { TweenMax, Expo } from 'gsap'
 import Firstview from './Firstview'
 import Services from '~/components/base/Services'
-import Button from '~/components/base/Button'
+import ButtonNuxt from '~/components/base/ButtonNuxt'
 
 export default {
   components: {
     Firstview,
     Services,
-    Button
+    ButtonNuxt
   },
   mounted() {
     requestAnimationFrame(() => {
@@ -117,7 +117,7 @@ export default {
         line-height: 2;
         color: #999;
       }
-      .Button {
+      .ButtonNuxt {
         margin: 30px auto 0;
       }
     }
