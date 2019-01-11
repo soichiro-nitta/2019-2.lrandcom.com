@@ -1,20 +1,25 @@
 <template>
-  <a
-    :href="insta"
+  <div
     class="Banner"
-    target="_blank"
   >
     <div class="head">Instagramやっています！</div>
     <div class="text">リーディング＆カンパニーのInstagramでは、世の中のある瞬間をとらえた写真や、イラストを日々アップしています。記事と合わせて、こちらも逃さずチェック!!</div>
-    <div class="btn">LCのInstagramをみる</div>
-  </a>
+    <ButtonNew
+      :to="insta"
+      text="LCのInstagramをみる"
+    />
+  </div>
 </template>
 
 <script>
 import URL from '~/assets/data/url.json'
 import { TweenMax, Expo } from 'gsap'
+import ButtonNew from '~/components/base/ButtonNew'
 
 export default {
+  components: {
+    ButtonNew
+  },
   data() {
     return {
       insta: URL.INSTA
@@ -45,15 +50,8 @@ export default {
     font-size: 12px;
     color: #999;
   }
-  .btn {
+  .ButtonNew {
     margin: 20px auto 0;
-    width: 250px;
-    line-height: 50px;
-    background: #121212;
-    border-radius: 25px;
-    font-weight: bold;
-    font-size: 14px;
-    color: white;
   }
 }
 </style>
