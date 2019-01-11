@@ -29,13 +29,12 @@
         <div class="title">CONTENTS</div>
         <div class="description">
           まずは、リーディング＆カンパニーが実際に製作したコンテンツをみてみましょう。
-          <nuxt-link
+          <Button
             to="/articles"
-            class="button"
-          >
-            コンテンツをみる
-          </nuxt-link>
-      </div></li>
+            text="コンテンツをみる"
+          />
+        </div>
+      </li>
     </ul>
   </div>
 </template>
@@ -118,16 +117,8 @@ export default {
         line-height: 2;
         color: #999;
       }
-      .button {
-        margin-top: 30px;
-        display: inline-block;
-        width: 250px;
-        line-height: 50px;
-        background: #121212;
-        border-radius: 25px;
-        font-weight: bold;
-        font-size: 14px;
-        color: white;
+      .Button {
+        margin: 30px auto 0;
       }
     }
   }
