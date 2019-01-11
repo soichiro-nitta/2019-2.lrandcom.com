@@ -27,6 +27,7 @@ export default {
 .ButtonNew {
   display: block;
   width: 250px;
+  text-align: center;
   line-height: 50px;
   background: #121212;
   border-radius: 25px;
