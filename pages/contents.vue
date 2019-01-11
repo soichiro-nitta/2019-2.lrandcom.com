@@ -28,7 +28,7 @@ export default {
         },
         {
           property: 'og:url',
-          content: 'https://lrandcom.netlify.com/contents'
+          content: 'https://lrandcom.com/contents'
         },
         {
           property: 'twitter:title',

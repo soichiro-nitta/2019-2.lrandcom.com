@@ -20,19 +20,19 @@ export default {
   },
   head() {
     return {
-      title: '映像制作について',
+      title: 'お問い合わせ',
       meta: [
         {
           property: 'og:title',
-          content: '映像制作について | リーディング＆カンパニー株式会社'
+          content: 'お問い合わせ | リーディング＆カンパニー株式会社'
         },
         {
           property: 'og:url',
-          content: 'https://lrandcom.netlify.com/film'
+          content: 'https://lrandcom.com/contact'
         },
         {
           property: 'twitter:title',
-          content: '映像制作について | リーディング＆カンパニー株式会社'
+          content: 'お問い合わせ | リーディング＆カンパニー株式会社'
         }
       ]
     }

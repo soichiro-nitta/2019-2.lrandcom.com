@@ -56,7 +56,7 @@ export default {
         },
         {
           property: 'og:url',
-          content: 'https://lrandcom.netlify.com/articles'
+          content: 'https://lrandcom.com/articles'
         },
         {
           property: 'twitter:title',
