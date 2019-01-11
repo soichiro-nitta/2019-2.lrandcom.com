@@ -35,6 +35,7 @@ export default {
 <style lang="scss">
 .Content {
   padding: 30px;
+  color: #999;
   font-size: 14px;
   line-height: 2;
   @include pc {
@@ -51,9 +52,28 @@ export default {
     border-radius: 15px;
     opacity: 0;
   }
+  .subTitle {
+    margin-top: 30px;
+    color: white;
+    font-weight: bold;
+    line-height: 1.7;
+  }
   .quote {
     color: #999;
     font-size: 10px;
+  }
+  .info {
+    padding: 10px 20px;
+    font-size: 12px;
+    line-height: 1.7;
+    word-break: break-all;
+    background: #171717;
+    color: #999;
+    border-radius: 20px;
+    a {
+      color: white;
+      text-decoration: underline;
+    }
   }
 }
 </style>
