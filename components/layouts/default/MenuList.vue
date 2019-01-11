@@ -43,6 +43,14 @@
       </li>
       <li>
         <nuxt-link
+          to="/company"
+          @click.native="closeMenu"
+        >
+          <span>会社概要</span>
+        </nuxt-link>
+      </li>
+      <li>
+        <nuxt-link
           to="/contact"
           @click.native="closeMenu"
         >
