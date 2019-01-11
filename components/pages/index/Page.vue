@@ -75,7 +75,7 @@ export default {
     margin-top: 10px;
   }
   ul {
-    padding: 90px 0;
+    padding: 80px 0;
     @include pc {
       padding: 0;
       display: flex;
@@ -95,14 +95,14 @@ export default {
       );
     }
     li {
-      padding: 90px 35px;
+      padding: 80px 30px;
       text-align: center;
       @include pc {
         padding: 60px 40px;
         width: 25%;
       }
       .title {
-        font-size: 30px;
+        font-size: 25px;
         font-weight: bold;
         letter-spacing: 3px;
         @include pc {
@@ -111,13 +111,13 @@ export default {
       }
       .description {
         margin-top: 20px;
-        font-size: 14px;
+        font-size: 12px;
         overflow: hidden;
         line-height: 2;
         color: #999;
       }
       .button {
-        margin-top: 40px;
+        margin-top: 30px;
         display: inline-block;
         width: 100%;
         line-height: 50px;
