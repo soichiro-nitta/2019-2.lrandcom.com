@@ -61,6 +61,10 @@ export default {
     menu: {
       type: Boolean,
       required: true
+    },
+    opening: {
+      type: Boolean,
+      required: true
     }
   },
   watch: {
@@ -78,6 +82,7 @@ export default {
       this.$emit('closeMenu')
     },
     in() {
+      this.$el.style.display = 'flex'
       requestAnimationFrame(() => {
         TweenMax.staggerTo(
           '.MenuList li span',
@@ -97,7 +102,10 @@ export default {
           0.5,
           {
             y: '100%',
-            ease: Expo.easeOut
+            ease: Expo.easeOut,
+            onComplete: () => {
+              this.$el.style.display = 'none'
+            }
           },
           0.025
         )
@@ -109,15 +117,19 @@ export default {
 
 <style lang="scss" scoped>
 .MenuList {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   align-content: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
-  width: 100%;
+  width: 300px;
   height: 100%;
+  @include pc {
+    left: 0;
+    right: auto;
+  }
   ul {
     text-align: center;
     li {

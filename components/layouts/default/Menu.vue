@@ -1,11 +1,16 @@
 <template>
   <div class="Menu">
-    <MenuShape :menu="menu"/>
+    <MenuShape
+      :menu="menu"
+      :opening="opening"
+    />
     <MenuList
+      :opening="opening"
       :menu="menu"
       @closeMenu="closeMenu"
     />
     <MenuClose
+      v-show="isMobile"
       :menu="menu"
       @closeMenu="closeMenu"
     />
@@ -28,39 +33,21 @@ export default {
     menu: {
       type: Boolean,
       required: true
+    },
+    opening: {
+      type: Boolean,
+      required: true
     }
   },
-  watch: {
-    async menu(menu) {
-      if (menu) {
-        this.in()
-      } else {
-        await this.$delay(500)
-        this.out()
-      }
+  data() {
+    return {
+      isMobile: this.$device.isMobile
     }
   },
   methods: {
     closeMenu() {
       this.$emit('closeMenu')
-    },
-    in() {
-      this.$el.style.display = 'block'
-    },
-    out() {
-      this.$el.style.display = 'none'
     }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.Menu {
-  display: none;
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 300px;
-  height: 100%;
-}
-</style>

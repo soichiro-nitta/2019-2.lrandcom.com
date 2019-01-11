@@ -24,6 +24,7 @@ export default {
   },
   methods: {
     in() {
+      this.$el.style.display = 'block'
       requestAnimationFrame(() => {
         TweenMax.to(this.$el, 0.7, {
           right: 0,
@@ -35,7 +36,10 @@ export default {
       requestAnimationFrame(() => {
         TweenMax.to(this.$el, 0.7, {
           right: '-300px',
-          ease: Expo.easeInOut
+          ease: Expo.easeInOut,
+          onComplete: () => {
+            this.$el.style.display = 'none'
+          }
         })
       })
     }
@@ -45,11 +49,16 @@ export default {
 
 <style lang="scss" scoped>
 .MenuShape {
-  position: absolute;
+  display: none;
+  position: fixed;
   top: 0;
   right: -300px;
-  width: 100%;
+  width: 300px;
   height: 100%;
   background: #171717;
+  @include pc {
+    left: -300px;
+    right: auto;
+  }
 }
 </style>
