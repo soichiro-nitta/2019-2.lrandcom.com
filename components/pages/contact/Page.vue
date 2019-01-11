@@ -4,10 +4,11 @@
       <div class="head">お問い合わせ</div>
       <div class="company">LEADING & COMPANY</div>
       <div class="text">メディア構築、コンテンツ作成をご希望の企業様から、面白いコンテンツを作ってみたいライターやクリエイターさん、そして、ただオフィスに遊びに来たいという変わり者の方まで、お気軽に下記のメールアドレスからご連絡下さい。</div>
-      <ButtonNew
-        to="mailto:hello@lrandcom.com"
-        text="HELLO@LRANDCOM.COM"
-      />
+      <a
+        href="mailto:hello@lrandcom.com"
+        class="button">
+        HELLO@LRANDCOM.COM
+      </a>
     </div>
   </div>
 </template>
@@ -60,8 +61,17 @@ export default {
     font-size: 12px;
     line-height: 2;
   }
-  .ButtonNew {
+  .button {
     margin-top: 30px;
+    display: block;
+    width: 250px;
+    text-align: center;
+    line-height: 50px;
+    background: #121212;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
   }
 }
 </style>
