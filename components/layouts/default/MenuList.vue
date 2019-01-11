@@ -41,14 +41,14 @@
           <span>サイト制作について</span>
         </nuxt-link>
       </li>
-      <!-- <li>
+      <li>
         <nuxt-link
           to="/contact"
           @click.native="closeMenu"
         >
           <span>お問い合わせ</span>
         </nuxt-link>
-      </li> -->
+      </li>
     </ul>
   </div>
 </template>

@@ -44,11 +44,13 @@
 import { TweenMax, Expo } from 'gsap'
 import Firstview from './Firstview'
 import Services from '~/components/base/Services'
+import Button from '~/components/base/Button'
 
 export default {
   components: {
     Firstview,
-    Services
+    Services,
+    Button
   },
   mounted() {
     requestAnimationFrame(() => {
@@ -119,7 +121,7 @@ export default {
       .button {
         margin-top: 30px;
         display: inline-block;
-        width: 100%;
+        width: 250px;
         line-height: 50px;
         background: #121212;
         border-radius: 25px;
