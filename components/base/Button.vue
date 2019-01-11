@@ -1,10 +1,19 @@
 <template>
-  <div class="Button">{{ text }}</div>
+  <nuxt-link
+    :to="to"
+    class="Button"
+  >
+    {{ text }}
+  </nuxt-link>
 </template>
 
 <script>
 export default {
   props: {
+    to: {
+      type: String,
+      required: true
+    },
     text: {
       type: String,
       required: true
@@ -15,7 +24,7 @@ export default {
 
 <style lang="scss">
 .Button {
-  display: inline-block;
+  display: block;
   width: 250px;
   line-height: 50px;
   background: #121212;
