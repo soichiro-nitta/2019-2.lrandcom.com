@@ -48,12 +48,6 @@ export default {
         })
       })
     })
-    requestAnimationFrame(() => {
-      TweenMax.to(this.$refs.gradient, 3, {
-        y: 0,
-        ease: Expo.easeOut
-      })
-    })
   }
 }
 </script>
