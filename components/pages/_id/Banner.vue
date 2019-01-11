@@ -31,7 +31,6 @@ export default {
 
 <style lang="scss">
 .Banner {
-  display: block;
   margin: 30px auto 0;
   padding: 30px;
   width: calc(100% - 60px);
