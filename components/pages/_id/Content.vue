@@ -34,12 +34,15 @@ export default {
 
 <style lang="scss">
 .Content {
+  margin: 30px auto;
   padding: 30px;
-  color: #999;
+  // color: #999;
+  color: black;
+  background: white;
   font-size: 14px;
   line-height: 2;
+  border-radius: 30px;
   @include pc {
-    margin: 0 auto;
     width: 600px;
   }
   h2 {
