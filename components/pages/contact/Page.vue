@@ -1,14 +1,42 @@
 <template>
   <div class="Page">
-    <div class="tbc">
+    <div class="contact">
       <div class="head">お問い合わせ</div>
-      <div class="company">LEADING & COMPANY</div>
       <div class="text">メディア構築、コンテンツ作成をご希望の企業様から、面白いコンテンツを作ってみたいライターやクリエイターさん、そして、ただオフィスに遊びに来たいという変わり者の方まで、お気軽に下記のメールアドレスからご連絡下さい。</div>
       <a
         href="mailto:hello@lrandcom.com"
         class="button">
         HELLO@LRANDCOM.COM
       </a>
+    </div>
+    <div class="company">
+      <div class="head">会社概要</div>
+      <dl>
+        <dt>社名：</dt>
+        <dd>
+          リーディング＆カンパニー株式会社（Leading & Company Inc.）
+        </dd>
+      </dl>
+      <dl>
+        <dt>設立：</dt>
+        <dd>2014年2月</dd>
+      </dl>
+      <dl>
+        <dt>本社所在地：</dt>
+        <dd>
+          東京都渋谷区渋谷2-21-1
+          渋谷ヒカリエ8F
+          Creative Lounge MOV内
+        </dd>
+      </dl>
+      <dl>
+        <dt>代表取締役：</dt>
+        <dd>夏目　力</dd>
+      </dl>
+      <dl>
+        <dt>事業内容：</dt>
+        <dd>Webコンテンツの制作、Webサイト制作、動画制作</dd>
+      </dl>
     </div>
   </div>
 </template>
@@ -36,42 +64,57 @@ export default {
 
 <style lang="scss" scoped>
 .Page {
-  display: table;
   padding: 0 50px;
   width: 100%;
-  height: 100%;
   @include pc {
     margin: 0 auto;
     width: 800px;
   }
   .head {
-    font-size: 25px;
+    font-size: 18px;
     font-weight: bold;
     line-height: 1;
+  }
+  .contact {
+    margin-top: 120px;
+    .text {
+      margin-top: 30px;
+      color: #999;
+      font-size: 12px;
+      line-height: 2;
+    }
+    .button {
+      margin-top: 30px;
+      display: block;
+      width: 250px;
+      text-align: center;
+      line-height: 50px;
+      background: #121212;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 14px;
+      color: white;
+    }
   }
   .company {
-    margin-top: 15px;
-    font-size: 12px;
-    line-height: 1;
-    color: #999;
-  }
-  .text {
-    margin-top: 30px;
-    color: #999;
-    font-size: 12px;
-    line-height: 2;
-  }
-  .button {
-    margin-top: 30px;
-    display: block;
-    width: 250px;
-    text-align: center;
-    line-height: 50px;
-    background: #121212;
-    border-radius: 25px;
-    font-weight: bold;
-    font-size: 14px;
-    color: white;
+    margin-top: 60px;
+    padding-bottom: 30px;
+    .head {
+      margin-bottom: 30px;
+    }
+    dl {
+      margin-bottom: 30px;
+      dt {
+        font-size: 12px;
+        line-height: 1;
+        color: #999;
+      }
+      dd {
+        margin-top: 10px;
+        margin-left: 5px;
+        font-size: 12px;
+      }
+    }
   }
 }
 </style>
