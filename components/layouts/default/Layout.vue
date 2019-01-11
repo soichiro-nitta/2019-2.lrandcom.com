@@ -7,6 +7,7 @@
     <Loading/>
     <Logo/>
     <Burger
+      v-if="isMobile"
       :opening="opening"
       :menu="menu"
       @openMenu="openMenu"
@@ -42,6 +43,11 @@ export default {
     Shade,
     Menu,
     Opening
+  },
+  data() {
+    return {
+      isMobile: this.$device.isMobile
+    }
   },
   computed: {
     ...mapGetters({
