@@ -72,8 +72,11 @@ export default {
 .Page {
   padding-bottom: 30px;
   width: 100%;
-  .BaseServices {
-    margin-top: 10px;
+  .Services {
+    margin: 40px auto 0;
+    @include pc {
+      margin: 20px auto 0;
+    }
   }
   ul {
     padding: 80px 0;
@@ -93,19 +96,30 @@ export default {
       padding: 80px 30px;
       text-align: center;
       .title {
-        font-size: 25px;
+        font-size: 18px;
         font-weight: bold;
-        letter-spacing: 3px;
+        letter-spacing: 4px;
+        @include pc {
+          font-size: 1.7vw;
+          letter-spacing: 0.5vw;
+        }
       }
       .description {
-        margin-top: 20px;
-        font-size: 12px;
+        margin-top: 30px;
+        font-size: 14px;
         overflow: hidden;
         line-height: 2;
         color: #999;
+        @include pc {
+          margin: 45px auto 0;
+          width: 600px;
+        }
       }
       .ButtonNuxt {
         margin: 30px auto 0;
+        @include pc {
+          margin: 45px auto 0;
+        }
       }
     }
   }

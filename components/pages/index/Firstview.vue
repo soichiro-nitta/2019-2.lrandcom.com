@@ -1,5 +1,5 @@
 <template>
-  <div class="fv">
+  <div class="Firstview">
     <div
       ref="gradient"
       class="gradient"
@@ -65,13 +65,13 @@ export default {
         this.$refs.video.currentTime = rand // 再生開始時間を指定
         this.$refs.video.play()
         requestAnimationFrame(() => {
-          TweenMax.to(this.$refs.video, 3, {
+          TweenMax.to(this.$refs.video, 2, {
             opacity: 1,
             ease: Expo.easeInOut
           })
           TweenMax.to(this.$refs.mask, 1, {
             opacity: 1,
-            ease: Expo.easeInOut
+            ease: Expo.easeOut
           })
         })
       }
@@ -82,12 +82,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.fv {
+.Firstview {
   position: relative;
   width: 100%;
   height: 65vh;
   overflow: hidden;
   @include pc {
+    height: calc(100vh - 140px);
     border-radius: 20px;
   }
   .gradient {
@@ -136,10 +137,11 @@ export default {
       line-height: 1;
       font-size: 18px;
       font-weight: bold;
-      letter-spacing: 2px;
+      letter-spacing: 4px;
       overflow: hidden;
       @include pc {
-        font-size: 25px;
+        font-size: 1.7vw;
+        letter-spacing: 0.5vw;
       }
       .titleText {
         display: inline-block;
