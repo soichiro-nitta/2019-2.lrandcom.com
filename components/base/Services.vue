@@ -65,8 +65,6 @@ export default {
         width: 100%;
         height: 100%;
         overflow: hidden;
-        font-size: 12px;
-        font-weight: bold;
         background: #171717;
         border-radius: 20px;
         .thumb {
@@ -90,6 +88,9 @@ export default {
           height: 100%;
           line-height: 1;
           font-size: 12px;
+          .en {
+            font-weight: bold;
+          }
           .ja {
             margin-top: 15px;
             color: #999;
