@@ -49,12 +49,13 @@ export default {
 <style lang="scss" scoped>
 .Services {
   ul {
+    margin: 40px auto 0;
     @include pc {
       display: flex;
       margin: 60px auto 0;
     }
     li {
-      margin: 0 auto 20px;
+      margin: 30px auto 0;
       width: calc(100% - 60px);
       height: 100px;
       @include pc {
@@ -97,9 +98,6 @@ export default {
           }
         }
       }
-    }
-    li:last-child {
-      margin: 0 auto;
     }
   }
 }
