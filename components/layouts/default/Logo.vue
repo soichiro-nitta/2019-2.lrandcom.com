@@ -54,6 +54,9 @@ export default {
   border-radius: 50%;
   // mix-blend-mode: difference;
   perspective: 5000px;
+  @include pc {
+    z-index: 1;
+  }
   img {
     margin-top: 100%;
     width: 100%;
