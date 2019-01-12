@@ -10,6 +10,15 @@ export default {
     menu: {
       type: Boolean,
       required: true
+    },
+    opening: {
+      type: Boolean,
+      required: true
+    }
+  },
+  data() {
+    return {
+      isMobile: this.$device.isMobile
     }
   },
   watch: {
@@ -20,16 +29,28 @@ export default {
       } else {
         this.out()
       }
+    },
+    async opening() {
+      if (this.isMobile) return
+      await this.$delay(1000)
+      this.in()
     }
   },
   methods: {
     in() {
       this.$el.style.display = 'block'
       requestAnimationFrame(() => {
-        TweenMax.to(this.$el, 0.7, {
-          right: 0,
-          ease: Expo.easeOut
-        })
+        if (this.isMobile) {
+          TweenMax.to(this.$el, 0.7, {
+            right: 0,
+            ease: Expo.easeOut
+          })
+        } else {
+          TweenMax.to(this.$el, 0.7, {
+            left: '10px',
+            ease: Expo.easeOut
+          })
+        }
       })
     },
     out() {
@@ -56,9 +77,13 @@ export default {
   width: 300px;
   height: 100%;
   background: #171717;
+  border-radius: 20px 0 0 20px;
   @include pc {
+    top: 10px;
     left: -300px;
     right: auto;
+    height: calc(100% - 20px);
+    border-radius: 30px;
   }
 }
 </style>

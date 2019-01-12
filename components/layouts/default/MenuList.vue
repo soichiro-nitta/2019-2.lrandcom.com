@@ -67,6 +67,11 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      isMobile: this.$device.isMobile
+    }
+  },
   watch: {
     async menu(menu) {
       if (menu) {
@@ -75,6 +80,11 @@ export default {
       } else {
         this.out()
       }
+    },
+    async opening() {
+      if (this.isMobile) return
+      await this.$delay(1000)
+      this.in()
     }
   },
   methods: {
@@ -127,7 +137,7 @@ export default {
   width: 200px;
   height: 100%;
   @include pc {
-    left: 0;
+    left: 50px;
     right: auto;
   }
   ul {
