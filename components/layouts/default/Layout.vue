@@ -5,14 +5,15 @@
       <nuxt/>
     </div>
     <Loading/>
-    <Logo :opening="opening"/>
     <Burger
       v-show="isMobile"
       :opening="opening"
       :menu="menu"
       @openMenu="openMenu"
     />
+    <Logo :opening="opening"/>
     <Shade
+      v-show="isMobile"
       :menu="menu"
       @closeMenu="closeMenu"
     />
@@ -56,9 +57,6 @@ export default {
       menu: 'menu'
     })
   },
-  mounted() {
-    this.isDev()
-  },
   methods: {
     isDev() {
       // if (!this.$device.isMobile) {
@@ -91,6 +89,12 @@ export default {
     overflow-x: hidden;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
+    @include pc {
+      margin-top: 10px;
+      margin-left: 320px;
+      width: calc(100% - 330px);
+      height: calc(100% - 20px);
+    }
   }
 }
 </style>
