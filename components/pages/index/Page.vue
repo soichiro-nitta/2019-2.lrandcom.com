@@ -1,6 +1,9 @@
 <template>
   <div class="Page">
-    <Firstview />
+    <FirstviewVideo
+      :title="title"
+      :src="src"
+    />
     <Services/>
     <ul>
       <li>
@@ -40,16 +43,25 @@
 </template>
 
 <script>
+import URL from '~/assets/data/url.json'
 import { TweenMax, Expo } from 'gsap'
-import Firstview from './Firstview'
+import FirstviewVideo from '~/components/base/FirstviewVideo'
 import Services from '~/components/base/Services'
 import ButtonNuxt from '~/components/base/ButtonNuxt'
 
 export default {
   components: {
-    Firstview,
+    FirstviewVideo,
     Services,
     ButtonNuxt
+  },
+  data() {
+    return {
+      title: 'LEADING & COMPANY',
+      src: `${URL.WP}/static/index/${
+        this.$device.isMobile ? 'mobile' : 'pc'
+      }.mp4`
+    }
   },
   mounted() {
     requestAnimationFrame(() => {
