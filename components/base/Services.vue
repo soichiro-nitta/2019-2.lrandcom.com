@@ -30,7 +30,7 @@
           </div>
           <div class="text">
             <div class="en">CREATE WEBSITE</div>
-            <div class="ja">ウェブ制作について</div>
+            <div class="ja">サイト制作について</div>
           </div>
         </nuxt-link>
       </li>
