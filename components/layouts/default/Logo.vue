@@ -23,6 +23,11 @@ export default {
   watch: {
     async opening() {
       await this.$delay(600)
+      this.in()
+    }
+  },
+  methods: {
+    in() {
       requestAnimationFrame(() => {
         TweenMax.to(this.$refs.logo, 0.7, {
           marginTop: 0,
