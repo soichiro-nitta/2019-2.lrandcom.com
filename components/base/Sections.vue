@@ -29,7 +29,7 @@ export default {
 <style lang="scss" scoped>
 .Sections {
   @include pc {
-    padding-top: 40px;
+    padding: 40px 0;
   }
   li:nth-child(odd) {
     @include pc {

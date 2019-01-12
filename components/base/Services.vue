@@ -1,7 +1,7 @@
 <template>
   <div class="Services">
     <ul class="links">
-      <li class="writing">
+      <li ref="contents">
         <nuxt-link to="contents">
           <div class="thumb">
             <font-awesome-icon :icon="['far', 'pen']"/>
@@ -12,7 +12,7 @@
           </div>
         </nuxt-link>
       </li>
-      <li class="film">
+      <li ref="film">
         <nuxt-link to="film">
           <div class="thumb">
             <font-awesome-icon :icon="['far', 'video']"/>
@@ -23,7 +23,7 @@
           </div>
         </nuxt-link>
       </li>
-      <li class="web">
+      <li ref="website">
         <nuxt-link to="website">
           <div class="thumb">
             <font-awesome-icon :icon="['far', 'desktop']"/>
@@ -42,7 +42,24 @@
 import { TweenMax, Expo } from 'gsap'
 
 export default {
-  mounted() {}
+  props: {
+    off: {
+      type: Number,
+      required: false,
+      default: 0
+    }
+  },
+  mounted() {
+    const elements = {
+      1: this.$refs.contents,
+      2: this.$refs.film,
+      3: this.$refs.website
+    }
+    if (this.off !== 0) {
+      elements[this.off].style.opacity = 0.5
+      elements[this.off].disabled = true
+    }
+  }
 }
 </script>
 
