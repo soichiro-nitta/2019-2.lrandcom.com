@@ -70,7 +70,6 @@ export default {
 
 <style lang="scss" scoped>
 .Page {
-  padding-bottom: 30px;
   width: 100%;
   .Services {
     margin: 40px auto 0;
@@ -95,6 +94,7 @@ export default {
     li {
       padding: 80px 30px;
       text-align: center;
+      overflow: hidden;
       .title {
         font-size: 18px;
         font-weight: bold;
