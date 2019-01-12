@@ -90,10 +90,9 @@ export default {
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     @include pc {
-      margin-top: 10px;
-      margin-left: 320px;
-      width: calc(100% - 330px);
-      height: calc(100% - 20px);
+      padding: 10px;
+      margin-left: 310px;
+      width: calc(100% - 310px);
     }
   }
 }

@@ -83,7 +83,7 @@ export default {
     left: -300px;
     right: auto;
     height: calc(100% - 20px);
-    border-radius: 30px;
+    border-radius: 20px;
   }
 }
 </style>
