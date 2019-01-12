@@ -4,13 +4,13 @@
       :menu="menu"
       :opening="opening"
     />
-    <MenuList
-      :opening="opening"
+    <MenuClose
+      v-show="isMobile"
       :menu="menu"
       @closeMenu="closeMenu"
     />
-    <MenuClose
-      v-show="isMobile"
+    <MenuList
+      :opening="opening"
       :menu="menu"
       @closeMenu="closeMenu"
     />

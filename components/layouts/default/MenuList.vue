@@ -123,8 +123,8 @@ export default {
   align-content: center;
   position: fixed;
   top: 0;
-  right: 0;
-  width: 300px;
+  right: 50px;
+  width: 200px;
   height: 100%;
   @include pc {
     left: 0;
