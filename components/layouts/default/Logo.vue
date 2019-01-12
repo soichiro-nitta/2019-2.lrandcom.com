@@ -11,14 +11,14 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import { TweenMax, Expo, Back } from 'gsap'
 
 export default {
-  computed: {
-    ...mapGetters({
-      opening: 'opening'
-    })
+  props: {
+    opening: {
+      type: Boolean,
+      required: true
+    }
   },
   watch: {
     async opening() {

@@ -5,7 +5,7 @@
       <nuxt/>
     </div>
     <Loading/>
-    <Logo/>
+    <Logo :opening="opening"/>
     <Burger
       v-show="isMobile"
       :opening="opening"
@@ -18,6 +18,7 @@
     />
     <Menu
       :menu="menu"
+      :opening="opening"
       @closeMenu="closeMenu"
     />
     <Opening/>
