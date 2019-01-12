@@ -111,6 +111,7 @@ export default {
         font-size: 18px;
         font-weight: bold;
         letter-spacing: 4px;
+        line-height: 1;
         @include pc {
           font-size: 1.7vw;
           letter-spacing: 0.5vw;

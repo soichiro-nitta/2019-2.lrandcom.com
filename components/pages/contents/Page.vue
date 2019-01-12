@@ -85,19 +85,18 @@ export default {
 
 <style lang="scss" scoped>
 .Page {
-  padding-bottom: 30px;
+  padding-bottom: 80px;
   width: 100%;
   .intro {
-    padding: 60px 30px;
+    padding: 33px 30px;
     font-size: 14px;
     line-height: 2;
     @include pc {
+      padding: 73px 30px 33px;
       margin: 0 auto;
-      width: 600px;
+      width: calc(50% - 30px);
+      text-align: center;
     }
-  }
-  .BaseServices {
-    margin-top: 30px;
   }
 }
 </style>

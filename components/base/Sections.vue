@@ -4,7 +4,9 @@
       v-for="section in sections"
       :key="section.src"
     >
-      <img :src="section.src">
+      <div class="thumb">
+        <img :src="section.src">
+      </div>
       <div class="text">
         <div class="head">{{ section.head }}</div>
         <div class="body">{{ section.body }}</div>
@@ -27,42 +29,82 @@ export default {
 <style lang="scss" scoped>
 .Sections {
   @include pc {
-    margin: 0 auto;
-    width: 600px;
-    overflow: hidden;
+    padding: 40px 0;
   }
-  li {
-    img {
-      width: 100%;
+  li:nth-child(odd) {
+    @include pc {
+      flex-direction: row-reverse;
+      background: linear-gradient(
+        rgba(65, 65, 65, 0) 0%,
+        rgba(65, 65, 65, 0.6) 50%,
+        rgba(65, 65, 65, 0) 100%
+      );
+      background: -webkit-linear-gradient(
+        rgba(65, 65, 65, 0) 0%,
+        rgba(65, 65, 65, 0.6) 50%,
+        rgba(65, 65, 65, 0) 100%
+      );
     }
     .text {
-      padding: 30px 30px;
+      background: linear-gradient(
+        rgba(65, 65, 65, 0) 0%,
+        rgba(65, 65, 65, 0.6) 50%,
+        rgba(65, 65, 65, 0) 100%
+      );
+      background: -webkit-linear-gradient(
+        rgba(65, 65, 65, 0) 0%,
+        rgba(65, 65, 65, 0.6) 50%,
+        rgba(65, 65, 65, 0) 100%
+      );
+      @include pc {
+        background: none;
+      }
+    }
+  }
+  li {
+    @include pc {
+      display: flex;
+      align-items: center;
+      padding: 0 30px;
+    }
+    .thumb {
+      width: 100%;
+      @include pc {
+        padding: 30px;
+        width: 50%;
+        height: 20vw;
+      }
+      img {
+        width: 100%;
+        height: auto;
+        @include pc {
+          height: 100%;
+          object-fit: cover;
+          border-radius: 20px;
+        }
+      }
+    }
+    .text {
+      padding: 33.7px 30px 33px;
+      @include pc {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 50%;
+      }
       .head {
         font-size: 18px;
         font-weight: bold;
-        letter-spacing: 3px;
+        letter-spacing: 4px;
+        line-height: 1.7;
       }
       .body {
         margin-top: 30px;
         font-size: 14px;
         color: #999;
-        line-height: 1.8;
+        line-height: 2;
         white-space: pre-wrap;
       }
-    }
-  }
-  li:nth-child(odd) {
-    .text {
-      background: linear-gradient(
-        rgba(65, 65, 65, 0.1) 0%,
-        rgba(65, 65, 65, 0.6) 50%,
-        rgba(65, 65, 65, 0.1) 100%
-      );
-      background: -webkit-linear-gradient(
-        rgba(65, 65, 65, 0.1) 0%,
-        rgba(65, 65, 65, 0.6) 50%,
-        rgba(65, 65, 65, 0.1) 100%
-      );
     }
   }
 }
