@@ -4,7 +4,7 @@
       <li class="writing">
         <nuxt-link to="contents">
           <div class="thumb">
-            <img src="/svg/contents.svg">
+            <font-awesome-icon :icon="['far', 'pen']"/>
           </div>
           <div class="text">
             <div class="en">Create Cotnents</div>
@@ -15,10 +15,7 @@
       <li class="film">
         <nuxt-link to="film">
           <div class="thumb">
-            <img
-              src="/svg/film.svg"
-              class="filmImg"
-            >
+            <font-awesome-icon :icon="['far', 'video']"/>
           </div>
           <div class="text">
             <div class="en">Create Film</div>
@@ -29,7 +26,7 @@
       <li class="web">
         <nuxt-link to="website">
           <div class="thumb">
-            <img src="/svg/website.svg">
+            <font-awesome-icon :icon="['far', 'desktop']"/>
           </div>
           <div class="text">
             <div class="en">Create Website</div>
@@ -54,8 +51,7 @@ export default {
   ul {
     @include pc {
       display: flex;
-      margin: 0 auto;
-      width: calc(100% - 70px);
+      margin: 60px auto 0;
     }
     li:last-child {
       margin: 0 auto;
@@ -86,12 +82,8 @@ export default {
           height: 100%;
           background: #121212;
           border-radius: 15px 0 0 15px;
-          img {
+          svg {
             width: 23px;
-            height: auto;
-          }
-          .filmImg {
-            width: 26px;
             height: auto;
           }
         }
