@@ -32,7 +32,7 @@ export default {
     },
     async opening() {
       if (this.isMobile) return
-      await this.$delay(1000)
+      await this.$delay(900)
       this.in()
     }
   },
