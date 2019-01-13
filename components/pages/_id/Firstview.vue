@@ -106,7 +106,7 @@ export default {
       line-height: 2;
       font-size: 14px;
       font-weight: bold;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       overflow: hidden;
       @include pc {
         width: 70%;
