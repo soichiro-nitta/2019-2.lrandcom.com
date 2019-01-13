@@ -97,12 +97,12 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 50px;
     width: 100%;
     height: 100%;
     .title {
       position: relative;
       display: inline;
+      width: calc(100% - 120px);
       line-height: 2;
       font-size: 14px;
       font-weight: bold;
