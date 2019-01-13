@@ -109,8 +109,9 @@ export default {
       letter-spacing: 3px;
       overflow: hidden;
       @include pc {
-        width: 70%;
+        width: 540px;
         font-size: 20px;
+        letter-spacing: 4px;
       }
       .titleText {
         display: inline-block;

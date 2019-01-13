@@ -41,12 +41,7 @@ export default {
 .Page {
   padding-bottom: 30px;
   @include pc {
-    padding-bottom: 60px;
-  }
-  .Services {
-    @include pc {
-      margin-top: 30px;
-    }
+    padding: 0;
   }
 }
 </style>

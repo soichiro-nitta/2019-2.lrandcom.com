@@ -55,7 +55,6 @@ export default {
   width: calc(100% - 60px);
   height: 50px;
   @include pc {
-    margin: 0 auto;
     width: 540px;
   }
   .thumb {
