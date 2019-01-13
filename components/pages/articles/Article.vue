@@ -14,11 +14,11 @@
       />
     </div>
     <div class="bottom">
-      <div class="date">
-        {{ `${article.yy}.${article.mm}.${article.dd}` }}
-      </div>
       <div class="title">
         {{ article.title }}
+      </div>
+      <div class="date">
+        {{ `${article.yy}.${article.mm}.${article.dd}` }}
       </div>
     </div>
   </nuxt-link>
@@ -56,13 +56,17 @@ export default {
   background: #171717;
   border-radius: 15px;
   @include pc {
-    width: 30%;
+    margin: 0 0 10px;
+    width: calc((100% - 20px) / 3);
   }
   .thumb {
     position: relative;
     width: 100%;
     height: 30vh;
     overflow: hidden;
+    @include pc {
+      height: 25vh;
+    }
     img {
       width: 100%;
       height: 100%;
@@ -82,23 +86,23 @@ export default {
     }
   }
   .bottom {
-    padding: 20px;
+    padding: 30px 20px 20px;
     width: 100%;
+    .title {
+      position: relative;
+      display: inline-block;
+      line-height: 2;
+      font-size: 14px;
+      font-weight: bold;
+      overflow: hidden;
+    }
     .date {
+      margin-top: 15px;
       position: relative;
       display: inline-block;
       color: #999;
       line-height: 1;
       font-size: 12px;
-      overflow: hidden;
-    }
-    .title {
-      margin-top: 10px;
-      position: relative;
-      display: inline-block;
-      line-height: 1.7;
-      font-size: 14px;
-      font-weight: bold;
       overflow: hidden;
     }
   }
