@@ -1,47 +1,48 @@
 <template>
   <div
-    v-if="!opening"
     ref="theOpening"
     class="TheOpening"
   >
-    <img
-      ref="logo"
-      src="/svg/logo.svg"
-    >
+    <div
+      ref="lottie"
+      class="lottie"
+    />
   </div>
 </template>
 
 <script>
-import { TweenMax, Expo, Back } from 'gsap'
+import lottie from 'lottie-web'
+import { TweenMax, Expo } from 'gsap'
 import { mapMutations } from 'vuex'
 
 export default {
-  data() {
-    return {
-      opening: false
-    }
-  },
-  async mounted() {
+  mounted() {
     console.log('mounted at TheOpening.vue')
-    window.onload = async () => {
-      requestAnimationFrame(async () => {
-        TweenMax.to(this.$refs.logo, 0.3, {
-          scale: 1,
-          opacity: 1,
-          ease: Back.easeOut.config(5)
-        })
-        TweenMax.to(this.$refs.theOpening, 1, {
-          scale: 5,
+    const opening = lottie.loadAnimation({
+      container: this.$refs.lottie,
+      renderer: 'svg',
+      loop: false,
+      path: '/json/opening.json'
+    })
+    const onComplete = () => {
+      opening.removeEventListener('complete', onComplete)
+      requestAnimationFrame(() => {
+        TweenMax.to(this.$refs.theOpening, 3, {
+          scale: 2,
           opacity: 0,
-          ease: Expo.easeInOut,
-          delay: 0.15,
-          onComplete: () => {
-            this.opening = true
-          }
+          ease: Expo.easeOut
         })
-        await this.$delay(700)
-        this.setOpening()
       })
+      opening.setDirection(-1)
+      opening.setSpeed(3)
+      opening.play()
+      this.setOpening()
+    }
+    opening.addEventListener('complete', onComplete)
+
+    window.onload = () => {
+      opening.setSpeed(1.2)
+      opening.play()
     }
   },
   methods: {
@@ -63,14 +64,9 @@ export default {
   bottom: 0;
   left: 0;
   margin: auto;
+  padding: 0 40%;
   width: 100%;
   height: 100%;
   background: black;
-  img {
-    width: 55px;
-    height: 55px;
-    transform: scale(0);
-    opacity: 0;
-  }
 }
 </style>
