@@ -63,8 +63,11 @@ Youtubeに載せるのであれば、最初の5秒でどうインパクトをつ
 
 <style lang="scss" scoped>
 .Page {
-  padding-bottom: 80px;
+  padding-bottom: 30px;
   width: 100%;
+  @include pc {
+    padding: 0;
+  }
   .intro {
     padding: 33px 30px;
     font-size: 14px;

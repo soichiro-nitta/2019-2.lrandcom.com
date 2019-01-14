@@ -77,7 +77,7 @@ export default {
       }
     }
     li {
-      margin: 28px auto 0;
+      margin: 30px auto 0;
       width: calc(100% - 60px);
       height: 100px;
       @include pc {

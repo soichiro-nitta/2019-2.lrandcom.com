@@ -39,6 +39,7 @@ export default {
   font-size: 14px;
   line-height: 2;
   @include pc {
+    padding: 30px 60px;
     margin: 0 auto;
     width: 600px;
   }
@@ -47,10 +48,15 @@ export default {
     font-size: 15px;
   }
   img {
+    margin: 5px auto;
     width: 100%;
     height: auto;
     border-radius: 15px;
     opacity: 0;
+    @include pc {
+      margin: 10px 0 10px -30px;
+      width: calc(100% + 60px);
+    }
   }
   .subTitle {
     margin-top: 30px;
