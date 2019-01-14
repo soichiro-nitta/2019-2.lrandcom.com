@@ -10,7 +10,6 @@
       </a>
     </div>
     <div class="company">
-      <div class="head">会社概要</div>
       <dl>
         <dt>社名：</dt>
         <dd>
@@ -71,7 +70,7 @@ export default {
     justify-content: space-around;
     align-items: center;
     margin: 0 auto;
-    padding: 0 100px;
+    padding: 0 80px;
     height: 100%;
   }
   .head {
@@ -126,6 +125,9 @@ export default {
         margin-top: 10px;
         margin-left: 5px;
         font-size: 12px;
+        @include pc {
+          margin-left: 0;
+        }
       }
     }
   }
