@@ -64,7 +64,6 @@ export const actions = {
           dd: date.getDate()
         }
       }
-      console.log(articles)
       commit('setArticles', articles)
       commit('setTotalPages', totalPages)
     } catch (err) {
