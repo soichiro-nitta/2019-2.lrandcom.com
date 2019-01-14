@@ -67,8 +67,12 @@ export default {
   padding: 0 50px;
   width: 100%;
   @include pc {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     margin: 0 auto;
-    width: 800px;
+    padding: 0 100px;
+    height: 100%;
   }
   .head {
     font-size: 18px;
@@ -77,6 +81,10 @@ export default {
   }
   .contact {
     margin-top: 120px;
+    @include pc {
+      margin-top: 0;
+      width: 42%;
+    }
     .text {
       margin-top: 30px;
       color: #999;
@@ -99,6 +107,11 @@ export default {
   .company {
     margin-top: 60px;
     padding-bottom: 30px;
+    @include pc {
+      margin-top: 0;
+      padding-bottom: 0;
+      width: 42%;
+    }
     .head {
       margin-bottom: 30px;
     }
