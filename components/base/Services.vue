@@ -80,6 +80,8 @@ export default {
       margin: 30px auto 0;
       width: calc(100% - 60px);
       height: 100px;
+      border-radius: 20px;
+      overflow: hidden;
       @include pc {
         margin: 0;
         width: 31.5%;

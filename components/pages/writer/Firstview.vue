@@ -68,6 +68,7 @@ export default {
     left: 0;
     width: 100%;
     height: 0;
+    border-radius: 20px;
     overflow: hidden;
     img {
       width: 100%;
@@ -76,6 +77,7 @@ export default {
       opacity: 0.9;
       @include pc {
         height: calc(100vh - 140px);
+        border-radius: 20px;
       }
     }
     .mask {
