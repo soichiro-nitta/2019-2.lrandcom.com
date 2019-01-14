@@ -51,6 +51,7 @@ export default {
       this.$emit('closeMenu')
     },
     in() {
+      this.$el.style.display = 'block'
       requestAnimationFrame(() => {
         TweenMax.to(this.$refs.close, 1, {
           left: '-20px',
@@ -80,7 +81,10 @@ export default {
         })
         TweenMax.to(this.$refs.closeLine2Inner, 0.5, {
           scaleX: 0,
-          ease: Expo.easeOut
+          ease: Expo.easeOut,
+          onComplete: () => {
+            this.$el.style.display = 'none'
+          }
         })
       })
     }
@@ -90,6 +94,12 @@ export default {
 
 <style lang="scss" scoped>
 .MenuClose {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
   .close {
     position: absolute;
     top: calc(50% - 50px);

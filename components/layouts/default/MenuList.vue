@@ -43,6 +43,14 @@
       </li>
       <li>
         <nuxt-link
+          to="/writer"
+          @click.native="closeMenu"
+        >
+          <span>ライター募集</span>
+        </nuxt-link>
+      </li>
+      <li>
+        <nuxt-link
           to="/contact"
           @click.native="closeMenu"
         >
@@ -61,6 +69,15 @@ export default {
     menu: {
       type: Boolean,
       required: true
+    },
+    opening: {
+      type: Boolean,
+      required: true
+    }
+  },
+  data() {
+    return {
+      isMobile: this.$device.isMobile
     }
   },
   watch: {
@@ -71,6 +88,11 @@ export default {
       } else {
         this.out()
       }
+    },
+    async opening() {
+      if (this.isMobile) return
+      await this.$delay(1200)
+      this.in()
     }
   },
   methods: {
@@ -78,6 +100,7 @@ export default {
       this.$emit('closeMenu')
     },
     in() {
+      this.$el.style.display = 'flex'
       requestAnimationFrame(() => {
         TweenMax.staggerTo(
           '.MenuList li span',
@@ -97,7 +120,10 @@ export default {
           0.5,
           {
             y: '100%',
-            ease: Expo.easeOut
+            ease: Expo.easeOut,
+            onComplete: () => {
+              this.$el.style.display = 'none'
+            }
           },
           0.025
         )
@@ -109,15 +135,19 @@ export default {
 
 <style lang="scss" scoped>
 .MenuList {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   align-content: center;
-  position: absolute;
+  position: fixed;
   top: 0;
-  right: 0;
-  width: 100%;
+  right: 50px;
+  width: 200px;
   height: 100%;
+  @include pc {
+    left: 50px;
+    right: auto;
+  }
   ul {
     text-align: center;
     li {

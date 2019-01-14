@@ -1,6 +1,9 @@
 <template>
   <div class="Page">
-    <Firstview />
+    <FirstviewVideo
+      :title="title"
+      :src="src"
+    />
     <Services/>
     <ul>
       <li>
@@ -40,16 +43,25 @@
 </template>
 
 <script>
+import URL from '~/assets/data/url.json'
 import { TweenMax, Expo } from 'gsap'
-import Firstview from './Firstview'
+import FirstviewVideo from '~/components/base/FirstviewVideo'
 import Services from '~/components/base/Services'
 import ButtonNuxt from '~/components/base/ButtonNuxt'
 
 export default {
   components: {
-    Firstview,
+    FirstviewVideo,
     Services,
     ButtonNuxt
+  },
+  data() {
+    return {
+      title: 'LEADING & COMPANY',
+      src: `${URL.WP}/static/index/${
+        this.$device.isMobile ? 'mobile' : 'pc'
+      }.mp4`
+    }
   },
   mounted() {
     requestAnimationFrame(() => {
@@ -70,19 +82,15 @@ export default {
 
 <style lang="scss" scoped>
 .Page {
-  padding-bottom: 30px;
   width: 100%;
-  .BaseServices {
-    margin-top: 10px;
+  .Services {
+    margin: 40px auto 0;
+    @include pc {
+      margin: 20px auto 0;
+    }
   }
   ul {
     padding: 80px 0;
-    @include pc {
-      padding: 0;
-      display: flex;
-      margin: 0 auto;
-      width: 100%;
-    }
     li.gray {
       background: linear-gradient(
         rgba(65, 65, 65, 0) 0%,
@@ -98,27 +106,33 @@ export default {
     li {
       padding: 80px 30px;
       text-align: center;
-      @include pc {
-        padding: 60px 40px;
-        width: 25%;
-      }
+      overflow: hidden;
       .title {
-        font-size: 25px;
+        font-size: 18px;
         font-weight: bold;
-        letter-spacing: 3px;
+        letter-spacing: 4px;
+        line-height: 1;
         @include pc {
-          font-size: 25px;
+          font-size: 1.7vw;
+          letter-spacing: 0.5vw;
         }
       }
       .description {
-        margin-top: 20px;
-        font-size: 12px;
+        margin-top: 30px;
+        font-size: 14px;
         overflow: hidden;
         line-height: 2;
         color: #999;
+        @include pc {
+          margin: 45px auto 0;
+          width: 600px;
+        }
       }
       .ButtonNuxt {
         margin: 30px auto 0;
+        @include pc {
+          margin: 45px auto 0;
+        }
       }
     }
   }

@@ -10,7 +10,6 @@
       </a>
     </div>
     <div class="company">
-      <div class="head">会社概要</div>
       <dl>
         <dt>社名：</dt>
         <dd>
@@ -67,16 +66,28 @@ export default {
   padding: 0 50px;
   width: 100%;
   @include pc {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     margin: 0 auto;
-    width: 800px;
+    padding: 0 80px;
+    height: 100%;
   }
   .head {
     font-size: 18px;
     font-weight: bold;
     line-height: 1;
+    @include pc {
+      font-size: 1.7vw;
+      letter-spacing: 0.5vw;
+    }
   }
   .contact {
     margin-top: 120px;
+    @include pc {
+      margin-top: 0;
+      width: 42%;
+    }
     .text {
       margin-top: 30px;
       color: #999;
@@ -99,6 +110,11 @@ export default {
   .company {
     margin-top: 60px;
     padding-bottom: 30px;
+    @include pc {
+      margin-top: 0;
+      padding-bottom: 0;
+      width: 42%;
+    }
     .head {
       margin-bottom: 30px;
     }
@@ -113,6 +129,9 @@ export default {
         margin-top: 10px;
         margin-left: 5px;
         font-size: 12px;
+        @include pc {
+          margin-left: 0;
+        }
       }
     }
   }

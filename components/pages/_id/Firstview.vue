@@ -58,6 +58,10 @@ export default {
   width: 100%;
   height: 65vh;
   overflow: hidden;
+  @include pc {
+    height: calc(100vh - 140px);
+    border-radius: 20px;
+  }
   .thumb {
     position: relative;
     top: 0;
@@ -70,13 +74,16 @@ export default {
       height: 65vh;
       object-fit: cover;
       opacity: 0.9;
+      @include pc {
+        height: calc(100vh - 140px);
+      }
     }
     .mask {
       position: absolute;
-      top: -2%;
-      left: -2%;
-      width: 104%;
-      height: calc(65vh + 4%);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: linear-gradient(
         rgba(75, 75, 75, 0) 0%,
         rgba(0, 0, 0, 1) 100%
@@ -90,19 +97,21 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 50px;
     width: 100%;
     height: 100%;
     .title {
       position: relative;
       display: inline;
+      width: calc(100% - 120px);
       line-height: 2;
-      font-size: 16px;
+      font-size: 14px;
       font-weight: bold;
+      letter-spacing: 3px;
       overflow: hidden;
       @include pc {
-        width: 70%;
+        width: 540px;
         font-size: 20px;
+        letter-spacing: 4px;
       }
       .titleText {
         display: inline-block;

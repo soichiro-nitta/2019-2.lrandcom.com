@@ -5,7 +5,7 @@ import {
   faTwitter,
   faInstagram
 } from '@fortawesome/free-brands-svg-icons'
-import { faPencilAlt } from '@fortawesome/pro-regular-svg-icons'
+import { faPen, faVideo, faDesktop } from '@fortawesome/pro-regular-svg-icons'
 import {
   faLongArrowAltLeft,
   faLongArrowAltRight
@@ -16,7 +16,9 @@ library.add(
   faFacebook,
   faTwitter,
   faInstagram,
-  faPencilAlt,
+  faPen,
+  faVideo,
+  faDesktop,
   faLongArrowAltLeft,
   faLongArrowAltRight
 )

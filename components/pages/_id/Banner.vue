@@ -48,6 +48,7 @@ export default {
     margin: 20px auto 0;
     font-size: 12px;
     color: #999;
+    line-height: 2;
   }
   .ButtonNew {
     margin: 20px auto 0;

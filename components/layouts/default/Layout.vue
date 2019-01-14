@@ -5,18 +5,21 @@
       <nuxt/>
     </div>
     <Loading/>
-    <Logo/>
     <Burger
+      v-show="isMobile"
       :opening="opening"
       :menu="menu"
       @openMenu="openMenu"
     />
+    <Logo :opening="opening"/>
     <Shade
+      v-show="isMobile"
       :menu="menu"
       @closeMenu="closeMenu"
     />
     <Menu
       :menu="menu"
+      :opening="opening"
       @closeMenu="closeMenu"
     />
     <Opening/>
@@ -43,14 +46,16 @@ export default {
     Menu,
     Opening
   },
+  data() {
+    return {
+      isMobile: this.$device.isMobile
+    }
+  },
   computed: {
     ...mapGetters({
       opening: 'opening',
       menu: 'menu'
     })
-  },
-  mounted() {
-    this.isDev()
   },
   methods: {
     isDev() {
@@ -84,6 +89,11 @@ export default {
     overflow-x: hidden;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
+    @include pc {
+      padding: 10px;
+      margin-left: 310px;
+      width: calc(100% - 310px);
+    }
   }
 }
 </style>

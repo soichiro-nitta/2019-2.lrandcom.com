@@ -93,11 +93,10 @@ export default {
   padding: 60px 0 130px;
   width: 100%;
   @include pc {
+    padding: 0 0 100px;
     display: flex;
     flex-wrap: wrap;
-  }
-  .BaseServices {
-    margin-top: 30px;
+    justify-content: space-between;
   }
 }
 </style>

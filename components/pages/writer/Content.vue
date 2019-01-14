@@ -105,9 +105,11 @@ export default {
 <style lang="scss">
 .Content {
   padding: 30px;
+  color: #ccc;
+  font-size: 14px;
   line-height: 2;
-  color: #999;
   @include pc {
+    padding: 30px 60px;
     margin: 0 auto;
     width: 600px;
   }
@@ -116,20 +118,25 @@ export default {
     font-size: 15px;
   }
   img {
+    margin: 5px auto;
     width: 100%;
     height: auto;
     border-radius: 15px;
     opacity: 0;
-  }
-  .quote {
-    color: #999;
-    font-size: 10px;
+    @include pc {
+      margin: 10px 0 10px -30px;
+      width: calc(100% + 60px);
+    }
   }
   .subTitle {
     margin-top: 30px;
     color: white;
     font-weight: bold;
     line-height: 1.7;
+  }
+  .quote {
+    color: #999;
+    font-size: 10px;
   }
   .info {
     padding: 10px 20px;

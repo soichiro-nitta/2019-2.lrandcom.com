@@ -57,6 +57,12 @@ export default {
   height: 100px;
   background: rgba(23, 23, 23, 0.95);
   border-radius: 40px 40px 0 0;
+  @include pc {
+    bottom: 10px;
+    left: 310px;
+    width: calc(100% - 330px);
+    border-radius: 20px;
+  }
   .left {
     width: 25px;
     height: auto;

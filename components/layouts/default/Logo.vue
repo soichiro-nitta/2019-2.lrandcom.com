@@ -11,18 +11,23 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import { TweenMax, Expo, Back } from 'gsap'
 
 export default {
-  computed: {
-    ...mapGetters({
-      opening: 'opening'
-    })
+  props: {
+    opening: {
+      type: Boolean,
+      required: true
+    }
   },
   watch: {
     async opening() {
       await this.$delay(600)
+      this.in()
+    }
+  },
+  methods: {
+    in() {
       requestAnimationFrame(() => {
         TweenMax.to(this.$refs.logo, 0.7, {
           marginTop: 0,
@@ -49,6 +54,9 @@ export default {
   border-radius: 50%;
   // mix-blend-mode: difference;
   perspective: 5000px;
+  @include pc {
+    z-index: 1;
+  }
   img {
     margin-top: 100%;
     width: 100%;
