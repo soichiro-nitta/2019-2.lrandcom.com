@@ -68,8 +68,10 @@ export default {
     left: 0;
     width: 100%;
     height: 0;
-    border-radius: 20px;
     overflow: hidden;
+    @include pc {
+      border-radius: 20px;
+    }
     img {
       width: 100%;
       height: 65vh;
