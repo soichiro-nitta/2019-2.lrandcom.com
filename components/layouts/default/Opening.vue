@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="!opening"
     ref="theOpening"
     class="TheOpening"
   >
@@ -16,6 +17,11 @@ import { TweenMax, Expo } from 'gsap'
 import { mapMutations } from 'vuex'
 
 export default {
+  data() {
+    return {
+      opening: false
+    }
+  },
   mounted() {
     console.log('mounted at TheOpening.vue')
     const opening = lottie.loadAnimation({
@@ -26,16 +32,19 @@ export default {
     })
     const onComplete = () => {
       opening.removeEventListener('complete', onComplete)
-      requestAnimationFrame(() => {
-        TweenMax.to(this.$refs.theOpening, 3, {
-          scale: 2,
-          opacity: 0,
-          ease: Expo.easeOut
-        })
-      })
       opening.setDirection(-1)
       opening.setSpeed(3)
       opening.play()
+      requestAnimationFrame(() => {
+        TweenMax.to(this.$refs.theOpening, 2, {
+          scale: 2,
+          opacity: 0,
+          ease: Expo.easeOut,
+          onComplete: () => {
+            this.opening = true
+          }
+        })
+      })
       this.setOpening()
     }
     opening.addEventListener('complete', onComplete)
