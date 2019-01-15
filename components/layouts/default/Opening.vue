@@ -1,8 +1,8 @@
 <template>
   <div
     v-if="!opening"
-    ref="theOpening"
-    class="TheOpening"
+    ref="opening"
+    class="Opening"
   >
     <div
       ref="lottie"
@@ -23,7 +23,7 @@ export default {
     }
   },
   mounted() {
-    console.log('mounted at TheOpening.vue')
+    console.log('mounted at Opening.vue')
     const opening = lottie.loadAnimation({
       container: this.$refs.lottie,
       renderer: 'svg',
@@ -36,7 +36,7 @@ export default {
       opening.setSpeed(3)
       opening.play()
       requestAnimationFrame(() => {
-        TweenMax.to(this.$refs.theOpening, 2, {
+        TweenMax.to(this.$refs.opening, 2, {
           scale: 2,
           opacity: 0,
           ease: Expo.easeOut,
@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.TheOpening {
+.Opening {
   display: flex;
   align-items: center;
   justify-content: center;
