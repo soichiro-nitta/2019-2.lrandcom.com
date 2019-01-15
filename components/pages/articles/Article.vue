@@ -64,7 +64,7 @@ export default {
   margin: 30px auto 0;
   width: calc(100% - 60px);
   overflow: hidden;
-  background: #171717;
+  background: #121212;
   border-radius: 15px;
   @include pc {
     margin: 0 0 10px;
@@ -91,8 +91,8 @@ export default {
       width: 102%;
       height: 102%;
       background: linear-gradient(
-        rgba(23, 23, 23, 0) 0%,
-        rgba(23, 23, 23, 1) 100%
+        rgba(18, 18, 18, 0) 0%,
+        rgba(18, 18, 18, 1) 100%
       );
     }
   }
@@ -123,7 +123,7 @@ export default {
       .category {
         padding: 0 20px;
         line-height: 30px;
-        background: #121212;
+        background: #171717;
         border-radius: 15px;
       }
     }

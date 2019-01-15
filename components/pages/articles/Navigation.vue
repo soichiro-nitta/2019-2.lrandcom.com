@@ -55,7 +55,7 @@ export default {
   margin: 0 auto;
   width: 100%;
   height: 100px;
-  background: rgba(23, 23, 23, 0.95);
+  background: rgba(18, 18, 18, 0.95);
   border-radius: 40px 40px 0 0;
   @include pc {
     bottom: 10px;
@@ -71,7 +71,7 @@ export default {
     margin: 0 50px;
     padding: 10px 20px;
     font-weight: bold;
-    background: #121212;
+    background: #171717;
     border-radius: 40px;
     font-size: 14px;
     span {
