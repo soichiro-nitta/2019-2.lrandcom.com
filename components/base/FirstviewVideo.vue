@@ -137,7 +137,7 @@ export default {
       letter-spacing: 4px;
       overflow: hidden;
       @include pc {
-        font-size: 1.7vw;
+        font-size: 1.8vw;
         letter-spacing: 0.5vw;
       }
       .titleText {
