@@ -101,7 +101,7 @@ export default {
     height: 100%;
     .title {
       position: relative;
-      display: inline;
+      display: inline-block;
       width: calc(100% - 120px);
       line-height: 2;
       font-size: 14px;
