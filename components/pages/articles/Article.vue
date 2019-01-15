@@ -13,12 +13,15 @@
         class="mask"
       />
     </div>
-    <div class="bottom">
+    <div class="text">
       <div class="title">
         {{ article.title }}
       </div>
-      <div class="date">
-        {{ `${article.yy}.${article.mm}.${article.dd}` }}
+      <div class="meta">
+        <div class="date">
+          {{ `${article.yy}.${article.mm}.${article.dd}` }}
+        </div>
+        <div class="category">{{ category }}</div>
       </div>
     </div>
   </nuxt-link>
@@ -32,6 +35,14 @@ export default {
     article: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    category() {
+      console.log(this.article.categories)
+      return this.article.categories.indexOf(11) !== -1
+        ? 'ブログ'
+        : '納品サンプル'
     }
   },
   mounted() {
@@ -85,7 +96,7 @@ export default {
       );
     }
   }
-  .bottom {
+  .text {
     padding: 30px 20px 20px;
     width: 100%;
     .title {
@@ -96,14 +107,25 @@ export default {
       font-weight: bold;
       overflow: hidden;
     }
-    .date {
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-top: 15px;
-      position: relative;
-      display: inline-block;
-      color: #999;
-      line-height: 1;
       font-size: 12px;
-      overflow: hidden;
+      line-height: 1;
+      color: #999;
+      .date {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+      }
+      .category {
+        padding: 0 20px;
+        line-height: 30px;
+        background: #121212;
+        border-radius: 15px;
+      }
     }
   }
 }
