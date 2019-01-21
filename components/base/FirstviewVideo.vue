@@ -50,11 +50,6 @@ export default {
       required: true
     }
   },
-  data() {
-    return {
-      off: false
-    }
-  },
   watch: {
     async leave() {
       this.titleOut(this.$refs.titleText)

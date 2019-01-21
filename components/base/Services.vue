@@ -55,7 +55,7 @@ export default {
     }
   },
   watch: {
-    async leave() {
+    leave() {
       this.out()
     }
   },
