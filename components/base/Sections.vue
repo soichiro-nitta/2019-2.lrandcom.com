@@ -59,7 +59,7 @@ export default {
     thumbOut() {
       requestAnimationFrame(() => {
         TweenMax.to('.Sections .thumb img', 0.7, {
-          y: '100%',
+          y: '-100%',
           ease: Expo.easeOut
         })
       })
@@ -76,7 +76,7 @@ export default {
     headOut() {
       requestAnimationFrame(() => {
         TweenMax.to('.Sections .head div', 0.7, {
-          y: '100%',
+          y: '-100%',
           ease: Expo.easeOut,
           delay: 0.05
         })
@@ -95,7 +95,7 @@ export default {
     bodyOut() {
       requestAnimationFrame(() => {
         TweenMax.to('.Sections .body div', 0.7, {
-          y: '30px',
+          y: '-30px',
           opacity: 0,
           ease: Expo.easeOut,
           delay: 0.1

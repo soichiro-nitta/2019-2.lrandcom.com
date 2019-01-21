@@ -91,7 +91,7 @@ export default {
           '.links a',
           0.7,
           {
-            y: '100%',
+            y: '-100%',
             ease: Expo.easeOut
           },
           0.05

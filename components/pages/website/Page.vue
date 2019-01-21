@@ -5,13 +5,10 @@
       :src="src"
       :leave="leave"
     />
-    <div class="intro">
-      <div>
-        <div>
-          クオリティーの高いWebコンテンツは顧客を引き付ける磁石の役割を果たし、このコンテンツによって作られた企業への信頼が、将来、企業が生み出すキャッシュと同じぐらい重要になってきます。
-        </div>
-      </div>
-    </div>
+    <Intro
+      :intro="intro"
+      :leave="leave"
+    />
     <Sections
       :sections="sections"
       :leave="leave"
@@ -26,12 +23,14 @@
 <script>
 import URL from '~/assets/data/url.json'
 import FirstviewVideo from '~/components/base/FirstviewVideo'
+import Intro from '~/components/base/Intro'
 import Sections from '~/components/base/Sections'
 import Services from '~/components/base/Services'
 
 export default {
   components: {
     FirstviewVideo,
+    Intro,
     Sections,
     Services
   },
@@ -47,6 +46,8 @@ export default {
       src: `${URL.WP}/static/website/${
         this.$device.isMobile ? 'mobile' : 'pc'
       }.mp4`,
+      intro:
+        'クオリティーの高いWebコンテンツは顧客を引き付ける磁石の役割を果たし、このコンテンツによって作られた企業への信頼が、将来、企業が生み出すキャッシュと同じぐらい重要になってきます。',
       sections: [
         {
           src: `ogp.png`,
@@ -91,34 +92,6 @@ Webサイトはもちろんのことですが、もっと複雑なアプリな�
         }
       ]
     }
-  },
-  watch: {
-    leave() {
-      this.introOut()
-    }
-  },
-  mounted() {
-    this.introIn()
-  },
-  methods: {
-    introIn() {
-      requestAnimationFrame(() => {
-        TweenMax.to('.Page .intro div div', 1, {
-          y: 0,
-          opacity: 1,
-          ease: Expo.easeOut
-        })
-      })
-    },
-    introOut() {
-      requestAnimationFrame(() => {
-        TweenMax.to('.Page .intro div div', 0.7, {
-          y: '30px',
-          opacity: 0,
-          ease: Expo.easeOut
-        })
-      })
-    }
   }
 }
 </script>
@@ -129,24 +102,6 @@ Webサイトはもちろんのことですが、もっと複雑なアプリな�
   width: 100%;
   @include pc {
     padding: 0;
-  }
-  .intro {
-    padding: 33px 30px;
-    font-size: 14px;
-    line-height: 2;
-    @include pc {
-      padding: 73px 30px 33px;
-      margin: 0 auto;
-      width: calc(50% - 30px);
-      text-align: center;
-    }
-    div {
-      overflow: hidden;
-      div {
-        transform: translate(0, 30px);
-        opacity: 0;
-      }
-    }
   }
 }
 </style>

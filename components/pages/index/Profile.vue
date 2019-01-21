@@ -102,7 +102,7 @@ export default {
     titleOut() {
       requestAnimationFrame(() => {
         TweenMax.to('.Profile .title span', 0.7, {
-          y: '100%',
+          y: '-100%',
           ease: Expo.easeOut
         })
       })
@@ -120,7 +120,7 @@ export default {
     descriptionOut() {
       requestAnimationFrame(() => {
         TweenMax.to('.Profile .description div', 0.7, {
-          y: '30px',
+          y: '-30px',
           opacity: 0,
           ease: Expo.easeOut,
           delay: 0.05

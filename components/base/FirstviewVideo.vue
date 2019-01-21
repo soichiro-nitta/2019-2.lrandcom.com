@@ -74,7 +74,7 @@ export default {
     titleOut: title => {
       requestAnimationFrame(async () => {
         TweenMax.to(title, 0.7, {
-          y: '100%',
+          y: '-100%',
           ease: Expo.easeOut
         })
       })
