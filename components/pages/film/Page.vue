@@ -100,7 +100,7 @@ Youtubeに載せるのであれば、最初の5秒でどうインパクトをつ
     introOut() {
       requestAnimationFrame(() => {
         TweenMax.to('.Page .intro div div', 0.7, {
-          y: '100%',
+          y: '30px',
           opacity: 0,
           ease: Expo.easeOut
         })
@@ -130,7 +130,7 @@ Youtubeに載せるのであれば、最初の5秒でどうインパクトをつ
     div {
       overflow: hidden;
       div {
-        transform: translate(0, 100%);
+        transform: translate(0, 30px);
         opacity: 0;
       }
     }

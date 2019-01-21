@@ -93,7 +93,7 @@ export default {
     bodyOut() {
       requestAnimationFrame(() => {
         TweenMax.to('.Sections .body div', 0.7, {
-          y: '100%',
+          y: '30px',
           opacity: 0,
           ease: Expo.easeOut,
           delay: 0.1
@@ -203,7 +203,7 @@ export default {
           margin-top: 26px;
         }
         div {
-          transform: translate(0, 100%);
+          transform: translate(0, 30px);
           opacity: 0;
         }
       }

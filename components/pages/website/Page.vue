@@ -113,7 +113,7 @@ Webサイトはもちろんのことですが、もっと複雑なアプリな�
     introOut() {
       requestAnimationFrame(() => {
         TweenMax.to('.Page .intro div div', 0.7, {
-          y: '100%',
+          y: '30px',
           opacity: 0,
           ease: Expo.easeOut
         })
@@ -143,7 +143,7 @@ Webサイトはもちろんのことですが、もっと複雑なアプリな�
     div {
       overflow: hidden;
       div {
-        transform: translate(0, 100%);
+        transform: translate(0, 30px);
         opacity: 0;
       }
     }
