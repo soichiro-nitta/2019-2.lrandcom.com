@@ -28,7 +28,7 @@ export default {
       container: this.$refs.lottie,
       renderer: 'svg',
       loop: false,
-      path: '/json/opening.json'
+      path: '/json/icon.json'
     })
     const onComplete = () => {
       opening.removeEventListener('complete', onComplete)
@@ -50,7 +50,7 @@ export default {
     opening.addEventListener('complete', onComplete)
 
     window.onload = () => {
-      opening.setSpeed(1.2)
+      // opening.setSpeed()
       opening.play()
     }
   },
@@ -77,5 +77,8 @@ export default {
   width: 100%;
   height: 100%;
   background: black;
+  @include pc {
+    padding: 0 45%;
+  }
 }
 </style>
