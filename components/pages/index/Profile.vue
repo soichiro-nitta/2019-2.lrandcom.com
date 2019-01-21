@@ -91,56 +91,36 @@ export default {
   methods: {
     titleIn() {
       requestAnimationFrame(() => {
-        TweenMax.staggerTo(
-          '.Profile .title span',
-          1.2,
-          {
-            y: 0,
-            ease: Expo.easeOut
-          },
-          0.05
-        )
+        TweenMax.to('.Profile .title span', 1.2, {
+          y: 0,
+          ease: Expo.easeOut
+        })
       })
     },
     titleOut() {
       requestAnimationFrame(() => {
-        TweenMax.staggerTo(
-          '.Profile .title span',
-          1.2,
-          {
-            y: '100%',
-            ease: Expo.easeOut
-          },
-          0.05
-        )
+        TweenMax.to('.Profile .title span', 1.2, {
+          y: '100%',
+          ease: Expo.easeOut
+        })
       })
     },
     descriptionIn() {
       requestAnimationFrame(() => {
-        TweenMax.staggerTo(
-          '.Profile .description div',
-          1.2,
-          {
-            y: 0,
-            ease: Expo.easeOut,
-            delay: 0.05
-          },
-          0.05
-        )
+        TweenMax.to('.Profile .description div', 1.2, {
+          y: 0,
+          ease: Expo.easeOut,
+          delay: 0.05
+        })
       })
     },
     descriptionOut() {
       requestAnimationFrame(() => {
-        TweenMax.staggerTo(
-          '.Profile .description div',
-          1.2,
-          {
-            y: '100%',
-            ease: Expo.easeOut,
-            delay: 0.05
-          },
-          0.05
-        )
+        TweenMax.to('.Profile .description div', 1.2, {
+          y: '100%',
+          ease: Expo.easeOut,
+          delay: 0.05
+        })
       })
     }
   }
@@ -184,7 +164,6 @@ export default {
       }
     }
     .description {
-      display: inline-block;
       margin-top: 30px;
       font-size: 14px;
       overflow: hidden;
@@ -196,7 +175,6 @@ export default {
         width: 600px;
       }
       div {
-        display: inline-block;
         transform: translate(0, 100%);
       }
     }
