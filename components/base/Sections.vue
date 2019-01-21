@@ -48,7 +48,7 @@ export default {
   methods: {
     thumbIn() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Sections .thumb img', 1.2, {
+        TweenMax.to('.Sections .thumb img', 1, {
           y: 0,
           ease: Expo.easeOut
         })
@@ -56,7 +56,7 @@ export default {
     },
     thumbOut() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Sections .thumb img', 1.2, {
+        TweenMax.to('.Sections .thumb img', 0.7, {
           y: '100%',
           ease: Expo.easeOut
         })
@@ -64,7 +64,7 @@ export default {
     },
     headIn() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Sections .head div', 1.2, {
+        TweenMax.to('.Sections .head div', 1, {
           y: 0,
           ease: Expo.easeOut,
           delay: 0.05
@@ -73,7 +73,7 @@ export default {
     },
     headOut() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Sections .head div', 1.2, {
+        TweenMax.to('.Sections .head div', 0.7, {
           y: '100%',
           ease: Expo.easeOut,
           delay: 0.05
@@ -82,8 +82,9 @@ export default {
     },
     bodyIn() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Sections .body div', 1.2, {
+        TweenMax.to('.Sections .body div', 1, {
           y: 0,
+          opacity: 1,
           ease: Expo.easeOut,
           delay: 0.1
         })
@@ -91,8 +92,9 @@ export default {
     },
     bodyOut() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Sections .body div', 1.2, {
+        TweenMax.to('.Sections .body div', 0.7, {
           y: '100%',
+          opacity: 0,
           ease: Expo.easeOut,
           delay: 0.1
         })
@@ -202,6 +204,7 @@ export default {
         }
         div {
           transform: translate(0, 100%);
+          opacity: 0;
         }
       }
     }

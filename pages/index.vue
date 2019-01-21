@@ -24,12 +24,12 @@ export default {
   },
   async beforeRouteLeave(to, from, next) {
     const scrollArea = document.getElementById('scrollArea')
-    TweenMax.to(scrollArea, 1.35, {
-      scrollTop: scrollArea.scrollTop - 300,
+    TweenMax.to(scrollArea, 0.7, {
+      scrollTop: scrollArea.scrollTop - 100,
       ease: Expo.easeOut
     })
     this.toggleLeave()
-    await this.$delay(1350)
+    await this.$delay(700)
     next()
   },
   methods: {

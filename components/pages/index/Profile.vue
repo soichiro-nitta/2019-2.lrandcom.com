@@ -91,7 +91,7 @@ export default {
   methods: {
     titleIn() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Profile .title span', 1.2, {
+        TweenMax.to('.Profile .title span', 1, {
           y: 0,
           ease: Expo.easeOut
         })
@@ -99,7 +99,7 @@ export default {
     },
     titleOut() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Profile .title span', 1.2, {
+        TweenMax.to('.Profile .title span', 0.7, {
           y: '100%',
           ease: Expo.easeOut
         })
@@ -107,8 +107,9 @@ export default {
     },
     descriptionIn() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Profile .description div', 1.2, {
+        TweenMax.to('.Profile .description div', 1, {
           y: 0,
+          opacity: 1,
           ease: Expo.easeOut,
           delay: 0.05
         })
@@ -116,8 +117,9 @@ export default {
     },
     descriptionOut() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Profile .description div', 1.2, {
+        TweenMax.to('.Profile .description div', 0.7, {
           y: '100%',
+          opacity: 0,
           ease: Expo.easeOut,
           delay: 0.05
         })
@@ -176,6 +178,7 @@ export default {
       }
       div {
         transform: translate(0, 100%);
+        opacity: 0;
       }
     }
     .ButtonNuxt {

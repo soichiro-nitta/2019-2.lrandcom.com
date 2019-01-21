@@ -76,7 +76,7 @@ export default {
       requestAnimationFrame(() => {
         TweenMax.staggerTo(
           '.links a',
-          1.2,
+          1,
           {
             y: 0,
             ease: Expo.easeOut
@@ -89,7 +89,7 @@ export default {
       requestAnimationFrame(() => {
         TweenMax.staggerTo(
           '.links a',
-          1.2,
+          0.7,
           {
             y: '100%',
             ease: Expo.easeOut

@@ -103,16 +103,18 @@ Webサイトはもちろんのことですが、もっと複雑なアプリな�
   methods: {
     introIn() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Page .intro div div', 1.2, {
+        TweenMax.to('.Page .intro div div', 1, {
           y: 0,
+          opacity: 1,
           ease: Expo.easeOut
         })
       })
     },
     introOut() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Page .intro div div', 1.2, {
+        TweenMax.to('.Page .intro div div', 0.7, {
           y: '100%',
+          opacity: 0,
           ease: Expo.easeOut
         })
       })
@@ -142,6 +144,7 @@ Webサイトはもちろんのことですが、もっと複雑なアプリな�
       overflow: hidden;
       div {
         transform: translate(0, 100%);
+        opacity: 0;
       }
     }
   }
