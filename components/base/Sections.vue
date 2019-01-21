@@ -85,11 +85,12 @@ export default {
       }
     }
     .text {
-      padding: 33.7px 30px 33px;
+      padding: 33px 30px 33px;
       @include pc {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding: 31px 30px 33px;
         width: 50%;
       }
       .head {
@@ -102,11 +103,14 @@ export default {
         }
       }
       .body {
-        margin-top: 30px;
+        margin-top: 28px;
         font-size: 14px;
         color: #999;
         line-height: 2;
         white-space: pre-wrap;
+        @include pc {
+          margin-top: 26px;
+        }
       }
     }
   }
