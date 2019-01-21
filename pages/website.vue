@@ -29,7 +29,7 @@ export default {
     //   ease: Expo.easeOut
     // })
     this.toggleLeave()
-    await this.$delay(700)
+    await this.$delay(500)
     next()
   },
   methods: {
