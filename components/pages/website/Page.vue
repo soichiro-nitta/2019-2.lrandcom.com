@@ -16,7 +16,10 @@
       :sections="sections"
       :leave="leave"
     />
-    <Services :off="3"/>
+    <Services
+      :off="3"
+      :leave="leave"
+    />
   </div>
 </template>
 
