@@ -39,9 +39,9 @@ export default {
     out() {
       requestAnimationFrame(() => {
         TweenMax.to('.Intro div div', 0.7, {
-          y: '-30px',
+          y: '-50px',
           opacity: 0,
-          ease: Expo.easeOut
+          ease: Expo.easeIn
         })
       })
     }

@@ -60,7 +60,7 @@ export default {
       requestAnimationFrame(() => {
         TweenMax.to('.Sections .thumb img', 0.7, {
           y: '-100%',
-          ease: Expo.easeOut
+          ease: Expo.easeIn
         })
       })
     },
@@ -77,7 +77,7 @@ export default {
       requestAnimationFrame(() => {
         TweenMax.to('.Sections .head div', 0.7, {
           y: '-100%',
-          ease: Expo.easeOut,
+          ease: Expo.easeIn,
           delay: 0.05
         })
       })
@@ -95,9 +95,9 @@ export default {
     bodyOut() {
       requestAnimationFrame(() => {
         TweenMax.to('.Sections .body div', 0.7, {
-          y: '-30px',
+          y: '-50px',
           opacity: 0,
-          ease: Expo.easeOut,
+          ease: Expo.easeIn,
           delay: 0.1
         })
       })
@@ -115,7 +115,7 @@ export default {
       requestAnimationFrame(() => {
         TweenMax.to('.Sections li:nth-child(odd)', 0.7, {
           opacity: 0,
-          ease: Expo.easeOut,
+          ease: Expo.easeIn,
           delay: 0.1
         })
       })

@@ -92,7 +92,7 @@ export default {
           0.7,
           {
             y: '-100%',
-            ease: Expo.easeOut
+            ease: Expo.easeIn
           },
           0.05
         )

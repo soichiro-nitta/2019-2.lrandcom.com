@@ -103,7 +103,7 @@ export default {
       requestAnimationFrame(() => {
         TweenMax.to('.Profile .title span', 0.7, {
           y: '-100%',
-          ease: Expo.easeOut
+          ease: Expo.easeIn
         })
       })
     },
@@ -120,9 +120,9 @@ export default {
     descriptionOut() {
       requestAnimationFrame(() => {
         TweenMax.to('.Profile .description div', 0.7, {
-          y: '-30px',
+          y: '-50px',
           opacity: 0,
-          ease: Expo.easeOut,
+          ease: Expo.easeIn,
           delay: 0.05
         })
       })
@@ -140,7 +140,7 @@ export default {
       requestAnimationFrame(() => {
         TweenMax.to('.Profile .gray', 0.7, {
           opacity: 0,
-          ease: Expo.easeOut,
+          ease: Expo.easeIn,
           delay: 0.05
         })
       })
