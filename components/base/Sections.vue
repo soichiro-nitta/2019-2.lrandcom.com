@@ -50,7 +50,7 @@ export default {
   methods: {
     thumbIn() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Sections .thumb img', 1, {
+        TweenMax.to('.Sections .thumb img', 0.8, {
           y: 0,
           ease: Expo.easeOut
         })
@@ -58,7 +58,7 @@ export default {
     },
     thumbOut() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Sections .thumb img', 0.7, {
+        TweenMax.to('.Sections .thumb img', 0.5, {
           y: '-100%',
           ease: Expo.easeIn
         })
@@ -66,7 +66,7 @@ export default {
     },
     headIn() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Sections .head div', 1, {
+        TweenMax.to('.Sections .head div', 0.8, {
           y: 0,
           ease: Expo.easeOut,
           delay: 0.05
@@ -75,7 +75,7 @@ export default {
     },
     headOut() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Sections .head div', 0.7, {
+        TweenMax.to('.Sections .head div', 0.5, {
           y: '-100%',
           ease: Expo.easeIn,
           delay: 0.05
@@ -84,7 +84,7 @@ export default {
     },
     bodyIn() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Sections .body div', 1, {
+        TweenMax.to('.Sections .body div', 0.8, {
           y: 0,
           opacity: 1,
           ease: Expo.easeOut,
@@ -94,7 +94,7 @@ export default {
     },
     bodyOut() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Sections .body div', 0.7, {
+        TweenMax.to('.Sections .body div', 0.5, {
           y: '-50px',
           opacity: 0,
           ease: Expo.easeIn,
@@ -104,7 +104,7 @@ export default {
     },
     oddIn() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Sections li:nth-child(odd)', 1, {
+        TweenMax.to('.Sections li:nth-child(odd)', 0.8, {
           opacity: 1,
           ease: Expo.easeOut,
           delay: 0.1
@@ -113,7 +113,7 @@ export default {
     },
     oddOut() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Sections li:nth-child(odd)', 0.7, {
+        TweenMax.to('.Sections li:nth-child(odd)', 0.5, {
           opacity: 0,
           ease: Expo.easeIn,
           delay: 0.1

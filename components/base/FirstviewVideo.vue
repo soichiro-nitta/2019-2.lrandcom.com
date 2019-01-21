@@ -65,7 +65,7 @@ export default {
   methods: {
     titleIn: title => {
       requestAnimationFrame(async () => {
-        TweenMax.to(title, 1, {
+        TweenMax.to(title, 0.8, {
           y: '0%',
           ease: Expo.easeOut
         })
@@ -73,7 +73,7 @@ export default {
     },
     titleOut: title => {
       requestAnimationFrame(async () => {
-        TweenMax.to(title, 0.7, {
+        TweenMax.to(title, 0.5, {
           y: '-100%',
           ease: Expo.easeIn
         })
@@ -89,7 +89,7 @@ export default {
     },
     gradientOut: gradient => {
       requestAnimationFrame(() => {
-        TweenMax.to(gradient, 0.7, {
+        TweenMax.to(gradient, 0.5, {
           y: '-100%',
           ease: Expo.easeIn
         })
@@ -115,11 +115,11 @@ export default {
     videoOut: (video, mask) => {
       requestAnimationFrame(() => {
         video.pause()
-        TweenMax.to(video, 0.7, {
+        TweenMax.to(video, 0.5, {
           opacity: 0,
           ease: Expo.easeIn
         })
-        TweenMax.to(mask, 0.7, {
+        TweenMax.to(mask, 0.5, {
           opacity: 0,
           ease: Expo.easeIn
         })

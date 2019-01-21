@@ -29,7 +29,7 @@ export default {
   methods: {
     in() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Intro div div', 1, {
+        TweenMax.to('.Intro div div', 0.8, {
           y: 0,
           opacity: 1,
           ease: Expo.easeOut
@@ -38,7 +38,7 @@ export default {
     },
     out() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Intro div div', 0.7, {
+        TweenMax.to('.Intro div div', 0.5, {
           y: '-50px',
           opacity: 0,
           ease: Expo.easeIn

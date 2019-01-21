@@ -79,7 +79,7 @@ export default {
     //     const itemTop = el.offsetTop
     //     const scrollTop = document.getElementById('scrollArea').scrollTop
     //     if (itemTop < scrollTop + el.clientHeight) {
-    //       TweenMax.to(el, 1, {
+    //       TweenMax.to(el, 0.8, {
     //         opacity: 1,
     //         ease: Expo.easeOut
     //       })
@@ -93,7 +93,7 @@ export default {
   methods: {
     titleIn() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Profile .title span', 1, {
+        TweenMax.to('.Profile .title span', 0.8, {
           y: 0,
           ease: Expo.easeOut
         })
@@ -101,7 +101,7 @@ export default {
     },
     titleOut() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Profile .title span', 0.7, {
+        TweenMax.to('.Profile .title span', 0.5, {
           y: '-100%',
           ease: Expo.easeIn
         })
@@ -109,7 +109,7 @@ export default {
     },
     descriptionIn() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Profile .description div', 1, {
+        TweenMax.to('.Profile .description div', 0.8, {
           y: 0,
           opacity: 1,
           ease: Expo.easeOut,
@@ -119,7 +119,7 @@ export default {
     },
     descriptionOut() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Profile .description div', 0.7, {
+        TweenMax.to('.Profile .description div', 0.5, {
           y: '-50px',
           opacity: 0,
           ease: Expo.easeIn,
@@ -129,7 +129,7 @@ export default {
     },
     grayIn() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Profile .gray', 1, {
+        TweenMax.to('.Profile .gray', 0.8, {
           opacity: 1,
           ease: Expo.easeOut,
           delay: 0.05
@@ -138,7 +138,7 @@ export default {
     },
     grayOut() {
       requestAnimationFrame(() => {
-        TweenMax.to('.Profile .gray', 0.7, {
+        TweenMax.to('.Profile .gray', 0.5, {
           opacity: 0,
           ease: Expo.easeIn,
           delay: 0.05
