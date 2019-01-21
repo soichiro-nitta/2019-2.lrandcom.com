@@ -45,35 +45,48 @@ export default {
     }
   },
   mounted() {
-    this.$refs.video.load()
-    const canplay = () => {
-      this.$refs.video.removeEventListener('canplay', canplay)
-      const duration = this.$refs.video.duration // 動画の尺
-      const rand = Math.floor(Math.random() * (duration + 1 - 0)) // 0 ~ durationの乱数
-      this.$refs.video.currentTime = rand // 再生開始時間を指定
-      requestAnimationFrame(() => {
-        TweenMax.to(this.$refs.video, 2, {
-          opacity: 1,
+    this.titleIn(this.$refs.titleText)
+    this.gradientIn(this.$refs.gradient)
+    this.playVideo(this.$refs.video, this.$refs.mask)
+  },
+  methods: {
+    titleIn: title => {
+      requestAnimationFrame(async () => {
+        TweenMax.to(title, 1, {
+          y: 0,
           ease: Expo.easeInOut
         })
-        TweenMax.to(this.$refs.mask, 1, {
-          opacity: 1,
+      })
+    },
+    gradientIn: gradient => {
+      requestAnimationFrame(() => {
+        TweenMax.to(gradient, 3, {
+          y: 0,
           ease: Expo.easeOut
         })
       })
-      this.$refs.video.play()
+    },
+    playVideo: (video, mask) => {
+      video.load()
+      const canplay = () => {
+        video.removeEventListener('canplay', canplay)
+        const duration = video.duration // 動画の尺
+        const rand = Math.floor(Math.random() * (duration + 1 - 0)) // 0 ~ durationの乱数
+        video.currentTime = rand // 再生開始時間を指定
+        requestAnimationFrame(() => {
+          TweenMax.to(video, 2, {
+            opacity: 1,
+            ease: Expo.easeInOut
+          })
+          TweenMax.to(mask, 1, {
+            opacity: 1,
+            ease: Expo.easeOut
+          })
+        })
+        video.play()
+      }
+      video.addEventListener('canplay', canplay)
     }
-    this.$refs.video.addEventListener('canplay', canplay)
-    requestAnimationFrame(async () => {
-      TweenMax.to(this.$refs.gradient, 3, {
-        y: 0,
-        ease: Expo.easeOut
-      })
-      TweenMax.to(this.$refs.titleText, 1, {
-        y: 0,
-        ease: Expo.easeInOut
-      })
-    })
   }
 }
 </script>
