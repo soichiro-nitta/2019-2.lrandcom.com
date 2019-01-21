@@ -39,7 +39,6 @@ export default {
   },
   computed: {
     category() {
-      console.log(this.article.categories)
       return this.article.categories.indexOf(11) !== -1
         ? 'ブログ'
         : '納品サンプル'
