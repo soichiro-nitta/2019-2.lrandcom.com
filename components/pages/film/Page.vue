@@ -6,9 +6,16 @@
       :leave="leave"
     />
     <div class="intro">
-      クオリティーの高いWebコンテンツは顧客を引き付ける磁石の役割を果たし、このコンテンツによって作られた企業への信頼が、将来、企業が生み出すキャッシュと同じぐらい重要になってきます。
+      <div>
+        <div>
+          クオリティーの高いWebコンテンツは顧客を引き付ける磁石の役割を果たし、このコンテンツによって作られた企業への信頼が、将来、企業が生み出すキャッシュと同じぐらい重要になってきます。
+        </div>
+      </div>
     </div>
-    <Sections :sections="sections"/>
+    <Sections
+      :sections="sections"
+      :leave="leave"
+    />
     <Services :off="2"/>
   </div>
 </template>
@@ -68,6 +75,32 @@ Youtubeに載せるのであれば、最初の5秒でどうインパクトをつ
         }
       ]
     }
+  },
+  watch: {
+    leave() {
+      this.introOut()
+    }
+  },
+  mounted() {
+    this.introIn()
+  },
+  methods: {
+    introIn() {
+      requestAnimationFrame(() => {
+        TweenMax.to('.Page .intro div div', 1.2, {
+          y: 0,
+          ease: Expo.easeOut
+        })
+      })
+    },
+    introOut() {
+      requestAnimationFrame(() => {
+        TweenMax.to('.Page .intro div div', 1.2, {
+          y: '100%',
+          ease: Expo.easeOut
+        })
+      })
+    }
   }
 }
 </script>
@@ -88,6 +121,12 @@ Youtubeに載せるのであれば、最初の5秒でどうインパクトをつ
       margin: 0 auto;
       width: calc(50% - 30px);
       text-align: center;
+    }
+    div {
+      overflow: hidden;
+      div {
+        transform: translate(0, 100%);
+      }
     }
   }
 }

@@ -5,11 +5,17 @@
       :key="section.src"
     >
       <div class="thumb">
-        <img :src="section.src">
+        <div>
+          <img :src="section.src">
+        </div>
       </div>
       <div class="text">
-        <div class="head">{{ section.head }}</div>
-        <div class="body">{{ section.body }}</div>
+        <div class="head">
+          <div>{{ section.head }}</div>
+        </div>
+        <div class="body">
+          <div>{{ section.body }}</div>
+        </div>
       </div>
     </li>
   </ul>
@@ -21,6 +27,76 @@ export default {
     sections: {
       type: Array,
       required: true
+    },
+    leave: {
+      type: Boolean,
+      required: true
+    }
+  },
+  watch: {
+    leave() {
+      this.thumbOut()
+      this.headOut()
+      this.bodyOut()
+    }
+  },
+  mounted() {
+    this.thumbIn()
+    this.headIn()
+    this.bodyIn()
+  },
+  methods: {
+    thumbIn() {
+      requestAnimationFrame(() => {
+        TweenMax.to('.Sections .thumb img', 1.2, {
+          y: 0,
+          ease: Expo.easeOut
+        })
+      })
+    },
+    thumbOut() {
+      requestAnimationFrame(() => {
+        TweenMax.to('.Sections .thumb img', 1.2, {
+          y: '100%',
+          ease: Expo.easeOut
+        })
+      })
+    },
+    headIn() {
+      requestAnimationFrame(() => {
+        TweenMax.to('.Sections .head div', 1.2, {
+          y: 0,
+          ease: Expo.easeOut,
+          delay: 0.05
+        })
+      })
+    },
+    headOut() {
+      requestAnimationFrame(() => {
+        TweenMax.to('.Sections .head div', 1.2, {
+          y: '100%',
+          ease: Expo.easeOut,
+          delay: 0.05
+        })
+      })
+    },
+    bodyIn() {
+      requestAnimationFrame(() => {
+        TweenMax.to('.Sections .body div', 1.2, {
+          y: 0,
+          ease: Expo.easeOut,
+          delay: 0.1
+        })
+      })
+    },
+    bodyOut() {
+      requestAnimationFrame(() => {
+        TweenMax.to('.Sections .body div', 1.2, {
+          y: '100%',
+          ease: Expo.easeOut,
+          delay: 0.1
+        })
+      })
     }
   }
 }
@@ -69,18 +145,26 @@ export default {
     }
     .thumb {
       width: 100%;
+      overflow: hidden;
       @include pc {
         padding: 30px;
         width: 50%;
         height: 22vw;
       }
-      img {
-        width: 100%;
-        height: auto;
+      div {
+        overflow: hidden;
         @include pc {
           height: 100%;
-          object-fit: cover;
-          border-radius: 20px;
+        }
+        img {
+          width: 100%;
+          height: auto;
+          transform: translate(0, 100%);
+          @include pc {
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+          }
         }
       }
     }
@@ -97,9 +181,13 @@ export default {
         font-size: 14px;
         font-weight: bold;
         line-height: 2;
+        overflow: hidden;
         @include pc {
           font-size: 18px;
           letter-spacing: 4px;
+        }
+        div {
+          transform: translate(0, 100%);
         }
       }
       .body {
@@ -108,8 +196,12 @@ export default {
         color: #999;
         line-height: 2;
         white-space: pre-wrap;
+        overflow: hidden;
         @include pc {
           margin-top: 26px;
+        }
+        div {
+          transform: translate(0, 100%);
         }
       }
     }
