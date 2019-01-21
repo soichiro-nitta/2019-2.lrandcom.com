@@ -95,7 +95,7 @@ export default {
       .head {
         font-size: 14px;
         font-weight: bold;
-        line-height: 1.7;
+        line-height: 2;
         @include pc {
           font-size: 18px;
           letter-spacing: 4px;
