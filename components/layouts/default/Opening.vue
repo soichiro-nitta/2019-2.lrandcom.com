@@ -23,7 +23,6 @@ export default {
     }
   },
   mounted() {
-    console.log('mounted at Opening.vue')
     const opening = lottie.loadAnimation({
       container: this.$refs.lottie,
       renderer: 'svg',
