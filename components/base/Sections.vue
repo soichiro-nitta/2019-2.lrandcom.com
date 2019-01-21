@@ -38,12 +38,14 @@ export default {
       this.thumbOut()
       this.headOut()
       this.bodyOut()
+      this.oddOut()
     }
   },
   mounted() {
     this.thumbIn()
     this.headIn()
     this.bodyIn()
+    this.oddIn()
   },
   methods: {
     thumbIn() {
@@ -94,6 +96,24 @@ export default {
       requestAnimationFrame(() => {
         TweenMax.to('.Sections .body div', 0.7, {
           y: '30px',
+          opacity: 0,
+          ease: Expo.easeOut,
+          delay: 0.1
+        })
+      })
+    },
+    oddIn() {
+      requestAnimationFrame(() => {
+        TweenMax.to('.Sections li:nth-child(odd)', 1, {
+          opacity: 1,
+          ease: Expo.easeOut,
+          delay: 0.1
+        })
+      })
+    },
+    oddOut() {
+      requestAnimationFrame(() => {
+        TweenMax.to('.Sections li:nth-child(odd)', 0.7, {
           opacity: 0,
           ease: Expo.easeOut,
           delay: 0.1

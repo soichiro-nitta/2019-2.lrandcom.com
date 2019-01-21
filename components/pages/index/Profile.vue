@@ -69,6 +69,7 @@ export default {
     leave() {
       this.titleOut()
       this.descriptionOut()
+      this.grayOut()
     }
   },
   mounted() {
@@ -87,6 +88,7 @@ export default {
     // }
     this.titleIn()
     this.descriptionIn()
+    this.grayIn()
   },
   methods: {
     titleIn() {
@@ -124,6 +126,24 @@ export default {
           delay: 0.05
         })
       })
+    },
+    grayIn() {
+      requestAnimationFrame(() => {
+        TweenMax.to('.Profile .gray', 1, {
+          opacity: 1,
+          ease: Expo.easeOut,
+          delay: 0.05
+        })
+      })
+    },
+    grayOut() {
+      requestAnimationFrame(() => {
+        TweenMax.to('.Profile .gray', 0.7, {
+          opacity: 0,
+          ease: Expo.easeOut,
+          delay: 0.05
+        })
+      })
     }
   }
 }
@@ -143,6 +163,7 @@ export default {
       rgba(65, 65, 65, 0.6) 50%,
       rgba(65, 65, 65, 0) 100%
     );
+    opacity: 0;
   }
   li {
     padding: 80px 30px;
