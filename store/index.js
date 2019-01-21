@@ -1,11 +1,13 @@
 export const state = () => ({
   opening: false,
-  menu: false
+  menu: false,
+  leave: false
 })
 
 export const getters = {
   opening: state => state.opening,
-  menu: state => state.menu
+  menu: state => state.menu,
+  leave: state => state.leave
 }
 
 export const mutations = {
@@ -17,6 +19,9 @@ export const mutations = {
   },
   closeMenu(state) {
     state.menu = false
+  },
+  toggleLeave(state) {
+    state.leave = !state.leave
   }
 }
 

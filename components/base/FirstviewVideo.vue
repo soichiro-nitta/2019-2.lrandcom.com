@@ -4,18 +4,20 @@
       ref="gradient"
       class="gradient"
     />
-    <video
-      ref="video"
-      :src="src"
-      preload="none"
-      muted
-      playsinline
-      loop
-    />
     <div
-      ref="mask"
-      class="mask"
-    />
+      ref="thumb"
+      class="thumb"
+    >
+      <video
+        ref="video"
+        :src="src"
+        preload="none"
+        muted
+        playsinline
+        loop
+      />
+      <div class="mask"/>
+    </div>
     <div class="content">
       <div
         ref="title"
@@ -42,50 +44,91 @@ export default {
     src: {
       type: String,
       required: true
+    },
+    leave: {
+      type: Boolean,
+      required: true
     }
   },
-  mounted() {
+  data() {
+    return {
+      off: false
+    }
+  },
+  watch: {
+    async leave() {
+      this.titleOut(this.$refs.titleText)
+      this.gradientOut(this.$refs.gradient)
+      this.videoOut(this.$refs.video, this.$refs.thumb)
+    }
+  },
+  async mounted() {
     this.titleIn(this.$refs.titleText)
     this.gradientIn(this.$refs.gradient)
-    this.playVideo(this.$refs.video, this.$refs.mask)
+    this.videoIn(this.$refs.video, this.$refs.thumb)
   },
   methods: {
     titleIn: title => {
       requestAnimationFrame(async () => {
-        TweenMax.to(title, 1, {
-          y: 0,
-          ease: Expo.easeInOut
+        TweenMax.to(title, 1.2, {
+          y: '0%',
+          ease: Expo.easeOut
+        })
+      })
+    },
+    titleOut: title => {
+      requestAnimationFrame(async () => {
+        TweenMax.to(title, 1.2, {
+          y: '100%',
+          ease: Expo.easeOut
         })
       })
     },
     gradientIn: gradient => {
       requestAnimationFrame(() => {
         TweenMax.to(gradient, 3, {
-          y: 0,
+          y: '0%',
           ease: Expo.easeOut
         })
       })
     },
-    playVideo: (video, mask) => {
+    gradientOut: gradient => {
+      requestAnimationFrame(() => {
+        TweenMax.to(gradient, 1.2, {
+          y: '-100%',
+          ease: Expo.easeOut
+        })
+      })
+    },
+    videoIn: (video, thumb) => {
       video.load()
       const canplay = () => {
         video.removeEventListener('canplay', canplay)
         const duration = video.duration // 動画の尺
         const rand = Math.floor(Math.random() * (duration + 1 - 0)) // 0 ~ durationの乱数
         video.currentTime = rand // 再生開始時間を指定
+        video.play()
         requestAnimationFrame(() => {
-          TweenMax.to(video, 2, {
+          TweenMax.to(thumb, 2, {
             opacity: 1,
             ease: Expo.easeInOut
           })
-          TweenMax.to(mask, 1, {
-            opacity: 1,
-            ease: Expo.easeOut
-          })
         })
-        video.play()
       }
       video.addEventListener('canplay', canplay)
+    },
+    videoOut: (video, mask) => {
+      requestAnimationFrame(() => {
+        video.pause()
+        TweenMax.to(video, 1.2, {
+          opacity: 0,
+          ease: Expo.easeOut
+        })
+        TweenMax.to(mask, 1.2, {
+          opacity: 0,
+          ease: Expo.easeOut
+        })
+      })
     }
   }
 }
@@ -114,23 +157,29 @@ export default {
     );
     transform: translate(0, -100%);
   }
-  video {
+  .thumb {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
     opacity: 0;
-  }
-  .mask {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 102%;
-    background: linear-gradient(rgba(75, 75, 75, 0) 0%, rgba(0, 0, 0, 1) 100%);
-    opacity: 0;
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        rgba(75, 75, 75, 0) 0%,
+        rgba(0, 0, 0, 1) 100%
+      );
+    }
   }
   .content {
     display: flex;

@@ -3,6 +3,7 @@
     <FirstviewVideo
       :title="title"
       :src="src"
+      :leave="leave"
     />
     <div class="intro">
       クオリティーの高いWebコンテンツは顧客を引き付ける磁石の役割を果たし、このコンテンツによって作られた企業への信頼が、将来、企業が生み出すキャッシュと同じぐらい重要になってきます。
@@ -23,6 +24,12 @@ export default {
     FirstviewVideo,
     Sections,
     Services
+  },
+  props: {
+    leave: {
+      type: Boolean,
+      required: true
+    }
   },
   data() {
     return {

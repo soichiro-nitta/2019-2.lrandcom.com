@@ -47,6 +47,16 @@ export default {
       type: Number,
       required: false,
       default: 0
+    },
+    leave: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
+  },
+  watch: {
+    async leave() {
+      this.out()
     }
   },
   mounted() {
@@ -58,6 +68,35 @@ export default {
     if (this.off !== 0) {
       elements[this.off].style.opacity = 0.5
       elements[this.off].disabled = true
+    }
+    this.in()
+  },
+  methods: {
+    in() {
+      requestAnimationFrame(() => {
+        TweenMax.staggerTo(
+          '.links a',
+          1.2,
+          {
+            y: 0,
+            ease: Expo.easeOut
+          },
+          0.05
+        )
+      })
+    },
+    out() {
+      requestAnimationFrame(() => {
+        TweenMax.staggerTo(
+          '.links a',
+          1.2,
+          {
+            y: '100%',
+            ease: Expo.easeOut
+          },
+          0.05
+        )
+      })
     }
   }
 }
@@ -93,6 +132,7 @@ export default {
         overflow: hidden;
         background: #171717;
         border-radius: 20px;
+        transform: translate(0, 100%);
         .thumb {
           display: flex;
           justify-content: center;

@@ -1,9 +1,12 @@
 <template>
-  <Page v-if="opening"/>
+  <Page
+    v-if="opening"
+    :leave="leave"
+  />
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import Page from '~/components/pages/contents/Page'
 
 export default {
@@ -12,11 +15,22 @@ export default {
   },
   computed: {
     ...mapGetters({
-      opening: 'opening'
+      opening: 'opening',
+      leave: 'leave'
     })
   },
   mounted() {
     document.getElementById('scrollArea').scrollTop = 0
+  },
+  async beforeRouteLeave(to, from, next) {
+    this.toggleLeave()
+    await this.$delay(1000)
+    next()
+  },
+  methods: {
+    ...mapMutations({
+      toggleLeave: 'toggleLeave'
+    })
   },
   head() {
     return {

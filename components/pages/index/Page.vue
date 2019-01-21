@@ -3,8 +3,9 @@
     <FirstviewVideo
       :title="title"
       :src="src"
+      :leave="leave"
     />
-    <Services/>
+    <Services :leave="leave"/>
     <ul>
       <li>
         <div class="title">WHO</div>
@@ -55,6 +56,12 @@ export default {
     Services,
     ButtonNuxt
   },
+  props: {
+    leave: {
+      type: Boolean,
+      required: true
+    }
+  },
   data() {
     return {
       title: 'LEADING & COMPANY',
@@ -62,20 +69,6 @@ export default {
         this.$device.isMobile ? 'mobile' : 'pc'
       }.mp4`
     }
-  },
-  mounted() {
-    requestAnimationFrame(() => {
-      TweenMax.staggerTo(
-        '.links a',
-        1,
-        {
-          y: 0,
-          ease: Expo.easeOut,
-          delay: 0.1
-        },
-        0.1
-      )
-    })
   }
 }
 </script>

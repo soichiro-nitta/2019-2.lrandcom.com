@@ -77,7 +77,6 @@ export default {
   width: 300px;
   height: 100%;
   background: #171717;
-  border-radius: 20px 0 0 20px;
   @include pc {
     top: 10px;
     left: -300px;
