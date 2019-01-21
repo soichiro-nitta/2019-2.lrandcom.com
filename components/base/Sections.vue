@@ -93,10 +93,13 @@ export default {
         width: 50%;
       }
       .head {
-        font-size: 18px;
+        font-size: 14px;
         font-weight: bold;
-        letter-spacing: 4px;
         line-height: 1.7;
+        @include pc {
+          font-size: 18px;
+          letter-spacing: 4px;
+        }
       }
       .body {
         margin-top: 30px;
