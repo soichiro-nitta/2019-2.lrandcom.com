@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import URL from '~/assets/data/url.json'
 import { mapGetters, mapMutations } from 'vuex'
 import Page from '~/components/pages/index/Page'
 
@@ -49,10 +50,12 @@ export default {
           property: 'og:url',
           content: 'https://lrandcom.com/'
         },
+        { property: 'og:image', content: `${URL.SITE}/ogp.ong` },
         {
           property: 'twitter:title',
           content: 'ホーム | リーディング＆カンパニー株式会社'
-        }
+        },
+        { property: 'twitter:image', content: `${URL.SITE}/ogp.ong` }
       ]
     }
   }
