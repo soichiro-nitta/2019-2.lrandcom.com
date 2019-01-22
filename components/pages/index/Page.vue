@@ -1,10 +1,6 @@
 <template>
   <div class="Page">
-    <FirstviewVideo
-      :title="title"
-      :src="src"
-      :leave="leave"
-    />
+    <Firstview/>
     <Services :leave="leave"/>
     <Profile :leave="leave"/>
   </div>
@@ -13,13 +9,13 @@
 <script>
 import URL from '~/assets/data/url.json'
 import { TweenMax, Expo } from 'gsap'
-import FirstviewVideo from '~/components/base/FirstviewVideo'
+import Firstview from './Firstview'
 import Services from '~/components/base/Services'
 import Profile from './Profile'
 
 export default {
   components: {
-    FirstviewVideo,
+    Firstview,
     Services,
     Profile
   },

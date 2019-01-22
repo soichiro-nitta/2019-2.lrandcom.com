@@ -43,7 +43,7 @@ export default {
     this.gragientIn(this.$refs.gradient)
     this.playVideo(this.$refs.video, this.$refs.mask)
     // await this.$delay(2000)
-    // this.titleIn(this.$refs.title)
+    this.titleIn(this.$refs.title)
   },
   methods: {
     titleIn: title => {
