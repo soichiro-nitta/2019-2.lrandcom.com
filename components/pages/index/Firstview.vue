@@ -4,18 +4,20 @@
       ref="gradient"
       class="gradient"
     />
-    <video
-      ref="video"
-      :src="src"
-      preload="none"
-      muted
-      playsinline
-      loop
-    />
     <div
-      ref="mask"
-      class="mask"
-    />
+      ref="thumb"
+      class="thumb"
+    >
+      <video
+        ref="video"
+        :src="src"
+        preload="none"
+        muted
+        playsinline
+        loop
+      />
+      <div class="mask"/>
+    </div>
     <div class="content">
       <div
         ref="title"
@@ -31,6 +33,12 @@ import URL from '~/assets/data/url.json'
 import { TweenMax, Expo } from 'gsap'
 
 export default {
+  props: {
+    leave: {
+      type: Boolean,
+      required: true
+    }
+  },
   data() {
     return {
       title: 'LEADING & COMPANY',
@@ -39,50 +47,78 @@ export default {
       }.mp4`
     }
   },
+  watch: {
+    async leave() {
+      this.titleOut(this.anim)
+      this.gradientOut(this.$refs.gradient)
+      this.videoOut(this.$refs.video, this.$refs.thumb)
+    }
+  },
   async mounted() {
-    this.gragientIn(this.$refs.gradient)
-    this.playVideo(this.$refs.video, this.$refs.mask)
-    // await this.$delay(2000)
-    this.titleIn(this.$refs.title)
+    this.anim = lottie.loadAnimation({
+      container: this.$refs.title,
+      renderer: 'svg',
+      loop: false,
+      path: '/json/text.json'
+    })
+    this.titleIn(this.anim)
+    this.gradientIn(this.$refs.gradient)
+    this.videoIn(this.$refs.video, this.$refs.thumb)
   },
   methods: {
-    titleIn: title => {
-      const anim = lottie.loadAnimation({
-        container: title,
-        renderer: 'svg',
-        loop: false,
-        path: '/json/text.json'
-      })
+    titleIn: anim => {
       anim.play()
     },
-    gragientIn: gradient => {
-      requestAnimationFrame(async () => {
+    titleOut: anim => {
+      anim.setDirection(-1)
+      anim.setSpeed(3)
+      anim.play()
+    },
+    gradientIn: gradient => {
+      requestAnimationFrame(() => {
         TweenMax.to(gradient, 3, {
-          y: 0,
+          y: '0%',
           ease: Expo.easeOut
         })
       })
     },
-    playVideo: (video, mask) => {
+    gradientOut: gradient => {
+      requestAnimationFrame(() => {
+        TweenMax.to(gradient, 0.5, {
+          y: '-100%',
+          ease: Expo.easeIn
+        })
+      })
+    },
+    videoIn: (video, thumb) => {
       video.load()
       const canplay = () => {
         video.removeEventListener('canplay', canplay)
-        // const duration = video.duration // 動画の尺
-        // const rand = Math.floor(Math.random() * (duration + 1 - 0)) // 0 ~ durationの乱数
-        // video.currentTime = rand // 再生開始時間を指定
+        const duration = video.duration // 動画の尺
+        const rand = Math.floor(Math.random() * (duration + 1 - 0)) // 0 ~ durationの乱数
+        video.currentTime = rand // 再生開始時間を指定
         video.play()
         requestAnimationFrame(() => {
-          TweenMax.to(video, 2, {
+          TweenMax.to(thumb, 2, {
             opacity: 1,
             ease: Expo.easeInOut
-          })
-          TweenMax.to(mask, 1, {
-            opacity: 1,
-            ease: Expo.easeOut
           })
         })
       }
       video.addEventListener('canplay', canplay)
+    },
+    videoOut: (video, mask) => {
+      requestAnimationFrame(() => {
+        video.pause()
+        TweenMax.to(video, 0.5, {
+          opacity: 0,
+          ease: Expo.easeIn
+        })
+        TweenMax.to(mask, 0.5, {
+          opacity: 0,
+          ease: Expo.easeIn
+        })
+      })
     }
   }
 }
@@ -111,23 +147,29 @@ export default {
     );
     transform: translate(0, -100%);
   }
-  video {
+  .thumb {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
     opacity: 0;
-  }
-  .mask {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 102%;
-    background: linear-gradient(rgba(75, 75, 75, 0) 0%, rgba(0, 0, 0, 1) 100%);
-    opacity: 0;
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        rgba(75, 75, 75, 0) 0%,
+        rgba(0, 0, 0, 1) 100%
+      );
+    }
   }
   .content {
     display: flex;

@@ -1,6 +1,6 @@
 <template>
   <div class="Page">
-    <Firstview/>
+    <Firstview :leave="leave"/>
     <Services :leave="leave"/>
     <Profile :leave="leave"/>
   </div>
