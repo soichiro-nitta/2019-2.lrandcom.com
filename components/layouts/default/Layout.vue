@@ -6,14 +6,14 @@
     </div>
     <Loading/>
     <Burger
-      v-show="isMobile"
+      v-if="$device.isMobile"
       :opening="opening"
       :menu="menu"
       @openMenu="openMenu"
     />
     <Logo :opening="opening"/>
     <Shade
-      v-show="isMobile"
+      v-show="$device.isMobile"
       :menu="menu"
       @closeMenu="closeMenu"
     />
@@ -45,11 +45,6 @@ export default {
     Shade,
     Menu,
     Opening
-  },
-  data() {
-    return {
-      isMobile: this.$device.isMobile
-    }
   },
   computed: {
     ...mapGetters({
