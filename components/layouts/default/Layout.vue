@@ -2,18 +2,19 @@
   <div class="Layout">
     <Background/>
     <div id="scrollArea">
+      <div v-if="isMobile">isMobile</div>
       <nuxt/>
     </div>
     <Loading/>
     <Burger
-      v-if="$device.isMobile"
+      v-show="isMobile"
       :opening="opening"
       :menu="menu"
       @openMenu="openMenu"
     />
     <Logo :opening="opening"/>
     <Shade
-      v-show="$device.isMobile"
+      v-show="isMobile"
       :menu="menu"
       @closeMenu="closeMenu"
     />
@@ -45,6 +46,11 @@ export default {
     Shade,
     Menu,
     Opening
+  },
+  data() {
+    return {
+      isMobile: this.$device.isMobile
+    }
   },
   computed: {
     ...mapGetters({
