@@ -3,21 +3,24 @@
     <Background/>
     <div id="scrollArea">
       {{ windowWidth }}
+      {{ isMobile }}
       <nuxt/>
     </div>
     <Loading/>
-    <Burger
-      v-show="isMobile"
-      :opening="opening"
-      :menu="menu"
-      @openMenu="openMenu"
-    />
+    <no-ssr v-if="isMobile">
+      <Burger
+        :opening="opening"
+        :menu="menu"
+        @openMenu="openMenu"
+      />
+    </no-ssr>
     <Logo :opening="opening"/>
-    <Shade
-      v-show="isMobile"
-      :menu="menu"
-      @closeMenu="closeMenu"
-    />
+    <no-ssr v-if="isMobile">
+      <Shade
+        :menu="menu"
+        @closeMenu="closeMenu"
+      />
+    </no-ssr>
     <Menu
       :menu="menu"
       :opening="opening"
@@ -46,11 +49,6 @@ export default {
     Shade,
     Menu,
     Opening
-  },
-  data() {
-    return {
-      isMobile: this.$device.isMobile
-    }
   },
   computed: {
     ...mapGetters({
@@ -83,6 +81,9 @@ export default {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  @include pc {
+    background: blue;
+  }
   #scrollArea {
     margin-top: 69px;
     position: relative;

@@ -8,11 +8,6 @@
 import { TweenMax, Expo } from 'gsap'
 
 export default {
-  data() {
-    return {
-      isMobile: this.$device.isMobile
-    }
-  },
   mounted() {
     this.canvasAnimation()
   },

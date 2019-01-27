@@ -67,11 +67,6 @@ export default {
       required: true
     }
   },
-  data() {
-    return {
-      isMobile: this.$device.isMobile
-    }
-  },
   watch: {
     async menu(menu) {
       if (menu) {

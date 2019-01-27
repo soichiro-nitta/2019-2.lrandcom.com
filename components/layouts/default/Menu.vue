@@ -39,11 +39,6 @@ export default {
       required: true
     }
   },
-  data() {
-    return {
-      isMobile: this.$device.isMobile
-    }
-  },
   methods: {
     closeMenu() {
       this.$emit('closeMenu')
