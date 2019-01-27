@@ -6,7 +6,7 @@
     </div>
     <Loading/>
     <Burger
-      v-if="isMobile"
+      v-show="isMobile"
       :opening="opening"
       :menu="menu"
       @openMenu="openMenu"
