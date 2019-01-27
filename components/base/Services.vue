@@ -2,7 +2,7 @@
   <div class="Services">
     <ul class="links">
       <li ref="contents">
-        <nuxt-link to="contents">
+        <nuxt-link to="/contents">
           <div class="thumb">
             <font-awesome-icon :icon="['far', 'pen']"/>
           </div>
@@ -13,7 +13,7 @@
         </nuxt-link>
       </li>
       <li ref="film">
-        <nuxt-link to="film">
+        <nuxt-link to="/film">
           <div class="thumb">
             <font-awesome-icon :icon="['far', 'video']"/>
           </div>
@@ -24,7 +24,7 @@
         </nuxt-link>
       </li>
       <li ref="website">
-        <nuxt-link to="website">
+        <nuxt-link to="/website">
           <div class="thumb">
             <font-awesome-icon :icon="['far', 'desktop']"/>
           </div>
