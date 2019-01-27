@@ -89,6 +89,7 @@ export default {
     overflow-x: hidden;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
+    will-change: transform;
     @include pc {
       padding: 10px;
       margin-left: 310px;
