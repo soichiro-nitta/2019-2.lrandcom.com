@@ -2,7 +2,7 @@
   <div class="Layout">
     <Background/>
     <div id="scrollArea">
-      <div v-if="isMobile">isMobile</div>
+      {{ windowWidth }}
       <nuxt/>
     </div>
     <Loading/>
