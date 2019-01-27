@@ -93,8 +93,8 @@ export default {
 <style lang="scss" scoped>
 .Burger {
   position: fixed;
-  top: 30px;
-  right: 30px;
+  top: 20px;
+  right: 20px;
   width: 30px;
   height: 30px;
   // mix-blend-mode: difference;

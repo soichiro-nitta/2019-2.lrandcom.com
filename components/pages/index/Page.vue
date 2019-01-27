@@ -40,7 +40,7 @@ export default {
 .Page {
   width: 100%;
   .Services {
-    margin: 40px auto 0;
+    margin-top: -50px;
     @include pc {
       margin: 20px auto 0;
     }

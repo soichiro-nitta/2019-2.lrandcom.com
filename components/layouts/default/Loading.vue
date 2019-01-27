@@ -1,9 +1,6 @@
 <template>
   <div class="Loading">
-    <div
-      ref="border"
-      class="border"
-    />
+    /contents
   </div>
 </template>
 
@@ -55,11 +52,18 @@ export default {
 
 <style lang="scss" scoped>
 .Loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 70px;
+  color: #999;
+  font-size: 12px;
+  background: black;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   // display: flex;
   // justify-content: center;
   // align-items: center;

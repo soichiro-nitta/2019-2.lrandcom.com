@@ -184,7 +184,7 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 50px);
     .title {
       display: inline-block;
       position: relative;

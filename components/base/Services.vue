@@ -116,10 +116,11 @@ export default {
       }
     }
     li {
-      margin: 30px auto 0;
-      width: calc(100% - 60px);
+      margin: 20px auto 0;
+      width: calc(100% - 40px);
       height: 100px;
-      border-radius: 20px;
+      border-radius: 15px;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       @include pc {
         margin: 0;
@@ -127,23 +128,23 @@ export default {
       }
       a {
         display: flex;
+        align-items: center;
         width: 100%;
         height: 100%;
         overflow: hidden;
-        background: #171717;
-        border-radius: 20px;
+        background: white;
+        border-radius: 15px;
         transform: translate(0, 100%);
         .thumb {
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 30%;
-          height: 100%;
-          background: #121212;
-          svg {
-            width: 25%;
-            height: auto;
-          }
+          margin-left: 10%;
+          width: 50px;
+          height: 50px;
+          color: white;
+          background: black;
+          border-radius: 50%;
         }
         .text {
           display: flex;

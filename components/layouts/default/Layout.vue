@@ -83,9 +83,10 @@ export default {
   height: 100%;
   overflow: hidden;
   #scrollArea {
+    margin-top: 69px;
     position: relative;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 70px);
     overflow-x: hidden;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
