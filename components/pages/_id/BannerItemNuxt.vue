@@ -59,7 +59,7 @@ export default {
   methods: {
     click() {
       requestAnimationFrame(() => {
-        TweenMax.to(this.$el, 1, {
+        TweenMax.to(this.$el, 0.7, {
           opacity: 0,
           y: '-10px',
           ease: Expo.easeOut
@@ -74,11 +74,10 @@ export default {
 <style lang="scss">
 .BannerItemNuxt {
   position: fixed;
-  left: 30px;
-  bottom: 30px;
-  margin: 30px auto 0;
+  left: 20px;
+  bottom: 20px;
   padding: 30px;
-  width: calc(100% - 60px);
+  width: calc(100% - 40px);
   text-align: center;
   background: #171717;
   border-radius: 20px;
@@ -94,13 +93,13 @@ export default {
     font-weight: bold;
   }
   .text {
-    margin: 20px auto 0;
+    margin: 15px auto 0;
     font-size: 12px;
     color: #999;
     line-height: 2;
   }
   .ButtonNuxt {
-    margin: 20px auto 0;
+    margin: 15px auto 0;
   }
   .close {
     position: absolute;

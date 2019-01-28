@@ -41,7 +41,7 @@ export default {
   mounted() {},
   methods: {
     async increment() {
-      await this.$delay(1000)
+      await this.$delay(700)
       this.num++
     }
   }
