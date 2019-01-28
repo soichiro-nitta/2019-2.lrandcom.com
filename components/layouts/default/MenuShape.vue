@@ -26,7 +26,7 @@ export default {
       }
     },
     async opening() {
-      if (this.isMobile) return
+      if (this.$device.isMobile) return
       await this.$delay(900)
       this.in()
     }

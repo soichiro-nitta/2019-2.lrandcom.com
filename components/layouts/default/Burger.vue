@@ -46,6 +46,10 @@ export default {
       }
     }
   },
+  mounted() {
+    if (!this.opening) return
+    this.in()
+  },
   methods: {
     click() {
       this.$emit('openMenu')

@@ -3,11 +3,10 @@
     <Background/>
     <div id="scrollArea">
       {{ windowWidth }}
-      {{ isMobile }}
       <nuxt/>
     </div>
     <Loading/>
-    <no-ssr v-if="isMobile">
+    <no-ssr v-if="$device.isMobile">
       <Burger
         :opening="opening"
         :menu="menu"
@@ -15,7 +14,7 @@
       />
     </no-ssr>
     <Logo :opening="opening"/>
-    <no-ssr v-if="isMobile">
+    <no-ssr v-if="$device.isMobile">
       <Shade
         :menu="menu"
         @closeMenu="closeMenu"

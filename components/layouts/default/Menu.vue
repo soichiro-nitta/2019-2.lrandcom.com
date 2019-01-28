@@ -5,7 +5,7 @@
       :opening="opening"
     />
     <MenuClose
-      v-show="isMobile"
+      v-show="$device.isMobile"
       :menu="menu"
       @closeMenu="closeMenu"
     />
