@@ -9,7 +9,7 @@
       button="Instagramをみる"
       @increment="increment"
     />
-    <BannerItemNuxt
+    <!-- <BannerItemNuxt
       v-if="num === 2"
       :num="num"
       to="/writer"
@@ -17,7 +17,7 @@
       body="書き手がつまらないと感じたら、読み手はその10倍はつまらないよね。"
       button="詳細をみる"
       @increment="increment"
-    />
+    /> -->
   </div>
 </template>
 

@@ -47,7 +47,6 @@ export default {
     }
   },
   mounted() {
-    console.log('test')
     requestAnimationFrame(() => {
       TweenMax.to(this.$el, 1, {
         opacity: 1,
