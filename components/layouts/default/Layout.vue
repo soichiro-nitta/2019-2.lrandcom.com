@@ -2,20 +2,28 @@
   <div class="Layout">
     <Background/>
     <div id="scrollArea">
-      {{ `windowHeight: ${windowHeight}` }}<br>
-      {{ `scrollAreaHeight: ${scrollAreaHeight}` }}
-      <nuxt/>
+      {{ `screenHeight: ${screenHeight}` }}<br>
+      {{ `screenAvailHeight: ${screenAvailHeight}` }}<br>
+      {{ `windowInnerHeight: ${windowHeight}` }}<br>
+      {{ `windowOuterHeight: ${windowOuterHeight}` }}<br>
+      {{ `documentBodyClientHeight: ${documentBodyClientHeight}` }}<br>
+      {{ `documentBodyOffsetHeight: ${documentBodyOffsetHeight}` }}<br>
+      {{ `documentBodyScrollHeight: ${documentBodyScrollHeight}` }}<br>
+      {{ `documentDocumentElementClientHeight: ${documentDocumentElementClientHeight}` }}<br>
+      {{ `documentDocumentElementOffsetHeight: ${documentDocumentElementOffsetHeight}` }}<br>
+      {{ `documentDocumentElementScrollHeight: ${documentDocumentElementScrollHeight}` }}<br>
+      <!-- <nuxt/> -->
     </div>
-    <Loading/>
-    <no-ssr v-if="$device.isMobile">
+    <!-- <Loading/> -->
+    <!-- <no-ssr v-if="$device.isMobile">
       <Burger
         :opening="opening"
         :menu="menu"
         @openMenu="openMenu"
       />
-    </no-ssr>
-    <Logo :opening="opening"/>
-    <no-ssr v-if="$device.isMobile">
+    </no-ssr> -->
+    <!-- <Logo :opening="opening"/> -->
+    <!-- <no-ssr v-if="$device.isMobile">
       <Shade
         :menu="menu"
         @closeMenu="closeMenu"
@@ -25,7 +33,7 @@
       :menu="menu"
       :opening="opening"
       @closeMenu="closeMenu"
-    />
+    /> -->
     <Opening/>
   </div>
 </template>
@@ -52,7 +60,15 @@ export default {
   },
   data() {
     return {
-      scrollAreaHeight: 0
+      screenHeight: 0,
+      screenAvailHeight: 0,
+      windowOuterHeight: 0,
+      documentBodyClientHeight: 0,
+      documentBodyOffsetHeight: 0,
+      documentBodyScrollHeight: 0,
+      documentDocumentElementClientHeight: 0,
+      documentDocumentElementOffsetHeight: 0,
+      documentDocumentElementScrollHeight: 0
     }
   },
   computed: {
@@ -62,8 +78,19 @@ export default {
     })
   },
   mounted() {
-    this.$el.style.height = `${this.windowHeight}px`
-    this.scrollAreaHeight = document.getElementById('scrollArea').clientHeight
+    // this.$el.style.height = `${this.windowHeight}px`
+    this.screenHeight = screen.height
+    this.screenAvailHeight = screen.availHeight
+    this.windowOuterHeight = window.outerHeight
+    this.documentBodyClientHeight = document.body.clientHeight
+    this.documentBodyOffsetHeight = document.body.offsetHeight
+    this.documentBodyScrollHeight = document.body.scrollHeight
+    this.documentDocumentElementClientHeight =
+      document.documentElement.clientHeight
+    this.documentDocumentElementOffsetHeight =
+      document.documentElement.offsetHeight
+    this.documentDocumentElementScrollHeight =
+      document.documentElement.scrollHeight
   },
   methods: {
     isDev() {
@@ -97,8 +124,7 @@ export default {
     margin-top: 70px;
     position: relative;
     width: 100%;
-    // height: calc(100% - 70px);
-    height: 100%;
+    height: calc(100% - 70px);
     overflow-x: hidden;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
