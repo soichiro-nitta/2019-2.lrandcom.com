@@ -43,14 +43,6 @@
       </li>
       <li>
         <nuxt-link
-          to="/writer"
-          @click.native="closeMenu"
-        >
-          <span>ライター募集</span>
-        </nuxt-link>
-      </li>
-      <li>
-        <nuxt-link
           to="/contact"
           @click.native="closeMenu"
         >
