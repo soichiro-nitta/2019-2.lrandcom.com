@@ -62,7 +62,7 @@ export default {
     })
   },
   mounted() {
-    document.body.style.height = `${this.windowHeight}px`
+    this.$el.style.height = `${this.windowHeight}px`
     this.scrollAreaHeight = document.getElementById('scrollArea').clientHeight
   },
   methods: {
