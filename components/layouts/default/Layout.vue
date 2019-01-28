@@ -94,7 +94,7 @@ export default {
     background: blue;
   }
   #scrollArea {
-    margin-top: 69px;
+    margin-top: 70px;
     position: relative;
     width: 100%;
     // height: calc(100% - 70px);

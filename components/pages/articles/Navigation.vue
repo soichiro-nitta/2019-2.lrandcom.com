@@ -30,6 +30,10 @@ export default {
       required: true
     }
   },
+  mounted() {
+    this.$el.style.top = `${this.windowHeight - 100}px`
+    // console.log(`-${(this.windowHeight - 100) / 2}px`)
+  },
   methods: {
     increment() {
       this.$emit('increment')
@@ -49,13 +53,15 @@ export default {
   justify-content: center;
   align-items: center;
   position: fixed;
+  top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  margin: 0 auto;
+  margin: auto;
   width: 100%;
   height: 100px;
-  background: rgba(18, 18, 18, 0.95);
+  background: black;
+  opacity: 0.7;
   border-radius: 40px 40px 0 0;
   @include pc {
     bottom: 10px;
