@@ -5,11 +5,11 @@
       :src="article.src"
     />
     <Author/>
-    <Banner />
     <Content
       :content="article.content"
     />
     <Services/>
+    <Banner />
   </div>
 </template>
 
