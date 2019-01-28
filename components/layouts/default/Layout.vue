@@ -61,18 +61,10 @@ export default {
       menu: 'menu'
     })
   },
-  watch: {
-    windowHeight(newVal, oldVal) {
-      console.log(`newVal:${newVal}`)
-      console.log(`oldVal:${oldVal}`)
-      console.log(`this.windowHeight:${this.windowHeight}`)
-      document.getElementById('scrollArea').style.background = 'cyan'
-      // document.getElementById('scrollArea').style.height = `${
-      //   this.windowHeight
-      // }px`
-    }
-  },
   mounted() {
+    document.getElementById('scrollArea').style.height = `${
+      this.windowHeight
+    }px`
     this.scrollAreaHeight = document.getElementById('scrollArea').clientHeight
   },
   methods: {
