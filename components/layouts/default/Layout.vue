@@ -77,8 +77,9 @@ export default {
       menu: 'menu'
     })
   },
-  mounted() {
+  async mounted() {
     // this.$el.style.height = `${this.windowHeight}px`
+    await this.$delay(5000)
     this.screenHeight = screen.height
     this.screenAvailHeight = screen.availHeight
     this.windowOuterHeight = window.outerHeight
