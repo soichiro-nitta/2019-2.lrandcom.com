@@ -49,6 +49,9 @@ export default {
   .ButtonNuxt {
     margin: 50px auto 0;
     width: calc(100% - 60px);
+    @include pc {
+      width: 540px;
+    }
   }
   @include pc {
     padding: 0;
