@@ -2,7 +2,8 @@
   <div class="Layout">
     <Background/>
     <div id="scrollArea">
-      {{ windowWidth }}
+      {{ `windowHeight: ${windowHeight}` }}<br>
+      {{ `scrollAreaHeight: ${scrollAreaHeight}` }}
       <nuxt/>
     </div>
     <Loading/>
@@ -49,11 +50,19 @@ export default {
     Menu,
     Opening
   },
+  data() {
+    return {
+      scrollAreaHeight: 0
+    }
+  },
   computed: {
     ...mapGetters({
       opening: 'opening',
       menu: 'menu'
     })
+  },
+  mounted() {
+    this.scrollAreaHeight = document.getElementById('scrollArea').clientHeight
   },
   methods: {
     isDev() {
@@ -87,7 +96,8 @@ export default {
     margin-top: 69px;
     position: relative;
     width: 100%;
-    height: calc(100% - 70px);
+    // height: calc(100% - 70px);
+    height: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
