@@ -58,14 +58,15 @@ module.exports = {
   /*
   ** Nuxt.js modules
   */
-  modules: [
-    'nuxt-device-detect',
-    '@nuxtjs/axios',
-    [
-      'nuxt-sass-resources-loader',
-      ['~/assets/scss/variable.scss', '~/assets/scss/mixins.scss']
-    ]
-  ],
+  modules: ['nuxt-device-detect', '@nuxtjs/axios', '@nuxtjs/style-resources'],
+
+  /*
+  ** style-resources
+  */
+  styleResources: {
+    // your settings here
+    sass: ['~/assets/scss/variable.scss', '~/assets/scss/mixins.scss']
+  },
 
   /*
   ** Axios
