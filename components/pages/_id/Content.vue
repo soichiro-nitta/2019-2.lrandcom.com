@@ -42,10 +42,10 @@ export default {
     padding: 30px 60px;
     margin: 0 auto;
     width: 600px;
+    font-size: 16px;
   }
   h2 {
     margin-top: 30px;
-    font-size: 15px;
   }
   img {
     margin: 5px auto;
@@ -59,7 +59,7 @@ export default {
     }
   }
   .subTitle {
-    margin-top: 30px;
+    margin: 30px 0 20px;
     color: white;
     font-weight: bold;
     line-height: 1.7;
