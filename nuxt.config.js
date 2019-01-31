@@ -77,6 +77,13 @@ module.exports = {
   },
 
   /*
+  ** Router
+  */
+  router: {
+    linkPrefetchedClass: 'nuxt-link-prefetched'
+  },
+
+  /*
   ** Build configuration
   */
   build: {
