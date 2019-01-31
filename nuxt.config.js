@@ -53,7 +53,12 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['~/plugins/mixin', '~/plugins/fontawesome', '~/plugins/axios'],
+  plugins: [
+    '~/plugins/mixin.client',
+    '~/plugins/fontawesome.client',
+    '~/plugins/axios'
+    // '~/plugins/persistedstate.client'
+  ],
 
   /*
   ** Nuxt.js modules
