@@ -49,8 +49,8 @@ export default {
   justify-content: center;
   align-items: center;
   position: fixed;
+  top: calc(50vh - 100px);
   right: 0;
-  bottom: 0;
   left: 0;
   margin: auto;
   width: 100%;
