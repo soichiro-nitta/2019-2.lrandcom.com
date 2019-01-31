@@ -49,14 +49,15 @@ export default {
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: calc(50vh - 100px);
+  top: 0;
   right: 0;
+  bottom: 0;
   left: 0;
   margin: auto;
   width: 100%;
   height: 200px;
-  background: black;
-  opacity: 0.7;
+  background: white;
+  opacity: 0.9;
   border-radius: 40px 40px 0 0;
   @include pc {
     bottom: 10px;
