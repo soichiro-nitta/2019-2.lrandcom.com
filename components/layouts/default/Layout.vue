@@ -2,28 +2,18 @@
   <div class="Layout">
     <Background/>
     <div id="scrollArea">
-      {{ `screenHeight: ${screenHeight}` }}<br>
-      {{ `screenAvailHeight: ${screenAvailHeight}` }}<br>
-      {{ `windowInnerHeight: ${windowHeight}` }}<br>
-      {{ `windowOuterHeight: ${windowOuterHeight}` }}<br>
-      {{ `documentBodyClientHeight: ${documentBodyClientHeight}` }}<br>
-      {{ `documentBodyOffsetHeight: ${documentBodyOffsetHeight}` }}<br>
-      {{ `documentBodyScrollHeight: ${documentBodyScrollHeight}` }}<br>
-      {{ `documentDocumentElementClientHeight: ${documentDocumentElementClientHeight}` }}<br>
-      {{ `documentDocumentElementOffsetHeight: ${documentDocumentElementOffsetHeight}` }}<br>
-      {{ `documentDocumentElementScrollHeight: ${documentDocumentElementScrollHeight}` }}<br>
-      <!-- <nuxt/> -->
+      <nuxt/>
     </div>
-    <!-- <Loading/> -->
-    <!-- <no-ssr v-if="$device.isMobile">
+    <Loading/>
+    <no-ssr v-if="$device.isMobile">
       <Burger
         :opening="opening"
         :menu="menu"
         @openMenu="openMenu"
       />
-    </no-ssr> -->
-    <!-- <Logo :opening="opening"/> -->
-    <!-- <no-ssr v-if="$device.isMobile">
+    </no-ssr>
+    <Logo :opening="opening"/>
+    <no-ssr v-if="$device.isMobile">
       <Shade
         :menu="menu"
         @closeMenu="closeMenu"
@@ -33,7 +23,7 @@
       :menu="menu"
       :opening="opening"
       @closeMenu="closeMenu"
-    /> -->
+    />
     <Opening/>
   </div>
 </template>
@@ -57,19 +47,6 @@ export default {
     Shade,
     Menu,
     Opening
-  },
-  data() {
-    return {
-      screenHeight: 0,
-      screenAvailHeight: 0,
-      windowOuterHeight: 0,
-      documentBodyClientHeight: 0,
-      documentBodyOffsetHeight: 0,
-      documentBodyScrollHeight: 0,
-      documentDocumentElementClientHeight: 0,
-      documentDocumentElementOffsetHeight: 0,
-      documentDocumentElementScrollHeight: 0
-    }
   },
   computed: {
     ...mapGetters({

@@ -56,9 +56,8 @@ module.exports = {
   plugins: [
     '~/plugins/mixin.client',
     '~/plugins/fontawesome.client',
-    '~/plugins/axios',
+    '~/plugins/axios'
     // '~/plugins/persistedstate.client'
-    '~/plugins/vueWindowSize.client'
   ],
 
   /*
