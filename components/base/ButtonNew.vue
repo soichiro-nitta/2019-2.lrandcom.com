@@ -3,6 +3,7 @@
     :href="to"
     class="ButtonNew"
     target="_blank"
+    @click="click"
   >
     {{ text }}
   </a>
@@ -18,6 +19,11 @@ export default {
     text: {
       type: String,
       required: true
+    }
+  },
+  methods: {
+    click() {
+      this.$emit('click')
     }
   }
 }

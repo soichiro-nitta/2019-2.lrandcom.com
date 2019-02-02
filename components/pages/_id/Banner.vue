@@ -25,12 +25,12 @@
 import URL from '~/assets/data/url.json'
 import { TweenMax, Expo } from 'gsap'
 import BannerItemNew from './BannerItemNew'
-import BannerItemNuxt from './BannerItemNuxt'
+// import BannerItemNuxt from './BannerItemNuxt'
 
 export default {
   components: {
-    BannerItemNew,
-    BannerItemNuxt
+    BannerItemNew
+    // BannerItemNuxt
   },
   data() {
     return {
@@ -38,7 +38,9 @@ export default {
       num: 1
     }
   },
-  mounted() {},
+  mounted() {
+    // localStorage['lrandcom.com'].banner.insta = 'true'
+  },
   methods: {
     async increment() {
       await this.$delay(700)

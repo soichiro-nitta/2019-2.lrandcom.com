@@ -5,10 +5,11 @@
     <ButtonNew
       :to="to"
       :text="button"
+      @click="clickButton"
     />
     <div
       class="close"
-      @click="click"
+      @click="clickClose"
     >
       <div class="line1"/>
       <div class="line2"/>
@@ -47,6 +48,7 @@ export default {
     }
   },
   mounted() {
+    if (localStorage['banner-' + this.to]) return
     requestAnimationFrame(() => {
       TweenMax.to(this.$el, 0.7, {
         opacity: 1,
@@ -56,7 +58,10 @@ export default {
     })
   },
   methods: {
-    click() {
+    clickButton() {
+      localStorage['banner-' + this.to] = 'true'
+    },
+    clickClose() {
       requestAnimationFrame(() => {
         TweenMax.to(this.$el, 1, {
           opacity: 0,
