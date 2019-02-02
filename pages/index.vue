@@ -25,9 +25,6 @@ export default {
     await this.$delay(500)
     next()
   },
-  mounted() {
-    console.log(this.$route.path)
-  },
   methods: {
     ...mapMutations({
       toggleLeave: 'toggleLeave'
