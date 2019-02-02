@@ -9,24 +9,6 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    titleTemplate: '%s | リーディング＆カンパニー株式会社',
-    meta: [
-      { charset: 'utf-8' },
-      {
-        name: 'viewport',
-        content:
-          'width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,shrink-to-fit=no'
-      },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'keywords', content: 'リーディング＆カンパニー株式会社,夏目力' },
-      { property: 'fb:app_id', content: '1475229082562793' },
-      { property: 'og:description', content: '' },
-      { property: 'og:site_name', content: 'リーディング＆カンパニー株式会社' },
-      { property: 'twitter:card', content: 'summary_large_image' },
-      { property: 'twitter:site', content: '@4chikara' },
-      { property: 'twitter:creator', content: '@soichiro_nitta' },
-      { property: 'twitter:description', content: '' }
-    ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
@@ -55,6 +37,7 @@ module.exports = {
   */
   plugins: [
     '~/plugins/mixin.client',
+    '~/plugins/mixin',
     '~/plugins/fontawesome.client',
     '~/plugins/axios'
     // '~/plugins/persistedstate.client'

@@ -14,11 +14,6 @@ export default {
   components: {
     Page
   },
-  data() {
-    return {
-      head: 'test'
-    }
-  },
   computed: {
     ...mapGetters({
       opening: 'opening',
@@ -30,31 +25,19 @@ export default {
     await this.$delay(500)
     next()
   },
+  mounted() {
+    console.log(this.$route.path)
+  },
   methods: {
     ...mapMutations({
       toggleLeave: 'toggleLeave'
     })
   },
   head() {
-    return {
-      title: this.head + 'リーディング＆カンパニー株式会社',
-      meta: [
-        {
-          property: 'og:title',
-          content: 'リーディング＆カンパニー株式会社'
-        },
-        {
-          property: 'og:url',
-          content: 'https://lrandcom.com/'
-        },
-        { property: 'og:image', content: `${URL.SITE}/ogp.ong` },
-        {
-          property: 'twitter:title',
-          content: 'リーディング＆カンパニー株式会社'
-        },
-        { property: 'twitter:image', content: `${URL.SITE}/ogp.ong` }
-      ]
-    }
+    return this.$head({
+      title: 'リーディング＆カンパニー株式会社',
+      image: `${URL.SITE}/ogp.ong`
+    })
   }
 }
 </script>
