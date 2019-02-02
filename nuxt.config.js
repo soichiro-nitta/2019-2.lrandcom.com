@@ -1,5 +1,5 @@
-import URL from './assets/data/url.json'
 import axios from 'axios'
+import URL from './assets/data/url.json'
 
 module.exports = {
   mode: 'universal',
@@ -46,7 +46,12 @@ module.exports = {
   /*
   ** Nuxt.js modules
   */
-  modules: ['nuxt-device-detect', '@nuxtjs/axios', '@nuxtjs/style-resources'],
+  modules: [
+    'nuxt-device-detect',
+    '@nuxtjs/axios',
+    '@nuxtjs/pwa',
+    '@nuxtjs/style-resources'
+  ],
 
   /*
   ** style-resources
