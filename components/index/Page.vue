@@ -1,8 +1,8 @@
 <template>
   <div class="Page">
-    <Firstview :leave="leave"/>
-    <Services :leave="leave"/>
-    <Profile :leave="leave"/>
+    <Firstview :leave="leave" />
+    <Services :leave="leave" />
+    <Profile :leave="leave" />
   </div>
 </template>
 

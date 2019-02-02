@@ -1,12 +1,10 @@
 <template>
   <div class="TheBackground">
-    <canvas id="canvas"/>
+    <canvas id="canvas" />
   </div>
 </template>
 
 <script>
-import { TweenMax, Expo } from 'gsap'
-
 export default {
   mounted() {
     this.canvasAnimation(
@@ -88,7 +86,7 @@ export default {
          * @method createCircle
          */
         createCircle() {
-          let particle = []
+          const particle = []
           const self = this
 
           for (let i = 0; i < this.numParticles; i++) {

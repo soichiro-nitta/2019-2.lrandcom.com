@@ -16,7 +16,7 @@
         playsinline
         loop
       />
-      <div class="mask"/>
+      <div class="mask" />
     </div>
     <div class="content">
       <div
@@ -26,7 +26,9 @@
         <span
           ref="titleText"
           class="titleText"
-        >{{ title }}</span>
+        >
+          {{ title }}
+        </span>
       </div>
     </div>
   </div>
@@ -51,20 +53,20 @@ export default {
     }
   },
   watch: {
-    async leave() {
+    leave() {
       this.titleOut(this.$refs.titleText)
       this.gradientOut(this.$refs.gradient)
       this.videoOut(this.$refs.video, this.$refs.thumb)
     }
   },
-  async mounted() {
+  mounted() {
     this.titleIn(this.$refs.titleText)
     this.gradientIn(this.$refs.gradient)
     this.videoIn(this.$refs.video, this.$refs.thumb)
   },
   methods: {
     titleIn: title => {
-      requestAnimationFrame(async () => {
+      requestAnimationFrame(() => {
         TweenMax.to(title, 0.8, {
           y: '0%',
           ease: Expo.easeOut
@@ -72,7 +74,7 @@ export default {
       })
     },
     titleOut: title => {
-      requestAnimationFrame(async () => {
+      requestAnimationFrame(() => {
         TweenMax.to(title, 0.5, {
           y: '-100%',
           ease: Expo.easeIn

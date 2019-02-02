@@ -1,5 +1,5 @@
 <template>
-  <Page v-if="opening"/>
+  <Page v-if="opening" />
 </template>
 
 <script>

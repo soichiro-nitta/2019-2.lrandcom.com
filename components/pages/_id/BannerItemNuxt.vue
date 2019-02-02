@@ -1,7 +1,11 @@
 <template>
   <div class="BannerItemNuxt">
-    <div class="head">{{ head }}</div>
-    <div class="text">{{ body }}</div>
+    <div class="head">
+      {{ head }}
+    </div>
+    <div class="text">
+      {{ body }}
+    </div>
     <ButtonNuxt
       :to="to"
       :text="button"
@@ -10,8 +14,8 @@
       class="close"
       @click="click"
     >
-      <div class="line1"/>
-      <div class="line2"/>
+      <div class="line1" />
+      <div class="line2" />
     </div>
   </div>
 </template>

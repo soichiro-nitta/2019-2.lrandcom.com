@@ -8,8 +8,8 @@
     > -->
     <Article
       v-for="article in articles"
-      :article="article"
       :key="article.index"
+      :article="article"
     />
     <!-- </transition-group> -->
     <Navigation

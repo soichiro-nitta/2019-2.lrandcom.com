@@ -1,5 +1,5 @@
 <template>
-  <div class="MenuShape"/>
+  <div class="MenuShape" />
 </template>
 
 <script>

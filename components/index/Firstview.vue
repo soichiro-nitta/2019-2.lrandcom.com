@@ -16,7 +16,7 @@
         playsinline
         loop
       />
-      <div class="mask"/>
+      <div class="mask" />
     </div>
     <div class="content">
       <div
@@ -48,13 +48,13 @@ export default {
     }
   },
   watch: {
-    async leave() {
+    leave() {
       this.titleOut(this.anim)
       this.gradientOut(this.$refs.gradient)
       this.videoOut(this.$refs.video, this.$refs.thumb)
     }
   },
-  async mounted() {
+  mounted() {
     this.anim = lottie.loadAnimation({
       container: this.$refs.title,
       renderer: 'svg',

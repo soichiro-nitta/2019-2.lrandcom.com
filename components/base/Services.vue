@@ -4,33 +4,45 @@
       <li ref="contents">
         <nuxt-link to="/contents">
           <div class="thumb">
-            <font-awesome-icon :icon="['far', 'pen']"/>
+            <font-awesome-icon :icon="['far', 'pen']" />
           </div>
           <div class="text">
-            <div class="en">CREATE CONTENTS</div>
-            <div class="ja">記事制作について</div>
+            <div class="en">
+              CREATE CONTENTS
+            </div>
+            <div class="ja">
+              記事制作について
+            </div>
           </div>
         </nuxt-link>
       </li>
       <li ref="film">
         <nuxt-link to="/film">
           <div class="thumb">
-            <font-awesome-icon :icon="['far', 'video']"/>
+            <font-awesome-icon :icon="['far', 'video']" />
           </div>
           <div class="text">
-            <div class="en">CREATE FILM</div>
-            <div class="ja">映像制作について</div>
+            <div class="en">
+              CREATE FILM
+            </div>
+            <div class="ja">
+              映像制作について
+            </div>
           </div>
         </nuxt-link>
       </li>
       <li ref="website">
         <nuxt-link to="/website">
           <div class="thumb">
-            <font-awesome-icon :icon="['far', 'desktop']"/>
+            <font-awesome-icon :icon="['far', 'desktop']" />
           </div>
           <div class="text">
-            <div class="en">CREATE WEBSITE</div>
-            <div class="ja">サイト制作について</div>
+            <div class="en">
+              CREATE WEBSITE
+            </div>
+            <div class="ja">
+              サイト制作について
+            </div>
           </div>
         </nuxt-link>
       </li>

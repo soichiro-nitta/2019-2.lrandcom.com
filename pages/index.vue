@@ -3,9 +3,9 @@
     v-if="opening"
     class="page"
   >
-    <Firstview :leave="leave"/>
-    <Services :leave="leave"/>
-    <Profile :leave="leave"/>
+    <Firstview :leave="leave" />
+    <Services :leave="leave" />
+    <Profile :leave="leave" />
   </div>
 </template>
 

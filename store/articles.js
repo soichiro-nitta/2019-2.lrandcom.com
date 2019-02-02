@@ -40,25 +40,21 @@ export const actions = {
       const total = Number(headers['x-wp-total'])
       const totalPages = Number(headers['x-wp-totalpages'])
 
-      let articles = []
+      const articles = []
       for (let i = 0; i < data.length; i++) {
-        const date = new Date(data[i]['date'])
+        const date = new Date(data[i].date)
         articles[i] = {
           index: total - (state.page - 1) * perPage - i,
-          title: data[i]['title']['rendered'],
+          title: data[i].title.rendered,
           src:
             'large' in
-            data[i]['_embedded']['wp:featuredmedia'][0]['media_details'][
-              'sizes'
-            ]
-              ? data[i]['_embedded']['wp:featuredmedia'][0]['media_details'][
-                  'sizes'
-                ]['large']['source_url']
-              : data[i]['_embedded']['wp:featuredmedia'][0]['media_details'][
-                  'sizes'
-                ]['full']['source_url'],
-          slug: data[i]['slug'],
-          categories: data[i]['categories'],
+            data[i]._embedded['wp:featuredmedia'][0].media_details.sizes
+              ? data[i]._embedded['wp:featuredmedia'][0].media_details.sizes
+                  .large.source_url
+              : data[i]._embedded['wp:featuredmedia'][0].media_details.sizes
+                  .full.source_url,
+          slug: data[i].slug,
+          categories: data[i].categories,
           yy: date.getFullYear(date),
           mm: date.getMonth(date) + 1,
           dd: date.getDate()

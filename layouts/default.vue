@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Background/>
-    <nuxt/>
+    <Background />
+    <nuxt />
     <!-- <no-ssr v-if="$device.isMobile">
       <Burger
         :opening="opening"
@@ -21,25 +21,25 @@
       :opening="opening"
       @closeMenu="closeMenu"
     />
-    <Opening/>
+    <Opening />
   </div>
 </template>
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
 import Background from '~/components/default/Background'
-import Logo from '~/components/default/Logo'
-import Burger from '~/components/default/Burger'
-import Shade from '~/components/default/Shade'
+// import Logo from '~/components/default/Logo'
+// import Burger from '~/components/default/Burger'
+// import Shade from '~/components/default/Shade'
 import Menu from '~/components/default/Menu'
 import Opening from '~/components/default/Opening'
 
 export default {
   components: {
     Background,
-    Logo,
-    Burger,
-    Shade,
+    // Logo,
+    // Burger,
+    // Shade,
     Menu,
     Opening
   },

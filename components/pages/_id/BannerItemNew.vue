@@ -1,7 +1,11 @@
 <template>
   <div class="BannerItemNew">
-    <div class="head">{{ head }}</div>
-    <div class="text">{{ body }}</div>
+    <div class="head">
+      {{ head }}
+    </div>
+    <div class="text">
+      {{ body }}
+    </div>
     <ButtonNew
       :to="to"
       :text="button"
@@ -11,8 +15,8 @@
       class="close"
       @click="clickClose"
     >
-      <div class="line1"/>
-      <div class="line2"/>
+      <div class="line1" />
+      <div class="line2" />
     </div>
   </div>
 </template>

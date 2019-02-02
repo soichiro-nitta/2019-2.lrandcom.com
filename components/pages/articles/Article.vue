@@ -21,7 +21,9 @@
         <div class="date">
           {{ `${article.yy}.${article.mm}.${article.dd}` }}
         </div>
-        <div class="category">{{ category }}</div>
+        <div class="category">
+          {{ category }}
+        </div>
       </div>
     </div>
   </nuxt-link>

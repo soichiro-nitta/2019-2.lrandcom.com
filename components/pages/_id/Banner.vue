@@ -23,7 +23,6 @@
 
 <script>
 import URL from '~/assets/data/url.json'
-import { TweenMax, Expo } from 'gsap'
 import BannerItemNew from './BannerItemNew'
 // import BannerItemNuxt from './BannerItemNuxt'
 

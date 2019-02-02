@@ -24,21 +24,18 @@ export const actions = {
     try {
       let { data } = await this.$axios.get(`/?_embed&slug=${payload.slug}`)
       data = data[0]
-      const date = new Date(data['date'])
+      const date = new Date(data.date)
       const article = {
-        title: data['title']['rendered'],
+        title: data.title.rendered,
         src:
-          'large' in
-          data['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']
-            ? data['_embedded']['wp:featuredmedia'][0]['media_details'][
-                'sizes'
-              ]['large']['source_url']
-            : data['_embedded']['wp:featuredmedia'][0]['media_details'][
-                'sizes'
-              ]['full']['source_url'],
-        slug: data['slug'],
-        content: data['content']['rendered'],
-        categories: data['categories'],
+          'large' in data._embedded['wp:featuredmedia'][0].media_details.sizes
+            ? data._embedded['wp:featuredmedia'][0].media_details.sizes.large
+                .source_url
+            : data._embedded['wp:featuredmedia'][0].media_details.sizes.full
+                .source_url,
+        slug: data.slug,
+        content: data.content.rendered,
+        categories: data.categories,
         // author: data['post_meta']['author'],
         // interviewer: data['post_meta']['interviewer'],
         // editor: data['post_meta']['editor'],

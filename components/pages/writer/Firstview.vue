@@ -5,7 +5,7 @@
       class="thumb"
     >
       <img :src="src">
-      <div class="mask"/>
+      <div class="mask" />
     </div>
     <div class="content">
       <div
@@ -15,7 +15,9 @@
         <span
           ref="titleText"
           class="titleText"
-        >{{ title }}</span>
+        >
+          {{ title }}
+        </span>
       </div>
     </div>
   </div>

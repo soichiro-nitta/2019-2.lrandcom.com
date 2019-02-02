@@ -22,14 +22,14 @@ export default {
       opening: false
     }
   },
-  async mounted() {
+  mounted() {
     const opening = lottie.loadAnimation({
       container: this.$refs.lottie,
       renderer: 'svg',
       loop: false,
       path: '/json/icon.json'
     })
-    const onComplete = async () => {
+    const onComplete = () => {
       opening.removeEventListener('complete', onComplete)
       opening.setDirection(-1)
       opening.setSpeed(3)

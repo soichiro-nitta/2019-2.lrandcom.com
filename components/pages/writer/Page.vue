@@ -4,7 +4,7 @@
       :title="title"
       :src="src"
     />
-    <Content/>
+    <Content />
   </div>
 </template>
 

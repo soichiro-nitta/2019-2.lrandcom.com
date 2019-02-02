@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import { TweenMax, Expo } from 'gsap'
 import MenuShape from './MenuShape'
 import MenuList from './MenuList'
 import MenuClose from './MenuClose'

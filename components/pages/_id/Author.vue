@@ -5,25 +5,27 @@
       class="thumb"
     >
     <div class="text">
-      <div class="name">著者：夏目 力（なつめ ちから）</div>
+      <div class="name">
+        著者：夏目 力（なつめ ちから）
+      </div>
       <div class="icons">
         <a
           :href="fb"
           target="_blank"
         >
-          <font-awesome-icon :icon="['fab', 'facebook']"/>
+          <font-awesome-icon :icon="['fab', 'facebook']" />
         </a>
         <a
           :href="tw"
           target="_blank"
         >
-          <font-awesome-icon :icon="['fab', 'twitter']"/>
+          <font-awesome-icon :icon="['fab', 'twitter']" />
         </a>
         <a
           :href="insta"
           target="_blank"
         >
-          <font-awesome-icon :icon="['fab', 'instagram']"/>
+          <font-awesome-icon :icon="['fab', 'instagram']" />
         </a>
       </div>
     </div>
@@ -32,7 +34,6 @@
 
 <script>
 import URL from '~/assets/data/url.json'
-import { TweenMax, Expo } from 'gsap'
 
 export default {
   data() {

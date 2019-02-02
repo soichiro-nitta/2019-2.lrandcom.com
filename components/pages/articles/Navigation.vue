@@ -17,8 +17,6 @@
 </template>
 
 <script>
-import { TweenMax, Expo } from 'gsap'
-
 export default {
   props: {
     page: {

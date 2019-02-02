@@ -4,7 +4,7 @@
       :title="article.title"
       :src="article.src"
     />
-    <Author/>
+    <Author />
     <ButtonNuxt
       to="/writer"
       text="ライター募集中！!"
@@ -12,7 +12,7 @@
     <Content
       :content="article.content"
     />
-    <Services/>
+    <Services />
     <Banner />
   </div>
 </template>
