@@ -1,18 +1,26 @@
 <template>
-  <Page
+  <div
     v-if="opening"
-    :leave="leave"
-  />
+    class="page"
+  >
+    <Firstview :leave="leave"/>
+    <Services :leave="leave"/>
+    <Profile :leave="leave"/>
+  </div>
 </template>
 
 <script>
 import URL from '~/assets/data/url.json'
 import { mapGetters, mapMutations } from 'vuex'
-import Page from '~/components/pages/index/Page'
+import Firstview from '~/components/index/Firstview'
+import Services from '~/components/base/Services'
+import Profile from '~/components/index/Profile'
 
 export default {
   components: {
-    Page
+    Firstview,
+    Services,
+    Profile
   },
   computed: {
     ...mapGetters({
@@ -38,3 +46,14 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.page {
+  .Services {
+    margin-top: -50px;
+    @include pc {
+      margin: 20px auto 0;
+    }
+  }
+}
+</style>

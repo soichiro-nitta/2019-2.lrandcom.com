@@ -1,5 +1,5 @@
 <template>
-  <div class="Layout">
+  <div>
     <Background/>
     <nuxt/>
     <!-- <no-ssr v-if="$device.isMobile">
