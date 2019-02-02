@@ -14,6 +14,11 @@ export default {
   components: {
     Page
   },
+  data() {
+    return {
+      head: 'test'
+    }
+  },
   computed: {
     ...mapGetters({
       opening: 'opening',
@@ -32,11 +37,11 @@ export default {
   },
   head() {
     return {
-      title: 'ホーム',
+      title: this.head + 'リーディング＆カンパニー株式会社',
       meta: [
         {
           property: 'og:title',
-          content: 'ホーム | リーディング＆カンパニー株式会社'
+          content: 'リーディング＆カンパニー株式会社'
         },
         {
           property: 'og:url',
@@ -45,7 +50,7 @@ export default {
         { property: 'og:image', content: `${URL.SITE}/ogp.ong` },
         {
           property: 'twitter:title',
-          content: 'ホーム | リーディング＆カンパニー株式会社'
+          content: 'リーディング＆カンパニー株式会社'
         },
         { property: 'twitter:image', content: `${URL.SITE}/ogp.ong` }
       ]
