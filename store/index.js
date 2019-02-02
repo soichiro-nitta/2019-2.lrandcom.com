@@ -1,18 +1,13 @@
 export const state = () => ({
-  opened: false,
-  leave: false
+  opened: false
 })
 
 export const getters = {
-  opened: state => state.opened,
-  leave: state => state.leave
+  opened: state => state.opened
 }
 
 export const mutations = {
   open(state) {
     state.opened = true
-  },
-  toggleLeave(state) {
-    state.leave = !state.leave
   }
 }

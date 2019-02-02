@@ -11,7 +11,7 @@
 
 <script>
 import URL from '~/assets/data/url.json'
-import { mapGetters, mapMutations } from 'vuex'
+import { mapGetters } from 'vuex'
 import Firstview from '~/components/index/Firstview'
 import Services from '~/components/base/Services'
 import Profile from '~/components/index/Profile'
@@ -22,21 +22,25 @@ export default {
     Services,
     Profile
   },
+  data() {
+    return {
+      leave: false
+    }
+  },
   computed: {
     ...mapGetters({
-      opened: 'opened',
-      leave: 'leave'
+      opened: 'opened'
     })
   },
   async beforeRouteLeave(to, from, next) {
-    this.toggleLeave()
+    this.go()
     await this.$delay(500)
     next()
   },
   methods: {
-    ...mapMutations({
-      toggleLeave: 'toggleLeave'
-    })
+    go() {
+      this.leave = true
+    }
   },
   head() {
     return this.$head({

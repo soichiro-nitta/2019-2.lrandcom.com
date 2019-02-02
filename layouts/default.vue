@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapMutations } from 'vuex'
 import Background from '~/components/default/Background'
 import Opening from '~/components/default/Opening'
 
@@ -15,11 +15,6 @@ export default {
   components: {
     Background,
     Opening
-  },
-  computed: {
-    ...mapGetters({
-      menu: 'menu'
-    })
   },
   methods: {
     ...mapMutations({
