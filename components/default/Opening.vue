@@ -33,6 +33,7 @@ export default {
       anim.setDirection(-1)
       anim.setSpeed(3)
       anim.play()
+      document.body.style.background = 'white'
       requestAnimationFrame(async () => {
         TweenMax.to(this.$refs.opening, 2, {
           scale: 2,
@@ -42,7 +43,7 @@ export default {
             this.hide = true
           }
         })
-        await this.$delay(500)
+        await this.$delay(750)
         document.body.style.overflow = 'auto'
       })
       this.$emit('open')
