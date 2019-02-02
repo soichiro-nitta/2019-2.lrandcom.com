@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="opening"
+    v-if="opened"
     class="page"
   >
     <Firstview :leave="leave" />
@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      opening: 'opening',
+      opened: 'opened',
       leave: 'leave'
     })
   },

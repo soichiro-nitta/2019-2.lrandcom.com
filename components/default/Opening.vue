@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="!opening"
+    v-if="!hide"
     ref="opening"
     class="Opening"
   >
@@ -14,51 +14,44 @@
 <script>
 import lottie from 'lottie-web'
 import { TweenMax, Expo } from 'gsap'
-import { mapMutations } from 'vuex'
 
 export default {
   data() {
     return {
-      opening: false
+      hide: false
     }
   },
   mounted() {
-    const opening = lottie.loadAnimation({
+    const anim = lottie.loadAnimation({
       container: this.$refs.lottie,
       renderer: 'svg',
       loop: false,
       path: '/json/icon.json'
     })
     const onComplete = () => {
-      opening.removeEventListener('complete', onComplete)
-      opening.setDirection(-1)
-      opening.setSpeed(3)
-      opening.play()
+      anim.removeEventListener('complete', onComplete)
+      anim.setDirection(-1)
+      anim.setSpeed(3)
+      anim.play()
       requestAnimationFrame(async () => {
         TweenMax.to(this.$refs.opening, 2, {
           scale: 2,
           opacity: 0,
           ease: Expo.easeOut,
           onComplete: () => {
-            this.opening = true
+            this.hide = true
           }
         })
         await this.$delay(500)
         document.body.style.overflow = 'auto'
       })
-      this.setOpening()
+      this.$emit('open')
     }
-    opening.addEventListener('complete', onComplete)
+    anim.addEventListener('complete', onComplete)
 
     window.onload = () => {
-      // opening.setSpeed()
-      opening.play()
+      anim.play()
     }
-  },
-  methods: {
-    ...mapMutations({
-      setOpening: 'setOpening'
-    })
   }
 }
 </script>
