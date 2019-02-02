@@ -1,24 +1,21 @@
 <template>
   <div class="Layout">
     <Background/>
-    <div id="scrollArea">
-      <nuxt/>
-    </div>
-    <Loading/>
-    <no-ssr v-if="$device.isMobile">
+    <nuxt/>
+    <!-- <no-ssr v-if="$device.isMobile">
       <Burger
         :opening="opening"
         :menu="menu"
         @openMenu="openMenu"
       />
-    </no-ssr>
+    </no-ssr> -->
     <Logo :opening="opening"/>
-    <no-ssr v-if="$device.isMobile">
+    <!-- <no-ssr v-if="$device.isMobile">
       <Shade
         :menu="menu"
         @closeMenu="closeMenu"
       />
-    </no-ssr>
+    </no-ssr> -->
     <Menu
       :menu="menu"
       :opening="opening"
@@ -32,7 +29,6 @@
 import { mapGetters, mapMutations } from 'vuex'
 import Background from './Background'
 import Logo from './Logo'
-import Loading from './Loading'
 import Burger from './Burger'
 import Shade from './Shade'
 import Menu from './Menu'
@@ -42,7 +38,6 @@ export default {
   components: {
     Background,
     Logo,
-    Loading,
     Burger,
     Shade,
     Menu,
@@ -53,22 +48,6 @@ export default {
       opening: 'opening',
       menu: 'menu'
     })
-  },
-  async mounted() {
-    // this.$el.style.height = `${this.windowHeight}px`
-    await this.$delay(5000)
-    this.screenHeight = screen.height
-    this.screenAvailHeight = screen.availHeight
-    this.windowOuterHeight = window.outerHeight
-    this.documentBodyClientHeight = document.body.clientHeight
-    this.documentBodyOffsetHeight = document.body.offsetHeight
-    this.documentBodyScrollHeight = document.body.scrollHeight
-    this.documentDocumentElementClientHeight =
-      document.documentElement.clientHeight
-    this.documentDocumentElementOffsetHeight =
-      document.documentElement.offsetHeight
-    this.documentDocumentElementScrollHeight =
-      document.documentElement.scrollHeight
   },
   methods: {
     isDev() {
@@ -97,21 +76,6 @@ export default {
   overflow: hidden;
   @include pc {
     background: blue;
-  }
-  #scrollArea {
-    margin-top: 70px;
-    position: relative;
-    width: 100%;
-    height: calc(100% - 70px);
-    overflow-x: hidden;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-    // will-change: transform;
-    @include pc {
-      padding: 10px;
-      margin-left: 310px;
-      width: calc(100% - 310px);
-    }
   }
 }
 </style>

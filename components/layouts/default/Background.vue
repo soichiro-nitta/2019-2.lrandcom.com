@@ -9,11 +9,14 @@ import { TweenMax, Expo } from 'gsap'
 
 export default {
   mounted() {
-    this.canvasAnimation()
+    this.canvasAnimation(
+      this.$device.isMobile,
+      this.windowWidth,
+      this.windowHeight
+    )
   },
   methods: {
-    canvasAnimation() {
-      const isMobile = this.isMobile
+    canvasAnimation(isMobile, width, height) {
       /**
        * Generates random particles using canvas
        *
@@ -73,10 +76,8 @@ export default {
          */
         render() {
           const self = this
-          let wHeight = document.getElementById('scrollArea').clientHeight
-          let wWidth = document.getElementById('scrollArea').clientWidth
-          self.canvas.width = wWidth
-          self.canvas.height = wHeight
+          self.canvas.width = width
+          self.canvas.height = height
           window.onresize = () => {
             self.render()
           }

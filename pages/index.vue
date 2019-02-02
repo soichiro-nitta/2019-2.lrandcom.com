@@ -20,15 +20,7 @@ export default {
       leave: 'leave'
     })
   },
-  mounted() {
-    document.getElementById('scrollArea').scrollTop = 0
-  },
   async beforeRouteLeave(to, from, next) {
-    // const scrollArea = document.getElementById('scrollArea')
-    // TweenMax.to(scrollArea, 0.7, {
-    //   scrollTop: scrollArea.scrollTop - 100,
-    //   ease: Expo.easeOut
-    // })
     this.toggleLeave()
     await this.$delay(500)
     next()
