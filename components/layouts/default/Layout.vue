@@ -9,7 +9,7 @@
         @openMenu="openMenu"
       />
     </no-ssr> -->
-    <Logo :opening="opening"/>
+    <!-- <Logo :opening="opening"/> -->
     <!-- <no-ssr v-if="$device.isMobile">
       <Shade
         :menu="menu"
@@ -67,15 +67,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.Layout {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  @include pc {
-    background: blue;
-  }
-}
-</style>

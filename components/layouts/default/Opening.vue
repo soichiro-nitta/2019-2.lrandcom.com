@@ -22,19 +22,19 @@ export default {
       opening: false
     }
   },
-  mounted() {
+  async mounted() {
     const opening = lottie.loadAnimation({
       container: this.$refs.lottie,
       renderer: 'svg',
       loop: false,
       path: '/json/icon.json'
     })
-    const onComplete = () => {
+    const onComplete = async () => {
       opening.removeEventListener('complete', onComplete)
       opening.setDirection(-1)
       opening.setSpeed(3)
       opening.play()
-      requestAnimationFrame(() => {
+      requestAnimationFrame(async () => {
         TweenMax.to(this.$refs.opening, 2, {
           scale: 2,
           opacity: 0,
@@ -43,6 +43,8 @@ export default {
             this.opening = true
           }
         })
+        await this.$delay(500)
+        document.body.style.overflow = 'auto'
       })
       this.setOpening()
     }
