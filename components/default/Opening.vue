@@ -54,7 +54,7 @@ export default {
 
     await this.$completeLottie(anim)
     TweenMax.to(this.$refs.lottie, 0.02, {
-      opacity: 0.5,
+      opacity: 0,
       startAt: {
         opacity: 1
       },
@@ -74,7 +74,7 @@ export default {
     await this.$delay(250)
     await this.$raf()
     TweenMax.to(this.$refs.lottie, 2.4, {
-      scale: 4,
+      scale: 3,
       ease: Expo.easeOut
     })
 
@@ -89,6 +89,10 @@ export default {
   },
   methods: {
     shapeIn() {
+      TweenMax.to('.shapes', 1.9, {
+        scale: 1,
+        ease: Expo.easeOut
+      })
       TweenMax.staggerTo(
         '.shape1',
         0.3,
@@ -130,6 +134,10 @@ export default {
       )
     },
     shapeOut() {
+      TweenMax.to('.shapes', 1.9, {
+        scale: 2,
+        ease: Expo.easeInOut
+      })
       TweenMax.staggerTo(
         [].slice.call(document.getElementsByClassName('shape4')).reverse(),
         0.3,
@@ -204,6 +212,7 @@ export default {
     bottom: 0;
     left: 0;
     margin: auto;
+    transform: scale(2);
     .shape {
       position: absolute;
       width: 25%;

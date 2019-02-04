@@ -256,7 +256,7 @@ export default {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  opacity: 0.5;
+  opacity: 0;
   canvas {
     position: absolute;
     top: 0;
