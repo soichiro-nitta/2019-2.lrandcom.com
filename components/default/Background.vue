@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import { TweenMax, Expo } from 'gsap'
+
 export default {
   mounted() {
     this.canvasAnimation(
@@ -12,6 +14,17 @@ export default {
       this.windowWidth,
       this.windowHeight
     )
+    this.$raf()
+    TweenMax.to(this.$el, 0.02, {
+      opacity: 1,
+      startAt: {
+        opacity: 0
+      },
+      ease: Expo.easeOut,
+      repeat: 8,
+      yoyo: true,
+      repeatDelay: 0.03
+    })
   },
   methods: {
     canvasAnimation(isMobile, width, height) {
@@ -24,7 +37,7 @@ export default {
       class Particles {
         constructor() {
           // particle colors
-          this.colors = ['150, 150, 150']
+          this.colors = ['0, 0, 0']
           // adds gradient to particles on true
           this.blurry = false
           // adds white border
@@ -243,6 +256,7 @@ export default {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  opacity: 0.5;
   canvas {
     position: absolute;
     top: 0;
