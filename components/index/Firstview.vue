@@ -75,8 +75,8 @@ export default {
     },
     bgIn: bg => {
       requestAnimationFrame(() => {
-        TweenMax.to(bg, 1, {
-          y: '0%',
+        TweenMax.to(bg, 2, {
+          scaleY: 1,
           ease: Expo.easeOut
         })
       })
@@ -90,9 +90,9 @@ export default {
         // video.currentTime = rand // 再生開始時間を指定
         video.play()
         requestAnimationFrame(() => {
-          TweenMax.to(thumb, 2, {
+          TweenMax.to(thumb, 3, {
             opacity: 1,
-            ease: Expo.easeInOut
+            ease: Expo.easeOut
           })
         })
       }
@@ -129,7 +129,7 @@ export default {
     width: 100%;
     height: 100%;
     background: black;
-    transform: translate(0, -100%);
+    transform: scaleY(0);
   }
   .thumb {
     position: absolute;
