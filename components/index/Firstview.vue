@@ -1,8 +1,8 @@
 <template>
   <div class="FirstviewVideo">
     <div
-      ref="gradient"
-      class="gradient"
+      ref="bg"
+      class="bg"
     />
     <div
       ref="thumb"
@@ -50,7 +50,6 @@ export default {
   watch: {
     leave() {
       this.titleOut(this.anim)
-      this.gradientOut(this.$refs.gradient)
       this.videoOut(this.$refs.video, this.$refs.thumb)
     }
   },
@@ -61,8 +60,8 @@ export default {
       loop: false,
       path: '/json/text.json'
     })
+    this.bgIn(this.$refs.bg)
     this.titleIn(this.anim)
-    this.gradientIn(this.$refs.gradient)
     this.videoIn(this.$refs.video, this.$refs.thumb)
   },
   methods: {
@@ -74,29 +73,21 @@ export default {
       anim.setSpeed(3)
       anim.play()
     },
-    gradientIn: gradient => {
+    bgIn: bg => {
       requestAnimationFrame(() => {
-        TweenMax.to(gradient, 3, {
+        TweenMax.to(bg, 1, {
           y: '0%',
           ease: Expo.easeOut
-        })
-      })
-    },
-    gradientOut: gradient => {
-      requestAnimationFrame(() => {
-        TweenMax.to(gradient, 0.5, {
-          y: '-100%',
-          ease: Expo.easeIn
         })
       })
     },
     videoIn: (video, thumb) => {
       video.load()
       const canplay = () => {
-        video.removeEventListener('canplay', canplay)
-        const duration = video.duration // 動画の尺
-        const rand = Math.floor(Math.random() * (duration + 1 - 0)) // 0 ~ durationの乱数
-        video.currentTime = rand // 再生開始時間を指定
+        video.removeEventListener('canplaythrough', canplay)
+        // const duration = video.duration // 動画の尺
+        // const rand = Math.floor(Math.random() * (duration + 1 - 0)) // 0 ~ durationの乱数
+        // video.currentTime = rand // 再生開始時間を指定
         video.play()
         requestAnimationFrame(() => {
           TweenMax.to(thumb, 2, {
@@ -128,23 +119,16 @@ export default {
 .FirstviewVideo {
   position: relative;
   width: 100%;
-  height: 65vh;
+  height: 400px;
   overflow: hidden;
   @include pc {
     height: calc(100vh - 140px);
     border-radius: 20px;
   }
-  .gradient {
+  .bg {
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      rgba(65, 65, 65, 0.8) 0%,
-      rgba(65, 65, 65, 0) 100%
-    );
-    background: -webkit-linear-gradient(
-      rgba(65, 65, 65, 0.8) 0%,
-      rgba(65, 65, 65, 0) 100%
-    );
+    background: black;
     transform: translate(0, -100%);
   }
   .thumb {
@@ -165,10 +149,6 @@ export default {
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(
-        rgba(75, 75, 75, 0) 0%,
-        rgba(0, 0, 0, 1) 100%
-      );
     }
   }
   .content {

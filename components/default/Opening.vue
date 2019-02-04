@@ -21,38 +21,41 @@ export default {
       hide: false
     }
   },
-  mounted() {
+  async mounted() {
     const anim = lottie.loadAnimation({
       container: this.$refs.lottie,
       renderer: 'svg',
       loop: false,
       path: '/json/icon.json'
     })
-    const onComplete = () => {
-      anim.removeEventListener('complete', onComplete)
-      anim.setDirection(-1)
-      anim.setSpeed(3)
-      anim.play()
-      document.body.style.background = 'white'
-      requestAnimationFrame(async () => {
-        TweenMax.to(this.$refs.opening, 2, {
-          scale: 2,
-          opacity: 0,
-          ease: Expo.easeOut,
-          onComplete: () => {
-            this.hide = true
-          }
-        })
-        await this.$delay(750)
-        document.body.style.overflow = 'auto'
-      })
-      this.$emit('open')
-    }
-    anim.addEventListener('complete', onComplete)
 
-    window.onload = () => {
-      anim.play()
-    }
+    await this.$loadWindow()
+    await this.$raf()
+    TweenMax.to(document.body, 1.7, {
+      backgroundColor: 'white',
+      ease: Expo.easeInOut
+    })
+    anim.setSpeed(1.15)
+    anim.play() // 再生
+
+    await this.$completeLottie(anim)
+    anim.setDirection(-1)
+    anim.setSpeed(1.5)
+
+    await this.$raf()
+    anim.play() // 逆再生
+
+    await this.$delay(250)
+    await this.$raf()
+    this.$emit('open')
+    TweenMax.to(this.$refs.opening, 3, {
+      scale: 4,
+      opacity: 0,
+      ease: Expo.easeOut
+    })
+
+    await this.$delay(3000)
+    this.hide = true
   }
 }
 </script>
