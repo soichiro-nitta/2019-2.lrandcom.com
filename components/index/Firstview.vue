@@ -54,6 +54,7 @@ export default {
     }
   },
   mounted() {
+    this.$el.style.height = `${this.windowHeight / 1.5}px`
     this.anim = lottie.loadAnimation({
       container: this.$refs.title,
       renderer: 'svg',
@@ -66,6 +67,7 @@ export default {
   },
   methods: {
     titleIn: anim => {
+      anim.setSpeed(0.8)
       anim.play()
     },
     titleOut: anim => {
@@ -77,7 +79,7 @@ export default {
       requestAnimationFrame(() => {
         TweenMax.to(bg, 2, {
           scaleY: 1,
-          ease: Expo.easeOut
+          ease: Expo.easeInOut
         })
       })
     },
@@ -90,9 +92,9 @@ export default {
         // video.currentTime = rand // 再生開始時間を指定
         video.play()
         requestAnimationFrame(() => {
-          TweenMax.to(thumb, 3, {
+          TweenMax.to(thumb, 1, {
             opacity: 1,
-            ease: Expo.easeOut
+            ease: Expo.easeIn
           })
         })
       }
@@ -159,7 +161,7 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(100% - 50px);
+    height: 100%;
     .title {
       padding: 0 45px;
     }

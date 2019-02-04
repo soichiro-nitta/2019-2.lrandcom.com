@@ -47,7 +47,7 @@ export default {
 
     await this.$delay(250)
     await this.$raf()
-    this.$emit('open')
+    this.$emit('open') // ストア変更
     TweenMax.to(this.$refs.opening, 3, {
       scale: 4,
       opacity: 0,
