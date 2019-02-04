@@ -89,11 +89,6 @@ export default {
   },
   methods: {
     shapeIn() {
-      TweenMax.to('.shapes', 1.9, {
-        opacity: 1,
-        scale: 1,
-        ease: Expo.easeOut
-      })
       TweenMax.staggerTo(
         '.shape1',
         0.3,
@@ -135,11 +130,6 @@ export default {
       )
     },
     shapeOut() {
-      TweenMax.to('.shapes', 1.9, {
-        opacity: 0,
-        scale: 2,
-        ease: Expo.easeInOut
-      })
       TweenMax.staggerTo(
         [].slice.call(document.getElementsByClassName('shape4')).reverse(),
         0.3,
@@ -194,17 +184,10 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  // top: 5px;
-  // right: 5px;
-  // bottom: 5px;
-  // left: 5px;
   margin: auto;
   width: 100%;
   height: 100%;
-  // width: calc(100% - 10px);
-  // height: calc(100% - 10px);
   overflow: hidden;
-  // background: black;
   .lottie {
     position: absolute;
     top: 0;
@@ -221,12 +204,11 @@ export default {
     bottom: 0;
     left: 0;
     margin: auto;
-    opacity: 0;
-    transform: scale(2);
     .shape {
       position: absolute;
       width: 25%;
       height: 100%;
+      background: #000;
     }
     .shape1 {
       bottom: -100%;
@@ -249,13 +231,10 @@ export default {
       margin: auto;
     }
     .whitegray {
-      background: #aaa;
+      opacity: 0.25;
     }
     .gray {
-      background: #555;
-    }
-    .black {
-      background: #000;
+      opacity: 0.5;
     }
   }
 }
