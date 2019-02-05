@@ -139,21 +139,11 @@ export default {
         ease: Expo.easeInOut
       })
       TweenMax.staggerTo(
-        [].slice.call(document.getElementsByClassName('shape4')).reverse(),
+        [].slice.call(document.getElementsByClassName('shape1')).reverse(),
         0.3,
         {
           y: '0%',
           ease: Expo.easeInOut
-        },
-        0.2
-      )
-      TweenMax.staggerTo(
-        [].slice.call(document.getElementsByClassName('shape3')).reverse(),
-        0.3,
-        {
-          y: '0%',
-          ease: Expo.easeInOut,
-          delay: 0.2
         },
         0.2
       )
@@ -163,12 +153,22 @@ export default {
         {
           y: '0%',
           ease: Expo.easeInOut,
+          delay: 0.2
+        },
+        0.2
+      )
+      TweenMax.staggerTo(
+        [].slice.call(document.getElementsByClassName('shape3')).reverse(),
+        0.3,
+        {
+          y: '0%',
+          ease: Expo.easeInOut,
           delay: 0.4
         },
         0.2
       )
       TweenMax.staggerTo(
-        [].slice.call(document.getElementsByClassName('shape1')).reverse(),
+        [].slice.call(document.getElementsByClassName('shape4')).reverse(),
         0.3,
         {
           y: '0%',
