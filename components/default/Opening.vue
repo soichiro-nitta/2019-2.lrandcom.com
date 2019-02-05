@@ -53,16 +53,8 @@ export default {
     anim.play() // 再生
 
     await this.$completeLottie(anim)
-    TweenMax.to(this.$refs.lottie, 0.02, {
-      opacity: 0,
-      startAt: {
-        opacity: 1
-      },
-      ease: Expo.easeOut,
-      repeat: 7,
-      yoyo: true,
-      repeatDelay: 0.03
-    })
+    await this.$raf()
+    this.lottieFlash(this.$refs.lottie)
 
     await this.$delay(500)
     anim.setDirection(-1)
@@ -73,10 +65,7 @@ export default {
 
     await this.$delay(250)
     await this.$raf()
-    TweenMax.to(this.$refs.lottie, 2.4, {
-      scale: 3,
-      ease: Expo.easeOut
-    })
+    this.lottieScale(this.$refs.lottie)
 
     await this.$delay(500)
     this.shapeOut()
@@ -88,6 +77,24 @@ export default {
     this.hide = true
   },
   methods: {
+    lottieFlash(el) {
+      TweenMax.to(el, 0.02, {
+        opacity: 0,
+        startAt: {
+          opacity: 1
+        },
+        ease: Expo.easeOut,
+        repeat: 7,
+        yoyo: true,
+        repeatDelay: 0.03
+      })
+    },
+    lottieScale(el) {
+      TweenMax.to(el, 2.4, {
+        scale: 3,
+        ease: Expo.easeOut
+      })
+    },
     shapeIn() {
       TweenMax.to('.shapes', 1.9, {
         scale: 1,
