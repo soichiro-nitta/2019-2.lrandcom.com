@@ -1,28 +1,18 @@
 <template>
-  <div class="FirstviewVideo">
-    <div
-      ref="bg"
-      class="bg"
+  <div class="Firstview">
+    <div ref="border" class="border" />
+    <div ref="bg" class="bg" />
+    <video
+      ref="video"
+      :src="src"
+      preload="none"
+      muted
+      playsinline
+      loop
     />
-    <div
-      ref="thumb"
-      class="thumb"
-    >
-      <video
-        ref="video"
-        :src="src"
-        preload="none"
-        muted
-        playsinline
-        loop
-      />
-      <div class="mask" />
-    </div>
-    <div class="content">
-      <div
-        ref="title"
-        class="title"
-      />
+    <div ref="icon" class="icon" />
+    <div class="outer">
+      <div ref="title" class="title" />
     </div>
   </div>
 </template>
@@ -53,61 +43,68 @@ export default {
       this.videoOut(this.$refs.video, this.$refs.thumb)
     }
   },
-  mounted() {
-    this.$el.style.height = `${this.windowHeight / 1.5}px`
-    this.anim = lottie.loadAnimation({
+  async mounted() {
+    const animIcon = lottie.loadAnimation({
+      container: this.$refs.icon,
+      renderer: 'svg',
+      autoplay: false,
+      loop: false,
+      path: '/json/icon.json'
+    })
+    const animTitle = lottie.loadAnimation({
       container: this.$refs.title,
       renderer: 'svg',
+      autoplay: false,
       loop: false,
       path: '/json/text.json'
     })
+    const video = this.$refs.video
+    this.$el.style.height = `${this.windowHeight / 1.5}px`
+
+    await this.$raf()
+    this.borderIn(this.$refs.border)
+
+    await this.$delay(200)
+    await this.$raf()
     this.bgIn(this.$refs.bg)
-    this.titleIn(this.anim)
-    this.videoIn(this.$refs.video, this.$refs.thumb)
+    animTitle.play()
+
+    await this.$playVideo(video, false)
+    await this.$raf()
+    this.videoIn(video)
+
+    await this.$delay(750)
+    await this.$raf()
+    animIcon.play()
   },
   methods: {
-    titleIn: anim => {
-      anim.setSpeed(0.8)
-      anim.play()
+    borderIn: border => {
+      TweenMax.to(border, 0.2, {
+        scaleX: 1,
+        ease: Expo.easeInOut
+      })
+    },
+    bgIn: bg => {
+      TweenMax.to(bg, 2, {
+        scaleY: 1,
+        ease: Expo.easeInOut
+      })
+    },
+    videoIn: video => {
+      TweenMax.to(video, 1, {
+        opacity: 1,
+        ease: Expo.easeIn
+      })
     },
     titleOut: anim => {
       anim.setDirection(-1)
       anim.setSpeed(3)
       anim.play()
     },
-    bgIn: bg => {
-      requestAnimationFrame(() => {
-        TweenMax.to(bg, 2, {
-          scaleY: 1,
-          ease: Expo.easeInOut
-        })
-      })
-    },
-    videoIn: (video, thumb) => {
-      video.load()
-      const canplay = () => {
-        video.removeEventListener('canplaythrough', canplay)
-        // const duration = video.duration // 動画の尺
-        // const rand = Math.floor(Math.random() * (duration + 1 - 0)) // 0 ~ durationの乱数
-        // video.currentTime = rand // 再生開始時間を指定
-        video.play()
-        requestAnimationFrame(() => {
-          TweenMax.to(thumb, 1, {
-            opacity: 1,
-            ease: Expo.easeIn
-          })
-        })
-      }
-      video.addEventListener('canplay', canplay)
-    },
-    videoOut: (video, mask) => {
+    videoOut: video => {
       requestAnimationFrame(() => {
         video.pause()
         TweenMax.to(video, 0.5, {
-          opacity: 0,
-          ease: Expo.easeIn
-        })
-        TweenMax.to(mask, 0.5, {
           opacity: 0,
           ease: Expo.easeIn
         })
@@ -118,14 +115,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.FirstviewVideo {
+.Firstview {
   position: relative;
   width: 100%;
   height: 400px;
   overflow: hidden;
+  z-index: -1;
   @include pc {
     height: calc(100vh - 140px);
     border-radius: 20px;
+  }
+  .border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    height: 3px;
+    background: black;
+    transform: scaleX(0);
+    transform-origin: left center;
   }
   .bg {
     width: 100%;
@@ -133,27 +143,23 @@ export default {
     background: black;
     transform: scaleY(0);
   }
-  .thumb {
+  video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     opacity: 0;
-    video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .mask {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
+    object-fit: cover;
   }
-  .content {
+  .icon {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 35px;
+    height: auto;
+  }
+  .outer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -163,7 +169,7 @@ export default {
     width: 100%;
     height: 100%;
     .title {
-      padding: 0 45px;
+      padding: 0 40px;
     }
   }
 }

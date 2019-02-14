@@ -23,6 +23,19 @@ Vue.mixin({
     },
     $completeLottie(anim) {
       return new Promise(resolve => anim.addEventListener('complete', resolve))
+    },
+    $canplayVideo(video) {
+      return new Promise(resolve => video.addEventListener('canplay', resolve))
+    },
+    async $playVideo(video, rand) {
+      video.load()
+      await this.$canplayVideo(video)
+      if (rand) {
+        const duration = video.duration // 動画の尺
+        const rand = Math.floor(Math.random() * (duration + 1 - 0)) // 0 ~ durationの乱数
+        video.currentTime = rand // 再生開始時間を指定
+      }
+      video.play()
     }
   }
 })

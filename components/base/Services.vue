@@ -1,53 +1,36 @@
 <template>
-  <div class="Services">
-    <ul class="links">
-      <li ref="contents">
-        <nuxt-link to="/contents">
-          <div class="thumb">
-            <font-awesome-icon :icon="['far', 'pen']" />
-          </div>
-          <div class="text">
-            <div class="en">
-              CREATE CONTENTS
-            </div>
-            <div class="ja">
-              記事制作について
-            </div>
-          </div>
-        </nuxt-link>
-      </li>
-      <li ref="film">
-        <nuxt-link to="/film">
-          <div class="thumb">
-            <font-awesome-icon :icon="['far', 'video']" />
-          </div>
-          <div class="text">
-            <div class="en">
-              CREATE FILM
-            </div>
-            <div class="ja">
-              映像制作について
-            </div>
-          </div>
-        </nuxt-link>
-      </li>
-      <li ref="website">
-        <nuxt-link to="/website">
-          <div class="thumb">
-            <font-awesome-icon :icon="['far', 'desktop']" />
-          </div>
-          <div class="text">
-            <div class="en">
-              CREATE WEBSITE
-            </div>
-            <div class="ja">
-              サイト制作について
-            </div>
-          </div>
-        </nuxt-link>
-      </li>
-    </ul>
-  </div>
+  <ul class="Services">
+    <li ref="contents">
+      <nuxt-link to="/contents">
+        <div class="thumb">
+          <font-awesome-icon :icon="['far', 'pen']" />
+        </div>
+        <div class="text">
+          記事制作
+        </div>
+      </nuxt-link>
+    </li>
+    <li ref="film">
+      <nuxt-link to="/film">
+        <div class="thumb">
+          <font-awesome-icon :icon="['far', 'video']" />
+        </div>
+        <div class="text">
+          映像制作
+        </div>
+      </nuxt-link>
+    </li>
+    <li ref="website">
+      <nuxt-link to="/website">
+        <div class="thumb">
+          <font-awesome-icon :icon="['far', 'desktop']" />
+        </div>
+        <div class="text">
+          サイト制作
+        </div>
+      </nuxt-link>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -87,9 +70,10 @@ export default {
     in() {
       requestAnimationFrame(() => {
         TweenMax.staggerTo(
-          '.links a',
+          '.Services li',
           0.8,
           {
+            opacity: 1,
             y: 0,
             ease: Expo.easeOut
           },
@@ -100,9 +84,10 @@ export default {
     out() {
       requestAnimationFrame(() => {
         TweenMax.staggerTo(
-          '.links a',
+          '.Services li',
           0.5,
           {
+            opacity: 0,
             y: '-100%',
             ease: Expo.easeIn
           },
@@ -116,68 +101,31 @@ export default {
 
 <style lang="scss" scoped>
 .Services {
-  ul {
-    @include pc {
-      display: flex;
-      justify-content: space-around;
-    }
-    li:first-child {
-      margin: 0 auto;
-      @include pc {
-        margin: 0;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: calc(100% - 40px);
+  li {
+    width: calc(100% / 3 - 8px);
+    background: white;
+    border-radius: 15px;
+    @include shadow();
+    opacity: 0;
+    transform: translate(0, 30%);
+    a {
+      display: block;
+      padding: 20px 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      .thumb {
+        font-size: 23px;
       }
-    }
-    li {
-      margin: 20px auto 0;
-      width: calc(100% - 40px);
-      height: 100px;
-      border-radius: 15px;
-      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      @include pc {
-        margin: 0;
-        width: 31.5%;
-      }
-      a {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background: white;
-        border-radius: 15px;
-        transform: translate(0, 100%);
-        .thumb {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin-left: 10%;
-          width: 50px;
-          height: 50px;
-          color: white;
-          background: black;
-          border-radius: 50%;
-        }
-        .text {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          padding: 0 12%;
-          width: 70%;
-          height: 100%;
-          line-height: 1;
-          font-size: 12px;
-          @include pc {
-            padding: 0 2.5vw;
-          }
-          .en {
-            font-weight: bold;
-          }
-          .ja {
-            margin-top: 15px;
-            color: #999;
-          }
-        }
+      .text {
+        margin-top: 15px;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 1;
       }
     }
   }

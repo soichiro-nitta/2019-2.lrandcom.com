@@ -3,3 +3,29 @@
     @content;
   }
 }
+@mixin gradient {
+  background: linear-gradient(
+    to right,
+    rgb(96, 128, 255) 0%,
+    rgb(82, 170, 254) 100%
+  );
+}
+@mixin shadow {
+  box-shadow: 0px 0px 15px rgba(96, 128, 255, 0.3);
+}
+@mixin pageBottom {
+  padding-bottom: 160px;
+}
+
+@mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin gradientText {
+  color: rgb(96, 128, 255);
+  @include gradient();
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

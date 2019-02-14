@@ -10,7 +10,7 @@
         </div>
       </div>
     </li>
-    <li class="gray">
+    <li>
       <div class="title">
         <span>VISION</span>
       </div>
@@ -34,7 +34,7 @@
         </div>
       </div>
     </li>
-    <li class="gray">
+    <li>
       <div class="title">
         <span>CONTENTS</span>
       </div>
@@ -152,28 +152,20 @@ export default {
 <style lang="scss" scoped>
 .Profile {
   padding: 80px 0;
-  li.gray {
-    background: linear-gradient(
-      rgba(65, 65, 65, 0) 0%,
-      rgba(65, 65, 65, 0.6) 50%,
-      rgba(65, 65, 65, 0) 100%
-    );
-    background: -webkit-linear-gradient(
-      rgba(65, 65, 65, 0) 0%,
-      rgba(65, 65, 65, 0.6) 50%,
-      rgba(65, 65, 65, 0) 100%
-    );
-    opacity: 0;
+  li:nth-child(odd) {
+    background: #fbfbff;
+  }
+  li:last-child {
+    border-bottom: 1px solid #efeff4;
   }
   li {
     padding: 80px 30px;
     text-align: center;
-    overflow: hidden;
-    // opacity: 0;
+    border-top: 1px solid #efeff4;
     .title {
       display: inline-block;
-      font-size: 18px;
-      font-weight: bold;
+      font-size: 20px;
+      font-weight: 700;
       letter-spacing: 4px;
       line-height: 1;
       overflow: hidden;
@@ -189,10 +181,7 @@ export default {
     .description {
       margin-top: 30px;
       font-size: 14px;
-      overflow: hidden;
       line-height: 2;
-      color: #999;
-      overflow: hidden;
       @include pc {
         margin: 45px auto 0;
         width: 600px;

@@ -30,12 +30,12 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-  color: black;
-  letter-spacing: 1px;
+  color: #333;
+  // background: #fbfbff;
+  letter-spacing: 0.7px;
   font-family: 'M PLUS Rounded 1c', sans-serif, "游ゴシック", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-  // background: black;
 	z-index: 0;
 }
 #__nuxt,

@@ -14,7 +14,8 @@ module.exports = {
       { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c'
+        href:
+          'https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:500,700'
       }
     ]
   },
@@ -38,7 +39,7 @@ module.exports = {
   plugins: [
     '~/plugins/mixin.client',
     '~/plugins/mixin',
-    '~/plugins/fontawesome.client',
+    '~/plugins/fontawesome',
     '~/plugins/axios'
     // '~/plugins/persistedstate.client'
   ],

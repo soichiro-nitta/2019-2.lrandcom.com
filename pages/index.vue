@@ -1,6 +1,5 @@
 <template>
   <div
-    v-if="opened"
     class="page"
   >
     <Firstview :leave="leave" />
@@ -11,7 +10,7 @@
 
 <script>
 import URL from '~/assets/data/url.json'
-import { mapGetters } from 'vuex'
+// import { mapGetters } from 'vuex'
 import Firstview from '~/components/index/Firstview'
 import Services from '~/components/base/Services'
 import Profile from '~/components/index/Profile'
@@ -27,11 +26,11 @@ export default {
       leave: false
     }
   },
-  computed: {
-    ...mapGetters({
-      opened: 'opened'
-    })
-  },
+  // computed: {
+  //   ...mapGetters({
+  //     opened: 'opened'
+  //   })
+  // },
   async beforeRouteLeave(to, from, next) {
     this.go()
     await this.$delay(500)
@@ -54,10 +53,7 @@ export default {
 <style lang="scss" scoped>
 .page {
   .Services {
-    margin-top: -50px;
-    @include pc {
-      margin: 20px auto 0;
-    }
+    margin-top: -35px;
   }
 }
 </style>
