@@ -8,7 +8,8 @@ import {
 import { faPen, faVideo, faDesktop } from '@fortawesome/pro-regular-svg-icons'
 import {
   faLongArrowAltLeft,
-  faLongArrowAltRight
+  faLongArrowAltRight,
+  faShareAlt
 } from '@fortawesome/pro-light-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -20,7 +21,8 @@ library.add(
   faVideo,
   faDesktop,
   faLongArrowAltLeft,
-  faLongArrowAltRight
+  faLongArrowAltRight,
+  faShareAlt
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

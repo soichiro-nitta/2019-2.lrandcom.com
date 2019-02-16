@@ -151,17 +151,13 @@ export default {
 
 <style lang="scss" scoped>
 .Profile {
-  padding: 80px 0;
+  padding: 80px 0 0;
   li:nth-child(odd) {
-    background: #fbfbff;
-  }
-  li:last-child {
-    border-bottom: 1px solid #efeff4;
+    background: white;
   }
   li {
     padding: 80px 30px;
     text-align: center;
-    border-top: 1px solid #efeff4;
     .title {
       display: inline-block;
       font-size: 20px;
@@ -182,6 +178,7 @@ export default {
       margin-top: 30px;
       font-size: 14px;
       line-height: 2;
+      color: $blue-60;
       @include pc {
         margin: 45px auto 0;
         width: 600px;

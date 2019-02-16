@@ -23,10 +23,7 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: {
-    color: '#008DDE',
-    height: '2px'
-  },
+  loading: { color: '#56ebff' },
 
   /*
   ** Global CSS

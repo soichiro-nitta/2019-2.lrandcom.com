@@ -145,12 +145,18 @@ export default {
   }
   video {
     position: absolute;
+    // top: 10px;
+    // left: 10px;
+    // width: calc(100% - 20px);
+    // height: calc(100% - 20px);
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     opacity: 0;
     object-fit: cover;
+    // border-radius: 33px;
+    // @include shadowBlue;
   }
   .icon {
     position: absolute;

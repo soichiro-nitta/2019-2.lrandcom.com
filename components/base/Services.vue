@@ -106,20 +106,22 @@ export default {
   margin: 0 auto;
   width: calc(100% - 40px);
   li {
-    width: calc(100% / 3 - 8px);
+    width: calc(100% / 3 - 9px);
     background: white;
     border-radius: 15px;
-    @include shadow();
+    @include shadowBlue;
     opacity: 0;
     transform: translate(0, 30%);
     a {
       display: block;
-      padding: 20px 0;
+      padding: 25px 0;
       width: 100%;
       height: 100%;
       text-align: center;
+
       .thumb {
-        font-size: 23px;
+        font-size: 20px;
+        line-height: 1;
       }
       .text {
         margin-top: 15px;

@@ -32,8 +32,7 @@ export default {
   font-weight: bold;
   font-size: 14px;
   color: white;
-  // @include gradient();
-  background: black;
-  @include shadow();
+  @include gradientPink;
+  @include shadowPink;
 }
 </style>
