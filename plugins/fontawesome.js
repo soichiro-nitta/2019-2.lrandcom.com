@@ -5,11 +5,19 @@ import {
   faTwitter,
   faInstagram
 } from '@fortawesome/free-brands-svg-icons'
-import { faPen, faVideo, faDesktop } from '@fortawesome/pro-regular-svg-icons'
+import {
+  faPenNib,
+  faVideo,
+  faDesktop,
+  faShareAlt,
+  faHomeLgAlt,
+  faBookOpen,
+  faFlagAlt,
+  faEllipsisHAlt
+} from '@fortawesome/pro-regular-svg-icons'
 import {
   faLongArrowAltLeft,
-  faLongArrowAltRight,
-  faShareAlt
+  faLongArrowAltRight
 } from '@fortawesome/pro-light-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -17,12 +25,16 @@ library.add(
   faFacebook,
   faTwitter,
   faInstagram,
-  faPen,
+  faPenNib,
   faVideo,
   faDesktop,
   faLongArrowAltLeft,
   faLongArrowAltRight,
-  faShareAlt
+  faShareAlt,
+  faHomeLgAlt,
+  faBookOpen,
+  faFlagAlt,
+  faEllipsisHAlt
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

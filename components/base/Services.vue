@@ -3,7 +3,7 @@
     <li ref="contents">
       <nuxt-link to="/contents">
         <div class="thumb">
-          <font-awesome-icon :icon="['far', 'pen']" />
+          <font-awesome-icon :icon="['far', 'pen-nib']" />
         </div>
         <div class="text">
           記事制作
