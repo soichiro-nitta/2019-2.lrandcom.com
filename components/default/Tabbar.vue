@@ -23,6 +23,8 @@
 </template>
 
 <script>
+import { TweenMax, Expo } from 'gsap'
+
 export default {
   data() {
     return {
@@ -47,8 +49,8 @@ export default {
         this.shareIconWidth -
         this.burgerIconWidth -
         this.iconsWidth) /
-      (this.num + 0.5)
-    document.querySelector('.Tabbar .burger').style.right = `${space * 0.75 -
+      (this.num + 0.4)
+    document.querySelector('.Tabbar .burger').style.right = `${space * 0.7 -
       (this.$refs.burger.clientWidth - this.burgerIconWidth) / 2}px`
     Array.from(document.querySelectorAll('.Tabbar .right'), (link, index) => {
       const icon = link.children[0]
@@ -69,10 +71,15 @@ export default {
           : (text.clientWidth - icon.clientWidth) / 2
       const left =
         index === 0
-          ? this.leftOrigin + space * 0.75 - diff
+          ? this.leftOrigin + space * 0.7 - diff
           : this.leftOrigin + space - diff
       link.style.left = `${left}px`
       this.leftOrigin = left + diff + icon.clientWidth
+    })
+    this.$raf()
+    TweenMax.to('.Tabbar a svg', 5, {
+      color: 'red',
+      ease: Expo.easeInOut
     })
   }
 }
@@ -102,7 +109,7 @@ export default {
     font-size: 18px;
     letter-spacing: 0;
     line-height: 1;
-    color: #afb5cf;
+    color: $blue2;
     span {
       display: inline-block;
       margin-top: 10px;
@@ -110,29 +117,29 @@ export default {
     }
   }
   .share {
-    @include center;
+    @include flexCenter;
     position: absolute;
     top: -15px;
     right: 0;
     left: 0;
     margin: auto;
     color: white;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     font-size: 20px;
     border-radius: 50%;
     @include gradientBlue;
     @include shadowBlue;
   }
   .burger {
-    @include center;
+    @include flexCenter;
     position: absolute;
     top: -10px;
     right: 0;
-    width: 50px;
-    height: 50px;
-    color: #afb5cf;
-    font-size: 20px;
+    width: 55px;
+    height: 55px;
+    color: $blue2;
+    font-size: 22px;
     background: white;
     border-radius: 15px;
     @include shadowBlue;
@@ -147,6 +154,7 @@ export default {
     height: 5px;
     border-radius: 2.5px;
     @include gradientBlue;
+    @include shadowBlue;
   }
 }
 </style>
