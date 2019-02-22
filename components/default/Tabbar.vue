@@ -29,30 +29,56 @@ export default {
   data() {
     return {
       num: 5,
+      tabbarWidth: 0,
       shareIconWidth: 0,
       burgerIconWidth: 0,
       iconsWidth: 0,
-      tabbarWidth: 0,
       leftOrigin: 0
     }
   },
-  mounted() {
-    this.shareIconWidth = this.$refs.share.children[0].clientWidth
-    this.burgerIconWidth = this.$refs.burger.children[0].clientWidth
-    this.tabbarWidth = this.$el.offsetWidth
-    Array.from(document.querySelectorAll('.Tabbar a'), link => {
-      const icon = link.children[0]
-      this.iconsWidth += icon.clientWidth
-    })
-    const space =
-      (this.tabbarWidth -
-        this.shareIconWidth -
-        this.burgerIconWidth -
-        this.iconsWidth) /
-      (this.num + 0.4)
-    document.querySelector('.Tabbar .burger').style.right = `${space * 0.7 -
-      (this.$refs.burger.clientWidth - this.burgerIconWidth) / 2}px`
-    Array.from(document.querySelectorAll('.Tabbar .right'), (link, index) => {
+  watch: {
+    $route() {
+      console.log('route watch')
+    }
+  },
+  async mounted() {
+    this.styleElements()
+    await this.$raf()
+    this.in()
+  },
+  methods: {
+    in() {
+      TweenMax.to(this.$el, 2, {
+        opacity: 1,
+        ease: Expo.easeOut
+      })
+    },
+    styleElements() {
+      // tabbar全体とshareとburgerのwidthを取得
+      this.tabbarWidth = this.$el.offsetWidth
+      this.shareIconWidth = this.$refs.share.children[0].clientWidth
+      this.burgerIconWidth = this.$refs.burger.children[0].clientWidth
+
+      // 全iconのwidthの合計を取得
+      Array.from(document.querySelectorAll('.Tabbar a'), link => {
+        const icon = link.children[0]
+        this.iconsWidth += icon.clientWidth
+      })
+
+      // 上記から隙間の合計を取得
+      const space =
+        (this.tabbarWidth -
+          this.shareIconWidth -
+          this.burgerIconWidth -
+          this.iconsWidth) /
+        (this.num + 0.4)
+
+      // burgerを配置
+      document.querySelector('.Tabbar .burger').style.right = `${space * 0.7 -
+        (this.$refs.burger.clientWidth - this.burgerIconWidth) / 2}px`
+
+      // 右側のアイコンを配置
+      const link = document.querySelector('.Tabbar .right')
       const icon = link.children[0]
       const text = link.children[1]
       const diff =
@@ -61,26 +87,23 @@ export default {
           : (text.clientWidth - icon.clientWidth) / 2
       link.style.left = `calc(50% + ${this.shareIconWidth / 2}px + ${space -
         diff}px)`
-    })
-    Array.from(document.querySelectorAll('.Tabbar .left'), (link, index) => {
-      const icon = link.children[0]
-      const text = link.children[1]
-      const diff =
-        icon.clientWidth >= text.clientWidth
-          ? 0
-          : (text.clientWidth - icon.clientWidth) / 2
-      const left =
-        index === 0
-          ? this.leftOrigin + space * 0.7 - diff
-          : this.leftOrigin + space - diff
-      link.style.left = `${left}px`
-      this.leftOrigin = left + diff + icon.clientWidth
-    })
-    this.$raf()
-    TweenMax.to('.Tabbar a svg', 5, {
-      color: 'red',
-      ease: Expo.easeInOut
-    })
+
+      // 左側のアイコンを配置
+      Array.from(document.querySelectorAll('.Tabbar .left'), (link, index) => {
+        const icon = link.children[0]
+        const text = link.children[1]
+        const diff =
+          icon.clientWidth >= text.clientWidth
+            ? 0
+            : (text.clientWidth - icon.clientWidth) / 2
+        const left =
+          index === 0
+            ? this.leftOrigin + space * 0.7 - diff
+            : this.leftOrigin + space - diff
+        link.style.left = `${left}px`
+        this.leftOrigin = left + diff + icon.clientWidth
+      })
+    }
   }
 }
 </script>
@@ -98,22 +121,45 @@ export default {
   background: white;
   @include shadowBlue;
   border-radius: 15px 15px 15px 15px;
+  opacity: 0;
   a {
     display: flex;
     align-items: center;
     flex-direction: column;
     position: absolute;
-    top: 7px;
+    top: 0;
     left: 0;
-    margin-top: 10px;
+    padding-top: 18px;
     font-size: 18px;
     letter-spacing: 0;
     line-height: 1;
     color: $blue2;
+    svg {
+      vertical-align: bottom;
+    }
     span {
       display: inline-block;
       margin-top: 10px;
       font-size: 10px;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 35px;
+      height: 3px;
+      @include gradientPink;
+      @include shadowPink;
+      border-radius: 1.5px;
+      transform: scaleX(0);
+    }
+  }
+  .nuxt-link-exact-active {
+    color: $pink1;
+    transition: color 0.3s;
+    &:after {
+      transform: scaleX(1);
+      transition: transform 0.3s;
     }
   }
   .share {
@@ -154,7 +200,6 @@ export default {
     height: 5px;
     border-radius: 2.5px;
     @include gradientBlue;
-    @include shadowBlue;
   }
 }
 </style>

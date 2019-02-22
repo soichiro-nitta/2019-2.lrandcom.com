@@ -97,9 +97,9 @@ export default {
       })
     },
     titleOut: anim => {
-      anim.setDirection(-1)
-      anim.setSpeed(3)
-      anim.play()
+      // anim.setDirection(-1)
+      // anim.setSpeed(3)
+      // anim.play()
     },
     videoOut: video => {
       requestAnimationFrame(() => {

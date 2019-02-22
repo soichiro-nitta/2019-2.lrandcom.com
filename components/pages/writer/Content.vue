@@ -111,7 +111,7 @@ export default {
     const imgAll = this.$el.querySelectorAll('img')
     for (let i = 0; i < imgAll.length; i++) {
       ;(function(i) {
-        that.$imageOnLoad(imgAll[i].src, () => {
+        that.$loadImage(imgAll[i].src, () => {
           requestAnimationFrame(() => {
             TweenMax.to(imgAll[i], 3, {
               opacity: 0.9,

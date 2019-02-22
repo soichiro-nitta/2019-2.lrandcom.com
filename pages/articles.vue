@@ -1,6 +1,5 @@
 <template>
   <Page
-    v-if="opening"
     :articles="articles"
     :page="page"
     :total-pages="totalPages"
@@ -21,14 +20,12 @@ export default {
   },
   computed: {
     ...mapGetters({
-      opening: 'opening',
       articles: 'articles/articles',
       page: 'articles/page',
       totalPages: 'articles/totalPages'
     })
   },
   mounted() {
-    document.getElementById('scrollArea').scrollTop = 0
     if (this.articles.length !== 0) return
     this.fetch()
   },
@@ -37,7 +34,7 @@ export default {
       await this.fetchArticles({
         categories: '8,11'
       })
-      document.getElementById('scrollArea').scrollTop = 0
+      // document.getElementById('scrollArea').scrollTop = 0
     },
     ...mapMutations({
       increment: 'articles/increment',

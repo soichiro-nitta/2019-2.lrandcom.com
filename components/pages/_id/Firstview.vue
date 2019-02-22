@@ -38,7 +38,7 @@ export default {
     }
   },
   mounted() {
-    this.$imageOnLoad(this.src, () => {
+    this.$loadImage(this.src, () => {
       requestAnimationFrame(() => {
         TweenMax.to(this.$refs.thumb, 1, {
           height: '100%',

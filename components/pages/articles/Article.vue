@@ -47,7 +47,7 @@ export default {
     }
   },
   mounted() {
-    this.$imageOnLoad(this.article.src, () => {
+    this.$loadImage(this.article.src, () => {
       requestAnimationFrame(() => {
         TweenMax.to(this.$refs.src, 3, {
           opacity: 0.9,
