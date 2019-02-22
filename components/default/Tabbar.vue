@@ -29,16 +29,12 @@ export default {
   data() {
     return {
       num: 5,
+      tabbarBottom: 8,
       tabbarWidth: 0,
       shareIconWidth: 0,
       burgerIconWidth: 0,
       iconsWidth: 0,
       leftOrigin: 0
-    }
-  },
-  watch: {
-    $route() {
-      console.log('route watch')
     }
   },
   async mounted() {
@@ -74,7 +70,9 @@ export default {
         (this.num + 0.4)
 
       // burgerを配置
-      document.querySelector('.Tabbar .burger').style.right = `${space * 0.7 -
+      document.querySelector('.Tabbar .burger').style.right = `${this
+        .tabbarBottom +
+        space * 0.7 -
         (this.$refs.burger.clientWidth - this.burgerIconWidth) / 2}px`
 
       // 右側のアイコンを配置
@@ -98,7 +96,7 @@ export default {
             : (text.clientWidth - icon.clientWidth) / 2
         const left =
           index === 0
-            ? this.leftOrigin + space * 0.7 - diff
+            ? this.tabbarBottom + space * 0.7 - diff
             : this.leftOrigin + space - diff
         link.style.left = `${left}px`
         this.leftOrigin = left + diff + icon.clientWidth
@@ -110,37 +108,43 @@ export default {
 
 <style lang="scss" scoped>
 .Tabbar {
+  $TabbarBottom: 8px;
+  $TabbarHeight: 100px;
   display: flex;
   position: fixed;
-  right: 8px;
-  left: 8px;
-  bottom: 8px;
+  right: $TabbarBottom;
+  left: $TabbarBottom;
+  bottom: $TabbarBottom;
   margin: auto;
-  width: calc(100% - 16px);
-  height: 100px;
+  width: calc(100% - $TabbarBottom * 2);
+  height: $TabbarHeight;
   background: white;
   @include shadowBlue;
   border-radius: 15px 15px 15px 15px;
   opacity: 0;
   a {
+    $aPaddingTop: 15px;
+    $aFontSize: 18px;
+    $spanMarginTop: 12px;
+    $spanFontSize: 10px;
     display: flex;
     align-items: center;
     flex-direction: column;
-    position: absolute;
-    top: 0;
+    position: fixed;
+    bottom: $TabbarBottom + $TabbarHeight -
+      ($aPaddingTop + $aFontSize + $spanMarginTop + $spanFontSize);
     left: 0;
-    padding-top: 18px;
-    font-size: 18px;
+    padding-top: $aPaddingTop;
+    font-size: $aFontSize;
     letter-spacing: 0;
     line-height: 1;
     color: $blue2;
-    svg {
-      vertical-align: bottom;
-    }
+    transition: color 0.5s;
+    will-change: color;
     span {
       display: inline-block;
-      margin-top: 10px;
-      font-size: 10px;
+      margin-top: $spanMarginTop;
+      font-size: $spanFontSize;
     }
     &:after {
       content: '';
@@ -151,39 +155,43 @@ export default {
       @include gradientPink;
       @include shadowPink;
       border-radius: 1.5px;
-      transform: scaleX(0);
+      transform: scale(0);
+      transition: transform 0.5s;
+      will-change: transform;
     }
   }
   .nuxt-link-exact-active {
     color: $pink1;
-    transition: color 0.3s;
     &:after {
-      transform: scaleX(1);
-      transition: transform 0.3s;
+      transform: scale(1);
     }
   }
   .share {
+    $shareHeight: 60px;
+    $shareOverlap: 15px;
     @include flexCenter;
-    position: absolute;
-    top: -15px;
+    position: fixed;
+    bottom: $TabbarHeight + $TabbarBottom - ($shareHeight - $shareOverlap);
     right: 0;
     left: 0;
     margin: auto;
     color: white;
     width: 60px;
-    height: 60px;
+    height: $shareHeight;
     font-size: 20px;
     border-radius: 50%;
     @include gradientBlue;
     @include shadowBlue;
   }
   .burger {
+    $burgerHeight: 55px;
+    $burgerOverlap: 10px;
     @include flexCenter;
-    position: absolute;
-    top: -10px;
+    position: fixed;
     right: 0;
-    width: 55px;
-    height: 55px;
+    bottom: $TabbarHeight + $TabbarBottom - ($burgerHeight - $burgerOverlap);
+    width: $burgerHeight;
+    height: $burgerHeight;
     color: $blue2;
     font-size: 22px;
     background: white;
@@ -191,12 +199,13 @@ export default {
     @include shadowBlue;
   }
   .indicator {
-    position: absolute;
+    position: fixed;
     right: 0;
     left: 0;
-    bottom: 0;
+    bottom: 8px;
     margin: auto;
-    width: 60px;
+    width: 134px;
+    // width: 60px;
     height: 5px;
     border-radius: 2.5px;
     @include gradientBlue;

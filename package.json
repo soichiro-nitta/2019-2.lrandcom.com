@@ -32,6 +32,7 @@
     "nuxt": "^2.4.2",
     "nuxt-device-detect": "^1.1.1",
     "vue-window-size": "^0.2.3",
+    "vue2-touch-events": "^1.1.2",
     "vuex-persistedstate": "^2.5.4"
   },
   "devDependencies": {
