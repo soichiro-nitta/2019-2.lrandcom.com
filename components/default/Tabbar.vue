@@ -110,13 +110,14 @@ export default {
 .Tabbar {
   $TabbarBottom: 8px;
   $TabbarHeight: 100px;
+  $shareHeight: 60px;
   display: flex;
   position: fixed;
   right: $TabbarBottom;
   left: $TabbarBottom;
   bottom: $TabbarBottom;
   margin: auto;
-  width: calc(100% - $TabbarBottom * 2);
+  width: calc(100% - #{$TabbarBottom * 2});
   height: $TabbarHeight;
   background: white;
   @include shadowBlue;
@@ -167,7 +168,6 @@ export default {
     }
   }
   .share {
-    $shareHeight: 60px;
     $shareOverlap: 15px;
     @include flexCenter;
     position: fixed;
@@ -204,8 +204,7 @@ export default {
     left: 0;
     bottom: 8px;
     margin: auto;
-    width: 134px;
-    // width: 60px;
+    width: $shareHeight;
     height: 5px;
     border-radius: 2.5px;
     @include gradientBlue;
