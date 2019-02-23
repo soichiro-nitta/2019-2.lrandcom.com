@@ -178,7 +178,7 @@ export default {
       margin-top: 30px;
       font-size: 14px;
       line-height: 2;
-      color: $blue5;
+      color: $blue4;
       @include pc {
         margin: 45px auto 0;
         width: 600px;

@@ -8,8 +8,17 @@
       <font-awesome-icon :icon="['far', 'book-open']" />
       <span>記事を読む</span>
     </NLink>
-    <div ref="share" class="share">
-      <font-awesome-icon :icon="['far', 'share-alt']" />
+    <div
+      ref="share"
+      class="share"
+      @click="clickShare"
+    >
+      <font-awesome-icon :icon="['far', 'share-alt']" class="shareIcon" />
+      <div class="close">
+        <div class="border1" />
+        <div class="border2" />
+      </div>
+      <TabbarSocial :share-opened="shareOpened" />
     </div>
     <NLink to="/writer" class="right">
       <font-awesome-icon :icon="['far', 'flag-alt']" />
@@ -24,8 +33,12 @@
 
 <script>
 import { TweenMax, Expo } from 'gsap'
+import TabbarSocial from '~/components/default/TabbarSocial'
 
 export default {
+  components: {
+    TabbarSocial
+  },
   data() {
     return {
       num: 5,
@@ -34,7 +47,8 @@ export default {
       shareIconWidth: 0,
       burgerIconWidth: 0,
       iconsWidth: 0,
-      leftOrigin: 0
+      leftOrigin: 0,
+      shareOpened: false
     }
   },
   async mounted() {
@@ -48,6 +62,38 @@ export default {
         opacity: 1,
         ease: Expo.easeOut
       })
+    },
+    async clickShare() {
+      if (this.shareOpened) {
+        await this.$raf()
+        TweenMax.to('.share', 1.2, {
+          rotation: '0deg',
+          ease: Expo.easeInOut
+        })
+        TweenMax.to('.share .close', 0.8, {
+          scale: 0,
+          ease: Expo.easeInOut
+        })
+        TweenMax.to('.share .shareIcon', 0.6, {
+          scale: 1,
+          ease: Expo.easeIn
+        })
+      } else {
+        await this.$raf()
+        TweenMax.to('.share', 1.2, {
+          rotation: '720deg',
+          ease: Expo.easeInOut
+        })
+        TweenMax.to('.share .shareIcon', 0.8, {
+          scale: 0,
+          ease: Expo.easeInOut
+        })
+        TweenMax.to('.share .close', 0.6, {
+          scale: 1,
+          ease: Expo.easeIn
+        })
+      }
+      this.shareOpened = !this.shareOpened
     },
     styleElements() {
       // tabbar全体とshareとburgerのwidthを取得
@@ -107,33 +153,37 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$bottom: 8px;
+$height: 100px;
+$aPaddingTop: 15px;
+$aFontSize: 18px;
+$aSpanMarginTop: 12px;
+$aSpanFontSize: 10px;
+$shareHeight: 60px;
+$shareOut: 15px;
+$burgerHeight: 55px;
+$burgerOut: 10px;
+
 .Tabbar {
-  $TabbarBottom: 8px;
-  $TabbarHeight: 100px;
-  $shareHeight: 60px;
   display: flex;
   position: fixed;
-  right: $TabbarBottom;
-  left: $TabbarBottom;
-  bottom: $TabbarBottom;
+  right: $bottom;
+  left: $bottom;
+  bottom: $bottom;
   margin: auto;
-  width: calc(100% - #{$TabbarBottom * 2});
-  height: $TabbarHeight;
+  width: calc(100% - #{$bottom * 2});
+  height: $height;
   background: white;
   @include shadowBlue;
   border-radius: 15px 15px 15px 15px;
   opacity: 0;
   a {
-    $aPaddingTop: 15px;
-    $aFontSize: 18px;
-    $spanMarginTop: 12px;
-    $spanFontSize: 10px;
     display: flex;
     align-items: center;
     flex-direction: column;
     position: fixed;
-    bottom: $TabbarBottom + $TabbarHeight -
-      ($aPaddingTop + $aFontSize + $spanMarginTop + $spanFontSize);
+    bottom: $bottom + $height -
+      ($aPaddingTop + $aFontSize + $aSpanMarginTop + $aSpanFontSize);
     left: 0;
     padding-top: $aPaddingTop;
     font-size: $aFontSize;
@@ -144,8 +194,8 @@ export default {
     will-change: color;
     span {
       display: inline-block;
-      margin-top: $spanMarginTop;
-      font-size: $spanFontSize;
+      margin-top: $aSpanMarginTop;
+      font-size: $aSpanFontSize;
     }
     &:after {
       content: '';
@@ -168,31 +218,48 @@ export default {
     }
   }
   .share {
-    $shareOverlap: 15px;
-    @include flexCenter;
     position: fixed;
-    bottom: $TabbarHeight + $TabbarBottom - ($shareHeight - $shareOverlap);
     right: 0;
     left: 0;
+    bottom: $bottom + $height - ($shareHeight - $shareOut);
     margin: auto;
     color: white;
-    width: 60px;
+    width: $shareHeight;
     height: $shareHeight;
     font-size: 20px;
     border-radius: 50%;
     @include gradientBlue;
     @include shadowBlue;
+    svg {
+      @include absoluteCenter;
+    }
+    .close {
+      @include absoluteCenter;
+      transform: scale(0);
+      .border1,
+      .border2 {
+        @include absoluteCenter;
+        width: 3px;
+        height: 20px;
+        border-radius: 1.5px;
+        background: white;
+      }
+      .border1 {
+        transform: rotateZ(45deg);
+      }
+      .border2 {
+        transform: rotateZ(-45deg);
+      }
+    }
   }
   .burger {
-    $burgerHeight: 55px;
-    $burgerOverlap: 10px;
     @include flexCenter;
     position: fixed;
     right: 0;
-    bottom: $TabbarHeight + $TabbarBottom - ($burgerHeight - $burgerOverlap);
+    bottom: $height + $bottom - ($burgerHeight - $burgerOut);
     width: $burgerHeight;
     height: $burgerHeight;
-    color: $blue2;
+    color: $blue3;
     font-size: 22px;
     background: white;
     border-radius: 15px;

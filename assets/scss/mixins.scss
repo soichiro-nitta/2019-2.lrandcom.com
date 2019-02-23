@@ -39,6 +39,14 @@
   left: 0;
   margin: auto;
 }
+@mixin fixedCenter {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
 @mixin gradientText {
   color: rgb(102, 182, 234);
   @include gradientBlue();
