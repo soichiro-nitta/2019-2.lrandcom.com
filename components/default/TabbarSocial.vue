@@ -87,11 +87,6 @@ $bottomOrigin: $tabbarBottom + $tabbarHeight + $shareOut;
     font-size: 16px;
     border-radius: 50%;
     @include shadowBlue;
-    svg {
-      display: inline-block;
-      width: auto;
-      height: 16px;
-    }
   }
   .fb {
     color: $fb;
