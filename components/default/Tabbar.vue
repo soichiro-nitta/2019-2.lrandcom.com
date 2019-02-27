@@ -8,18 +8,22 @@
       <font-awesome-icon :icon="['far', 'book-open']" />
       <span>記事を読む</span>
     </NLink>
-    <div
-      ref="share"
-      class="share"
-      @click="clickShare"
-    >
-      <font-awesome-icon :icon="['far', 'share-alt']" class="shareIcon" />
+    <div ref="share" class="share">
+      <font-awesome-icon
+        :icon="['far', 'share-alt']"
+        class="shareIcon"
+      />
       <div class="close">
         <div class="border1" />
         <div class="border2" />
       </div>
-      <TabbarSocial :share-opened="shareOpened" />
+
+      <TabbarSocial
+        :share-opened="shareOpened"
+        :close-share="closeShare"
+      />
     </div>
+    <div class="shareLayer" @click="toggleShare" />
     <NLink to="/writer" class="right">
       <font-awesome-icon :icon="['far', 'flag-alt']" />
       <span>ライター募集</span>
@@ -51,34 +55,9 @@ export default {
       shareOpened: false
     }
   },
-  async mounted() {
-    this.styleElements()
-    await this.$raf()
-    this.in()
-  },
-  methods: {
-    in() {
-      TweenMax.to(this.$el, 2, {
-        opacity: 1,
-        ease: Expo.easeOut
-      })
-    },
-    async clickShare() {
+  watch: {
+    async shareOpened() {
       if (this.shareOpened) {
-        await this.$raf()
-        TweenMax.to('.share', 1.2, {
-          rotation: '0deg',
-          ease: Expo.easeInOut
-        })
-        TweenMax.to('.share .close', 0.8, {
-          scale: 0,
-          ease: Expo.easeInOut
-        })
-        TweenMax.to('.share .shareIcon', 0.6, {
-          scale: 1,
-          ease: Expo.easeIn
-        })
-      } else {
         await this.$raf()
         TweenMax.to('.share', 1.2, {
           rotation: '720deg',
@@ -92,7 +71,39 @@ export default {
           scale: 1,
           ease: Expo.easeIn
         })
+      } else {
+        await this.$raf()
+        TweenMax.to('.share', 1.2, {
+          rotation: '0deg',
+          ease: Expo.easeInOut
+        })
+        TweenMax.to('.share .close', 0.8, {
+          scale: 0,
+          ease: Expo.easeInOut
+        })
+        TweenMax.to('.share .shareIcon', 0.6, {
+          scale: 1,
+          ease: Expo.easeIn
+        })
       }
+    }
+  },
+  async mounted() {
+    this.styleElements()
+    await this.$raf()
+    this.in()
+  },
+  methods: {
+    in() {
+      TweenMax.to(this.$el, 2, {
+        opacity: 1,
+        ease: Expo.easeOut
+      })
+    },
+    closeShare() {
+      this.shareOpened = false
+    },
+    toggleShare() {
       this.shareOpened = !this.shareOpened
     },
     styleElements() {
@@ -102,7 +113,7 @@ export default {
       this.burgerIconWidth = this.$refs.burger.children[0].clientWidth
 
       // 全iconのwidthの合計を取得
-      Array.from(document.querySelectorAll('.Tabbar a'), link => {
+      Array.from(document.querySelectorAll('.Tabbar > a'), link => {
         const icon = link.children[0]
         this.iconsWidth += icon.clientWidth
       })
@@ -114,6 +125,7 @@ export default {
           this.burgerIconWidth -
           this.iconsWidth) /
         (this.num + 0.4)
+      console.log(this.iconsWidth)
 
       // burgerを配置
       document.querySelector('.Tabbar .burger').style.right = `${this
@@ -251,6 +263,15 @@ $burgerOut: 10px;
         transform: rotateZ(-45deg);
       }
     }
+  }
+  .shareLayer {
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: $bottom + $height - ($shareHeight - $shareOut);
+    margin: auto;
+    width: $shareHeight;
+    height: $shareHeight;
   }
   .burger {
     @include flexCenter;

@@ -3,7 +3,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faFacebook,
   faTwitter,
-  faInstagram
+  faInstagram,
+  faLine
 } from '@fortawesome/free-brands-svg-icons'
 import {
   faPenNib,
@@ -26,6 +27,7 @@ library.add(
   faFacebook,
   faTwitter,
   faInstagram,
+  faLine,
   faPenNib,
   faVideo,
   faDesktop,
