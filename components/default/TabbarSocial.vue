@@ -11,6 +11,7 @@
     </a>
     <span class="copy" :data-clipboard-text="copy" @click="clickCopy">
       <font-awesome-icon :icon="['far', 'copy']" />
+      <span>コピーしました</span>
     </span>
   </div>
 </template>
@@ -36,7 +37,8 @@ export default {
       fb: '',
       tw: '',
       line: '',
-      copy: ''
+      copy: '',
+      copyProcess: false
     }
   },
   watch: {
@@ -111,14 +113,27 @@ export default {
   },
   methods: {
     async clickCopy() {
-      console.log('click')
-      // console.log(clipboard)
+      if (this.copyProcess) return
+      this.copyProcess = true
       await this.$raf()
-      TweenMax.to('.copy:after', 1, {
+      TweenMax.to('.copy span', 0.6, {
         x: '0px',
         opacity: 1,
+        ease: Expo.easeOut,
+        startAt: {
+          x: '-10px',
+          opacity: 0
+        }
+      })
+      await this.$delay(700)
+      await this.$raf()
+      TweenMax.to('.copy span', 0.6, {
+        x: '10px',
+        opacity: 0,
         ease: Expo.easeOut
       })
+      await this.$delay(600)
+      this.copyProcess = false
     }
   }
 }
@@ -169,18 +184,19 @@ $bottomOrigin: $tabbarBottom + $tabbarHeight + $shareOut;
     }
   }
   .copy {
-    color: $pink1;
+    color: white;
+    @include gradientPink;
+    @include shadowPink;
     transform: translate(0px, 0px) scale(0);
     svg {
       transform: rotateZ(30deg);
     }
-    :after {
-      content: 'コピーしました';
+    span {
       @include flexCenter;
       position: absolute;
       top: 0;
       left: 0;
-      width: 120px;
+      width: 95px;
       height: 40px;
       color: white;
       font-size: 10px;
@@ -190,7 +206,6 @@ $bottomOrigin: $tabbarBottom + $tabbarHeight + $shareOut;
       @include gradientPink;
       @include shadowPink;
       border-radius: 20px;
-      transform: translateX(-10px);
       opacity: 0;
     }
   }
