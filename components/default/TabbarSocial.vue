@@ -10,6 +10,7 @@
       <font-awesome-icon :icon="['fab', 'line']" />
     </a>
     <span class="copy" :data-clipboard-text="copy" @click="clickCopy">
+      <div class="bg" />
       <font-awesome-icon :icon="['far', 'copy']" />
       <span>コピーしました</span>
     </span>
@@ -54,8 +55,6 @@ export default {
         }`
         this.line = `https://timeline.line.me/social-plugin/share?url=${currentUrl}`
         this.copy = `${document.title} ${currentUrl}`
-        const clipboard = new ClipboardJS('.copy')
-        clipboard.on('success', () => {})
 
         await this.$raf()
         TweenMax.to('.fb', 1.55, {
@@ -111,25 +110,44 @@ export default {
       }
     }
   },
+  mounted() {
+    const clipboard = new ClipboardJS('.copy')
+    clipboard.on('success', () => {})
+  },
   methods: {
     async clickCopy() {
       if (this.copyProcess) return
       this.copyProcess = true
       await this.$raf()
+      TweenMax.to('.copy .bg', 0.3, {
+        width: '95px',
+        ease: Expo.easeOut
+      })
+      TweenMax.to('.copy svg', 0.6, {
+        scale: 0,
+        ease: Expo.easeOut
+      })
       TweenMax.to('.copy span', 0.6, {
         x: '0px',
         opacity: 1,
         ease: Expo.easeOut,
         startAt: {
-          x: '-10px',
-          opacity: 0
+          x: '-10px'
         }
       })
       await this.$delay(700)
       await this.$raf()
+      TweenMax.to('.copy .bg', 0.3, {
+        width: '40px',
+        ease: Expo.easeOut
+      })
       TweenMax.to('.copy span', 0.6, {
-        x: '10px',
+        x: '-10px',
         opacity: 0,
+        ease: Expo.easeOut
+      })
+      TweenMax.to('.copy svg', 0.6, {
+        scale: 1,
         ease: Expo.easeOut
       })
       await this.$delay(600)
@@ -163,41 +181,47 @@ $bottomOrigin: $tabbarBottom + $tabbarHeight + $shareOut;
     }
   }
   .fb {
-    color: $fb;
     transform: translate(0px, 0px) scale(0);
     svg {
+      color: $fb;
       transform: rotateZ(-30deg);
     }
   }
   .tw {
-    color: $tw;
     transform: translate(0px, 0px) scale(0);
     svg {
+      color: $tw;
       transform: rotateZ(-10deg);
     }
   }
   .line {
-    color: $line;
     transform: translate(0px, 0px) scale(0);
     svg {
+      color: $line;
       transform: rotateZ(10deg);
     }
   }
   .copy {
-    color: white;
-    @include gradientPink;
-    @include shadowPink;
+    background: none;
+    box-shadow: none;
     transform: translate(0px, 0px) scale(0);
-    // width: 95px;
-    border-radius: 20px;
+    .bg {
+      @include absoluteCenter;
+      right: auto;
+      width: 40px;
+      height: 100%;
+      @include gradientPink;
+      @include shadowPink;
+      border-radius: 20px;
+    }
     svg {
+      @include absoluteCenter;
+      color: white;
       transform: rotateZ(30deg);
     }
     span {
       @include flexCenter;
-      position: absolute;
-      top: 0;
-      left: 0;
+      @include absoluteCenter;
       width: 95px;
       height: 40px;
       color: white;
@@ -205,8 +229,6 @@ $bottomOrigin: $tabbarBottom + $tabbarHeight + $shareOut;
       font-weight: bold;
       line-height: 1;
       letter-spacing: 0;
-      // @include gradientPink;
-      // @include shadowPink;
       opacity: 0;
     }
   }
