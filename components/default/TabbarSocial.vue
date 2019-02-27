@@ -188,6 +188,8 @@ $bottomOrigin: $tabbarBottom + $tabbarHeight + $shareOut;
     @include gradientPink;
     @include shadowPink;
     transform: translate(0px, 0px) scale(0);
+    // width: 95px;
+    border-radius: 20px;
     svg {
       transform: rotateZ(30deg);
     }
@@ -203,9 +205,8 @@ $bottomOrigin: $tabbarBottom + $tabbarHeight + $shareOut;
       font-weight: bold;
       line-height: 1;
       letter-spacing: 0;
-      @include gradientPink;
-      @include shadowPink;
-      border-radius: 20px;
+      // @include gradientPink;
+      // @include shadowPink;
       opacity: 0;
     }
   }
