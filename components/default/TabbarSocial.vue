@@ -58,25 +58,25 @@ export default {
 
         await this.$raf()
         TweenMax.to('.fb', 1.45, {
-          x: '-74px',
+          x: '-73px',
           y: '-45px',
           scale: 1,
           ease: Expo.easeOut
         })
         TweenMax.to('.tw', 1.3, {
-          x: '-26px',
+          x: '-25px',
           y: '-65px',
           scale: 1,
           ease: Expo.easeOut
         })
         TweenMax.to('.line', 1.15, {
-          x: '26px',
+          x: '25px',
           y: '-65px',
           scale: 1,
           ease: Expo.easeOut
         })
         TweenMax.to('.copy', 1, {
-          x: '74px',
+          x: '73px',
           y: '-45px',
           scale: 1,
           ease: Expo.easeOut

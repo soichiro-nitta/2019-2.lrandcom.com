@@ -24,7 +24,6 @@
         <div class="border1" />
         <div class="border2" />
       </div>
-
       <TabbarSocial
         :share-opened="shareOpened"
         :close-share="closeShare"
