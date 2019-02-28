@@ -15,7 +15,8 @@ import {
   faBookOpen,
   faFlagAlt,
   faEllipsisHAlt,
-  faCopy
+  faCopy,
+  faSmileWink
 } from '@fortawesome/pro-regular-svg-icons'
 import {
   faLongArrowAltLeft,
@@ -38,7 +39,8 @@ library.add(
   faBookOpen,
   faFlagAlt,
   faEllipsisHAlt,
-  faCopy
+  faCopy,
+  faSmileWink
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

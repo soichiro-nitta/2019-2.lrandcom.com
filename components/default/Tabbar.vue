@@ -14,7 +14,16 @@
     </NLink>
     <div ref="burger" class="burger">
       <font-awesome-icon :icon="['far', 'ellipsis-h-alt']" />
+      <TabbarMenu
+        :burger-opened="burgerOpened"
+        :close-burger="closeBurger"
+      />
     </div>
+    <div
+      ref="burgerLayer"
+      class="burgerLayer"
+      @click="clickBurger"
+    />
     <div ref="share" class="share">
       <font-awesome-icon
         :icon="['far', 'share-alt']"
@@ -29,7 +38,7 @@
         :close-share="closeShare"
       />
     </div>
-    <div class="shareLayer" @click="toggleShare" />
+    <div class="shareLayer" @click="clickShare" />
     <div class="indicator" />
   </div>
 </template>
@@ -37,10 +46,12 @@
 <script>
 import { TweenMax, Expo, Elastic } from 'gsap'
 import TabbarSocial from '~/components/default/TabbarSocial'
+import TabbarMenu from '~/components/default/TabbarMenu'
 
 export default {
   components: {
-    TabbarSocial
+    TabbarSocial,
+    TabbarMenu
   },
   data() {
     return {
@@ -51,36 +62,37 @@ export default {
       burgerIconWidth: 0,
       iconsWidth: 0,
       leftOrigin: 0,
-      shareOpened: false
+      shareOpened: false,
+      burgerOpened: false
     }
   },
   watch: {
     async shareOpened() {
       if (this.shareOpened) {
         await this.$raf()
-        TweenMax.to('.share', 1.2, {
+        TweenMax.to('.Tabbar .share', 1.2, {
           rotation: '720deg',
           ease: Elastic.easeOut.config(0.2, 0.3)
         })
-        TweenMax.to('.share .shareIcon', 0.8, {
+        TweenMax.to('.Tabbar .shareIcon', 0.8, {
           scale: 0,
           ease: Expo.easeOut
         })
-        TweenMax.to('.share .close', 0.8, {
+        TweenMax.to('.Tabbar .close', 0.8, {
           scale: 1,
           ease: Expo.easeOut
         })
       } else {
         await this.$raf()
-        TweenMax.to('.share', 1.2, {
+        TweenMax.to('.Tabbar .share', 1.2, {
           rotation: '0deg',
           ease: Elastic.easeOut.config(0.2, 0.3)
         })
-        TweenMax.to('.share .close', 0.8, {
+        TweenMax.to('.Tabbar .close', 0.8, {
           scale: 0,
           ease: Expo.easeOut
         })
-        TweenMax.to('.share .shareIcon', 0.8, {
+        TweenMax.to('.Tabbar .shareIcon', 0.8, {
           scale: 1,
           ease: Expo.easeOut
         })
@@ -102,8 +114,16 @@ export default {
     closeShare() {
       this.shareOpened = false
     },
-    toggleShare() {
+    closeBurger() {
+      this.burgerOpened = false
+    },
+    clickShare() {
       this.shareOpened = !this.shareOpened
+      this.burgerOpened = false
+    },
+    clickBurger() {
+      this.burgerOpened = !this.burgerOpened
+      this.shareOpened = false
     },
     styleElements() {
       // tabbar全体とshareとburgerのwidthを取得
@@ -124,13 +144,12 @@ export default {
           this.burgerIconWidth -
           this.iconsWidth) /
         (this.num + 0.4)
-      console.log(this.iconsWidth)
 
       // burgerを配置
-      document.querySelector('.Tabbar .burger').style.right = `${this
-        .tabbarBottom +
+      this.$refs.burger.style.right = `${this.tabbarBottom +
         space * 0.7 -
         (this.$refs.burger.clientWidth - this.burgerIconWidth) / 2}px`
+      this.$refs.burgerLayer.style.right = this.$refs.burger.style.right
 
       // 右側のアイコンを配置
       const link = document.querySelector('.Tabbar .right')
@@ -188,7 +207,7 @@ $burgerOut: 10px;
   @include shadowBlue;
   border-radius: 15px 15px 15px 15px;
   opacity: 0;
-  a {
+  & > a {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -207,6 +226,7 @@ $burgerOut: 10px;
       display: inline-block;
       margin-top: $aSpanMarginTop;
       font-size: $aSpanFontSize;
+      line-height: 1;
     }
     &:after {
       content: '';
@@ -279,11 +299,20 @@ $burgerOut: 10px;
     bottom: $height + $bottom - ($burgerHeight - $burgerOut);
     width: $burgerHeight;
     height: $burgerHeight;
-    color: $blue3;
-    font-size: 22px;
     background: white;
     border-radius: 15px;
     @include shadowBlue;
+    svg {
+      color: $blue3;
+      font-size: 22px;
+    }
+  }
+  .burgerLayer {
+    position: fixed;
+    right: 0;
+    bottom: $height + $bottom - ($burgerHeight - $burgerOut);
+    width: $burgerHeight;
+    height: $burgerHeight;
   }
   .indicator {
     position: fixed;
