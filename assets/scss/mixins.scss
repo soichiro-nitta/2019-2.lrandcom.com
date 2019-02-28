@@ -1,4 +1,4 @@
-@mixin pc {
+  @mixin pc {
   @media screen and (min-device-width: ($breakpoint)) {
     @content;
   }
@@ -47,9 +47,15 @@
   left: 0;
   margin: auto;
 }
-@mixin gradientText {
+@mixin gradientTextBlue {
   color: rgb(102, 182, 234);
   @include gradientBlue();
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@mixin gradientTextPink {
+  color: rgb(255, 143, 190);
+  @include gradientPink();
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
