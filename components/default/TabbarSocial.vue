@@ -57,55 +57,55 @@ export default {
         this.copy = `${document.title} ${currentUrl}`
 
         await this.$raf()
-        TweenMax.to('.fb', 1.55, {
+        TweenMax.to('.fb', 1.45, {
           x: '-74px',
           y: '-45px',
           scale: 1,
-          ease: Expo.easeInOut
+          ease: Expo.easeOut
         })
-        TweenMax.to('.tw', 1.4, {
+        TweenMax.to('.tw', 1.3, {
           x: '-26px',
           y: '-65px',
           scale: 1,
-          ease: Expo.easeInOut
+          ease: Expo.easeOut
         })
-        TweenMax.to('.line', 1.25, {
+        TweenMax.to('.line', 1.15, {
           x: '26px',
           y: '-65px',
           scale: 1,
-          ease: Expo.easeInOut
+          ease: Expo.easeOut
         })
-        TweenMax.to('.copy', 1.1, {
+        TweenMax.to('.copy', 1, {
           x: '74px',
           y: '-45px',
           scale: 1,
-          ease: Expo.easeInOut
+          ease: Expo.easeOut
         })
       } else {
         await this.$raf()
-        TweenMax.to('.fb', 1.1, {
+        TweenMax.to('.fb', 1, {
           x: '0px',
           y: '0px',
           scale: 0,
-          ease: Expo.easeInOut
+          ease: Expo.easeOut
         })
-        TweenMax.to('.tw', 1.25, {
+        TweenMax.to('.tw', 1.15, {
           x: '0px',
           y: '0px',
           scale: 0,
-          ease: Expo.easeInOut
+          ease: Expo.easeOut
         })
-        TweenMax.to('.line', 1.4, {
+        TweenMax.to('.line', 1.3, {
           x: '0px',
           y: '0px',
           scale: 0,
-          ease: Expo.easeInOut
+          ease: Expo.easeOut
         })
-        TweenMax.to('.copy', 1.55, {
+        TweenMax.to('.copy', 1.45, {
           x: '0px',
           y: '0px',
           scale: 0,
-          ease: Expo.easeInOut
+          ease: Expo.easeOut
         })
       }
     }

@@ -8,6 +8,13 @@
       <font-awesome-icon :icon="['far', 'book-open']" />
       <span>記事を読む</span>
     </NLink>
+    <NLink to="/writer" class="right">
+      <font-awesome-icon :icon="['far', 'flag-alt']" />
+      <span>ライター募集</span>
+    </NLink>
+    <div ref="burger" class="burger">
+      <font-awesome-icon :icon="['far', 'ellipsis-h-alt']" />
+    </div>
     <div ref="share" class="share">
       <font-awesome-icon
         :icon="['far', 'share-alt']"
@@ -24,19 +31,12 @@
       />
     </div>
     <div class="shareLayer" @click="toggleShare" />
-    <NLink to="/writer" class="right">
-      <font-awesome-icon :icon="['far', 'flag-alt']" />
-      <span>ライター募集</span>
-    </NLink>
-    <div ref="burger" class="burger">
-      <font-awesome-icon :icon="['far', 'ellipsis-h-alt']" />
-    </div>
     <div class="indicator" />
   </div>
 </template>
 
 <script>
-import { TweenMax, Expo } from 'gsap'
+import { TweenMax, Expo, Elastic } from 'gsap'
 import TabbarSocial from '~/components/default/TabbarSocial'
 
 export default {
@@ -61,29 +61,29 @@ export default {
         await this.$raf()
         TweenMax.to('.share', 1.2, {
           rotation: '720deg',
-          ease: Expo.easeInOut
+          ease: Elastic.easeOut.config(0.2, 0.3)
         })
         TweenMax.to('.share .shareIcon', 0.8, {
           scale: 0,
-          ease: Expo.easeInOut
+          ease: Expo.easeOut
         })
-        TweenMax.to('.share .close', 0.6, {
+        TweenMax.to('.share .close', 0.8, {
           scale: 1,
-          ease: Expo.easeIn
+          ease: Expo.easeOut
         })
       } else {
         await this.$raf()
         TweenMax.to('.share', 1.2, {
           rotation: '0deg',
-          ease: Expo.easeInOut
+          ease: Elastic.easeOut.config(0.2, 0.3)
         })
         TweenMax.to('.share .close', 0.8, {
           scale: 0,
-          ease: Expo.easeInOut
+          ease: Expo.easeOut
         })
-        TweenMax.to('.share .shareIcon', 0.6, {
+        TweenMax.to('.share .shareIcon', 0.8, {
           scale: 1,
-          ease: Expo.easeIn
+          ease: Expo.easeOut
         })
       }
     }
