@@ -37,8 +37,7 @@ module.exports = {
   plugins: [
     '~/plugins/mixin.client',
     '~/plugins/mixin',
-    '~/plugins/fontawesome',
-    '~/plugins/axios'
+    '~/plugins/fontawesome'
     // '~/plugins/persistedstate.client'
   ],
 
@@ -62,11 +61,10 @@ module.exports = {
   },
 
   /*
-  ** Axios
+  ** Axios module configuration
   */
   axios: {
-    credentials: true,
-    baseURL: URL.WP_API
+    // See https://github.com/nuxt-community/axios-module#options
   },
 
   /*
