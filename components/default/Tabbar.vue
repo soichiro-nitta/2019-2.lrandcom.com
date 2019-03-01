@@ -190,9 +190,9 @@ $aFontSize: 18px;
 $aSpanMarginTop: 12px;
 $aSpanFontSize: 10px;
 $shareHeight: 60px;
-$shareOut: 15px;
+$shareOut: 10px;
 $burgerHeight: 55px;
-$burgerOut: 10px;
+$burgerOut: 7px;
 
 .Tabbar {
   display: flex;
@@ -232,7 +232,7 @@ $burgerOut: 10px;
       content: '';
       position: absolute;
       top: 0;
-      width: 35px;
+      width: 32px;
       height: 3px;
       @include gradientPink;
       @include shadowPink;
@@ -321,6 +321,7 @@ $burgerOut: 10px;
     bottom: 8px;
     margin: auto;
     width: $shareHeight;
+    // width: 134px;
     height: 5px;
     border-radius: 2.5px;
     @include gradientBlue;

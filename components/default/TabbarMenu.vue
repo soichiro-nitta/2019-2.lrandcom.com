@@ -63,26 +63,25 @@ export default {
         })
       }
     }
-  },
-  mounted() {},
-  methods: {}
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-$burgerHeight: 55px;
-$burgerOut: 10px;
-$space: 17px;
-$aMarginBottom: 35px;
+$tabbarBottom: 8px;
+$tabbarHeight: 100px;
+$burgerOut: 7px;
+$space: 15px;
+$aMarginBottom: 32.5px;
 $aAfterWidth: 3px;
-$maxIconWidth: 18px;
+$maxIconWidth: 16px;
 $maxTextWidth: 64.2px;
 
 .TabbarMenu {
-  position: absolute;
-  bottom: $burgerHeight + $burgerOut;
-  right: 0;
-  padding: $aMarginBottom * 0.7 0;
+  position: fixed;
+  bottom: $tabbarBottom * 2 + $tabbarHeight + $burgerOut;
+  right: $tabbarBottom;
+  padding: $aMarginBottom * 0.8 0;
   width: $aAfterWidth * 2 + $space * 3 + $maxIconWidth + $maxTextWidth;
   background: white;
   border-radius: 15px;
@@ -98,7 +97,7 @@ $maxTextWidth: 64.2px;
     transition: color 0.5s;
     will-change: color;
     svg {
-      font-size: 18px;
+      font-size: 16px;
     }
     span {
       margin-left: $space;
@@ -110,7 +109,7 @@ $maxTextWidth: 64.2px;
       position: absolute;
       left: 0;
       width: $aAfterWidth;
-      height: 32px;
+      height: 27px;
       @include gradientPink;
       @include shadowPink;
       border-radius: 1.5px;
