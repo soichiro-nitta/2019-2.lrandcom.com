@@ -4,6 +4,7 @@ import URL from './assets/data/url.json'
 module.exports = {
   mode: 'universal',
   // mode: 'spa',
+  dev: process.env.NODE_ENV !== 'production',
 
   /*
   ** Headers of the page
@@ -48,7 +49,8 @@ module.exports = {
     'nuxt-device-detect',
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '~/modules/generator'
   ],
 
   /*
@@ -92,47 +94,47 @@ module.exports = {
         })
       }
     }
-  },
+  }
 
   /*
   ** Generate configuration
   */
-  generate: {
-    routes: async () => {
-      const instance = axios.create({
-        baseURL: URL.WP_API,
-        withCredentials: true,
-        responseType: 'json',
-        responseEncoding: 'utf8'
-      })
+  // generate: {
+  //   routes: async () => {
+  //     const instance = axios.create({
+  //       baseURL: URL.WP_API,
+  //       withCredentials: true,
+  //       responseType: 'json',
+  //       responseEncoding: 'utf8'
+  //     })
 
-      let articles = []
-      const { headers } = await instance.get(`/?_embed&categories=8,11`)
-      const total = headers['x-wp-total']
-      let remainder = total
+  //     let articles = []
+  //     const { headers } = await instance.get(`/?_embed&categories=8,11`)
+  //     const total = headers['x-wp-total']
+  //     let remainder = total
 
-      if (total <= 100) {
-        const { data } = await instance.get(
-          `/?_embed&per_page=100&categories=8,11`
-        )
-        articles = data
-      } else {
-        for (; remainder >= 100; remainder -= 100) {
-          const { data } = await instance.get(
-            `/?_embed&per_page=100&offset=${total - remainder}&categories=8,11`
-          )
-          articles = articles.concat(data)
-        }
-        const { data } = await instance.get(
-          `/?_embed&per_page=${remainder}&offset=${total -
-            remainder}&categories=8,11`
-        )
-        articles = articles.concat(data)
-      }
+  //     if (total <= 100) {
+  //       const { data } = await instance.get(
+  //         `/?_embed&per_page=100&categories=8,11`
+  //       )
+  //       articles = data
+  //     } else {
+  //       for (; remainder >= 100; remainder -= 100) {
+  //         const { data } = await instance.get(
+  //           `/?_embed&per_page=100&offset=${total - remainder}&categories=8,11`
+  //         )
+  //         articles = articles.concat(data)
+  //       }
+  //       const { data } = await instance.get(
+  //         `/?_embed&per_page=${remainder}&offset=${total -
+  //           remainder}&categories=8,11`
+  //       )
+  //       articles = articles.concat(data)
+  //     }
 
-      return articles.map(article => {
-        return `/${article.slug}`
-      })
-    }
-  }
+  //     return articles.map(article => {
+  //       return `/${article.slug}`
+  //     })
+  //   }
+  // }
 }
