@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="page"
-  >
+  <div class="page">
     <Firstview :leave="leave" />
     <Services :leave="leave" />
     <Profile :leave="leave" />
