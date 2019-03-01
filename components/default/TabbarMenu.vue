@@ -27,24 +27,17 @@ export default {
     burgerOpened: {
       type: Boolean,
       required: true
-    },
-    closeBurger: {
-      type: Function,
-      required: true
-    }
-  },
-  data() {
-    return {
-      menuProcess: false
     }
   },
   watch: {
     async $route() {
       await this.$delay(500)
-      this.closeBurger()
+      this.$emit('closeBurger')
     },
     async burgerOpened() {
+      this.$emit('menuStart')
       if (this.burgerOpened) {
+        this.$el.style.display = 'block'
         await this.$raf()
         TweenMax.to('.TabbarMenu', 0.6, {
           y: '0px',
@@ -54,6 +47,7 @@ export default {
             y: '30px'
           }
         })
+        await this.$delay(600)
       } else {
         await this.$raf()
         TweenMax.to('.TabbarMenu', 0.6, {
@@ -61,7 +55,10 @@ export default {
           opacity: 0,
           ease: Expo.easeOut
         })
+        await this.$delay(600)
+        this.$el.style.display = 'none'
       }
+      this.$emit('menuComplete')
     }
   }
 }
@@ -78,6 +75,7 @@ $maxIconWidth: 16px;
 $maxTextWidth: 64.2px;
 
 .TabbarMenu {
+  display: none;
   position: fixed;
   bottom: $tabbarBottom * 2 + $tabbarHeight + $burgerOut;
   right: $tabbarBottom;

@@ -27,10 +27,6 @@ export default {
     shareOpened: {
       type: Boolean,
       required: true
-    },
-    closeShare: {
-      type: Function,
-      required: true
     }
   },
   data() {
@@ -44,7 +40,7 @@ export default {
   },
   watch: {
     $route() {
-      this.closeShare()
+      this.$emit('closeShare')
     },
     async shareOpened() {
       if (this.shareOpened) {

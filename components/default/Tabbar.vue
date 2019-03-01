@@ -12,17 +12,22 @@
       <font-awesome-icon :icon="['far', 'flag-alt']" />
       <span>ライター募集</span>
     </NLink>
-    <div ref="burger" class="burger">
-      <font-awesome-icon :icon="['far', 'ellipsis-h-alt']" />
-      <TabbarMenu
-        :burger-opened="burgerOpened"
-        :close-burger="closeBurger"
-      />
-    </div>
     <div
-      ref="burgerLayer"
-      class="burgerLayer"
+      ref="burger"
+      class="burger"
       @click="clickBurger"
+    >
+      <font-awesome-icon :icon="['far', 'ellipsis-h-alt']" />
+      <div class="close">
+        <div class="border1" />
+        <div class="border2" />
+      </div>
+    </div>
+    <TabbarMenu
+      :burger-opened="burgerOpened"
+      @menuStart="menuStart"
+      @menuComplete="menuComplete"
+      @closeBurger="closeBurger"
     />
     <div ref="share" class="share">
       <font-awesome-icon
@@ -35,7 +40,7 @@
       </div>
       <TabbarSocial
         :share-opened="shareOpened"
-        :close-share="closeShare"
+        @closeShare="closeShare"
       />
     </div>
     <div class="shareLayer" @click="clickShare" />
@@ -63,10 +68,34 @@ export default {
       iconsWidth: 0,
       leftOrigin: 0,
       shareOpened: false,
-      burgerOpened: false
+      burgerOpened: false,
+      menuProcess: false
     }
   },
   watch: {
+    async burgerOpened() {
+      if (this.burgerOpened) {
+        await this.$raf()
+        TweenMax.to('.Tabbar .burger svg', 0.6, {
+          scale: 0,
+          ease: Expo.easeOut
+        })
+        TweenMax.to('.Tabbar .burger .close', 0.6, {
+          scale: 1,
+          ease: Expo.easeOut
+        })
+      } else {
+        await this.$raf()
+        TweenMax.to('.Tabbar .burger svg', 0.6, {
+          scale: 1,
+          ease: Expo.easeOut
+        })
+        TweenMax.to('.Tabbar .burger .close', 0.6, {
+          scale: 0,
+          ease: Expo.easeOut
+        })
+      }
+    },
     async shareOpened() {
       if (this.shareOpened) {
         await this.$raf()
@@ -78,7 +107,7 @@ export default {
           scale: 0,
           ease: Expo.easeOut
         })
-        TweenMax.to('.Tabbar .close', 0.8, {
+        TweenMax.to('.Tabbar .share .close', 0.8, {
           scale: 1,
           ease: Expo.easeOut
         })
@@ -88,7 +117,7 @@ export default {
           rotation: '0deg',
           ease: Elastic.easeOut.config(0.2, 0.3)
         })
-        TweenMax.to('.Tabbar .close', 0.8, {
+        TweenMax.to('.Tabbar .share .close', 0.8, {
           scale: 0,
           ease: Expo.easeOut
         })
@@ -122,8 +151,15 @@ export default {
       this.burgerOpened = false
     },
     clickBurger() {
+      if (this.menuProcess) return
       this.burgerOpened = !this.burgerOpened
       this.shareOpened = false
+    },
+    menuStart() {
+      this.menuProcess = true
+    },
+    menuComplete() {
+      this.menuProcess = false
     },
     styleElements() {
       // tabbar全体とshareとburgerのwidthを取得
@@ -149,7 +185,6 @@ export default {
       this.$refs.burger.style.right = `${this.tabbarBottom +
         space * 0.7 -
         (this.$refs.burger.clientWidth - this.burgerIconWidth) / 2}px`
-      this.$refs.burgerLayer.style.right = this.$refs.burger.style.right
 
       // 右側のアイコンを配置
       const link = document.querySelector('.Tabbar .right')
@@ -248,6 +283,39 @@ $burgerOut: 7px;
       transform: scale(1);
     }
   }
+  .burger {
+    @include flexCenter;
+    position: fixed;
+    right: 0;
+    bottom: $height + $bottom - ($burgerHeight - $burgerOut);
+    width: $burgerHeight;
+    height: $burgerHeight;
+    background: white;
+    border-radius: 15px;
+    @include shadowBlue;
+    svg {
+      color: $blue3;
+      font-size: 22px;
+    }
+    .close {
+      @include absoluteCenter;
+      transform: scale(0);
+      .border1,
+      .border2 {
+        @include absoluteCenter;
+        width: 3px;
+        height: 17.5px;
+        border-radius: 1.5px;
+        background: $blue3;
+      }
+      .border1 {
+        transform: rotateZ(45deg);
+      }
+      .border2 {
+        transform: rotateZ(-45deg);
+      }
+    }
+  }
   .share {
     position: fixed;
     right: 0;
@@ -291,28 +359,6 @@ $burgerOut: 7px;
     margin: auto;
     width: $shareHeight;
     height: $shareHeight;
-  }
-  .burger {
-    @include flexCenter;
-    position: fixed;
-    right: 0;
-    bottom: $height + $bottom - ($burgerHeight - $burgerOut);
-    width: $burgerHeight;
-    height: $burgerHeight;
-    background: white;
-    border-radius: 15px;
-    @include shadowBlue;
-    svg {
-      color: $blue3;
-      font-size: 22px;
-    }
-  }
-  .burgerLayer {
-    position: fixed;
-    right: 0;
-    bottom: $height + $bottom - ($burgerHeight - $burgerOut);
-    width: $burgerHeight;
-    height: $burgerHeight;
   }
   .indicator {
     position: fixed;
