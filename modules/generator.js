@@ -54,6 +54,7 @@ module.exports = function apiModule(moduleOptions) {
     })
 
     // prefetch
+    const url = this.options.dev ? '' : URL.SITE
     this.options.head.link = [
       ...this.options.head.link,
       ...records.map(record => ({
