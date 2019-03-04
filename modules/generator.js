@@ -35,19 +35,9 @@ module.exports = function apiModule(moduleOptions) {
       records[i] = {
         index: i + 1,
         title: raw[i].title.rendered,
-        // src:
-        //   'large' in
-        //   data[i]['_embedded']['wp:featuredmedia'][0]['media_details'][
-        //     'sizes'
-        //   ]
-        //     ? data[i]['_embedded']['wp:featuredmedia'][0]['media_details'][
-        //         'sizes'
-        //       ]['large']['source_url']
-        //     : data[i]['_embedded']['wp:featuredmedia'][0]['media_details'][
-        //         'sizes'
-        //       ]['full']['source_url'],
+        src: raw[i]._embedded['wp:featuredmedia'][0].media_details.sizes,
         slug: raw[i].slug,
-        categories: raw[i].categories,
+        cat: raw[i].categories,
         yy: date.getFullYear(date),
         mm: date.getMonth(date) + 1,
         dd: date.getDate()
