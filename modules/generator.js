@@ -12,22 +12,46 @@ module.exports = function apiModule(moduleOptions) {
     const { headers } = await ax.get(`/?_embed&categories=8,11`)
     const total = headers['x-wp-total']
     let remainder = total
-    let records = []
+    let raw = []
     if (total <= 100) {
       const { data } = await ax.get(`/?_embed&per_page=100&categories=8,11`)
-      records = data
+      raw = data
     } else {
       for (; remainder >= 100; remainder -= 100) {
         const { data } = await ax.get(
           `/?_embed&per_page=100&offset=${total - remainder}&categories=8,11`
         )
-        records = records.concat(data)
+        raw = raw.concat(data)
       }
       const { data } = await ax.get(
         `/?_embed&per_page=${remainder}&offset=${total -
           remainder}&categories=8,11`
       )
-      records = records.concat(data)
+      raw = raw.concat(data)
+    }
+    const records = []
+    for (let i = 0; i < raw.length; i++) {
+      const date = new Date(raw[i].date)
+      records[i] = {
+        index: i + 1,
+        title: raw[i].title.rendered,
+        // src:
+        //   'large' in
+        //   data[i]['_embedded']['wp:featuredmedia'][0]['media_details'][
+        //     'sizes'
+        //   ]
+        //     ? data[i]['_embedded']['wp:featuredmedia'][0]['media_details'][
+        //         'sizes'
+        //       ]['large']['source_url']
+        //     : data[i]['_embedded']['wp:featuredmedia'][0]['media_details'][
+        //         'sizes'
+        //       ]['full']['source_url'],
+        slug: raw[i].slug,
+        categories: raw[i].categories,
+        yy: date.getFullYear(date),
+        mm: date.getMonth(date) + 1,
+        dd: date.getDate()
+      }
     }
 
     // JSON
@@ -54,6 +78,7 @@ module.exports = function apiModule(moduleOptions) {
     })
 
     // prefetch
+    const url = this.options.dev ? '' : URL.SITE
     this.options.head.link = [
       ...this.options.head.link,
       ...records.map(record => ({
