@@ -13,7 +13,6 @@ export default {
     const { data } = await app.$axios.get(
       `${url}/_nuxt/articles/${params.id}.json`
     )
-    console.log(data)
     return { article: data }
   },
   head() {

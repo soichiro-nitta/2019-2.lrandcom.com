@@ -3,34 +3,34 @@
     :to="`/${article.slug}`"
     class="Article"
   >
-    <div class="thumb">
-      <img
-        ref="src"
-        :src="article.src"
-      >
-      <div
-        ref="mask"
-        class="mask"
-      />
-    </div>
-    <div class="text">
-      <div class="title">
-        {{ article.title }}
-      </div>
-      <div class="meta">
-        <div class="date">
-          {{ `${article.yy}.${article.mm}.${article.dd}` }}
+    <no-ssr>
+      <lazy-component>
+        <div class="thumb">
+          <img
+            ref="src"
+            :src="article.src.full.source_url"
+          >
         </div>
-        <div class="category">
-          {{ category }}
+        <div class="text">
+          <div class="title">
+            {{ article.title }}
+          </div>
+          <div class="meta">
+            <div class="date">
+              {{ `${article.yy}.${article.mm}.${article.dd}` }}
+            </div>
+            <div class="category">
+              {{ category }}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      </lazy-component>
+    </no-ssr>
   </nuxt-link>
 </template>
 
 <script>
-import { TweenMax, Expo } from 'gsap'
+// import { TweenMax, Expo } from 'gsap'
 
 export default {
   props: {
@@ -41,20 +41,19 @@ export default {
   },
   computed: {
     category() {
-      return this.article.categories.indexOf(11) !== -1
-        ? 'ブログ'
-        : '納品サンプル'
+      return this.article.cat.indexOf(11) !== -1 ? 'ブログ' : '納品サンプル'
     }
   },
   mounted() {
-    this.$loadImage(this.article.src, () => {
-      requestAnimationFrame(() => {
-        TweenMax.to(this.$refs.src, 3, {
-          opacity: 0.9,
-          ease: Expo.easeOut
-        })
-      })
-    })
+    // console.log(this.article.src.full.source_url)
+    // this.$loadImage(this.article.src.full.source_url, () => {
+    //   requestAnimationFrame(() => {
+    //     TweenMax.to(this.$refs.src, 3, {
+    //       opacity: 0.9,
+    //       ease: Expo.easeOut
+    //     })
+    //   })
+    // })
   }
 }
 </script>
@@ -65,7 +64,8 @@ export default {
   margin: 30px auto 0;
   width: calc(100% - 60px);
   overflow: hidden;
-  background: #121212;
+  background: white;
+  @include shadowBlue;
   border-radius: 15px;
   @include pc {
     margin: 0 0 10px;
@@ -83,22 +83,11 @@ export default {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0;
-    }
-    .mask {
-      position: absolute;
-      top: -1%;
-      left: -1%;
-      width: 102%;
-      height: 102%;
-      background: linear-gradient(
-        rgba(18, 18, 18, 0) 0%,
-        rgba(18, 18, 18, 1) 100%
-      );
+      // opacity: 0;
     }
   }
   .text {
-    padding: 30px 20px 20px;
+    padding: 20px;
     width: 100%;
     .title {
       position: relative;

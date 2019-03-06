@@ -6,7 +6,7 @@
   "private": true,
   "config": {
     "nuxt": {
-      "host": ""
+      "host": "192.168.3.5"
     }
   },
   "scripts": {
@@ -32,6 +32,7 @@
     "lottie-web": "^5.4.3",
     "nuxt": "^2.4.2",
     "nuxt-device-detect": "^1.1.1",
+    "vue-lazyload": "^1.2.6",
     "vue-window-size": "^0.2.3",
     "vuex-persistedstate": "^2.5.4"
   },

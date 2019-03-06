@@ -1,7 +1,11 @@
 import Vue from 'vue'
 import VueWindowSize from 'vue-window-size'
+import VueLazyload from 'vue-lazyload'
 
 Vue.use(VueWindowSize)
+Vue.use(VueLazyload, {
+  lazyComponent: true
+})
 
 Vue.mixin({
   methods: {
