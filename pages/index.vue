@@ -42,7 +42,7 @@ export default {
   head() {
     return this.$head({
       title: 'リーディング＆カンパニー株式会社',
-      image: `${URL.SITE}/ogp.ong`
+      image: `${URL.SITE}/ogp.png`
     })
   }
 }
