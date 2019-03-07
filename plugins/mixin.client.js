@@ -4,8 +4,17 @@ import VueLazyload from 'vue-lazyload'
 
 Vue.use(VueWindowSize)
 Vue.use(VueLazyload, {
-  preLoad: 1,
-  lazyComponent: true
+  preLoad: 1.5,
+  lazyComponent: true,
+  listenEvents: [
+    'scroll',
+    'wheel',
+    'mousewheel',
+    'resize',
+    'animationend',
+    'transitionend',
+    'touchmove'
+  ]
 })
 
 Vue.mixin({
@@ -13,12 +22,12 @@ Vue.mixin({
     $loadWindow() {
       return new Promise(resolve => (window.onload = resolve))
     },
-    $loadImage(src, func) {
-      const img = new Image()
-      img.onload = () => {
-        func()
-      }
-      img.src = src
+    $loadImage(src) {
+      return new Promise(resolve => {
+        const img = new Image()
+        img.onload = resolve
+        img.src = src
+      })
     },
     $delay(ms) {
       return new Promise(resolve => setTimeout(resolve, ms))
