@@ -1,10 +1,12 @@
 <template>
   <div class="page">
-    <Article
-      v-for="article in articles"
-      :key="article.slug"
-      :article="article"
-    />
+    <no-ssr>
+      <Article
+        v-for="article in articles"
+        :key="article.slug"
+        :article="article"
+      />
+    </no-ssr>
   </div>
 </template>
 

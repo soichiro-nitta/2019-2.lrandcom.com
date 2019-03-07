@@ -6,7 +6,7 @@
   "private": true,
   "config": {
     "nuxt": {
-      "host": "192.168.3.5"
+      "host": "192.168.3.6"
     }
   },
   "scripts": {

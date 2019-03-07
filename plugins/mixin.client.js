@@ -4,6 +4,7 @@ import VueLazyload from 'vue-lazyload'
 
 Vue.use(VueWindowSize)
 Vue.use(VueLazyload, {
+  preLoad: 1,
   lazyComponent: true
 })
 

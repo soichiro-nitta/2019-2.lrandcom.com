@@ -3,34 +3,32 @@
     :to="`/${article.slug}`"
     class="Article"
   >
-    <no-ssr>
-      <lazy-component>
-        <div class="thumb">
-          <img
-            ref="src"
-            :src="article.src.full.source_url"
-          >
+    <lazy-component @show="show">
+      <div class="thumb">
+        <img
+          ref="src"
+          :src="article.src.full.source_url"
+        >
+      </div>
+      <div class="text">
+        <div class="title">
+          {{ article.title }}
         </div>
-        <div class="text">
-          <div class="title">
-            {{ article.title }}
+        <div class="meta">
+          <div class="date">
+            {{ `${article.yy}.${article.mm}.${article.dd}` }}
           </div>
-          <div class="meta">
-            <div class="date">
-              {{ `${article.yy}.${article.mm}.${article.dd}` }}
-            </div>
-            <div class="category">
-              {{ category }}
-            </div>
+          <div class="category">
+            {{ category }}
           </div>
         </div>
-      </lazy-component>
-    </no-ssr>
+      </div>
+    </lazy-component>
   </nuxt-link>
 </template>
 
 <script>
-// import { TweenMax, Expo } from 'gsap'
+import { TweenMax, Expo } from 'gsap'
 
 export default {
   props: {
@@ -54,6 +52,15 @@ export default {
     //     })
     //   })
     // })
+  },
+  methods: {
+    show(component) {
+      console.log(component)
+      TweenMax.to(component.$el, 0.2, {
+        opacity: 1,
+        ease: Expo.easeInOut
+      })
+    }
   }
 }
 </script>
@@ -70,6 +77,9 @@ export default {
   @include pc {
     margin: 0 0 10px;
     width: calc((100% - 20px) / 3);
+  }
+  & > div {
+    opacity: 0;
   }
   .thumb {
     position: relative;
