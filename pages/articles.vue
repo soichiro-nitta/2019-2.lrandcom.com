@@ -27,18 +27,18 @@ export default {
     Head,
     Article
   },
-  async asyncData({ app }) {
-    const url = process.env.NODE_ENV === 'development' ? '' : URL.SITE
-    const { data } = await app.$axios.get(`${url}/_nuxt/articles/master.json`)
-    return {
-      articles: data,
-      master: data
-    }
-  },
   data() {
     return {
+      master: [],
+      articles: [],
       category: 'all'
     }
+  },
+  async mounted() {
+    const url = process.env.NODE_ENV === 'development' ? '' : URL.SITE
+    const { data } = await this.$axios.get(`${url}/_nuxt/articles/master.json`)
+    this.master = data
+    this.articles = data
   },
   methods: {
     setArticles(articles) {
