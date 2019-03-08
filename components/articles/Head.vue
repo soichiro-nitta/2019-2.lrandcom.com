@@ -32,8 +32,8 @@ $sortHeight: 30px;
 .Head {
   width: 100%;
   height: $height;
-  // background: black;
-  @include gradientBlue;
+  background: black;
+  // @include gradientBlue;
   a {
     svg {
       margin: $svgMarginTop 0 0 $svgMarginTop;
@@ -51,18 +51,18 @@ $sortHeight: 30px;
     & > div {
       width: 30%;
       text-align: center;
-      color: $pink1;
+      color: $blue4;
       font-size: 10px;
       font-weight: bold;
       line-height: $sortHeight;
       background: white;
-      @include shadowPink;
+      @include shadowBlue;
       border-radius: 15px;
       // 95px
     }
     .all {
       color: white;
-      @include gradientPink;
+      @include gradientBlue;
     }
   }
 }
