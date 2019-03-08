@@ -33,8 +33,7 @@ $sortHeight: 30px;
   width: 100%;
   height: $height;
   background: black;
-  // @include gradientBlue;
-  background: linear-gradient(to right, rgb(30, 30, 30) 0%, rgb(0, 0, 0) 100%);
+  @include gradientBlack;
   a {
     svg {
       margin: $svgMarginTop 0 0 $svgMarginTop;

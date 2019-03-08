@@ -140,7 +140,7 @@ export default {
   .bg {
     width: 100%;
     height: 100%;
-    background: black;
+    @include gradientBlack;
     transform: scaleY(0);
   }
   video {
