@@ -5,16 +5,7 @@ import VueLazyload from 'vue-lazyload'
 Vue.use(VueWindowSize)
 Vue.use(VueLazyload, {
   preLoad: 1.3,
-  lazyComponent: true,
-  listenEvents: [
-    'scroll',
-    'wheel',
-    'mousewheel',
-    'resize',
-    'animationend',
-    'transitionend',
-    'touchmove'
-  ]
+  lazyComponent: true
 })
 
 Vue.mixin({

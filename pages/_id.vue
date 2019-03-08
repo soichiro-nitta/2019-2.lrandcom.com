@@ -45,7 +45,7 @@ export default {
   head() {
     return this.$head({
       title: this.article.title,
-      image: `${URL.SITE}/ogp.png`
+      image: this.article.src.full.source_url
     })
   }
 }
