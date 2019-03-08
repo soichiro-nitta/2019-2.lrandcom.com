@@ -50,7 +50,7 @@ export default {
         ease: Expo.easeOut
       })
       TweenMax.to('.activeBar', 0.6, {
-        left: '0%',
+        x: '0%',
         ease: Expo.easeOut
       })
     },
@@ -67,7 +67,7 @@ export default {
         ease: Expo.easeOut
       })
       TweenMax.to('.activeBar', 0.6, {
-        left: '33.33%',
+        x: '100%',
         ease: Expo.easeOut
       })
     },
@@ -84,7 +84,7 @@ export default {
         ease: Expo.easeOut
       })
       TweenMax.to('.activeBar', 0.6, {
-        left: '66.66%',
+        x: '200%',
         ease: Expo.easeOut
       })
     }
