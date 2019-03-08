@@ -37,6 +37,7 @@ module.exports = function apiModule(moduleOptions) {
         title: raw[i].title.rendered,
         src: raw[i]._embedded['wp:featuredmedia'][0].media_details.sizes,
         slug: raw[i].slug,
+        content: raw[i].content.rendered,
         cat: raw[i].categories,
         yy: date.getFullYear(date),
         mm: date.getMonth(date) + 1,
