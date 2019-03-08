@@ -1,31 +1,29 @@
 <template>
-  <div class="Article">
-    <lazy-component @show="show">
-      <nuxt-link
-        :to="`/${article.slug}`"
-      >
-        <div class="thumb">
-          <img
-            ref="src"
-            :src="article.src.thumbnail.source_url"
-          >
+  <lazy-component class="Article" @show="show">
+    <nuxt-link
+      :to="`/${article.slug}`"
+    >
+      <div class="thumb">
+        <img
+          ref="src"
+          :src="article.src.thumbnail.source_url"
+        >
+      </div>
+      <div class="text">
+        <div class="title">
+          {{ article.title }}
         </div>
-        <div class="text">
-          <div class="title">
-            {{ article.title }}
+        <div class="meta">
+          <div class="date">
+            {{ `${article.yy}.${article.mm}.${article.dd}` }}
           </div>
-          <div class="meta">
-            <div class="date">
-              {{ `${article.yy}.${article.mm}.${article.dd}` }}
-            </div>
-            <div class="category">
-              {{ category }}
-            </div>
+          <div class="category">
+            {{ category }}
           </div>
         </div>
-      </nuxt-link>
-    </lazy-component>
-  </div>
+      </div>
+    </nuxt-link>
+  </lazy-component>
 </template>
 
 <script>
@@ -42,17 +40,6 @@ export default {
     category() {
       return this.article.cat.indexOf(11) !== -1 ? 'ブログ' : '納品サンプル'
     }
-  },
-  async mounted() {
-    // console.log(this.article.src.full.source_url)
-    // this.$loadImage(this.article.src.full.source_url, () => {
-    //   requestAnimationFrame(() => {
-    //     TweenMax.to(this.$refs.src, 3, {
-    //       opacity: 0.9,
-    //       ease: Expo.easeOut
-    //     })
-    //   })
-    // })
   },
   methods: {
     async show(component) {
