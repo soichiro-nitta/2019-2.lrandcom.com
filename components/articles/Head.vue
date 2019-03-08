@@ -4,21 +4,90 @@
       <font-awesome-icon :icon="['fal', 'long-arrow-alt-left']" />
     </NLink>
     <div class="sort">
-      <div class="all">
-        All
-      </div>
-      <div class="sample">
-        納品サンプル
-      </div>
-      <div class="blog">
-        ブログ
-      </div>
+      <div class="activeBar" />
+      <ul>
+        <li class="all" @click="clickAll">
+          All
+        </li>
+        <li class="sample" @click="clickSample">
+          納品サンプル
+        </li>
+        <li class="blog" @click="clickBlog">
+          ブログ
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import { TweenMax, Expo } from 'gsap'
+
+export default {
+  props: {
+    master: {
+      type: Array,
+      required: true
+    }
+  },
+  methods: {
+    colorReset() {
+      TweenMax.to('.Head ul li', 0.6, {
+        color: '#7685bd',
+        ease: Expo.easeOut
+      })
+    },
+    async clickAll() {
+      const articles = this.master
+      this.$emit('setArticles', articles)
+      this.$emit('setCategory', 'all')
+      await this.$raf()
+      this.colorReset()
+      TweenMax.to('.all', 0.6, {
+        color: 'white',
+        ease: Expo.easeOut
+      })
+      TweenMax.to('.activeBar', 0.6, {
+        left: '0%',
+        ease: Expo.easeOut
+      })
+    },
+    async clickSample() {
+      const articles = this.master.filter(val => {
+        return val.cat[0] === 8
+      })
+      this.$emit('setArticles', articles)
+      this.$emit('setCategory', 'sample')
+      await this.$raf()
+      this.colorReset()
+      TweenMax.to('.sample', 0.6, {
+        color: 'white',
+        ease: Expo.easeOut
+      })
+      TweenMax.to('.activeBar', 0.6, {
+        left: '33.33%',
+        ease: Expo.easeOut
+      })
+    },
+    async clickBlog() {
+      const articles = this.master.filter(val => {
+        return val.cat[0] === 11
+      })
+      this.$emit('setArticles', articles)
+      this.$emit('setCategory', 'blog')
+      await this.$raf()
+      this.colorReset()
+      TweenMax.to('.blog', 0.6, {
+        color: 'white',
+        ease: Expo.easeOut
+      })
+      TweenMax.to('.activeBar', 0.6, {
+        left: '66.66%',
+        ease: Expo.easeOut
+      })
+    }
+  }
+}
 </script>
 
 
@@ -42,27 +111,42 @@ $sortHeight: 30px;
     }
   }
   .sort {
-    display: flex;
-    justify-content: space-between;
+    position: relative;
     margin: (
         $height - $articlesOut - $svgMarginTop - $svgFontSize - $sortHeight
       ) / 2 auto 0;
     width: calc(100% - 40px);
-    & > div {
-      width: 30%;
-      text-align: center;
-      color: $blue4;
-      font-size: 10px;
-      font-weight: bold;
-      line-height: $sortHeight;
-      background: white;
-      @include shadowBlue;
-      border-radius: 15px;
-      // 95px
-    }
-    .all {
-      color: white;
+    height: 30px;
+    background: white;
+    border-radius: 15px;
+    @include shadowBlue;
+    .activeBar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: calc(100% / 3);
+      height: 100%;
       @include gradientBlue;
+      border-radius: 15px;
+    }
+    ul {
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      li.all {
+        color: white;
+      }
+      li {
+        width: calc(100% / 3);
+        text-align: center;
+        color: $blue4;
+        font-size: 10px;
+        font-weight: bold;
+        line-height: $sortHeight;
+      }
     }
   }
 }
