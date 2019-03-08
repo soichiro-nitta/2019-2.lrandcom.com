@@ -6,13 +6,11 @@
       @setCategory="setCategory"
     />
     <div class="container">
-      <no-ssr>
-        <Article
-          v-for="article in articles"
-          :key="`${article.slug}-${category}`"
-          :article="article"
-        />
-      </no-ssr>
+      <Article
+        v-for="article in articles"
+        :key="`${article.slug}-${category}`"
+        :article="article"
+      />
     </div>
   </div>
 </template>
