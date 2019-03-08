@@ -23,6 +23,10 @@ import Head from '~/components/articles/Head'
 import Article from '~/components/articles/Article'
 
 export default {
+  components: {
+    Head,
+    Article
+  },
   async asyncData({ app }) {
     const url = process.env.NODE_ENV === 'development' ? '' : URL.SITE
     const { data } = await app.$axios.get(`${url}/_nuxt/articles/master.json`)
@@ -30,10 +34,6 @@ export default {
       articles: data,
       master: data
     }
-  },
-  components: {
-    Head,
-    Article
   },
   data() {
     return {
