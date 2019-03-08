@@ -4,18 +4,20 @@
       <font-awesome-icon :icon="['fal', 'long-arrow-alt-left']" />
     </NLink>
     <div class="sort">
-      <div class="activeBar" />
-      <ul>
-        <li class="all" @click="clickAll">
-          All
-        </li>
-        <li class="sample" @click="clickSample">
-          納品サンプル
-        </li>
-        <li class="blog" @click="clickBlog">
-          ブログ
-        </li>
-      </ul>
+      <div class="r">
+        <div class="activeBar" />
+        <ul>
+          <li class="all" @click="clickAll">
+            All
+          </li>
+          <li class="sample" @click="clickSample">
+            納品サンプル
+          </li>
+          <li class="blog" @click="clickBlog">
+            ブログ
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -92,13 +94,13 @@ export default {
 
 
 <style lang="scss" scoped>
-$articlesOut: 100px;
-$height: 270px;
+$height: 210px;
 $svgMarginTop: 30px;
 $svgFontSize: 25px;
 $sortHeight: 30px;
 
 .Head {
+  position: relative;
   width: 100%;
   height: $height;
   background: black;
@@ -111,10 +113,12 @@ $sortHeight: 30px;
     }
   }
   .sort {
-    position: relative;
-    margin: (
-        $height - $articlesOut - $svgMarginTop - $svgFontSize - $sortHeight
-      ) / 2 auto 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
     width: calc(100% - 40px);
     height: 30px;
     background: white;

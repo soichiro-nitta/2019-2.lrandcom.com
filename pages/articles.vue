@@ -61,7 +61,7 @@ export default {
 .page {
   @include pageBottom;
   .container {
-    margin-top: -100px;
+    margin-top: -45px;
   }
 }
 </style>
