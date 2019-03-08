@@ -5,7 +5,7 @@
 </template>
 
 <script>
-// import URL from '~/assets/data/url.json'
+import URL from '~/assets/data/url.json'
 
 export default {
   async asyncData({ app, params }) {
