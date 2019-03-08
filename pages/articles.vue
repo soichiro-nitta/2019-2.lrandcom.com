@@ -51,7 +51,7 @@ export default {
   head() {
     return this.$head({
       title: '記事を読む / リーディング＆カンパニー株式会社',
-      image: `${URL.SITE}/ogp.ong`
+      image: `${URL.SITE}/ogp.png`
     })
   }
 }
