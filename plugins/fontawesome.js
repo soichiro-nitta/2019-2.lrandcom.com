@@ -18,10 +18,7 @@ import {
   faCopy,
   faSmileWink
 } from '@fortawesome/pro-regular-svg-icons'
-import {
-  faLongArrowAltLeft,
-  faLongArrowAltRight
-} from '@fortawesome/pro-light-svg-icons'
+import { faLongArrowAltLeft } from '@fortawesome/pro-light-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add(
@@ -33,7 +30,6 @@ library.add(
   faVideo,
   faDesktop,
   faLongArrowAltLeft,
-  faLongArrowAltRight,
   faShareAlt,
   faHomeLgAlt,
   faBookOpen,

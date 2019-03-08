@@ -1,17 +1,21 @@
 <template>
   <div class="page">
-    <no-ssr>
-      <Article
-        v-for="article in articles"
-        :key="article.slug"
-        :article="article"
-      />
-    </no-ssr>
+    <Head />
+    <div class="container">
+      <no-ssr>
+        <Article
+          v-for="article in articles"
+          :key="article.slug"
+          :article="article"
+        />
+      </no-ssr>
+    </div>
   </div>
 </template>
 
 <script>
 import URL from '~/assets/data/url.json'
+import Head from '~/components/articles/Head'
 import Article from '~/components/articles/Article'
 
 export default {
@@ -21,6 +25,7 @@ export default {
     return { articles: data }
   },
   components: {
+    Head,
     Article
   },
   head() {
@@ -34,7 +39,9 @@ export default {
 
 <style lang="scss" scoped>
 .page {
-  margin-top: 30px;
   @include pageBottom;
+  .container {
+    margin-top: -100px;
+  }
 }
 </style>

@@ -77,7 +77,7 @@ export default {
 <style lang="scss" scoped>
 .Article {
   margin: 0 auto 30px;
-  width: calc(100% - 60px);
+  width: calc(100% - 40px);
   overflow: hidden;
   background: white;
   @include shadowBlue;
@@ -93,7 +93,7 @@ export default {
     .thumb {
       position: relative;
       width: 100%;
-      height: 30vh;
+      height: 200px;
       overflow: hidden;
       @include gradientBlue;
       @include pc {
