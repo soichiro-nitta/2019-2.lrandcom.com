@@ -1,5 +1,5 @@
 <template>
-  <div class="Firstview">
+  <div class="Head">
     <div
       ref="thumb"
       class="thumb"
@@ -20,6 +20,9 @@
         </span>
       </div>
     </div>
+    <NLink to="/articles">
+      <font-awesome-icon :icon="['fal', 'long-arrow-alt-left']" />
+    </NLink>
   </div>
 </template>
 
@@ -38,24 +41,20 @@ export default {
     }
   },
   mounted() {
-    this.$loadImage(this.src, () => {
-      requestAnimationFrame(() => {
-        TweenMax.to(this.$refs.thumb, 1, {
-          height: '100%',
-          ease: Expo.easeOut
-        })
-        TweenMax.to(this.$refs.titleText, 1.5, {
-          y: 0,
-          ease: Expo.easeOut
-        })
-      })
+    TweenMax.to(this.$refs.thumb, 1, {
+      height: '100%',
+      ease: Expo.easeOut
+    })
+    TweenMax.to(this.$refs.titleText, 1.5, {
+      y: 0,
+      ease: Expo.easeOut
     })
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.Firstview {
+.Head {
   position: relative;
   width: 100%;
   height: 65vh;
@@ -118,6 +117,15 @@ export default {
         display: inline-block;
         transform: translate(0, 100%);
       }
+    }
+  }
+  a {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    svg {
+      color: white;
+      font-size: 25px;
     }
   }
 }

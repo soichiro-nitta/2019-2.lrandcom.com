@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <Firstview
+    <Head
       :title="article.title"
       :src="article.src.thumbnail.source_url"
     />
@@ -19,7 +19,7 @@
 
 <script>
 import URL from '~/assets/data/url.json'
-import Firstview from '~/components/_id/Firstview'
+import Head from '~/components/_id/Head'
 import Author from '~/components/_id/Author'
 import Content from '~/components/_id/Content'
 import Services from '~/components/base/Services'
@@ -28,7 +28,7 @@ import ButtonNuxt from '~/components/base/ButtonNuxt'
 
 export default {
   components: {
-    Firstview,
+    Head,
     Author,
     Content,
     Services,
