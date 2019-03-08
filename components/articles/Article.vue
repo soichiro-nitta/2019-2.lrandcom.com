@@ -58,14 +58,14 @@ export default {
     async show(component) {
       await this.$delay(300)
       await this.$raf()
-      TweenMax.to(this.$el, 1, {
+      TweenMax.to(this.$el, 0.6, {
         opacity: 1,
         y: '0px',
         ease: Expo.easeOut
       })
       await this.$loadImage(this.article.src.thumbnail.source_url)
       await this.$raf()
-      TweenMax.to(this.$refs.src, 1, {
+      TweenMax.to(this.$refs.src, 0.6, {
         opacity: 1,
         ease: Expo.easeOut
       })
