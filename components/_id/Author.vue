@@ -64,9 +64,9 @@ export default {
   align-items: center;
   right: 0;
   left: 0;
-  margin: -30px auto 0;
+  margin: -35px auto 0;
   width: calc(100% - 40px);
-  height: 80px;
+  height: 75px;
   background: white;
   @include shadowBlue;
   border-radius: 15px;
@@ -74,15 +74,15 @@ export default {
     width: 540px;
   }
   .thumb {
-    margin: -15px 0 0 20px;
+    margin: -10px 0 0 15px;
     position: absolute;
     width: auto;
-    height: 80px;
+    height: 70px;
     border-radius: 50%;
     border: 5px solid white;
   }
   .text {
-    margin-left: 120px;
+    margin-left: 95px;
     .name {
       font-size: 12px;
       font-weight: bold;
@@ -90,7 +90,7 @@ export default {
     }
     .icons {
       display: flex;
-      margin-top: 10px;
+      margin-top: 3px;
       a {
         display: flex;
         justify-content: center;
