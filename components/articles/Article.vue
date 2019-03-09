@@ -1,6 +1,7 @@
 <template>
-  <lazy-component class="Article" @show="show">
+  <div class="Article">
     <nuxt-link
+      v-if="loaded"
       :to="`/${article.slug}`"
     >
       <div class="thumb">
@@ -23,10 +24,11 @@
         </div>
       </div>
     </nuxt-link>
-  </lazy-component>
+  </div>
 </template>
 
 <script>
+import lozad from 'lozad'
 import { TweenMax, Expo } from 'gsap'
 
 export default {
@@ -36,14 +38,28 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      loaded: false
+    }
+  },
   computed: {
     category() {
       return this.article.cat.indexOf(11) !== -1 ? 'ブログ' : '納品サンプル'
     }
   },
+  mounted() {
+    const observer = lozad(this.$el, {
+      rootMargin: '5%',
+      load: () => {
+        this.loaded = true
+        this.show()
+      }
+    })
+    observer.observe()
+  },
   methods: {
-    async show(component) {
-      await this.$delay(300)
+    async show() {
       await this.$raf()
       TweenMax.to(this.$el, 0.6, {
         opacity: 1,
@@ -65,6 +81,7 @@ export default {
 .Article {
   margin: 0 auto 30px;
   width: calc(100% - 40px);
+  min-height: 30px;
   overflow: hidden;
   background: white;
   @include shadowBlue;
