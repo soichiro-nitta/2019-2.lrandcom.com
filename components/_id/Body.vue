@@ -1,5 +1,5 @@
 <template>
-  <div class="Content" />
+  <div class="Body" />
 </template>
 
 <script>
@@ -17,13 +17,12 @@ export default {
     const that = this
     const imgAll = this.$el.querySelectorAll('img')
     for (let i = 0; i < imgAll.length; i++) {
-      ;(function(i) {
-        that.$loadImage(imgAll[i].src, () => {
-          requestAnimationFrame(() => {
-            TweenMax.to(imgAll[i], 3, {
-              opacity: 0.9,
-              ease: Expo.easeInOut
-            })
+      ;(async function(i) {
+        await that.$loadImage(imgAll[i].src)
+        requestAnimationFrame(() => {
+          TweenMax.to(imgAll[i], 1, {
+            opacity: 0.9,
+            ease: Expo.easeOut
           })
         })
       })(i)
@@ -33,10 +32,12 @@ export default {
 </script>
 
 <style lang="scss">
-.Content {
-  padding: 30px;
+.Body {
+  padding: 80px 30px;
+  width: 100%;
   font-size: 14px;
   line-height: 2;
+  background: white;
   @include pc {
     padding: 30px 60px;
     margin: 0 auto;
@@ -47,10 +48,9 @@ export default {
     margin-top: 30px;
   }
   img {
-    margin: 5px auto;
-    width: 100%;
+    margin-left: -30px;
+    width: calc(100% + 60px);
     height: auto;
-    border-radius: 15px;
     opacity: 0;
     @include pc {
       margin: 10px 0 10px -30px;

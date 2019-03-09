@@ -13,19 +13,28 @@
           :href="fb"
           target="_blank"
         >
-          <font-awesome-icon :icon="['fab', 'facebook']" />
+          <font-awesome-icon
+            :icon="['fab', 'facebook']"
+            class="fb"
+          />
         </a>
         <a
           :href="tw"
           target="_blank"
         >
-          <font-awesome-icon :icon="['fab', 'twitter']" />
+          <font-awesome-icon
+            :icon="['fab', 'twitter']"
+            class="tw"
+          />
         </a>
         <a
           :href="insta"
           target="_blank"
         >
-          <font-awesome-icon :icon="['fab', 'instagram']" />
+          <font-awesome-icon
+            :icon="['fab', 'instagram']"
+            class="insta"
+          />
         </a>
       </div>
     </div>
@@ -50,21 +59,30 @@ export default {
 
 <style lang="scss">
 .Author {
+  position: absolute;
   display: flex;
   align-items: center;
-  margin: 30px auto 0;
-  width: calc(100% - 60px);
-  height: 50px;
+  right: 0;
+  left: 0;
+  margin: -30px auto 0;
+  width: calc(100% - 40px);
+  height: 80px;
+  background: white;
+  @include shadowBlue;
+  border-radius: 15px;
   @include pc {
     width: 540px;
   }
   .thumb {
+    margin: -15px 0 0 20px;
+    position: absolute;
     width: auto;
-    height: 100%;
+    height: 80px;
     border-radius: 50%;
+    border: 5px solid white;
   }
   .text {
-    margin-left: 20px;
+    margin-left: 120px;
     .name {
       font-size: 12px;
       font-weight: bold;
@@ -81,13 +99,22 @@ export default {
         width: 30px;
         height: 30px;
         overflow: hidden;
-        background: #121212;
+        background: white;
         border-radius: 50%;
+        @include shadowBlue;
+      }
+      svg.fb {
+        color: $fb;
+      }
+      svg.tw {
+        color: $tw;
+      }
+      svg.insta {
+        color: $insta;
       }
       svg {
         width: auto;
         height: 13px;
-        color: #999;
       }
     }
   }
