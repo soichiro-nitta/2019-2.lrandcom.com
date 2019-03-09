@@ -1,23 +1,15 @@
 <template>
   <div class="FirstviewVideo">
-    <div
-      ref="gradient"
-      class="gradient"
+    <div ref="border" class="border" />
+    <div ref="bg" class="bg" />
+    <video
+      ref="video"
+      :src="src"
+      preload="none"
+      muted
+      playsinline
+      loop
     />
-    <div
-      ref="thumb"
-      class="thumb"
-    >
-      <video
-        ref="video"
-        :src="src"
-        preload="none"
-        muted
-        playsinline
-        loop
-      />
-      <div class="mask" />
-    </div>
     <div class="content">
       <div
         ref="title"
@@ -60,65 +52,57 @@ export default {
   watch: {
     leave() {
       this.titleOut(this.$refs.titleText)
-      this.gradientOut(this.$refs.gradient)
       this.videoOut(this.$refs.video, this.$refs.thumb)
     }
   },
-  mounted() {
+  async mounted() {
+    const video = this.$refs.video
     this.$el.style.height = `${this.windowHeight / 1.5}px`
+
+    await this.$raf()
+    this.borderIn(this.$refs.border)
+
+    await this.$delay(200)
+    await this.$raf()
+    this.bgIn(this.$refs.bg)
+
+    await this.$playVideo(video, false)
+    await this.$raf()
+    this.videoIn(video)
+
+    await this.$delay(750)
     this.titleIn(this.$refs.titleText)
-    this.gradientIn(this.$refs.gradient)
-    this.videoIn(this.$refs.video, this.$refs.thumb)
   },
   methods: {
     titleIn: title => {
-      requestAnimationFrame(() => {
-        TweenMax.to(title, 0.8, {
-          y: '0%',
-          ease: Expo.easeOut
-        })
+      TweenMax.to(title, 0.8, {
+        y: '0%',
+        ease: Expo.easeOut
       })
     },
     titleOut: title => {
-      requestAnimationFrame(() => {
-        TweenMax.to(title, 0.5, {
-          y: '-100%',
-          ease: Expo.easeIn
-        })
+      TweenMax.to(title, 0.5, {
+        y: '-100%',
+        ease: Expo.easeIn
       })
     },
-    gradientIn: gradient => {
-      requestAnimationFrame(() => {
-        TweenMax.to(gradient, 3, {
-          y: '0%',
-          ease: Expo.easeOut
-        })
+    borderIn: border => {
+      TweenMax.to(border, 0.2, {
+        scaleX: 1,
+        ease: Expo.easeInOut
       })
     },
-    gradientOut: gradient => {
-      requestAnimationFrame(() => {
-        TweenMax.to(gradient, 0.5, {
-          y: '-100%',
-          ease: Expo.easeIn
-        })
+    bgIn: bg => {
+      TweenMax.to(bg, 2, {
+        scaleY: 1,
+        ease: Expo.easeInOut
       })
     },
-    videoIn: (video, thumb) => {
-      video.load()
-      const canplay = () => {
-        video.removeEventListener('canplay', canplay)
-        const duration = video.duration // 動画の尺
-        const rand = Math.floor(Math.random() * (duration + 1 - 0)) // 0 ~ durationの乱数
-        video.currentTime = rand // 再生開始時間を指定
-        video.play()
-        requestAnimationFrame(() => {
-          TweenMax.to(thumb, 2, {
-            opacity: 1,
-            ease: Expo.easeInOut
-          })
-        })
-      }
-      video.addEventListener('canplay', canplay)
+    videoIn: video => {
+      TweenMax.to(video, 1, {
+        opacity: 1,
+        ease: Expo.easeIn
+      })
     },
     videoOut: (video, mask) => {
       requestAnimationFrame(() => {
@@ -146,42 +130,32 @@ export default {
     height: calc(100vh - 140px);
     border-radius: 20px;
   }
-  .gradient {
+  .border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    height: 3px;
+    background: black;
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+  .bg {
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      rgba(65, 65, 65, 0.8) 0%,
-      rgba(65, 65, 65, 0) 100%
-    );
-    background: -webkit-linear-gradient(
-      rgba(65, 65, 65, 0.8) 0%,
-      rgba(65, 65, 65, 0) 100%
-    );
-    transform: translate(0, -100%);
+    @include gradientBlack;
+    transform: scaleY(0);
   }
-  .thumb {
+  video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     opacity: 0;
-    video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .mask {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        rgba(75, 75, 75, 0) 0%,
-        rgba(0, 0, 0, 1) 100%
-      );
-    }
+    object-fit: cover;
   }
   .content {
     display: flex;
@@ -191,7 +165,7 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(100% - 50px);
+    height: 100%;
     .title {
       display: inline-block;
       position: relative;
