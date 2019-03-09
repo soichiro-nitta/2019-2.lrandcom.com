@@ -31,13 +31,18 @@
         </span>
       </div>
     </div>
+    <ArrowBack to="/" />
   </div>
 </template>
 
 <script>
 import { TweenMax, Expo } from 'gsap'
+import ArrowBack from '~/components/base/ArrowBack'
 
 export default {
+  components: {
+    ArrowBack
+  },
   props: {
     title: {
       type: String,
@@ -60,6 +65,7 @@ export default {
     }
   },
   mounted() {
+    this.$el.style.height = `${this.windowHeight / 1.5}px`
     this.titleIn(this.$refs.titleText)
     this.gradientIn(this.$refs.gradient)
     this.videoIn(this.$refs.video, this.$refs.thumb)
@@ -135,7 +141,6 @@ export default {
 .FirstviewVideo {
   position: relative;
   width: 100%;
-  height: 65vh;
   overflow: hidden;
   @include pc {
     height: calc(100vh - 140px);
@@ -190,6 +195,7 @@ export default {
     .title {
       display: inline-block;
       position: relative;
+      color: white;
       line-height: 1;
       font-size: 18px;
       font-weight: bold;
