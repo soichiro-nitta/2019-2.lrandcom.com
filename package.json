@@ -30,9 +30,9 @@
     "cross-env": "^5.2.0",
     "gsap": "^1.20.3",
     "lottie-web": "^5.4.3",
+    "lozad": "^1.9.0",
     "nuxt": "^2.4.2",
     "nuxt-device-detect": "^1.1.1",
-    "vue-lazyload": "^1.2.6",
     "vue-window-size": "^0.2.3",
     "vuex-persistedstate": "^2.5.4"
   },
