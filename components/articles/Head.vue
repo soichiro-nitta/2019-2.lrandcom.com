@@ -34,20 +34,15 @@ export default {
   },
   methods: {
     colorReset() {
-      TweenMax.set('.Head ul li', { willChange: 'color' })
       TweenMax.to('.Head ul li', 0.6, {
         color: '#7685bd',
         ease: Expo.easeOut
       })
-      this.$delay(600)
-      TweenMax.set('.Head ul li', { willChange: 'auto' })
     },
     async clickAll() {
       const articles = this.master
       this.$emit('setArticles', articles)
       this.$emit('setCategory', 'all')
-      TweenMax.set('.all', { willChange: 'color' })
-      TweenMax.set('.activeBar', { willChange: 'transform' })
       await this.$raf()
       this.colorReset()
       TweenMax.to('.all', 0.6, {
@@ -58,8 +53,6 @@ export default {
         x: '0%',
         ease: Expo.easeOut
       })
-      this.$delay(600)
-      TweenMax.set(['.all', '.activeBar'], { willChange: 'auto' })
     },
     async clickSample() {
       const articles = this.master.filter(val => {
@@ -67,8 +60,6 @@ export default {
       })
       this.$emit('setArticles', articles)
       this.$emit('setCategory', 'sample')
-      TweenMax.set('.sample', { willChange: 'color' })
-      TweenMax.set('.activeBar', { willChange: 'transform' })
       await this.$raf()
       this.colorReset()
       TweenMax.to('.sample', 0.6, {
@@ -79,8 +70,6 @@ export default {
         x: '100%',
         ease: Expo.easeOut
       })
-      this.$delay(600)
-      TweenMax.set(['.sample', '.activeBar'], { willChange: 'auto' })
     },
     async clickBlog() {
       const articles = this.master.filter(val => {
@@ -88,8 +77,6 @@ export default {
       })
       this.$emit('setArticles', articles)
       this.$emit('setCategory', 'blog')
-      TweenMax.set('.blog', { willChange: 'color' })
-      TweenMax.set('.activeBar', { willChange: 'transform' })
       await this.$raf()
       this.colorReset()
       TweenMax.to('.blog', 0.6, {
@@ -100,8 +87,6 @@ export default {
         x: '200%',
         ease: Expo.easeOut
       })
-      this.$delay(600)
-      TweenMax.set(['.blog', '.activeBar'], { willChange: 'auto' })
     }
   }
 }
@@ -147,6 +132,7 @@ $sortHeight: 30px;
       height: 100%;
       @include gradientBlue;
       border-radius: 15px;
+      will-change: transform;
     }
     ul {
       display: flex;
@@ -165,6 +151,7 @@ $sortHeight: 30px;
         font-size: 10px;
         font-weight: bold;
         line-height: $sortHeight;
+        will-change: color;
       }
     }
   }

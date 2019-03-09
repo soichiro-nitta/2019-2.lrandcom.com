@@ -60,7 +60,6 @@ export default {
   },
   methods: {
     async show() {
-      this.$el.style.willChange = 'opacity, transform'
       await this.$raf()
       TweenMax.to(this.$el, 0.6, {
         opacity: 1,
@@ -68,7 +67,6 @@ export default {
         ease: Expo.easeOut
       })
       await this.$loadImage(this.article.src.thumbnail.source_url)
-      this.$refs.src.style.willChange = 'opacity'
       await this.$raf()
       TweenMax.to(this.$refs.src, 0.6, {
         opacity: 1,
@@ -93,6 +91,7 @@ export default {
   border-radius: 15px;
   opacity: 0;
   transform: translateY(30px);
+  will-change: opacity, transform;
   @include pc {
     margin: 0 0 10px;
     width: calc((100% - 20px) / 3);
@@ -113,6 +112,7 @@ export default {
         height: 100%;
         object-fit: cover;
         opacity: 0;
+        will-change: opacity;
       }
     }
     .text {
