@@ -30,6 +30,7 @@ module.exports = function apiModule(moduleOptions) {
       raw = raw.concat(data)
     }
     const records = []
+    const master = []
     for (let i = 0; i < raw.length; i++) {
       const date = new Date(raw[i].date)
       records[i] = {
@@ -43,24 +44,30 @@ module.exports = function apiModule(moduleOptions) {
         mm: date.getMonth(date) + 1,
         dd: date.getDate()
       }
+      master[i] = {
+        index: i + 1,
+        title: raw[i].title.rendered,
+        src: raw[i]._embedded['wp:featuredmedia'][0].media_details.sizes,
+        slug: raw[i].slug,
+        cat: raw[i].categories,
+        yy: date.getFullYear(date),
+        mm: date.getMonth(date) + 1,
+        dd: date.getDate()
+      }
     }
 
     // JSON
     this.options.build.plugins.push({
       apply(compiler) {
         compiler.plugin('emit', (compilation, cb) => {
-          const articles = []
-
           records.forEach(record => {
             compilation.assets[`articles/${record.slug}.json`] = {
               source: () => JSON.stringify(record),
               size: () => {}
             }
-            articles.push(record)
           })
-
           compilation.assets[`articles/master.json`] = {
-            source: () => JSON.stringify(articles),
+            source: () => JSON.stringify(master),
             size: () => {}
           }
           cb()
