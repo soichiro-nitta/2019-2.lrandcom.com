@@ -1,8 +1,6 @@
 <template>
   <div class="Head">
-    <NLink to="/">
-      <font-awesome-icon :icon="['fal', 'long-arrow-alt-left']" />
-    </NLink>
+    <ArrowBack to="/" />
     <div class="sort">
       <div class="r">
         <div class="activeBar" />
@@ -24,8 +22,12 @@
 
 <script>
 import { TweenMax, Expo } from 'gsap'
+import ArrowBack from '~/components/base/ArrowBack'
 
 export default {
+  components: {
+    ArrowBack
+  },
   props: {
     master: {
       type: Array,

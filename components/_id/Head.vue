@@ -20,9 +20,7 @@
         </span>
       </div>
     </div>
-    <NLink to="/articles">
-      <font-awesome-icon :icon="['fal', 'long-arrow-alt-left']" />
-    </NLink>
+    <ArrowBack to="/articles" />
     <div class="date">
       {{ `${yy}.${mm}.${dd}` }}
     </div>
@@ -31,8 +29,12 @@
 
 <script>
 import { TweenMax, Expo } from 'gsap'
+import ArrowBack from '~/components/base/ArrowBack'
 
 export default {
+  components: {
+    ArrowBack
+  },
   props: {
     title: {
       type: String,
@@ -128,15 +130,6 @@ export default {
         display: inline-block;
         transform: translate(0, 100%);
       }
-    }
-  }
-  a {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    svg {
-      color: white;
-      font-size: 25px;
     }
   }
   .date {
