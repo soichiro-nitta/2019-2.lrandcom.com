@@ -125,9 +125,6 @@ $sortHeight: 30px;
     border-radius: 15px;
     @include shadowBlue;
     .activeBar {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: calc(100% / 3);
       height: 100%;
       @include gradientBlue;
