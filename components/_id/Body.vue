@@ -19,11 +19,10 @@ export default {
     for (let i = 0; i < imgAll.length; i++) {
       ;(async function(i) {
         await that.$loadImage(imgAll[i].src)
-        requestAnimationFrame(() => {
-          TweenMax.to(imgAll[i], 1, {
-            opacity: 0.9,
-            ease: Expo.easeOut
-          })
+        await that.$raf()
+        TweenMax.to(imgAll[i], 1, {
+          opacity: 1,
+          ease: Expo.easeOut
         })
       })(i)
     }
