@@ -15,12 +15,7 @@
         ref="title"
         class="title"
       >
-        <span
-          ref="titleText"
-          class="titleText"
-        >
-          {{ title }}
-        </span>
+        <span>{{ title }}</span>
       </div>
     </div>
     <ArrowBack to="/" />
@@ -51,7 +46,7 @@ export default {
   },
   watch: {
     leave() {
-      this.titleOut(this.$refs.titleText)
+      this.titleOut()
       this.videoOut(this.$refs.video, this.$refs.thumb)
     }
   },
@@ -71,17 +66,17 @@ export default {
     this.videoIn(video)
 
     await this.$delay(750)
-    this.titleIn(this.$refs.titleText)
+    this.titleIn()
   },
   methods: {
     titleIn: title => {
-      TweenMax.to(title, 0.8, {
+      TweenMax.to('.FirstviewVideo span', 0.8, {
         y: '0%',
         ease: Expo.easeOut
       })
     },
     titleOut: title => {
-      TweenMax.to(title, 0.5, {
+      TweenMax.to('.FirstviewVideo span', 0.5, {
         y: '-100%',
         ease: Expo.easeIn
       })
@@ -179,7 +174,7 @@ export default {
         font-size: 1.8vw;
         letter-spacing: 0.5vw;
       }
-      .titleText {
+      span {
         display: inline-block;
         transform: translate(0, 100%);
       }
