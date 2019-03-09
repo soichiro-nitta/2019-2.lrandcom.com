@@ -4,7 +4,7 @@
       ref="thumb"
       class="thumb"
     >
-      <img :src="src">
+      <img ref="src" :src="src">
       <div class="mask" />
     </div>
     <div class="content">
@@ -23,6 +23,9 @@
     <NLink to="/articles">
       <font-awesome-icon :icon="['fal', 'long-arrow-alt-left']" />
     </NLink>
+    <div class="date">
+      {{ `${yy}.${mm}.${dd}` }}
+    </div>
   </div>
 </template>
 
@@ -38,9 +41,23 @@ export default {
     src: {
       type: String,
       required: true
+    },
+    yy: {
+      type: Number,
+      required: true
+    },
+    mm: {
+      type: Number,
+      required: true
+    },
+    dd: {
+      type: Number,
+      required: true
     }
   },
   mounted() {
+    this.$el.style.height = `${this.windowHeight / 1.8}px`
+    this.$refs.src.style.height = `${this.windowHeight / 1.8}px`
     TweenMax.to(this.$refs.thumb, 1, {
       height: '100%',
       ease: Expo.easeOut
@@ -57,24 +74,19 @@ export default {
 .Head {
   position: relative;
   width: 100%;
-  height: 65vh;
   overflow: hidden;
-  opacity: 0;
+  @include gradientBlack;
   @include pc {
     height: calc(100vh - 140px);
     border-radius: 20px;
   }
   .thumb {
-    position: relative;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 0;
     overflow: hidden;
     img {
       width: 100%;
       object-fit: cover;
-      opacity: 0.9;
       @include pc {
         height: calc(100vh - 140px);
       }
@@ -85,10 +97,8 @@ export default {
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(
-        rgba(75, 75, 75, 0) 0%,
-        rgba(0, 0, 0, 1) 100%
-      );
+      @include gradientBlack;
+      opacity: 0.4;
     }
   }
   .content {
@@ -105,6 +115,7 @@ export default {
       display: inline-block;
       width: calc(100% - 120px);
       line-height: 2;
+      color: white;
       font-size: 14px;
       font-weight: bold;
       overflow: hidden;
@@ -127,6 +138,13 @@ export default {
       color: white;
       font-size: 25px;
     }
+  }
+  .date {
+    position: absolute;
+    top: 37px;
+    right: 30px;
+    color: white;
+    font-size: 12px;
   }
 }
 </style>

@@ -2,6 +2,9 @@
   <div class="page">
     <Head
       :title="article.title"
+      :yy="article.yy"
+      :mm="article.mm"
+      :dd="article.dd"
       :src="article.src.thumbnail.source_url"
     />
     <Author />
