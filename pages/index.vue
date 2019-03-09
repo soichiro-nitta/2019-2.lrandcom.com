@@ -8,7 +8,6 @@
 
 <script>
 import URL from '~/assets/data/url.json'
-// import { mapGetters } from 'vuex'
 import Firstview from '~/components/index/Firstview'
 import Services from '~/components/base/Services'
 import Profile from '~/components/index/Profile'
@@ -24,11 +23,6 @@ export default {
       leave: false
     }
   },
-  // computed: {
-  //   ...mapGetters({
-  //     opened: 'opened'
-  //   })
-  // },
   async beforeRouteLeave(to, from, next) {
     this.go()
     await this.$delay(500)
