@@ -14,6 +14,12 @@ module.exports = {
         href:
           'https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:500,700'
       }
+    ],
+    script: [
+      {
+        src:
+          'https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver'
+      }
     ]
   },
 
