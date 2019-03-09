@@ -40,6 +40,7 @@ export default {
       src: `${URL.WP}/static/contents/${
         this.$device.isMobile ? 'mobile' : 'pc'
       }.mp4`,
+      leave: false,
       intro:
         'クオリティーの高いWebコンテンツは顧客を引き付ける磁石の役割を果たし、このコンテンツによって作られた企業への信頼が、将来、企業が生み出すキャッシュと同じぐらい重要になってきます。',
       sections: [
@@ -105,6 +106,11 @@ export default {
         }
       ]
     }
+  },
+  async beforeRouteLeave(to, from, next) {
+    this.leave = true
+    await this.$delay(500)
+    next()
   },
   head() {
     return this.$head({
