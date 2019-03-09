@@ -120,3 +120,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.page {
+  @include pageBottom;
+  .Services {
+    // margin-top: -40px;
+    margin-bottom: 45px;
+  }
+}
+</style>
