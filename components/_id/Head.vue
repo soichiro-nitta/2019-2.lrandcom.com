@@ -59,6 +59,7 @@ export default {
   width: 100%;
   height: 65vh;
   overflow: hidden;
+  opacity: 0;
   @include pc {
     height: calc(100vh - 140px);
     border-radius: 20px;
@@ -72,7 +73,6 @@ export default {
     overflow: hidden;
     img {
       width: 100%;
-      height: 65vh;
       object-fit: cover;
       opacity: 0.9;
       @include pc {
