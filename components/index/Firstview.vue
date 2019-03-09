@@ -67,7 +67,6 @@ export default {
     await this.$delay(200)
     await this.$raf()
     this.bgIn(this.$refs.bg)
-    animTitle.play()
 
     await this.$playVideo(video, false)
     await this.$raf()
@@ -75,6 +74,7 @@ export default {
 
     await this.$delay(750)
     await this.$raf()
+    animTitle.play()
     animIcon.play()
   },
   methods: {
