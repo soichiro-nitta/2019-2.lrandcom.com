@@ -69,14 +69,14 @@ export default {
     this.titleIn()
   },
   methods: {
-    titleIn: title => {
-      TweenMax.to('.FirstviewVideo span', 0.8, {
+    titleIn: () => {
+      TweenMax.to('.FirstviewVideo .title span', 0.8, {
         y: '0%',
         ease: Expo.easeOut
       })
     },
-    titleOut: title => {
-      TweenMax.to('.FirstviewVideo span', 0.5, {
+    titleOut: () => {
+      TweenMax.to('.FirstviewVideo .title span', 0.5, {
         y: '-100%',
         ease: Expo.easeIn
       })
