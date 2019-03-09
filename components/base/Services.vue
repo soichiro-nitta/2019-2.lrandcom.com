@@ -1,7 +1,7 @@
 <template>
   <ul class="Services">
-    <li ref="contents">
-      <nuxt-link to="/contents">
+    <li>
+      <nuxt-link ref="contents" to="/contents">
         <div class="thumb">
           <font-awesome-icon :icon="['far', 'pen-nib']" />
         </div>
@@ -10,8 +10,8 @@
         </div>
       </nuxt-link>
     </li>
-    <li ref="film">
-      <nuxt-link to="/film">
+    <li>
+      <nuxt-link ref="film" to="/film">
         <div class="thumb">
           <font-awesome-icon :icon="['far', 'video']" />
         </div>
@@ -20,8 +20,8 @@
         </div>
       </nuxt-link>
     </li>
-    <li ref="website">
-      <nuxt-link to="/website">
+    <li>
+      <nuxt-link ref="website" to="/website">
         <div class="thumb">
           <font-awesome-icon :icon="['far', 'desktop']" />
         </div>
@@ -56,9 +56,9 @@ export default {
   },
   mounted() {
     const elements = {
-      1: this.$refs.contents,
-      2: this.$refs.film,
-      3: this.$refs.website
+      1: this.$refs.contents.$el,
+      2: this.$refs.film.$el,
+      3: this.$refs.website.$el
     }
     if (this.off !== 0) {
       elements[this.off].style.opacity = 0.5
