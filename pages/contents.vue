@@ -114,7 +114,7 @@ export default {
   },
   head() {
     return this.$head({
-      title: '記事制作について',
+      title: '記事制作について / リーディング＆カンパニー株式会社',
       image: `${URL.SITE}/ogp.png`
     })
   }

@@ -82,7 +82,7 @@ Youtubeに載せるのであれば、最初の5秒でどうインパクトをつ
   },
   head() {
     return this.$head({
-      title: '映像制作について',
+      title: '映像制作について / リーディング＆カンパニー株式会社',
       image: `${URL.SITE}/ogp.png`
     })
   }

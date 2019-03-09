@@ -95,7 +95,7 @@ Webサイトはもちろんのことですが、もっと複雑なアプリな�
   },
   head() {
     return this.$head({
-      title: 'サイト制作について',
+      title: 'サイト制作について / リーディング＆カンパニー株式会社',
       image: `${URL.SITE}/ogp.png`
     })
   }
