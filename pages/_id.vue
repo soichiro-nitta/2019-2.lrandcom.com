@@ -49,5 +49,9 @@ export default {
 <style lang="scss" scoped>
 .page {
   @include pageBottom;
+  .Services {
+    margin-top: -45px;
+    margin-bottom: 45px;
+  }
 }
 </style>

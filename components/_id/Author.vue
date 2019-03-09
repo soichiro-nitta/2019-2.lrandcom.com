@@ -5,9 +5,7 @@
       class="thumb"
     >
     <div class="text">
-      <div class="name">
-        著者：夏目 力（なつめ ちから）
-      </div>
+      <span>著者：夏目 力（なつめ ちから）</span>
       <div class="icons">
         <a
           :href="fb"
@@ -77,20 +75,21 @@ export default {
     margin: -10px 0 0 15px;
     position: absolute;
     width: auto;
-    height: 70px;
+    height: 65px;
     border-radius: 50%;
     border: 5px solid white;
   }
   .text {
-    margin-left: 95px;
-    .name {
+    margin-left: 90px;
+    span {
+      display: block;
       font-size: 12px;
       font-weight: bold;
       line-height: 1;
     }
     .icons {
       display: flex;
-      margin-top: 3px;
+      margin-top: 6px;
       a {
         display: flex;
         justify-content: center;

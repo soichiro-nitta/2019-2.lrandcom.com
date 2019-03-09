@@ -33,7 +33,7 @@ export default {
 
 <style lang="scss">
 .Body {
-  padding: 80px 30px;
+  padding: 55px 30px;
   width: 100%;
   font-size: 14px;
   line-height: 2;
