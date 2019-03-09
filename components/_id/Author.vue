@@ -57,9 +57,9 @@ export default {
 
 <style lang="scss">
 .Author {
-  position: absolute;
   display: flex;
   align-items: center;
+  position: absolute;
   right: 0;
   left: 0;
   margin: -35px auto 0;
