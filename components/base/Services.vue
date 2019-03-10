@@ -106,7 +106,7 @@ export default {
   margin: 0 auto;
   width: calc(100% - 40px);
   @include pc {
-    max-width: 950px;
+    max-width: 900px;
   }
   li {
     width: calc(100% / 3 - 9px);
@@ -116,7 +116,7 @@ export default {
     opacity: 0;
     transform: translate(0, 30%);
     @include pc {
-      width: calc(100% / 3 - 14px);
+      width: calc(100% / 3 - 15px);
     }
     a {
       display: block;
@@ -132,12 +132,12 @@ export default {
         font-size: 20px;
         line-height: 1;
         @include pc {
-          font-size: 22px;
+          font-size: 24px;
         }
       }
       .text {
         margin-top: 15px;
-        font-size: 12px;
+        font-size: 14px;
         font-weight: bold;
         line-height: 1;
         @include pc {
