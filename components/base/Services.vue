@@ -105,6 +105,9 @@ export default {
   justify-content: space-between;
   margin: 0 auto;
   width: calc(100% - 40px);
+  @include pc {
+    max-width: 950px;
+  }
   li {
     width: calc(100% / 3 - 9px);
     background: white;
@@ -112,22 +115,35 @@ export default {
     @include shadowBlue;
     opacity: 0;
     transform: translate(0, 30%);
+    @include pc {
+      width: calc(100% / 3 - 14px);
+    }
     a {
       display: block;
       padding: 25px 0;
       width: 100%;
       height: 100%;
       text-align: center;
-
+      @include pc {
+        @include flexCenter;
+        padding: 35px 0;
+      }
       .thumb {
         font-size: 20px;
         line-height: 1;
+        @include pc {
+          font-size: 22px;
+        }
       }
       .text {
         margin-top: 15px;
         font-size: 12px;
         font-weight: bold;
         line-height: 1;
+        @include pc {
+          margin: 0 0 0 30px;
+          font-size: 14px;
+        }
       }
     }
   }
