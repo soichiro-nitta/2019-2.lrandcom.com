@@ -161,7 +161,7 @@ export default {
     @include shadowBlue;
     @include pc {
       width: 600px;
-      font-size: 16px;
+      font-size: 14px;
     }
     a {
       color: $pink1;
@@ -170,10 +170,10 @@ export default {
   }
   .content {
     padding: 252px 30px 30px;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 2;
     @include pc {
-      padding-top: 302px;
+      padding-top: 260px;
     }
     h2 {
       margin-top: 30px;
