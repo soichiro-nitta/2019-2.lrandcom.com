@@ -1,5 +1,5 @@
 <template>
-  <div class="Firstview">
+  <div class="Head">
     <div ref="border" class="border" />
     <div ref="bg" class="bg" />
     <div class="thumb">
@@ -55,25 +55,25 @@ export default {
   },
   methods: {
     borderIn: () => {
-      TweenMax.to('.Firstview .border', 0.2, {
+      TweenMax.to('.Head .border', 0.2, {
         scaleX: 1,
         ease: Expo.easeInOut
       })
     },
     bgIn: () => {
-      TweenMax.to('.Firstview .bg', 2, {
+      TweenMax.to('.Head .bg', 2, {
         scaleY: 1,
         ease: Expo.easeInOut
       })
     },
     imgIn: () => {
-      TweenMax.to('.Firstview .thumb', 1, {
+      TweenMax.to('.Head .thumb', 1, {
         opacity: 1,
         ease: Expo.easeIn
       })
     },
     titleIn: () => {
-      TweenMax.to('.Firstview .title span', 0.8, {
+      TweenMax.to('.Head .title span', 0.8, {
         y: '0%',
         ease: Expo.easeOut
       })
@@ -83,13 +83,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.Firstview {
+.Head {
   position: relative;
   width: 100%;
   overflow: hidden;
   @include pc {
     height: calc(100vh - 140px);
-    border-radius: 20px;
   }
   .border {
     position: absolute;

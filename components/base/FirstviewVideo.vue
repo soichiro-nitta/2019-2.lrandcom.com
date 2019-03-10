@@ -123,7 +123,6 @@ export default {
   overflow: hidden;
   @include pc {
     height: calc(100vh - 140px);
-    border-radius: 20px;
   }
   .border {
     position: absolute;

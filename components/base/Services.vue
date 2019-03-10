@@ -5,9 +5,7 @@
         <div class="thumb">
           <font-awesome-icon :icon="['far', 'pen-nib']" />
         </div>
-        <div class="text">
-          記事制作
-        </div>
+        <span>記事制作</span>
       </nuxt-link>
     </li>
     <li>
@@ -15,9 +13,7 @@
         <div class="thumb">
           <font-awesome-icon :icon="['far', 'video']" />
         </div>
-        <div class="text">
-          映像制作
-        </div>
+        <span>映像制作</span>
       </nuxt-link>
     </li>
     <li>
@@ -25,9 +21,7 @@
         <div class="thumb">
           <font-awesome-icon :icon="['far', 'desktop']" />
         </div>
-        <div class="text">
-          サイト制作
-        </div>
+        <span>サイト制作</span>
       </nuxt-link>
     </li>
   </ul>
@@ -135,7 +129,7 @@ export default {
           font-size: 24px;
         }
       }
-      .text {
+      span {
         margin-top: 15px;
         font-size: 14px;
         font-weight: bold;

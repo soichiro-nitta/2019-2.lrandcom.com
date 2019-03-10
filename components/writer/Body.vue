@@ -127,10 +127,11 @@ export default {
 
 <style lang="scss" scoped>
 .Body {
+  background: white;
   @include pc {
-    padding: 30px 60px;
     margin: 0 auto;
-    width: 600px;
+    width: 560px;
+    font-size: 16px;
   }
   .info {
     &.top {
@@ -141,6 +142,12 @@ export default {
     }
     &.bottom {
       margin-bottom: 30px;
+      @include pc {
+        position: absolute;
+        right: 0;
+        left: 0;
+        margin: 0 auto 30px;
+      }
     }
     margin: 0 auto;
     padding: 10px 20px;
@@ -152,6 +159,10 @@ export default {
     background: white;
     border-radius: 15px;
     @include shadowBlue;
+    @include pc {
+      width: 600px;
+      font-size: 16px;
+    }
     a {
       color: $pink1;
       text-decoration: underline;
@@ -161,6 +172,9 @@ export default {
     padding: 252px 30px 30px;
     font-size: 14px;
     line-height: 2;
+    @include pc {
+      padding-top: 302px;
+    }
     h2 {
       margin-top: 30px;
       font-size: 15px;
