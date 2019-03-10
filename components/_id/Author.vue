@@ -62,14 +62,14 @@ export default {
   position: absolute;
   right: 0;
   left: 0;
-  margin: -35px auto 0;
+  margin: -25px auto 0;
   width: calc(100% - 40px);
   height: 75px;
   background: white;
   @include shadowBlue;
   border-radius: 15px;
   @include pc {
-    width: 540px;
+    width: 400px;
   }
   .thumb {
     margin: -10px 0 0 15px;

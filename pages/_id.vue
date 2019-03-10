@@ -50,8 +50,11 @@ export default {
 .page {
   @include pageBottom;
   .Services {
-    margin-top: -45px;
+    margin-top: -35px;
     margin-bottom: 45px;
+    @include pc {
+      margin-top: -25px;
+    }
   }
 }
 </style>

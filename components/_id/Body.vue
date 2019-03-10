@@ -32,15 +32,14 @@ export default {
 
 <style lang="scss">
 ._idBody {
-  padding: 60px 30px;
+  padding: 70px 30px;
   width: 100%;
   font-size: 14px;
   line-height: 2;
   background: white;
   @include pc {
-    padding: 30px 60px;
     margin: 0 auto;
-    width: 600px;
+    width: 560px;
     font-size: 16px;
   }
   h2 {

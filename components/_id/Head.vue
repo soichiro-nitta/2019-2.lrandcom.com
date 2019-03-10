@@ -58,8 +58,12 @@ export default {
     }
   },
   mounted() {
-    this.$el.style.height = `${this.windowHeight / 1.8}px`
-    this.$refs.src.style.height = `${this.windowHeight / 1.8}px`
+    this.$el.style.height = `${
+      this.$device.isMobile ? this.windowHeight / 1.8 : this.windowHeight / 1.5
+    }px`
+    this.$refs.src.style.height = `${
+      this.$device.isMobile ? this.windowHeight / 1.8 : this.windowHeight / 1.5
+    }px`
     TweenMax.to(this.$refs.thumb, 1, {
       height: '100%',
       ease: Expo.easeOut
@@ -80,7 +84,6 @@ export default {
   @include gradientBlack;
   @include pc {
     height: calc(100vh - 140px);
-    border-radius: 20px;
   }
   .thumb {
     width: 100%;

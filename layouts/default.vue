@@ -28,6 +28,7 @@ export default {
 <style lang="scss" scoped>
 .page {
   @include pc {
+    position: relative;
     margin-left: 300px;
     width: calc(100% - 300px);
   }
