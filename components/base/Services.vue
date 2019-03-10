@@ -106,7 +106,7 @@ export default {
   margin: 0 auto;
   width: calc(100% - 40px);
   @include pc {
-    max-width: 900px;
+    max-width: 960px;
   }
   li {
     width: calc(100% / 3 - 9px);
@@ -116,7 +116,7 @@ export default {
     opacity: 0;
     transform: translate(0, 30%);
     @include pc {
-      width: calc(100% / 3 - 15px);
+      width: calc(100% / 3 - 18px);
     }
     a {
       display: block;
@@ -126,7 +126,7 @@ export default {
       text-align: center;
       @include pc {
         @include flexCenter;
-        padding: 35px 0;
+        padding: 30px 0;
       }
       .thumb {
         font-size: 20px;
