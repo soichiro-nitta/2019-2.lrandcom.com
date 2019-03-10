@@ -123,7 +123,6 @@ export default {
   z-index: -1;
   @include pc {
     height: calc(100vh - 140px);
-    border-radius: 20px;
   }
   .border {
     position: absolute;
@@ -145,18 +144,12 @@ export default {
   }
   video {
     position: absolute;
-    // top: 10px;
-    // left: 10px;
-    // width: calc(100% - 20px);
-    // height: calc(100% - 20px);
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     opacity: 0;
     object-fit: cover;
-    // border-radius: 33px;
-    // @include shadowBlue;
   }
   .icon {
     position: absolute;
@@ -176,6 +169,9 @@ export default {
     height: 100%;
     .title {
       padding: 0 40px;
+      @include pc {
+        width: 45vw;
+      }
     }
   }
 }
