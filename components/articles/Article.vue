@@ -93,11 +93,13 @@ export default {
   transform: translateY(30px);
   will-change: opacity, transform;
   @include pc {
-    margin: 0 0 10px;
-    width: calc((100% - 20px) / 3);
+    max-width: 700px;
   }
   a {
     display: block;
+    @include pc {
+      display: flex;
+    }
     .thumb {
       position: relative;
       width: 100%;
@@ -105,7 +107,8 @@ export default {
       overflow: hidden;
       @include gradientBlue;
       @include pc {
-        height: 25vh;
+        width: 300px;
+        height: 20vh;
       }
       img {
         width: 100%;

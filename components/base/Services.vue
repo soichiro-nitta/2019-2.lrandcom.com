@@ -106,7 +106,7 @@ export default {
   margin: 0 auto;
   width: calc(100% - 40px);
   @include pc {
-    max-width: 960px;
+    max-width: 700px;
   }
   li {
     width: calc(100% / 3 - 9px);
@@ -116,7 +116,7 @@ export default {
     opacity: 0;
     transform: translate(0, 30%);
     @include pc {
-      width: calc(100% / 3 - 18px);
+      width: calc(100% / 3 - 14px);
     }
     a {
       display: block;

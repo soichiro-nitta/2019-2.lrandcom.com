@@ -1,21 +1,23 @@
 <template>
   <div class="Head">
-    <ArrowBack to="/" />
-    <div class="sort">
-      <div class="r">
-        <div class="activeBar" />
-        <ul>
-          <li class="all" @click="clickAll">
-            All
-          </li>
-          <li class="sample" @click="clickSample">
-            納品サンプル
-          </li>
-          <li class="blog" @click="clickBlog">
-            ブログ
-          </li>
-        </ul>
+    <div class="wrapper">
+      <div class="sort">
+        <div class="r">
+          <div class="activeBar" />
+          <ul>
+            <li class="all" @click="clickAll">
+              All
+            </li>
+            <li class="sample" @click="clickSample">
+              納品サンプル
+            </li>
+            <li class="blog" @click="clickBlog">
+              ブログ
+            </li>
+          </ul>
+        </div>
       </div>
+      <ArrowBack to="/" />
     </div>
   </div>
 </template>
@@ -97,8 +99,6 @@ export default {
 
 <style lang="scss" scoped>
 $height: 210px;
-$svgMarginTop: 30px;
-$svgFontSize: 25px;
 $sortHeight: 30px;
 
 .Head {
@@ -106,51 +106,58 @@ $sortHeight: 30px;
   width: 100%;
   height: $height;
   background: black;
+  overflow: hidden;
   @include gradientBlack;
-  a {
-    svg {
-      margin: $svgMarginTop 0 0 $svgMarginTop;
-      color: white;
-      font-size: $svgFontSize;
-    }
-  }
-  .sort {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    width: calc(100% - 40px);
-    height: 30px;
-    background: white;
-    border-radius: 15px;
-    @include shadowBlue;
-    .activeBar {
-      width: calc(100% / 3);
+  .wrapper {
+    padding-top: 90px;
+    @include pc {
+      position: relative;
+      margin: 0 auto;
+      max-width: 700px;
+      width: calc(100% - 40px);
       height: 100%;
-      @include gradientBlue;
+    }
+    .sort {
+      margin: 0 auto;
+      width: calc(100% - 40px);
+      height: 30px;
+      background: white;
       border-radius: 15px;
-      will-change: transform;
-    }
-    ul {
-      display: flex;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      li.all {
-        color: white;
+      @include shadowBlue;
+      @include pc {
+        width: 100%;
       }
-      li {
+      .activeBar {
         width: calc(100% / 3);
-        text-align: center;
-        color: $blue4;
-        font-size: 10px;
-        font-weight: bold;
-        line-height: $sortHeight;
-        will-change: color;
+        height: 100%;
+        @include gradientBlue;
+        border-radius: 15px;
+        will-change: transform;
+      }
+      ul {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        li.all {
+          color: white;
+        }
+        li {
+          width: calc(100% / 3);
+          text-align: center;
+          color: $blue4;
+          font-size: 10px;
+          font-weight: bold;
+          line-height: $sortHeight;
+          will-change: color;
+        }
+      }
+    }
+    .ArrowBack {
+      @include pc {
+        left: 0;
       }
     }
   }

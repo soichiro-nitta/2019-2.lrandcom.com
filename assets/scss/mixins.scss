@@ -28,6 +28,9 @@
 }
 @mixin pageBottom {
   padding-bottom: 118px;
+  @include pc {
+    padding-bottom: 0;
+  }
 }
 @mixin flexCenter {
   display: flex;
