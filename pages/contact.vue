@@ -72,13 +72,13 @@ export default {
 .page {
   @include pageBottom;
   .container {
+    padding-right: 50px;
+    padding-left: 50px;
     @include pc {
       display: flex;
       justify-content: space-around;
       align-items: center;
       margin: 0 auto;
-      padding-right: 50px;
-      padding-left: 50px;
       width: 100%;
       height: 100vh;
     }
@@ -92,7 +92,7 @@ export default {
       }
     }
     .contact {
-      margin-top: 120px;
+      margin-top: 100px;
       @include pc {
         margin-top: 0;
         width: 40%;
