@@ -170,10 +170,11 @@ export default {
   }
   .content {
     padding: 252px 30px 30px;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 2;
     @include pc {
       padding-top: 260px;
+      font-size: 16px;
     }
     h2 {
       margin-top: 30px;
