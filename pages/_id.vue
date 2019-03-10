@@ -1,66 +1,60 @@
 <template>
-  <Page
-    v-if="opening"
-    :article="article"
-  />
+  <div class="page">
+    <Head
+      :title="article.title"
+      :yy="article.yy"
+      :mm="article.mm"
+      :dd="article.dd"
+      :src="article.src.thumbnail.source_url"
+    />
+    <Author />
+    <Body :content="article.content" />
+    <Services />
+    <!-- <Banner /> -->
+  </div>
 </template>
 
 <script>
 import URL from '~/assets/data/url.json'
-import { mapGetters } from 'vuex'
-import Page from '~/components/pages/_id/Page'
+import Head from '~/components/_id/Head'
+import Author from '~/components/_id/Author'
+import Body from '~/components/_id/Body'
+import Services from '~/components/base/Services'
+// import Banner from '~/components/_id/Banner'
 
 export default {
   components: {
-    Page
+    Head,
+    Author,
+    Body,
+    Services
+    // Banner
   },
-  async fetch({ store, params }) {
-    await store.dispatch('_id/fetchArticle', {
-      slug: params.id
-    })
-    // await store.dispatch('_id/fetchRanking')
-  },
-  computed: {
-    ...mapGetters({
-      opening: 'opening',
-      article: '_id/article'
-      // ranking: '_id/ranking',
-    }),
-    facebook() {
-      const currentUrl = `${URL.SITE}/${this.article.slug}`
-      return `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`
-    },
-    twitter() {
-      const currentUrl = `${URL.SITE}/${this.article.slug}`
-      const text = encodeURIComponent(
-        `${this.article.title} | Living Entertainment`
-      )
-      return `https://twitter.com/share?url=${currentUrl}&text=${text}`
-    }
-  },
-  mounted() {
-    document.getElementById('scrollArea').scrollTop = 0
+  async asyncData({ app, params }) {
+    const url = process.env.NODE_ENV === 'development' ? '' : URL.SITE
+    const { data } = await app.$axios.get(
+      `${url}/_nuxt/articles/${params.id}.json`
+    )
+    return { article: data }
   },
   head() {
-    return {
+    return this.$head({
       title: this.article.title,
-      meta: [
-        {
-          property: 'og:title',
-          content: `${this.article.title} | リーディング＆カンパニー株式会社`
-        },
-        {
-          property: 'og:url',
-          content: `${URL.SITE}/${this.article.slug}`
-        },
-        { property: 'og:image', content: this.article.src },
-        {
-          property: 'twitter:title',
-          content: `${this.article.title} | リーディング＆カンパニー株式会社`
-        },
-        { property: 'twitter:image', content: this.article.src }
-      ]
-    }
+      image: this.article.src.full.source_url
+    })
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.page {
+  @include pageBottom;
+  .Services {
+    margin-top: -35px;
+    margin-bottom: 45px;
+    @include pc {
+      margin-top: -25px;
+    }
+  }
+}
+</style>

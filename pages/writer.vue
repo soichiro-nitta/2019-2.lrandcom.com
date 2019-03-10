@@ -1,44 +1,43 @@
 <template>
-  <Page v-if="opening"/>
+  <div class="page">
+    <Head
+      :title="title"
+      :src="src"
+    />
+    <Body />
+  </div>
 </template>
 
 <script>
 import URL from '~/assets/data/url.json'
-import { mapGetters } from 'vuex'
-import Page from '~/components/pages/writer/Page'
+import Head from '~/components/writer/Head'
+import Body from '~/components/writer/Body'
 
 export default {
   components: {
-    Page
+    Head,
+    Body
   },
-  computed: {
-    ...mapGetters({
-      opening: 'opening'
-    })
-  },
-  mounted() {
-    document.getElementById('scrollArea').scrollTop = 0
+  data() {
+    return {
+      title: 'ライター募集',
+      src: `${URL.WP}/static/recruit/fv.gif`
+    }
   },
   head() {
-    return {
-      title: '会社概要',
-      meta: [
-        {
-          property: 'og:title',
-          content: 'ライター募集 | リーディング＆カンパニー株式会社'
-        },
-        {
-          property: 'og:url',
-          content: 'https://lrandcom.com/writer'
-        },
-        { property: 'og:image', content: `${URL.SITE}/ogp.ong` },
-        {
-          property: 'twitter:title',
-          content: 'ライター募集 | リーディング＆カンパニー株式会社'
-        },
-        { property: 'twitter:image', content: `${URL.SITE}/ogp.ong` }
-      ]
-    }
+    return this.$head({
+      title: 'ライター募集 / リーディング＆カンパニー株式会社',
+      image: `${URL.SITE}/ogp.png`
+    })
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.page {
+  @include pageBottom;
+  .ButtonNuxt {
+    margin: 0 auto;
+  }
+}
+</style>

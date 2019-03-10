@@ -1,63 +1,55 @@
 <template>
-  <Page
-    v-if="opening"
-    :leave="leave"
-  />
+  <div class="page">
+    <Firstview :leave="leave" />
+    <Services :leave="leave" />
+    <Profile :leave="leave" />
+  </div>
 </template>
 
 <script>
 import URL from '~/assets/data/url.json'
-import { mapGetters, mapMutations } from 'vuex'
-import Page from '~/components/pages/index/Page'
+import Firstview from '~/components/index/Firstview'
+import Services from '~/components/base/Services'
+import Profile from '~/components/index/Profile'
 
 export default {
   components: {
-    Page
+    Firstview,
+    Services,
+    Profile
   },
-  computed: {
-    ...mapGetters({
-      opening: 'opening',
-      leave: 'leave'
-    })
-  },
-  mounted() {
-    document.getElementById('scrollArea').scrollTop = 0
+  data() {
+    return {
+      leave: false
+    }
   },
   async beforeRouteLeave(to, from, next) {
-    // const scrollArea = document.getElementById('scrollArea')
-    // TweenMax.to(scrollArea, 0.7, {
-    //   scrollTop: scrollArea.scrollTop - 100,
-    //   ease: Expo.easeOut
-    // })
-    this.toggleLeave()
+    this.go()
     await this.$delay(500)
     next()
   },
   methods: {
-    ...mapMutations({
-      toggleLeave: 'toggleLeave'
-    })
+    go() {
+      this.leave = true
+    }
   },
   head() {
-    return {
-      title: 'ホーム',
-      meta: [
-        {
-          property: 'og:title',
-          content: 'ホーム | リーディング＆カンパニー株式会社'
-        },
-        {
-          property: 'og:url',
-          content: 'https://lrandcom.com/'
-        },
-        { property: 'og:image', content: `${URL.SITE}/ogp.ong` },
-        {
-          property: 'twitter:title',
-          content: 'ホーム | リーディング＆カンパニー株式会社'
-        },
-        { property: 'twitter:image', content: `${URL.SITE}/ogp.ong` }
-      ]
-    }
+    return this.$head({
+      title: 'リーディング＆カンパニー株式会社',
+      image: `${URL.SITE}/ogp.png`
+    })
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.page {
+  @include pageBottom;
+  .Services {
+    margin-top: -40px;
+    @include pc {
+      margin-top: -30px;
+    }
+  }
+}
+</style>

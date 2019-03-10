@@ -28,10 +28,11 @@ export default {
   width: 250px;
   text-align: center;
   line-height: 50px;
-  background: #121212;
   border-radius: 25px;
   font-weight: bold;
   font-size: 14px;
   color: white;
+  @include gradientPink;
+  @include shadowPink;
 }
 </style>

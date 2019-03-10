@@ -1,63 +1,132 @@
 <template>
-  <Page
-    v-if="opening"
-    :leave="leave"
-  />
+  <div class="page">
+    <FirstviewVideo
+      :title="title"
+      :src="src"
+      :leave="leave"
+    />
+    <Intro
+      :intro="intro"
+      :leave="leave"
+    />
+    <Sections
+      :sections="sections"
+      :leave="leave"
+    />
+    <Services
+      :off="1"
+      :leave="leave"
+    />
+  </div>
 </template>
 
 <script>
 import URL from '~/assets/data/url.json'
-import { mapGetters, mapMutations } from 'vuex'
-import Page from '~/components/pages/contents/Page'
+import FirstviewVideo from '~/components/base/FirstviewVideo'
+import Intro from '~/components/base/Intro'
+import Sections from '~/components/base/Sections'
+import Services from '~/components/base/Services'
 
 export default {
   components: {
-    Page
+    FirstviewVideo,
+    Intro,
+    Sections,
+    Services
   },
-  computed: {
-    ...mapGetters({
-      opening: 'opening',
-      leave: 'leave'
-    })
-  },
-  mounted() {
-    document.getElementById('scrollArea').scrollTop = 0
+  data() {
+    return {
+      title: '記事制作について',
+      src: `${URL.WP}/static/contents/${
+        this.$device.isMobile ? 'mobile' : 'pc'
+      }.mp4`,
+      leave: false,
+      intro:
+        'クオリティーの高いWebコンテンツは顧客を引き付ける磁石の役割を果たし、このコンテンツによって作られた企業への信頼が、将来、企業が生み出すキャッシュと同じぐらい重要になってきます。',
+      sections: [
+        {
+          src: `${URL.WP}/static/contents/1.jpg`,
+          head: '1. 長く記憶される記事コンテンツの作成',
+          body: `話し言葉というのは、その場を感動させることを第一の目的としますが、文章というものは、読み手に長く記憶させるものでなければなりません。
+
+長く記憶させる文章とは、読み手を文章の中に引きずり込み、何かを考えさせ、そして読み終わった後に何かしらの「リアクション」を作り出すことを目的に、文章を書いていくことになります。
+
+伝わらない文章に価値はありませんし、ニュースやただのブログのように読んで情報を習得し、その場で役目を終えてしまうようなコンテンツであっては、何の意味もないとも言えます。`
+        },
+        {
+          src: `${URL.WP}/static/contents/2.jpg`,
+          head: '2. 語るに値する記事コンテンツの作成',
+          body: `多くの人間は、大抵の物事を「面白くない」と決めつけるものです。
+フェイスブックやツイッターでタイムラインを適当にスクロールして、10個、20個と記事の見出しをチェックしたら、やっと「これだ！」という記事を見つけて読み始めます。
+
+実際、特にビジネスの内容のコンテンツというものは、つまらない内容のものが多いのですが、例えどんな企業で、どんな業務内容を行っていたとしても、「語るに値する物語」は必ずあるということです。
+
+ただ、ビジネスや業務内容をそのまま物語にして、直球的に概念を伝えようとしても、残念ながら多くの人に物語を伝えきることはできないでしょう。
+
+あなたの会社に興味がある人だけではなく、まだ、興味のない人（つまり、まだ見込み客でもない人）にまで物語を伝えるためには、別の視点から一般の人にでも理解できる世の中の出来事や概念を組み合わせて、一つのオリジナルストーリーを作っていく必要があります。`
+        },
+        {
+          src: `${URL.WP}/static/contents/3.jpg`,
+          head:
+            '3. 徹底的にリサーチされ、様々な表現が組み合わされたコンテンツの作成',
+          body: `村上春樹さんやJ・K・ローリングでもない限り、何もないところから魅力的なストーリーを生み出すことはできません。恐らく、いくら彼らであっても、何もないところからストーリーを作り出すのは不可能でしょう。
+
+読んだ後にリアクションを作り出し、長く記憶させるコンテンツを作るためには、日本語、英語問わず、手に入れられる資料や書籍にはすべて目を通し、とにかく一文一文、付加価値の高いものにしていく必要があります。
+
+様々な資料に目を通していくと、会社の概念が別の視点から表現されているところ、感心するところ、違和感を覚えるところ、そして繰り返し心を打たれるところなどがありますが、このような素材を限りなく多く集め、組み合わせて一つのストーリーにすることで、新しい価値を作り出すことができます。`
+        },
+        {
+          src: `${URL.WP}/static/contents/4.jpg`,
+          head: '4. 外見も文章も美しい文章の作成',
+          body: `話し言葉というのは、その場を感動させることを第一の目的としますが、文章というものは、読み手に長く記憶させるものでなければなりません。
+
+長く記憶させる文章とは、読み手を文章の中に引きずり込み、何かを考えさせ、そして読み終わった後に何かしらの「リアクション」を作り出すことを目的に、文章を書いていくことになります。
+
+伝わらない文章に価値はありませんし、ニュースやただのブログのように読んで情報を習得し、その場で役目を終えてしまうようなコンテンツであっては、何の意味もないとも言えます。`
+        },
+        {
+          src: `${URL.WP}/static/contents/5.png`,
+          head: '5. タイトルが訴えかけてくるコンテンツの作成',
+          body: `数年前のデータで、世界では毎日2,700万個のコンテンツが生まれているそうです。恐らく今では、もっともっと多いことでしょう。
+
+どんなに良いコンテンツを作っても、読んでもらえなければ意味がなく、特にWeb上の記事の場合は、それの70％ぐらいはタイトルで決まってしまうと言っても過言ではありません。
+
+そう言った意味では、いくら良い文章が書けても、良いタイトルを思いつくまでは、記事を配信しない方がよいとも言えます。
+
+書店の本でも、Web上の記事でも、本当に時間をかけて作られたコンテンツは、不思議とタイトルの方から「読んでくれ！」と読み手に訴えかけてくるものなのです。`
+        },
+        {
+          src: `${URL.WP}/static/contents/6.jpg`,
+          head: '6. 文章を書くのではなく、ストーリーを書く',
+          body: `企業にとって、ソーシャルメディアはビジネス以外の何ものでもありませんが、SNSのプラットフォーム内では、モノやサービスを売る場所ではないことを理解しなければなりません。
+
+例えば、フェイスブック内での良いコンテンツの定義は、コンバージョンが多いものではなく、シェアが一番多いものであり、そういった意味で、「売ること」と「消費者やクライアントと関係を築くこと」の意味をはき違えてしまうと、ソーシャルメディアの本質を見失うことになってしまいます。
+
+基本的にソーシャルメディアとは、現実世界の人間関係がWebに上がっただけなので、人間関係はお金で買えませんし、ビジネスを始める前に良いコンテンツをたくさん与えて、現実世界と同じようにしっかりとした人間関係を築いてから、モノやサービスを売るというステップを必ず踏まなければなりません。`
+        }
+      ]
+    }
   },
   async beforeRouteLeave(to, from, next) {
-    // const scrollArea = document.getElementById('scrollArea')
-    // TweenMax.to(scrollArea, 0.7, {
-    //   scrollTop: scrollArea.scrollTop - 100,
-    //   ease: Expo.easeOut
-    // })
-    this.toggleLeave()
+    this.leave = true
     await this.$delay(500)
     next()
   },
-  methods: {
-    ...mapMutations({
-      toggleLeave: 'toggleLeave'
-    })
-  },
   head() {
-    return {
-      title: '記事制作について',
-      meta: [
-        {
-          property: 'og:title',
-          content: '記事制作について | リーディング＆カンパニー株式会社'
-        },
-        {
-          property: 'og:url',
-          content: 'https://lrandcom.com/contents'
-        },
-        { property: 'og:image', content: `${URL.SITE}/ogp.ong` },
-        {
-          property: 'twitter:title',
-          content: '記事制作について | リーディング＆カンパニー株式会社'
-        },
-        { property: 'twitter:image', content: `${URL.SITE}/ogp.ong` }
-      ]
-    }
+    return this.$head({
+      title: '記事制作について / リーディング＆カンパニー株式会社',
+      image: `${URL.SITE}/ogp.png`
+    })
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.page {
+  @include pageBottom;
+  .Services {
+    // margin-top: -40px;
+    margin-bottom: 45px;
+  }
+}
+</style>

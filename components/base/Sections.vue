@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import { TweenMax, Expo } from 'gsap'
+
 export default {
   props: {
     sections: {
@@ -132,28 +134,10 @@ export default {
   li:nth-child(odd) {
     @include pc {
       flex-direction: row-reverse;
-      background: linear-gradient(
-        rgba(65, 65, 65, 0) 0%,
-        rgba(65, 65, 65, 0.6) 50%,
-        rgba(65, 65, 65, 0) 100%
-      );
-      background: -webkit-linear-gradient(
-        rgba(65, 65, 65, 0) 0%,
-        rgba(65, 65, 65, 0.6) 50%,
-        rgba(65, 65, 65, 0) 100%
-      );
+      background: white;
     }
     .text {
-      background: linear-gradient(
-        rgba(65, 65, 65, 0) 0%,
-        rgba(65, 65, 65, 0.6) 50%,
-        rgba(65, 65, 65, 0) 100%
-      );
-      background: -webkit-linear-gradient(
-        rgba(65, 65, 65, 0) 0%,
-        rgba(65, 65, 65, 0.6) 50%,
-        rgba(65, 65, 65, 0) 100%
-      );
+      background: white;
       @include pc {
         background: none;
       }
@@ -163,7 +147,7 @@ export default {
     @include pc {
       display: flex;
       align-items: center;
-      padding: 0 30px;
+      padding: 30px 30px;
     }
     .thumb {
       width: 100%;
@@ -215,7 +199,7 @@ export default {
       .body {
         margin-top: 28px;
         font-size: 14px;
-        color: #999;
+        color: $blue4;
         line-height: 2;
         white-space: pre-wrap;
         overflow: hidden;

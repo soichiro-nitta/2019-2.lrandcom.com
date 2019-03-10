@@ -1,11 +1,16 @@
 <template>
   <div class="Page">
     <div class="contact">
-      <div class="head">お問い合わせ</div>
-      <div class="text">メディア構築、コンテンツ作成をご希望の企業様から、面白いコンテンツを作ってみたいライターやクリエイターさん、そして、ただオフィスに遊びに来たいという変わり者の方まで、お気軽に下記のメールアドレスからご連絡下さい。</div>
+      <div class="head">
+        お問い合わせ
+      </div>
+      <div class="text">
+        メディア構築、コンテンツ作成をご希望の企業様から、面白いコンテンツを作ってみたいライターやクリエイターさん、そして、ただオフィスに遊びに来たいという変わり者の方まで、お気軽に下記のメールアドレスからご連絡下さい。
+      </div>
       <a
         href="mailto:hello@lrandcom.com"
-        class="button">
+        class="button"
+      >
         HELLO@LRANDCOM.COM
       </a>
     </div>
@@ -30,7 +35,7 @@
       </dl>
       <dl>
         <dt>代表取締役：</dt>
-        <dd>夏目　力</dd>
+        <dd>夏目 力</dd>
       </dl>
       <dl>
         <dt>事業内容：</dt>
@@ -42,13 +47,8 @@
 
 <script>
 import URL from '~/assets/data/url.json'
-import { TweenMax, Expo } from 'gsap'
-import ButtonNew from '~/components/base/ButtonNew'
 
 export default {
-  components: {
-    ButtonNew
-  },
   data() {
     return {
       src: `${URL.WP}/static/_id/natsume.jpg`,

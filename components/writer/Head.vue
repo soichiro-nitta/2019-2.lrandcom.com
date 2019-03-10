@@ -1,15 +1,11 @@
 <template>
-  <div class="FirstviewVideo">
+  <div class="Head">
     <div ref="border" class="border" />
     <div ref="bg" class="bg" />
-    <video
-      ref="video"
-      :src="src"
-      preload="none"
-      muted
-      playsinline
-      loop
-    />
+    <div class="thumb">
+      <img :src="src">
+      <div class="mask" />
+    </div>
     <div class="content">
       <div
         ref="title"
@@ -38,78 +34,48 @@ export default {
     src: {
       type: String,
       required: true
-    },
-    leave: {
-      type: Boolean,
-      required: true
-    }
-  },
-  watch: {
-    leave() {
-      this.titleOut()
-      this.videoOut(this.$refs.video, this.$refs.thumb)
     }
   },
   async mounted() {
-    const video = this.$refs.video
     this.$el.style.height = `${this.windowHeight / 1.5}px`
 
     await this.$raf()
-    this.borderIn(this.$refs.border)
+    this.borderIn()
 
     await this.$delay(200)
     await this.$raf()
-    this.bgIn(this.$refs.bg)
+    this.bgIn()
 
-    await this.$playVideo(video, false)
+    await this.$loadImage(this.src)
     await this.$raf()
-    this.videoIn(video)
+    this.imgIn()
 
     await this.$delay(750)
     this.titleIn()
   },
   methods: {
-    titleIn: () => {
-      TweenMax.to('.FirstviewVideo .title span', 0.8, {
-        y: '0%',
-        ease: Expo.easeOut
-      })
-    },
-    titleOut: () => {
-      TweenMax.to('.FirstviewVideo .title span', 0.5, {
-        y: '-100%',
-        ease: Expo.easeIn
-      })
-    },
-    borderIn: border => {
-      TweenMax.to(border, 0.2, {
+    borderIn: () => {
+      TweenMax.to('.Head .border', 0.2, {
         scaleX: 1,
         ease: Expo.easeInOut
       })
     },
-    bgIn: bg => {
-      TweenMax.to(bg, 2, {
+    bgIn: () => {
+      TweenMax.to('.Head .bg', 2, {
         scaleY: 1,
         ease: Expo.easeInOut
       })
     },
-    videoIn: video => {
-      TweenMax.to(video, 1, {
+    imgIn: () => {
+      TweenMax.to('.Head .thumb', 1, {
         opacity: 1,
         ease: Expo.easeIn
       })
     },
-    videoOut: (video, mask) => {
-      requestAnimationFrame(() => {
-        video.pause()
-        TweenMax.to(video, 0.5, {
-          opacity: 0,
-          ease: Expo.easeIn
-        })
-        TweenMax.to(mask, 0.5, {
-          opacity: 0,
-          ease: Expo.easeIn
-        })
+    titleIn: () => {
+      TweenMax.to('.Head .title span', 0.8, {
+        y: '0%',
+        ease: Expo.easeOut
       })
     }
   }
@@ -117,7 +83,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.FirstviewVideo {
+.Head {
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -142,14 +108,27 @@ export default {
     @include gradientBlack;
     transform: scaleY(0);
   }
-  video {
+  .thumb {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     opacity: 0;
-    object-fit: cover;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      @include gradientBlack;
+      opacity: 0.4;
+    }
   }
   .content {
     display: flex;

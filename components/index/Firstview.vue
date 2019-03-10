@@ -1,5 +1,5 @@
 <template>
-  <div class="FirstviewVideo">
+  <div class="Firstview">
     <div ref="border" class="border" />
     <div ref="bg" class="bg" />
     <video
@@ -10,47 +10,54 @@
       playsinline
       loop
     />
-    <div class="content">
-      <div
-        ref="title"
-        class="title"
-      >
-        <span>{{ title }}</span>
-      </div>
+    <div ref="icon" class="icon" />
+    <div class="outer">
+      <div ref="title" class="title" />
     </div>
-    <ArrowBack to="/" />
   </div>
 </template>
 
 <script>
+import lottie from 'lottie-web'
+import URL from '~/assets/data/url.json'
 import { TweenMax, Expo } from 'gsap'
-import ArrowBack from '~/components/base/ArrowBack'
 
 export default {
-  components: {
-    ArrowBack
-  },
   props: {
-    title: {
-      type: String,
-      required: true
-    },
-    src: {
-      type: String,
-      required: true
-    },
     leave: {
       type: Boolean,
       required: true
     }
   },
+  data() {
+    return {
+      title: 'LEADING & COMPANY',
+      src: `${URL.WP}/static/index/${
+        this.$device.isMobile ? 'mobile' : 'pc'
+      }.mp4`
+    }
+  },
   watch: {
     leave() {
-      this.titleOut()
+      this.titleOut(this.anim)
       this.videoOut(this.$refs.video, this.$refs.thumb)
     }
   },
   async mounted() {
+    const animIcon = lottie.loadAnimation({
+      container: this.$refs.icon,
+      renderer: 'svg',
+      autoplay: false,
+      loop: false,
+      path: '/json/icon.json'
+    })
+    const animTitle = lottie.loadAnimation({
+      container: this.$refs.title,
+      renderer: 'svg',
+      autoplay: false,
+      loop: false,
+      path: '/json/text.json'
+    })
     const video = this.$refs.video
     this.$el.style.height = `${this.windowHeight / 1.5}px`
 
@@ -65,22 +72,12 @@ export default {
     await this.$raf()
     this.videoIn(video)
 
-    await this.$delay(750)
-    this.titleIn()
+    await this.$delay(500)
+    await this.$raf()
+    animTitle.play()
+    animIcon.play()
   },
   methods: {
-    titleIn: () => {
-      TweenMax.to('.FirstviewVideo .title span', 0.8, {
-        y: '0%',
-        ease: Expo.easeOut
-      })
-    },
-    titleOut: () => {
-      TweenMax.to('.FirstviewVideo .title span', 0.5, {
-        y: '-100%',
-        ease: Expo.easeIn
-      })
-    },
     borderIn: border => {
       TweenMax.to(border, 0.2, {
         scaleX: 1,
@@ -99,14 +96,15 @@ export default {
         ease: Expo.easeIn
       })
     },
-    videoOut: (video, mask) => {
+    titleOut: anim => {
+      // anim.setDirection(-1)
+      // anim.setSpeed(3)
+      // anim.play()
+    },
+    videoOut: video => {
       requestAnimationFrame(() => {
         video.pause()
         TweenMax.to(video, 0.5, {
-          opacity: 0,
-          ease: Expo.easeIn
-        })
-        TweenMax.to(mask, 0.5, {
           opacity: 0,
           ease: Expo.easeIn
         })
@@ -117,10 +115,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.FirstviewVideo {
+.Firstview {
   position: relative;
   width: 100%;
+  height: 400px;
   overflow: hidden;
+  z-index: -1;
   @include pc {
     height: calc(100vh - 140px);
   }
@@ -151,7 +151,14 @@ export default {
     opacity: 0;
     object-fit: cover;
   }
-  .content {
+  .icon {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 35px;
+    height: auto;
+  }
+  .outer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -161,21 +168,9 @@ export default {
     width: 100%;
     height: 100%;
     .title {
-      display: inline-block;
-      position: relative;
-      color: white;
-      line-height: 1;
-      font-size: 18px;
-      font-weight: bold;
-      letter-spacing: 4px;
-      overflow: hidden;
+      padding: 0 40px;
       @include pc {
-        font-size: 1.8vw;
-        letter-spacing: 0.5vw;
-      }
-      span {
-        display: inline-block;
-        transform: translate(0, 100%);
+        width: 42vw;
       }
     }
   }

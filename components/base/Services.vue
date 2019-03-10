@@ -1,41 +1,30 @@
 <template>
-  <div class="Services">
-    <ul class="links">
-      <li ref="contents">
-        <nuxt-link to="/contents">
-          <div class="thumb">
-            <font-awesome-icon :icon="['far', 'pen']"/>
-          </div>
-          <div class="text">
-            <div class="en">CREATE CONTENTS</div>
-            <div class="ja">記事制作について</div>
-          </div>
-        </nuxt-link>
-      </li>
-      <li ref="film">
-        <nuxt-link to="/film">
-          <div class="thumb">
-            <font-awesome-icon :icon="['far', 'video']"/>
-          </div>
-          <div class="text">
-            <div class="en">CREATE FILM</div>
-            <div class="ja">映像制作について</div>
-          </div>
-        </nuxt-link>
-      </li>
-      <li ref="website">
-        <nuxt-link to="/website">
-          <div class="thumb">
-            <font-awesome-icon :icon="['far', 'desktop']"/>
-          </div>
-          <div class="text">
-            <div class="en">CREATE WEBSITE</div>
-            <div class="ja">サイト制作について</div>
-          </div>
-        </nuxt-link>
-      </li>
-    </ul>
-  </div>
+  <ul class="Services">
+    <li>
+      <nuxt-link ref="contents" to="/contents">
+        <div class="thumb">
+          <font-awesome-icon :icon="['far', 'pen-nib']" />
+        </div>
+        <span>記事制作</span>
+      </nuxt-link>
+    </li>
+    <li>
+      <nuxt-link ref="film" to="/film">
+        <div class="thumb">
+          <font-awesome-icon :icon="['far', 'video']" />
+        </div>
+        <span>映像制作</span>
+      </nuxt-link>
+    </li>
+    <li>
+      <nuxt-link ref="website" to="/website">
+        <div class="thumb">
+          <font-awesome-icon :icon="['far', 'desktop']" />
+        </div>
+        <span>サイト制作</span>
+      </nuxt-link>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -61,9 +50,9 @@ export default {
   },
   mounted() {
     const elements = {
-      1: this.$refs.contents,
-      2: this.$refs.film,
-      3: this.$refs.website
+      1: this.$refs.contents.$el,
+      2: this.$refs.film.$el,
+      3: this.$refs.website.$el
     }
     if (this.off !== 0) {
       elements[this.off].style.opacity = 0.5
@@ -75,9 +64,10 @@ export default {
     in() {
       requestAnimationFrame(() => {
         TweenMax.staggerTo(
-          '.links a',
+          '.Services li',
           0.8,
           {
+            opacity: 1,
             y: 0,
             ease: Expo.easeOut
           },
@@ -88,9 +78,10 @@ export default {
     out() {
       requestAnimationFrame(() => {
         TweenMax.staggerTo(
-          '.links a',
+          '.Services li',
           0.5,
           {
+            opacity: 0,
             y: '-100%',
             ease: Expo.easeIn
           },
@@ -104,66 +95,48 @@ export default {
 
 <style lang="scss" scoped>
 .Services {
-  ul {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: calc(100% - 40px);
+  @include pc {
+    max-width: 700px;
+  }
+  li {
+    width: calc(100% / 3 - 9px);
+    background: white;
+    border-radius: 15px;
+    @include shadowBlue;
+    opacity: 0;
+    transform: translate(0, 30%);
     @include pc {
-      display: flex;
-      justify-content: space-around;
+      width: calc(100% / 3 - 14px);
     }
-    li:first-child {
-      margin: 0 auto;
+    a {
+      display: block;
+      padding: 25px 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
       @include pc {
-        margin: 0;
+        @include flexCenter;
+        padding: 30px 0;
       }
-    }
-    li {
-      margin: 30px auto 0;
-      width: calc(100% - 60px);
-      height: 100px;
-      border-radius: 20px;
-      overflow: hidden;
-      @include pc {
-        margin: 0;
-        width: 31.5%;
-      }
-      a {
-        display: flex;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background: #171717;
-        border-radius: 20px;
-        transform: translate(0, 100%);
-        .thumb {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 30%;
-          height: 100%;
-          background: #121212;
-          svg {
-            width: 25%;
-            height: auto;
-          }
+      .thumb {
+        font-size: 20px;
+        line-height: 1;
+        @include pc {
+          font-size: 24px;
         }
-        .text {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          padding: 0 12%;
-          width: 70%;
-          height: 100%;
-          line-height: 1;
-          font-size: 12px;
-          @include pc {
-            padding: 0 2.5vw;
-          }
-          .en {
-            font-weight: bold;
-          }
-          .ja {
-            margin-top: 15px;
-            color: #999;
-          }
+      }
+      span {
+        margin-top: 15px;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 1;
+        @include pc {
+          margin: 0 0 0 30px;
+          font-size: 14px;
         }
       }
     }
