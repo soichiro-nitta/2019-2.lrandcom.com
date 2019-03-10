@@ -1,5 +1,5 @@
 <template>
-  <div class="Body" />
+  <div class="_idBody" />
 </template>
 
 <script>
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style lang="scss">
-.Body {
+._idBody {
   padding: 60px 30px;
   width: 100%;
   font-size: 14px;
