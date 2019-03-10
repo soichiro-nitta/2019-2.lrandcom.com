@@ -72,7 +72,7 @@ export default {
     await this.$raf()
     this.videoIn(video)
 
-    await this.$delay(750)
+    await this.$delay(500)
     await this.$raf()
     animTitle.play()
     animIcon.play()
