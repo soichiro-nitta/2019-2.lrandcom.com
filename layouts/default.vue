@@ -2,17 +2,24 @@
   <div>
     <Background />
     <nuxt />
-    <Tabbar v-if="$device.isMobile" />
+    <no-ssr v-if="$device.isMobile">
+      <Tabbar />
+    </no-ssr>
+    <no-ssr v-else>
+      <Dashboard />
+    </no-ssr>
   </div>
 </template>
 
 <script>
 import Tabbar from '~/components/default/Tabbar'
+import Dashboard from '~/components/default/Dashboard'
 import Background from '~/components/default/Background'
 
 export default {
   components: {
     Tabbar,
+    Dashboard,
     Background
   }
 }
