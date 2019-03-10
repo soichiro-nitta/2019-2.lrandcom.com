@@ -53,25 +53,25 @@ export default {
         this.copy = `${document.title} ${currentUrl}`
 
         await this.$raf()
-        TweenMax.to('.fb', 1.45, {
+        TweenMax.to('.TabbarSocial .fb', 1.45, {
           x: '-73px',
           y: '-45px',
           scale: 1,
           ease: Expo.easeOut
         })
-        TweenMax.to('.tw', 1.3, {
+        TweenMax.to('.TabbarSocial .tw', 1.3, {
           x: '-25px',
           y: '-65px',
           scale: 1,
           ease: Expo.easeOut
         })
-        TweenMax.to('.line', 1.15, {
+        TweenMax.to('.TabbarSocial .line', 1.15, {
           x: '25px',
           y: '-65px',
           scale: 1,
           ease: Expo.easeOut
         })
-        TweenMax.to('.copy', 1, {
+        TweenMax.to('.TabbarSocial .copy', 1, {
           x: '73px',
           y: '-45px',
           scale: 1,
@@ -79,25 +79,25 @@ export default {
         })
       } else {
         await this.$raf()
-        TweenMax.to('.fb', 1, {
+        TweenMax.to('.TabbarSocial .fb', 1, {
           x: '0px',
           y: '0px',
           scale: 0,
           ease: Expo.easeOut
         })
-        TweenMax.to('.tw', 1.15, {
+        TweenMax.to('.TabbarSocial .tw', 1.15, {
           x: '0px',
           y: '0px',
           scale: 0,
           ease: Expo.easeOut
         })
-        TweenMax.to('.line', 1.3, {
+        TweenMax.to('.TabbarSocial .line', 1.3, {
           x: '0px',
           y: '0px',
           scale: 0,
           ease: Expo.easeOut
         })
-        TweenMax.to('.copy', 1.45, {
+        TweenMax.to('.TabbarSocial .copy', 1.45, {
           x: '0px',
           y: '0px',
           scale: 0,
@@ -115,15 +115,15 @@ export default {
       if (this.copyProcess) return
       this.copyProcess = true
       await this.$raf()
-      TweenMax.to('.copy .bg', 0.3, {
+      TweenMax.to('.TabbarSocial .copy .bg', 0.3, {
         width: '95px',
         ease: Expo.easeOut
       })
-      TweenMax.to('.copy svg', 0.6, {
+      TweenMax.to('.TabbarSocial .copy svg', 0.6, {
         scale: 0,
         ease: Expo.easeOut
       })
-      TweenMax.to('.copy span', 0.6, {
+      TweenMax.to('.TabbarSocial .copy span', 0.6, {
         x: '0px',
         opacity: 1,
         ease: Expo.easeOut,
@@ -133,16 +133,16 @@ export default {
       })
       await this.$delay(700)
       await this.$raf()
-      TweenMax.to('.copy .bg', 0.3, {
+      TweenMax.to('.TabbarSocial .copy .bg', 0.3, {
         width: '40px',
         ease: Expo.easeOut
       })
-      TweenMax.to('.copy span', 0.6, {
+      TweenMax.to('.TabbarSocial .copy span', 0.6, {
         x: '-10px',
         opacity: 0,
         ease: Expo.easeOut
       })
-      TweenMax.to('.copy svg', 0.6, {
+      TweenMax.to('.TabbarSocial .copy svg', 0.6, {
         scale: 1,
         ease: Expo.easeOut
       })
