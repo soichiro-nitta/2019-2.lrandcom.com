@@ -37,7 +37,7 @@ export default {
       class Particles {
         constructor() {
           // particle colors
-          this.colors = ['100, 100, 100']
+          this.colors = ['159, 191, 255']
           // adds gradient to particles on true
           this.blurry = false
           // adds white border

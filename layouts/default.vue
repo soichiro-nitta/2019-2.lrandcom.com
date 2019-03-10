@@ -1,27 +1,19 @@
 <template>
   <div>
-    <!-- <Background /> -->
+    <Background />
     <nuxt />
     <Tabbar />
-    <!-- <Opening @open="open" /> -->
   </div>
 </template>
 
 <script>
-// import { mapMutations } from 'vuex'
 import Tabbar from '~/components/default/Tabbar'
-// import Opening from '~/components/default/Opening'
+import Background from '~/components/default/Background'
 
 export default {
   components: {
-    Tabbar
-    // Background
-    // Opening
+    Tabbar,
+    Background
   }
-  // methods: {
-  //   ...mapMutations({
-  //     open: 'open'
-  //   })
-  // }
 }
 </script>
