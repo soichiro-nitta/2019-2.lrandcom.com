@@ -170,7 +170,7 @@ export default {
     .title {
       padding: 0 40px;
       @include pc {
-        width: 45vw;
+        width: 42vw;
       }
     }
   }

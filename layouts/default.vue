@@ -28,9 +28,8 @@ export default {
 <style lang="scss" scoped>
 .page {
   @include pc {
-    padding: 10px;
-    margin-left: 310px;
-    width: calc(100% - 310px);
+    margin-left: 300px;
+    width: calc(100% - 300px);
   }
 }
 </style>
