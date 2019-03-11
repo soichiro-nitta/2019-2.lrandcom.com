@@ -8,7 +8,6 @@
         </nuxt-link>のお問い合わせページからお名前、お住い、年齢、連絡先と簡単な自己紹介文を書いてお送り下さい。
       </p>
       <p>勤務地: 東京都渋谷区<br>給料: スキルや経験に要相談<br>雇用形態: 正社員、もしくは業務委託</p>
-      <p>48時間以内に返信がない場合はシステムの不具合の可能性がありますので、お手数ですが再度お送りいただければ幸いです。</p>
     </div>
     <div class="content">
       <div class="subTitle">
@@ -169,11 +168,11 @@ export default {
     }
   }
   .content {
-    padding: 252px 30px 30px;
+    padding: 180px 30px 30px;
     font-size: 14px;
     line-height: 2;
     @include pc {
-      padding-top: 260px;
+      padding-top: 200px;
       font-size: 16px;
     }
     h2 {
