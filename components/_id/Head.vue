@@ -4,7 +4,7 @@
       ref="thumb"
       class="thumb"
     >
-      <img ref="src" :src="src">
+      <img ref="src" :src="source">
       <div class="mask" />
     </div>
     <div class="content">
@@ -41,7 +41,7 @@ export default {
       required: true
     },
     src: {
-      type: String,
+      type: Object,
       required: true
     },
     yy: {
@@ -57,13 +57,22 @@ export default {
       required: true
     }
   },
-  mounted() {
+  data() {
+    return {
+      source: this.$device.isMobile
+        ? this.src.thumbnail.source_url
+        : this.src.full.source_url
+    }
+  },
+  async mounted() {
     this.$el.style.height = `${
       this.$device.isMobile ? this.windowHeight / 1.8 : this.windowHeight / 1.5
     }px`
     this.$refs.src.style.height = `${
       this.$device.isMobile ? this.windowHeight / 1.8 : this.windowHeight / 1.5
     }px`
+    await this.$loadImage(this.source)
+    await this.$raf()
     TweenMax.to(this.$refs.thumb, 1, {
       height: '100%',
       ease: Expo.easeOut

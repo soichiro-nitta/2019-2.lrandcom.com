@@ -5,7 +5,7 @@
       :yy="article.yy"
       :mm="article.mm"
       :dd="article.dd"
-      :src="article.src.thumbnail.source_url"
+      :src="article.src"
     />
     <Author />
     <Body :content="article.content" />
