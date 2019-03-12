@@ -49,7 +49,7 @@ module.exports = {
   modules: [
     'nuxt-device-detect',
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
+    // '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
     '~/modules/generator'
   ],
