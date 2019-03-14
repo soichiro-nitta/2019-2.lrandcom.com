@@ -56,9 +56,28 @@ export default {
     }
   }
   .subTitle {
-    margin: 30px 0 20px;
+    position: relative;
+    margin: 50px 0 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    font-size: 16px;
     font-weight: bold;
     line-height: 1.7;
+    @include pc {
+      font-size: 18px;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 30px;
+      height: 3px;
+      background: $blue2;
+      border-radius: 1.5px;
+    }
   }
   .quote {
     color: #999;
