@@ -57,7 +57,6 @@ export default {
   }
   .subTitle {
     margin: 30px 0 20px;
-    color: white;
     font-weight: bold;
     line-height: 1.7;
   }
