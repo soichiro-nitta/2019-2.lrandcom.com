@@ -147,8 +147,8 @@ export default {
           line-height: 25px;
           color: white;
           font-size: 10px;
-          @include gradientPink;
-          @include shadowPink;
+          @include gradientBlue;
+          @include shadowBlue;
           border-radius: 7.5px;
         }
       }
