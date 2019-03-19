@@ -71,7 +71,7 @@ export default {
       await this.$raf()
       TweenMax.to(this.$el, 0.6, {
         opacity: 0,
-        y: '-30px',
+        y: '30px',
         ease: Expo.easeOut
       })
       this.$emit('increment')
