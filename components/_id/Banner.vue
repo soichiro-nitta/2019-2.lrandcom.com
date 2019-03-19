@@ -48,26 +48,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.Banner {
-  .BannerWriter {
-    position: fixed;
-    bottom: 30px;
-    left: 30px;
-    padding: 30px;
-    width: calc(100% - 60px);
-    background: white;
-    opacity: 0;
-  }
-  .BannerInsta {
-    position: fixed;
-    bottom: 30px;
-    left: 30px;
-    padding: 30px;
-    width: calc(100% - 60px);
-    background: #171717;
-    opacity: 0;
-  }
-}
-</style>

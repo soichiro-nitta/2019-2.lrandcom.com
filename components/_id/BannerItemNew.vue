@@ -51,27 +51,28 @@ export default {
       required: true
     }
   },
-  mounted() {
+  async mounted() {
     if (localStorage['banner-' + this.to]) return
-    requestAnimationFrame(() => {
-      TweenMax.to(this.$el, 0.7, {
-        opacity: 1,
-        y: 0,
-        ease: Expo.easeOut
-      })
+    await this.$raf()
+    TweenMax.to(this.$el, 0.6, {
+      opacity: 1,
+      y: 0,
+      startAt: {
+        y: '30px'
+      },
+      ease: Expo.easeOut
     })
   },
   methods: {
     clickButton() {
       localStorage['banner-' + this.to] = 'true'
     },
-    clickClose() {
-      requestAnimationFrame(() => {
-        TweenMax.to(this.$el, 1, {
-          opacity: 0,
-          y: '-10px',
-          ease: Expo.easeOut
-        })
+    async clickClose() {
+      await this.$raf()
+      TweenMax.to(this.$el, 0.6, {
+        opacity: 0,
+        y: '-30px',
+        ease: Expo.easeOut
       })
       this.$emit('increment')
     }
@@ -83,14 +84,14 @@ export default {
 .BannerItemNew {
   position: fixed;
   left: 20px;
-  bottom: 20px;
+  bottom: 130px;
   padding: 30px;
   width: calc(100% - 40px);
   text-align: center;
-  background: #171717;
+  background: white;
   border-radius: 20px;
+  @include shadowBlue;
   opacity: 0;
-  transform: translateY(10px);
   @include pc {
     width: 400px;
     left: auto;
@@ -103,7 +104,7 @@ export default {
   .text {
     margin: 15px auto 0;
     font-size: 12px;
-    color: #999;
+    color: $blue4;
     line-height: 2;
   }
   .ButtonNew {
@@ -115,8 +116,9 @@ export default {
     right: -6px;
     width: 30px;
     height: 30px;
-    background: #121212;
+    background: white;
     border-radius: 15px;
+    @include shadowBlue;
     .line1 {
       position: absolute;
       top: 0;
@@ -127,7 +129,7 @@ export default {
       width: 10px;
       height: 2px;
       border-radius: 1px;
-      background: white;
+      background: $blue3;
       transform: rotate(-45deg);
     }
     .line2 {
@@ -140,7 +142,8 @@ export default {
       width: 10px;
       height: 2px;
       border-radius: 1px;
-      background: white;
+      background: $blue3;
+      border-radius: 1px;
       transform: rotate(45deg);
     }
   }
