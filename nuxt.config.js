@@ -40,7 +40,6 @@ module.exports = {
     '~/plugins/mixin.client',
     '~/plugins/mixin',
     '~/plugins/fontawesome'
-    // '~/plugins/persistedstate.client'
   ],
 
   /*

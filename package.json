@@ -33,8 +33,7 @@
     "lozad": "^1.9.0",
     "nuxt": "^2.4.2",
     "nuxt-device-detect": "^1.1.1",
-    "vue-window-size": "^0.2.3",
-    "vuex-persistedstate": "^2.5.4"
+    "vue-window-size": "^0.2.3"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",
