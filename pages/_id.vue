@@ -10,7 +10,7 @@
     <Author />
     <Body :content="article.content" />
     <Services />
-    <!-- <Banner /> -->
+    <Banner />
   </div>
 </template>
 
@@ -20,15 +20,15 @@ import Head from '~/components/_id/Head'
 import Author from '~/components/_id/Author'
 import Body from '~/components/_id/Body'
 import Services from '~/components/base/Services'
-// import Banner from '~/components/_id/Banner'
+import Banner from '~/components/_id/Banner'
 
 export default {
   components: {
     Head,
     Author,
     Body,
-    Services
-    // Banner
+    Services,
+    Banner
   },
   async asyncData({ app, params }) {
     const url = process.env.NODE_ENV === 'development' ? '' : URL.SITE
