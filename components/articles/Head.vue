@@ -5,14 +5,14 @@
         <div class="r">
           <div class="activeBar" />
           <ul>
+            <li class="all" @click="clickAll">
+              All
+            </li>
             <li class="sample" @click="clickSample">
               納品サンプル
             </li>
             <li class="blog" @click="clickBlog">
               ブログ
-            </li>
-            <li class="all" @click="clickAll">
-              All
             </li>
           </ul>
         </div>
@@ -43,6 +43,21 @@ export default {
         ease: Expo.easeOut
       })
     },
+    async clickAll() {
+      const articles = this.master
+      this.$emit('setArticles', articles)
+      this.$emit('setCategory', 'all')
+      await this.$raf()
+      this.colorReset()
+      TweenMax.to('.all', 0.6, {
+        color: 'white',
+        ease: Expo.easeOut
+      })
+      TweenMax.to('.activeBar', 0.6, {
+        x: '0%',
+        ease: Expo.easeOut
+      })
+    },
     async clickSample() {
       const articles = this.master.filter(val => {
         return val.cat[0] === 8
@@ -56,7 +71,7 @@ export default {
         ease: Expo.easeOut
       })
       TweenMax.to('.activeBar', 0.6, {
-        x: '0%',
+        x: '100%',
         ease: Expo.easeOut
       })
     },
@@ -69,21 +84,6 @@ export default {
       await this.$raf()
       this.colorReset()
       TweenMax.to('.blog', 0.6, {
-        color: 'white',
-        ease: Expo.easeOut
-      })
-      TweenMax.to('.activeBar', 0.6, {
-        x: '100%',
-        ease: Expo.easeOut
-      })
-    },
-    async clickAll() {
-      const articles = this.master
-      this.$emit('setArticles', articles)
-      this.$emit('setCategory', 'all')
-      await this.$raf()
-      this.colorReset()
-      TweenMax.to('.all', 0.6, {
         color: 'white',
         ease: Expo.easeOut
       })
@@ -141,7 +141,7 @@ $sortHeight: 30px;
         left: 0;
         width: 100%;
         height: 100%;
-        li.sample {
+        li.all {
           color: white;
         }
         li {

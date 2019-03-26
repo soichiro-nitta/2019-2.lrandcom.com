@@ -36,9 +36,7 @@ export default {
     const url = process.env.NODE_ENV === 'development' ? '' : URL.SITE
     const { data } = await this.$axios.get(`${url}/_nuxt/articles/master.json`)
     this.master = data
-    this.articles = data.filter(val => {
-      return val.cat[0] === 8
-    })
+    this.articles = data
   },
   methods: {
     setArticles(articles) {
