@@ -50,8 +50,13 @@ module.exports = {
     '@nuxtjs/axios',
     // '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
-    '~/modules/generator'
+    '~/modules/generator',
+    '@nuxtjs/google-analytics'
   ],
+
+  'google-analytics': {
+    id: 'UA-47027645-1'
+  },
 
   /*
   ** style-resources
