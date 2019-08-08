@@ -1,11 +1,18 @@
 <template>
-  <div class="_idBody" />
+  <div class="_idBody">
+    <div ref="body" />
+    <BodyFB />
+  </div>
 </template>
 
 <script>
 import { TweenMax, Expo } from 'gsap'
+import BodyFB from '~/components/_id/BodyFB'
 
 export default {
+  components: {
+    BodyFB
+  },
   props: {
     content: {
       type: String,
@@ -13,9 +20,9 @@ export default {
     }
   },
   mounted() {
-    this.$el.innerHTML = this.content
+    this.$refs.body.innerHTML = this.content
     const that = this
-    const imgAll = this.$el.querySelectorAll('img')
+    const imgAll = this.$refs.body.querySelectorAll('img')
     for (let i = 0; i < imgAll.length; i++) {
       ;(async function(i) {
         await that.$loadImage(imgAll[i].src)
