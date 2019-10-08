@@ -14,7 +14,7 @@
     </NLink>
     <NLink to="/contact">
       <font-awesome-icon :icon="['far', 'smile-wink']" />
-      <span>お問い合わせ</span>
+      <span>会社概要<br><br>お問い合わせ</span>
     </NLink>
   </div>
 </template>
