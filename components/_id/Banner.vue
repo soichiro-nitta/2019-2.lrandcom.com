@@ -3,10 +3,10 @@
     <BannerItemNew
       v-if="num === 1"
       :num="num"
-      :to="insta"
-      head="インスタ毎日更新中！!"
-      body="iPhone時代だからこそ、何を撮るかが問われる。その人にしか美しく見えないもの。"
-      button="Instagramをみる"
+      :to="youtube"
+      head="毎日が実験！!"
+      body="最初は下手でも、徐々に個性のある動画が撮れるようになってくる。"
+      button="Youtubeをみる"
       @increment="increment"
     />
     <!-- <BannerItemNuxt
@@ -33,7 +33,7 @@ export default {
   },
   data() {
     return {
-      insta: URL.INSTA,
+      youtube: URL.YOUTUBE,
       num: 1
     }
   },
