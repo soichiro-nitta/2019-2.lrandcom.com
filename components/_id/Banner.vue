@@ -5,8 +5,8 @@
       :num="num"
       :to="youtube"
       head="毎日が実験！!"
-      body="最初は下手でも、徐々に個性のある動画が撮れるようになってくる。"
-      button="Youtubeをみる"
+      body="最初は下手でも、徐々に個性のある動画が撮れるようになってくるはず。"
+      button="YouTubeをみる"
       @increment="increment"
     />
     <!-- <BannerItemNuxt
