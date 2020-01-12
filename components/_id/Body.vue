@@ -59,7 +59,7 @@ export default {
 
 <style lang="scss">
 ._idBody {
-  padding: 70px 30px;
+  padding: 100px 30px 70px;
   width: 100%;
   font-size: 14px;
   line-height: 2;
