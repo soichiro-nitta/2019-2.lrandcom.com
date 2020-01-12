@@ -70,6 +70,12 @@ export default {
         })
       })(i)
     }
+    window.FB.init({
+      appId: 'your-app-id',
+      autoLogAppEvents: true,
+      xfbml: true,
+      version: 'v5.0'
+    })
   }
 }
 </script>
