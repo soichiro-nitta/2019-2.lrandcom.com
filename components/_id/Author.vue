@@ -14,12 +14,14 @@
           <font-awesome-icon :icon="['fab', 'instagram']" class="insta" />
         </a>
       </div>
-      <div
-        class="g-ytsubscribe"
-        data-channel="chikaranatsume1985"
-        data-layout="default"
-        data-count="default"
-      />
+      <div class="subscribe">
+        <div
+          class="g-ytsubscribe"
+          data-channel="chikaranatsume1985"
+          data-layout="default"
+          data-count="default"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -57,7 +59,7 @@ export default {
     width: 400px;
   }
   .thumb {
-    margin: -10px 0 0 15px;
+    margin: -25px 0 0 15px;
     position: absolute;
     width: auto;
     height: 65px;
@@ -75,7 +77,6 @@ export default {
     .icons {
       display: flex;
       margin-top: 6px;
-      margin-bottom: 6px;
       a {
         display: flex;
         justify-content: center;
@@ -101,6 +102,11 @@ export default {
         width: auto;
         height: 13px;
       }
+    }
+    .subscribe {
+      margin-top: 6px;
+      width: 100%;
+      height: 24px;
     }
   }
 }
