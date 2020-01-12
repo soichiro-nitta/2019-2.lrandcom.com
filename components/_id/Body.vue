@@ -2,16 +2,21 @@
   <div class="_idBody">
     <div ref="body" />
     <no-ssr>
-      <div
-        class="fb-like"
-        data-href="https://www.facebook.com/15ahead/"
-        data-width
-        data-layout="button_count"
-        data-action="like"
-        data-size="large"
-        data-share="false"
-      />
-      <div id="fb-root" />
+      <div class="fbpage">
+        <div class="head">フォローをして、リーディング＆カンパニーの最新記事を受け取ろう!!</div>
+        <div class="button">
+          <div
+            class="fb-like"
+            data-href="https://www.facebook.com/15ahead/"
+            data-width
+            data-layout="button_count"
+            data-action="like"
+            data-size="large"
+            data-share="false"
+          />
+          <div id="fb-root" />
+        </div>
+      </div>
     </no-ssr>
     <BodyFooter
       head="毎日が実験！!"
@@ -144,6 +149,22 @@ export default {
     a {
       color: white;
       text-decoration: underline;
+    }
+  }
+  .fbpage {
+    margin-top: 30px;
+    padding: 30px;
+    width: 100%;
+    text-align: center;
+    background: white;
+    border-radius: 20px;
+    @include shadowBlue;
+    .head {
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .button {
+      margin: 15px auto 0;
     }
   }
 }
