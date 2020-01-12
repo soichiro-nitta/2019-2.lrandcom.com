@@ -1,14 +1,9 @@
 <template>
-  <div class="BodyFB">
+  <div class="root">
     <div class="head">
-      Facebookページにいいね！しよう
-      <div class="text">
-        この記事が気に入ったらFacebookページにいいね！しましょう。リーディング＆カンパニーの最新記事をお届けします。
-      </div>
-      <ButtonNew
-        :to="to"
-        text="Facebookページにいく"
-      />
+      {{ head }}
+      <div class="text">{{ body }}</div>
+      <ButtonNew :to="to" :text="button" />
     </div>
   </div>
 </template>
@@ -16,15 +11,27 @@
 <script>
 import { TweenMax, Expo } from 'gsap'
 import ButtonNew from '~/components/base/ButtonNew'
-import URL from '~/assets/data/url.json'
 
 export default {
   components: {
     ButtonNew
   },
-  data() {
-    return {
-      to: URL.FB_PAGE
+  props: {
+    to: {
+      type: String,
+      required: true
+    },
+    head: {
+      type: String,
+      required: true
+    },
+    body: {
+      type: String,
+      required: true
+    },
+    button: {
+      type: String,
+      required: true
     }
   },
   async mounted() {
@@ -42,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss">
-.BodyFB {
+.root {
   margin: 30px 0 10px;
   padding: 30px;
   width: 100%;

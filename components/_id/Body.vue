@@ -1,22 +1,42 @@
 <template>
   <div class="_idBody">
     <div ref="body" />
-    <BodyFB />
+    <BodyFooter
+      head="毎日が実験！!"
+      body="最初は下手でも、徐々に個性のある動画が撮れるようになってくるはず。"
+      :to="yt"
+      button="YouTubeをみる"
+    />
+    <BodyFooter head="インスタ毎日更新中" body="写真だんだん上手くなってきた" :to="insta" button="Instagramをみる" />
+    <BodyFooter
+      head="Facebookページにいいね！しよう"
+      body="この記事が気に入ったらFacebookページにいいね！しましょう。リーディング＆カンパニーの最新記事をお届けします。"
+      :to="fb"
+      button="Facebookページにいく"
+    />
   </div>
 </template>
 
 <script>
 import { TweenMax, Expo } from 'gsap'
-import BodyFB from '~/components/_id/BodyFB'
+import BodyFooter from '~/components/_id/BodyFooter'
+import URL from '~/assets/data/url.json'
 
 export default {
   components: {
-    BodyFB
+    BodyFooter
   },
   props: {
     content: {
       type: String,
       required: true
+    }
+  },
+  data() {
+    return {
+      fb: URL.FB_PAGE,
+      yt: URL.YOUTUBE,
+      insta: URL.INSTA
     }
   },
   mounted() {
