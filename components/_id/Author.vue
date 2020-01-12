@@ -1,40 +1,25 @@
 <template>
   <div class="Author">
-    <img
-      :src="src"
-      class="thumb"
-    >
+    <img :src="src" class="thumb" />
     <div class="text">
       <span>著者：夏目 力（なつめ ちから）</span>
       <div class="icons">
-        <a
-          :href="fb"
-          target="_blank"
-        >
-          <font-awesome-icon
-            :icon="['fab', 'facebook']"
-            class="fb"
-          />
+        <a :href="fb" target="_blank">
+          <font-awesome-icon :icon="['fab', 'facebook']" class="fb" />
         </a>
-        <a
-          :href="tw"
-          target="_blank"
-        >
-          <font-awesome-icon
-            :icon="['fab', 'twitter']"
-            class="tw"
-          />
+        <a :href="tw" target="_blank">
+          <font-awesome-icon :icon="['fab', 'twitter']" class="tw" />
         </a>
-        <a
-          :href="insta"
-          target="_blank"
-        >
-          <font-awesome-icon
-            :icon="['fab', 'instagram']"
-            class="insta"
-          />
+        <a :href="insta" target="_blank">
+          <font-awesome-icon :icon="['fab', 'instagram']" class="insta" />
         </a>
       </div>
+      <div
+        class="g-ytsubscribe"
+        data-channel="chikaranatsume1985"
+        data-layout="default"
+        data-count="default"
+      />
     </div>
   </div>
 </template>

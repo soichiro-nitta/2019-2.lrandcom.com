@@ -19,7 +19,8 @@ module.exports = {
       {
         src:
           'https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver'
-      }
+      },
+      { src: 'https://apis.google.com/js/platform.js' }
     ]
   },
 
