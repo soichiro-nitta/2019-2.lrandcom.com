@@ -14,14 +14,16 @@
           <font-awesome-icon :icon="['fab', 'instagram']" class="insta" />
         </a>
       </div>
-      <div class="subscribe">
-        <div
-          class="g-ytsubscribe"
-          data-channel="chikaranatsume1985"
-          data-layout="default"
-          data-count="default"
-        />
-      </div>
+      <no-ssr>
+        <div class="subscribe">
+          <div
+            class="g-ytsubscribe"
+            data-channel="chikaranatsume1985"
+            data-layout="default"
+            data-count="default"
+          />
+        </div>
+      </no-ssr>
     </div>
   </div>
 </template>
