@@ -7,7 +7,12 @@
       :to="yt"
       button="YouTubeをみる"
     />
-    <BodyFooter head="インスタ毎日更新中" body="写真だんだん上手くなってきた" :to="insta" button="Instagramをみる" />
+    <BodyFooter
+      head="写真だんだん上手くなってきた"
+      body="iPhoneの時代だからこそ、何を撮るかが問われる。その人にしか美しく見えないものを撮ろう。"
+      :to="insta"
+      button="Instagramをみる"
+    />
     <BodyFooter
       head="Facebookページにいいね！しよう"
       body="この記事が気に入ったらFacebookページにいいね！しましょう。リーディング＆カンパニーの最新記事をお届けします。"
