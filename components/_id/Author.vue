@@ -49,7 +49,7 @@ export default {
   left: 0;
   margin: -25px auto 0;
   width: calc(100% - 40px);
-  height: 75px;
+  height: 105px;
   background: white;
   @include shadowBlue;
   border-radius: 15px;
@@ -75,6 +75,7 @@ export default {
     .icons {
       display: flex;
       margin-top: 6px;
+      margin-bottom: 6px;
       a {
         display: flex;
         justify-content: center;
