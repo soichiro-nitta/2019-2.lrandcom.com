@@ -1,6 +1,18 @@
 <template>
   <div class="_idBody">
     <div ref="body" />
+    <no-ssr>
+      <div
+        class="fb-like"
+        data-href="https://www.facebook.com/15ahead/"
+        data-width
+        data-layout="button_count"
+        data-action="like"
+        data-size="large"
+        data-share="false"
+      />
+      <div id="fb-root" />
+    </no-ssr>
     <BodyFooter
       head="毎日が実験！!"
       body="最初は下手でも、徐々に個性のある動画が撮れるようになってくるはず。"

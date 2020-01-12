@@ -20,7 +20,11 @@ module.exports = {
         src:
           'https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver'
       },
-      { src: 'https://apis.google.com/js/platform.js' }
+      { src: 'https://apis.google.com/js/platform.js' },
+      {
+        src:
+          'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v5.0&appId=358720951531764&autoLogAppEvents=1'
+      }
     ]
   },
 
