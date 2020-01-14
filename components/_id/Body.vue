@@ -25,7 +25,7 @@
       button="YouTubeをみる"
     />
     <BodyFooter
-      head="写真だんだん上手くなってきた"
+      head="写真だんだん上手くなってきた!!"
       body="iPhoneの時代だからこそ、何を撮るかが問われる。その人にしか美しく見えないものを撮ろう。"
       :to="insta"
       button="Instagramをみる"
