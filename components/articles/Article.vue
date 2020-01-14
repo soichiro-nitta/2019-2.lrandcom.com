@@ -1,26 +1,14 @@
 <template>
   <div class="Article">
-    <nuxt-link
-      v-if="loaded"
-      :to="`/${article.slug}`"
-    >
+    <nuxt-link v-if="loaded" :to="`/${article.slug}`">
       <div class="thumb">
-        <img
-          ref="src"
-          :src="article.src.thumbnail.source_url"
-        >
+        <img ref="src" :src="article.src.thumbnail.source_url" />
       </div>
       <div class="text">
-        <div class="title">
-          {{ article.title }}
-        </div>
+        <div class="title">{{ article.title }}</div>
         <div class="meta">
-          <div class="date">
-            {{ `${article.yy}.${article.mm}.${article.dd}` }}
-          </div>
-          <div class="category">
-            {{ category }}
-          </div>
+          <div class="date">{{ `${article.yy}.${article.mm}.${article.dd}` }}</div>
+          <div class="category">{{ category }}</div>
         </div>
       </div>
     </nuxt-link>
@@ -45,7 +33,7 @@ export default {
   },
   computed: {
     category() {
-      return this.article.cat.indexOf(11) !== -1 ? 'ブログ' : '納品サンプル'
+      return this.article.cat.indexOf(11) !== -1 ? 'コンテンツ' : '納品サンプル'
     }
   },
   mounted() {

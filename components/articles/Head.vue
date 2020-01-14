@@ -5,15 +5,9 @@
         <div class="r">
           <div class="activeBar" />
           <ul>
-            <li class="all" @click="clickAll">
-              All
-            </li>
-            <li class="sample" @click="clickSample">
-              納品サンプル
-            </li>
-            <li class="blog" @click="clickBlog">
-              ブログ
-            </li>
+            <li class="all" @click="clickAll">All</li>
+            <li class="sample" @click="clickSample">納品サンプル</li>
+            <li class="blog" @click="clickBlog">コンテンツ</li>
           </ul>
         </div>
       </div>
