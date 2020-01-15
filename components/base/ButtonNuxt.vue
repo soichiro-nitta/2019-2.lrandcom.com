@@ -1,10 +1,5 @@
 <template>
-  <nuxt-link
-    :to="to"
-    class="ButtonNuxt"
-  >
-    {{ text }}
-  </nuxt-link>
+  <nuxt-link :to="to" class="ButtonNuxt">{{ text }}</nuxt-link>
 </template>
 
 <script>
@@ -25,7 +20,7 @@ export default {
 <style lang="scss">
 .ButtonNuxt {
   display: block;
-  width: 250px;
+  width: 100%;
   text-align: center;
   line-height: 50px;
   border-radius: 25px;

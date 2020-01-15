@@ -1,12 +1,5 @@
 <template>
-  <a
-    :href="to"
-    class="ButtonNew"
-    target="_blank"
-    @click="click"
-  >
-    {{ text }}
-  </a>
+  <a :href="to" class="ButtonNew" target="_blank" @click="click">{{ text }}</a>
 </template>
 
 <script>
@@ -32,7 +25,7 @@ export default {
 <style lang="scss">
 .ButtonNew {
   display: block;
-  width: 250px;
+  width: 100%;
   text-align: center;
   line-height: 50px;
   background: black;
