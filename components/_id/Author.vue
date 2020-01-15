@@ -25,7 +25,7 @@
             />
           </div>
         </no-ssr>
-        <div class="up">今日も元気に更新中</div>
+        <div class="up">今日も動画UP中!</div>
       </div>
     </div>
   </div>
@@ -117,7 +117,7 @@ export default {
         height: 100%;
       }
       .up {
-        margin-right: 10px;
+        margin-left: 10px;
         font-size: 10px;
         font-weight: bold;
         line-height: 1;
