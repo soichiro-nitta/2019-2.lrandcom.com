@@ -14,16 +14,19 @@
           <font-awesome-icon :icon="['fab', 'instagram']" class="insta" />
         </a>
       </div>
-      <no-ssr>
-        <div class="subscribe">
-          <div
-            class="g-ytsubscribe"
-            data-channel="chikaranatsume1985"
-            data-layout="default"
-            data-count="default"
-          />
-        </div>
-      </no-ssr>
+      <div class="yt">
+        <div class="up">動画UP中!</div>
+        <no-ssr>
+          <div class="subscribe">
+            <div
+              class="g-ytsubscribe"
+              data-channel="chikaranatsume1985"
+              data-layout="default"
+              data-count="hidden"
+            />
+          </div>
+        </no-ssr>
+      </div>
     </div>
   </div>
 </template>
@@ -105,10 +108,19 @@ export default {
         height: 13px;
       }
     }
-    .subscribe {
+    .yt {
+      display: flex;
+      align-items: center;
       margin-top: 6px;
-      width: 100%;
       height: 24px;
+      .subscribe {
+        height: 100%;
+      }
+      .up {
+        font-size: 10px;
+        font-weight: bold;
+        line-height: 1;
+      }
     }
   }
 }
