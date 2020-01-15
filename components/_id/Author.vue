@@ -15,7 +15,6 @@
         </a>
       </div>
       <div class="yt">
-        <div class="up">動画UP中!</div>
         <no-ssr>
           <div class="subscribe">
             <div
@@ -26,6 +25,7 @@
             />
           </div>
         </no-ssr>
+        <div class="up">今日も元気に更新中</div>
       </div>
     </div>
   </div>
@@ -117,6 +117,7 @@ export default {
         height: 100%;
       }
       .up {
+        margin-right: 10px;
         font-size: 10px;
         font-weight: bold;
         line-height: 1;
