@@ -23,11 +23,13 @@ module.exports = function apiModule(moduleOptions) {
         )
         raw = raw.concat(data)
       }
-      const { data } = await ax.get(
-        `/?_embed&per_page=${remainder}&offset=${total -
-          remainder}&categories=8,11`
-      )
-      raw = raw.concat(data)
+      if (remainder !== 0) {
+        const { data } = await ax.get(
+          `/?_embed&per_page=${remainder}&offset=${total -
+            remainder}&categories=8,11`
+        )
+        raw = raw.concat(data)
+      }
     }
     const records = []
     const master = []
