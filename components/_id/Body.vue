@@ -1,6 +1,6 @@
 <template>
   <div class="_idBody">
-    <div ref="body" />
+    <div ref="body" class="body" />
     <no-ssr>
       <div class="fbpage">
         <div class="head">
@@ -99,62 +99,64 @@ export default {
     width: 560px;
     font-size: 16px;
   }
-  h2 {
-    margin-top: 30px;
-  }
-  img {
-    margin-left: -30px;
-    width: calc(100% + 60px);
-    height: auto;
-    opacity: 0;
-    @include pc {
-      margin: 10px 0 10px -30px;
+  .body {
+    h2 {
+      margin-top: 30px;
+    }
+    img {
+      margin-left: -30px;
       width: calc(100% + 60px);
+      height: auto;
+      opacity: 0;
+      @include pc {
+        margin: 10px 0 10px -30px;
+        width: calc(100% + 60px);
+      }
     }
-  }
-  a {
-    color: #6da7ed;
-    text-decoration: underline;
-  }
-  .subTitle {
-    position: relative;
-    margin: 50px 0 30px;
-    padding-bottom: 30px;
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 1.7;
-    @include pc {
-      font-size: 18px;
-    }
-    &:before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-      width: 30px;
-      height: 3px;
-      background: $blue2;
-      border-radius: 1.5px;
-    }
-  }
-  .quote {
-    color: #999;
-    font-size: 10px;
-  }
-  .info {
-    padding: 10px 20px;
-    font-size: 12px;
-    line-height: 1.7;
-    word-break: break-all;
-    background: #171717;
-    color: #999;
-    border-radius: 20px;
     a {
-      color: white;
+      color: #6da7ed;
       text-decoration: underline;
+    }
+    .subTitle {
+      position: relative;
+      margin: 50px 0 30px;
+      padding-bottom: 30px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 1.7;
+      @include pc {
+        font-size: 18px;
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 30px;
+        height: 3px;
+        background: $blue2;
+        border-radius: 1.5px;
+      }
+    }
+    .quote {
+      color: #999;
+      font-size: 10px;
+    }
+    .info {
+      padding: 10px 20px;
+      font-size: 12px;
+      line-height: 1.7;
+      word-break: break-all;
+      background: #171717;
+      color: #999;
+      border-radius: 20px;
+      a {
+        color: white;
+        text-decoration: underline;
+      }
     }
   }
   .fbpage {
