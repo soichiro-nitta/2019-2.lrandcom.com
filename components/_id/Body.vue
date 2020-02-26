@@ -3,7 +3,9 @@
     <div ref="body" />
     <no-ssr>
       <div class="fbpage">
-        <div class="head">フォローをして、リーディング＆カンパニーの最新記事を受け取ろう!!</div>
+        <div class="head">
+          フォローをして、リーディング＆カンパニーの最新記事を受け取ろう!!
+        </div>
         <div class="button">
           <div
             class="fb-like"
@@ -109,6 +111,10 @@ export default {
       margin: 10px 0 10px -30px;
       width: calc(100% + 60px);
     }
+  }
+  a {
+    color: #6da7ed;
+    text-decoration: underline;
   }
   .subTitle {
     position: relative;
