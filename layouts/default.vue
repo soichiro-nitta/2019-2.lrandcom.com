@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Background />
+    <!-- <Background /> -->
     <nuxt />
     <no-ssr v-if="$device.isMobile">
       <Tabbar />
@@ -14,13 +14,13 @@
 <script>
 import Tabbar from '~/components/default/Tabbar'
 import Dashboard from '~/components/default/Dashboard'
-import Background from '~/components/default/Background'
+// import Background from '~/components/default/Background'
 
 export default {
   components: {
     Tabbar,
-    Dashboard,
-    Background
+    Dashboard
+    // Background
   }
 }
 </script>
