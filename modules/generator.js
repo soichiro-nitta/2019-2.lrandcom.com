@@ -55,6 +55,11 @@ module.exports = function apiModule(moduleOptions) {
         yy: date.getFullYear(date),
         mm: date.getMonth(date) + 1,
         dd: date.getDate()
+        // date: date,
+        // contentText: raw[i].content.rendered
+        //   .replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '')
+        //   .replace(/\n/g, '')
+        //   .replace(/&amp; /g, '')
       }
     }
 
@@ -76,6 +81,44 @@ module.exports = function apiModule(moduleOptions) {
         })
       }
     })
+
+    // const fs = require('fs')
+    // let formatCSV = ''
+    // const articles = [
+    //   ['contentId', 'title', 'thumbnail', 'publishedAt', 'slug', 'body']
+    // ]
+    // for (const article of master) {
+    //   articles.push([
+    //     '',
+    //     article.title,
+    //     '',
+    //     article.date,
+    //     article.slug,
+    //     article.contentText
+    //   ])
+    // }
+    // const exportCSV = content => {
+    //   for (let i = 0; i < content.length; i++) {
+    //     const value = content[i]
+
+    //     for (let j = 0; j < value.length; j++) {
+    //       const innerValue = value[j] === null ? '' : value[j].toString()
+    //       let result = innerValue.replace(/"/g, '""')
+    //       if (result.search(/("|,|\n)/g) >= 0) result = '"' + result + '"'
+    //       if (j > 0) formatCSV += ','
+    //       formatCSV += result
+    //     }
+    //     formatCSV += '\n'
+    //   }
+    //   fs.writeFile('articles.csv', formatCSV, 'utf8', function(err) {
+    //     if (err) {
+    //       console.log('保存できませんでした')
+    //     } else {
+    //       console.log('保存できました')
+    //     }
+    //   })
+    // }
+    // exportCSV(articles)
 
     // prefetch
     const url = this.options.dev ? '' : URL.SITE
